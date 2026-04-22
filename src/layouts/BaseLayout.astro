@@ -1,0 +1,80 @@
+---
+import { site } from "../data/site";
+import "../styles/tokens.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = site.seo.title, description = site.seo.description } = Astro.props;
+const canonical = new URL(Astro.url.pathname, site.url).toString();
+---
+
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={site.seo.keywords} />
+    <meta name="author" content={site.founder} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={site.seo.locale} />
+    <meta property="og:image" content={new URL(site.seo.ogImage, site.url).toString()} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- JSON-LD: Person + ProfessionalService -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            name: site.founder,
+            url: site.url,
+            sameAs: [site.linkedin],
+            jobTitle: "Accountable Product Owner · CEO TreximAI",
+            address: { "@type": "PostalAddress", addressLocality: "Lviv", addressCountry: "UA" },
+          },
+          {
+            "@type": "ProfessionalService",
+            name: site.name,
+            url: site.url,
+            founder: { "@type": "Person", name: site.founder },
+            areaServed: ["Ukraine", "Poland", "Germany", "United Kingdom"],
+            priceRange: "$$-$$$",
+          },
+        ],
+      })}
+    />
+  </head>
+  <body>
+    <slot />
+    <!-- Cloudflare Web Analytics (stub — replace token pre-launch) -->
+    <!-- <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "REPLACE_ME"}'></script> -->
+  </body>
+</html>

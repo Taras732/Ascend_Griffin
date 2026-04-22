@@ -1,0 +1,105 @@
+---
+import { problems } from "../data/problems";
+---
+
+<section class="section problem-section" id="problem">
+  <div class="site-container">
+    <div class="section-head">
+      <div class="section-num">03 · Проблема</div>
+      <div class="section-head-body">
+        <h2>П'ять підрядників — <em>нуль accountability</em>.</h2>
+        <p class="lede">
+          Більшість IT-проектів провалюється не через погану технологію. Через те, що відповідальність
+          розмазана: vendor відповідає за код, PM за сроки, BA за вимоги, а результат — ні за ким.
+        </p>
+      </div>
+    </div>
+
+    <div class="problem-grid">
+      {problems.map((p) => (
+        <article class="problem-card">
+          <div class="problem-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              {p.icon === "users-x" && (
+                <>
+                  <path d="M14.5 4a4 4 0 0 1 0 7.8" />
+                  <path d="M16 22a7 7 0 0 0-7-7H7a7 7 0 0 0-7 7" />
+                  <circle cx="9" cy="8" r="4" />
+                  <line x1="17" y1="2" x2="22" y2="7" />
+                  <line x1="22" y1="2" x2="17" y2="7" />
+                </>
+              )}
+              {p.icon === "arrow-right-left" && (
+                <>
+                  <path d="m16 3 4 4-4 4" />
+                  <path d="M20 7H4" />
+                  <path d="m8 21-4-4 4-4" />
+                  <path d="M4 17h16" />
+                </>
+              )}
+              {p.icon === "wallet" && (
+                <>
+                  <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4" />
+                  <path d="M4 6v12c0 1.1.9 2 2 2h14v-4" />
+                  <path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z" />
+                </>
+              )}
+            </svg>
+          </div>
+          <h3>{p.title}</h3>
+          <p>{p.body}</p>
+          <div class="problem-stat">{p.stat}</div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 2px solid var(--accent);
+    border-left: 1px solid var(--border-1);
+  }
+  .problem-card {
+    padding: 36px 28px;
+    border-right: 1px solid var(--border-1);
+    border-bottom: 1px solid var(--border-1);
+    background: var(--bg-0);
+    display: flex;
+    flex-direction: column;
+  }
+  .problem-icon {
+    color: var(--editorial);
+    margin-bottom: 22px;
+  }
+  .problem-card h3 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    color: var(--text-1);
+    margin: 0 0 14px;
+  }
+  .problem-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-2);
+    margin: 0 0 24px;
+    flex-grow: 1;
+  }
+  .problem-stat {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-3);
+    border-top: 1px solid var(--border-1);
+    padding-top: 14px;
+    line-height: 1.55;
+  }
+  @media (max-width: 860px) {
+    .problem-grid { grid-template-columns: 1fr; }
+  }
+</style>

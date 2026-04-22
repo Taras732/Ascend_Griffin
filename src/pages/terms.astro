@@ -1,0 +1,64 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout title="Terms of Service — Ascend Griffin" description="Terms of service for ascendgriffin.org">
+  <Nav />
+  <main class="legal">
+    <div class="site-container">
+      <h1>Terms of Service</h1>
+      <p class="muted">Остання редакція: 2026-04-22 · <strong>Draft — потребує правової перевірки.</strong></p>
+
+      <h2>1. Про сайт</h2>
+      <p>ascendgriffin.org — інформаційний сайт практики Ascend Griffin (Тарас Смалюх). Не є публічною офертою. Усі engagement-и оформляються індивідуальним SOW.</p>
+
+      <h2>2. Discovery Call</h2>
+      <p>30-хвилинний безкоштовний дзвінок — без обов'язків обох сторін. 50% дзвінків можуть закінчитися висновком «не fit» — і це нормальна практика.</p>
+
+      <h2>3. Платні послуги</h2>
+      <p>Pricing, scope, terms і guarantees описані у кожному окремому SOW перед підписанням. Стандартні умови: 50% prepay, 50% після delivery review.</p>
+
+      <h2>4. Гарантії</h2>
+      <p>Deliverable, що матчить SOW, — гарантований. Business outcome — не гарантується. Деталі у section FAQ #8 на головній сторінці.</p>
+
+      <h2>5. Відповідальність</h2>
+      <p>Практика не несе відповідальність за business decisions, прийняті клієнтом. Практика несе accountability за якість deliverable в межах підписаного SOW.</p>
+
+      <h2>6. Інтелектуальна власність</h2>
+      <p>Deliverables, створені у межах engagement, належать клієнту після повної оплати. Methodology, playbooks, internal tools — залишаються IP Ascend Griffin.</p>
+
+      <h2>7. Вирішення суперечок</h2>
+      <p>Застосовується законодавство України. Місце розгляду — Львів. Спочатку — обов'язкова спроба mediation.</p>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .legal { padding: 80px 0 96px; min-height: 60vh; }
+  .legal h1 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: var(--text-1);
+    margin: 0 0 16px;
+  }
+  .legal h2 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-1);
+    margin: 36px 0 12px;
+  }
+  .legal p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--text-2);
+    max-width: 68ch;
+    margin: 0 0 12px;
+  }
+  .muted { font-family: var(--font-mono); font-size: 12px; color: var(--text-3); }
+</style>

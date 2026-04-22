@@ -1,0 +1,203 @@
+---
+import { services, capacityNote } from "../data/services";
+
+const row1 = services.filter((s) => s.row === 1);
+const row2 = services.filter((s) => s.row === 2);
+---
+
+<section class="section services-section" id="services">
+  <div class="site-container">
+    <div class="section-head">
+      <div class="section-num">04 · Послуги</div>
+      <div class="section-head-body">
+        <h2>П'ять tier-ів. <em>Одна accountability</em>.</h2>
+        <p class="lede">
+          Ladder від $3K аудиту до $150K full-cycle engagement. Tier 1-3 — advisor mode.
+          Tier 4 — full-cycle delivery з battle-tested командою.
+        </p>
+      </div>
+    </div>
+
+    <div class="services-row services-row-1">
+      {row1.map((s) => (
+        <article class={`service ${s.featured === "primary" ? "featured-primary" : ""}`}>
+          {s.featured === "primary" && <div class="service-badge">Flagship</div>}
+          <div class="service-tier">{s.tier}</div>
+          <h3 class="service-name">{s.name}</h3>
+          <p class="service-hook">{s.hook}</p>
+          <div class="service-price">{s.price}</div>
+          <div class="service-price-note">{s.priceNote}</div>
+          <ul class="service-features">
+            {s.features.map((f) => <li>{f}</li>)}
+          </ul>
+          <a href={s.ctaHref} class={`${s.featured ? "btn-primary" : "btn-secondary"} btn-full`}>
+            {s.cta} <span aria-hidden="true">→</span>
+          </a>
+        </article>
+      ))}
+    </div>
+
+    <div class="services-row services-row-2">
+      {row2.map((s) => (
+        <article class={`service ${s.featured === "secondary" ? "featured-secondary" : ""}`}>
+          {s.featured === "secondary" && <div class="service-badge">Full-Cycle</div>}
+          <div class="service-tier">{s.tier}</div>
+          <h3 class="service-name">{s.name}</h3>
+          <p class="service-hook">{s.hook}</p>
+          <div class="service-price">{s.price}</div>
+          <div class="service-price-note">{s.priceNote}</div>
+          <ul class="service-features">
+            {s.features.map((f) => <li>{f}</li>)}
+          </ul>
+          <a href={s.ctaHref} class={`${s.featured ? "btn-primary" : "btn-secondary"} btn-full`}>
+            {s.cta} <span aria-hidden="true">→</span>
+          </a>
+        </article>
+      ))}
+    </div>
+
+    <p class="services-note">{capacityNote}</p>
+  </div>
+</section>
+
+<style>
+  .services-row {
+    display: grid;
+    gap: 0;
+    border-left: 1px solid var(--border-1);
+    border-top: 1px solid var(--border-1);
+  }
+  .services-row-1 { grid-template-columns: repeat(3, 1fr); }
+  .services-row-2 { grid-template-columns: repeat(2, 1fr); }
+  .service {
+    padding: 36px 28px 32px;
+    background: var(--bg-0);
+    border-right: 1px solid var(--border-1);
+    border-bottom: 1px solid var(--border-1);
+    display: flex;
+    flex-direction: column;
+    min-height: 460px;
+    position: relative;
+  }
+  .service.featured-primary {
+    background: var(--bg-ink);
+    color: var(--text-on-ink);
+  }
+  .service.featured-secondary {
+    background: var(--bg-2);
+    border-right-color: var(--border-2);
+  }
+  .service.featured-primary .service-name,
+  .service.featured-primary .service-price {
+    color: var(--text-on-ink);
+  }
+  .service.featured-primary .service-hook,
+  .service.featured-primary .service-features li {
+    color: rgba(250,250,250,.72);
+  }
+  .service.featured-primary .service-tier {
+    color: var(--accent);
+  }
+  .service.featured-primary .service-price-note {
+    color: rgba(250,250,250,.52);
+  }
+  .service.featured-primary .service-features li::before { color: var(--accent); }
+  .service-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--accent);
+    color: var(--accent-ink);
+    padding: 4px 8px;
+    border-radius: 2px;
+    font-weight: 700;
+  }
+  .service-tier {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin-bottom: 12px;
+  }
+  .service-name {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: var(--text-1);
+    margin: 0 0 10px;
+    line-height: 1.2;
+  }
+  .service-hook {
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--text-2);
+    margin: 0 0 24px;
+    min-height: 62px;
+  }
+  .service-price {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text-1);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+  .service-price-note {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin-top: 6px;
+    margin-bottom: 24px;
+  }
+  .service-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 28px;
+    flex-grow: 1;
+  }
+  .service-features li {
+    position: relative;
+    padding-left: 22px;
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--text-2);
+    margin-bottom: 8px;
+  }
+  .service-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent-pressed);
+    font-weight: 700;
+    font-family: var(--font-mono);
+  }
+  .services-note {
+    margin: 32px auto 0;
+    max-width: 68ch;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-3);
+    text-align: center;
+    font-style: italic;
+    line-height: 1.55;
+  }
+  @media (max-width: 960px) {
+    .services-row-1 { grid-template-columns: repeat(2, 1fr); }
+    .services-row-1 .service:last-child { grid-column: 1 / -1; }
+  }
+  @media (max-width: 640px) {
+    .services-row-1,
+    .services-row-2 { grid-template-columns: 1fr; }
+    .services-row-1 .service:last-child { grid-column: auto; }
+    .service { min-height: auto; }
+  }
+</style>

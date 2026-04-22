@@ -1,0 +1,135 @@
+---
+import { site } from "../data/site";
+---
+
+<nav class="site-nav" aria-label="Primary">
+  <div class="site-container nav-inner">
+    <a href="/" class="nav-brand" aria-label="Ascend Griffin — home">
+      <img src="/logo/ag-symbol-primary.jpg" alt="" width="28" height="28" />
+      <span class="nav-brand-name">{site.name}</span>
+    </a>
+
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-controls="nav-links" aria-expanded="false">
+      Menu
+    </button>
+
+    <ul class="nav-links" id="nav-links">
+      {site.nav.map((link) => (
+        <li><a href={link.href}>{link.label}</a></li>
+      ))}
+      <li><a href={site.calcom} class="nav-cta">Discovery Call →</a></li>
+    </ul>
+  </div>
+</nav>
+
+<style>
+  .site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg-0);
+    border-bottom: 1px solid var(--border-1);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px var(--gutter);
+    max-width: var(--container);
+    margin: 0 auto;
+  }
+  @media (max-width: 720px) {
+    .nav-inner { padding: 14px var(--gutter-sm); }
+  }
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text-1);
+  }
+  .nav-brand img {
+    border-radius: 2px;
+  }
+  .nav-brand-name {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+  .nav-links a {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    text-decoration: none;
+    transition: color var(--dur-fast) var(--ease);
+  }
+  .nav-links a:hover { color: var(--text-1); }
+  .nav-cta {
+    background: var(--accent);
+    color: var(--accent-ink) !important;
+    padding: 8px 14px;
+    border-radius: 2px;
+    font-weight: 600;
+    letter-spacing: 0.04em !important;
+  }
+  .nav-cta:hover { background: var(--accent-hover); }
+  .nav-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--border-2);
+    padding: 6px 12px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-1);
+    cursor: pointer;
+    border-radius: 2px;
+  }
+  @media (max-width: 720px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: block; }
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--bg-0);
+      padding: 20px var(--gutter-sm);
+      border-bottom: 1px solid var(--border-1);
+      align-items: flex-start;
+      gap: 18px;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>(".nav-toggle");
+  const links = document.getElementById("nav-links");
+  if (toggle && links) {
+    toggle.addEventListener("click", () => {
+      const open = links.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(open));
+    });
+    // Close on link click
+    links.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", () => {
+        links.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+</script>

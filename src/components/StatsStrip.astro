@@ -1,0 +1,70 @@
+---
+import { stats } from "../data/stats";
+---
+
+<section class="stats-strip" aria-label="Credentials">
+  <div class="stats-grid">
+    {stats.map((stat) => (
+      <div class="stat">
+        {stat.valueHtml ? (
+          <div class="stat-value" set:html={stat.valueHtml} />
+        ) : (
+          <div class="stat-value">{stat.value}</div>
+        )}
+        <div class="stat-label">{stat.label}</div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .stats-strip {
+    background: var(--bg-1);
+    border-top: 1px solid var(--border-1);
+    border-bottom: 1px solid var(--border-1);
+  }
+  .stats-grid {
+    max-width: var(--container);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .stat {
+    padding: 32px 24px;
+    border-right: 1px solid var(--border-1);
+  }
+  .stat:last-child { border-right: 0; }
+  .stat-value {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text-1);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 10px;
+  }
+  .stat-value :global(em) {
+    font-style: italic;
+    color: var(--editorial);
+    font-weight: 700;
+  }
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    line-height: 1.4;
+  }
+  @media (max-width: 860px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat:nth-child(2) { border-right: 0; }
+    .stat:nth-child(1), .stat:nth-child(2) {
+      border-bottom: 1px solid var(--border-1);
+    }
+  }
+  @media (max-width: 480px) {
+    .stat { padding: 24px 20px; }
+  }
+</style>

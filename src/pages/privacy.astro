@@ -1,0 +1,78 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout title="Privacy Policy — Ascend Griffin" description="Privacy policy for ascendgriffin.org">
+  <Nav />
+  <main class="legal">
+    <div class="site-container">
+      <h1>Privacy Policy</h1>
+      <p class="muted">Остання редакція: 2026-04-22 · <strong>Draft — потребує правової перевірки перед public launch.</strong></p>
+
+      <h2>1. Хто ми</h2>
+      <p>Ascend Griffin — особиста практика Тараса Смалюха, ФОП, Львів, Україна. Контакт: <a href="mailto:taras@ascendgriffin.org">taras@ascendgriffin.org</a>.</p>
+
+      <h2>2. Які дані ми збираємо</h2>
+      <ul>
+        <li><strong>Discovery Call booking (Cal.com):</strong> ім'я, email, час дзвінка, опис ваших потреб.</li>
+        <li><strong>Analytics (Cloudflare Web Analytics):</strong> анонімна статистика відвідувань, без cookies.</li>
+        <li><strong>Contact form (якщо використовуєте):</strong> ім'я, email, текст звернення.</li>
+      </ul>
+
+      <h2>3. Навіщо</h2>
+      <p>Для зв'язку з вами, ведення discovery-процесу, покращення сайту. Не для реклами. Не для продажу третім сторонам.</p>
+
+      <h2>4. Як довго</h2>
+      <p>Leads і контакти — до 24 місяців після останньої взаємодії. Аналітика — anonymously, без персональних прив'язок.</p>
+
+      <h2>5. Ваші права (GDPR + ЗУ «Про захист персональних даних»)</h2>
+      <ul>
+        <li>Запит на копію даних — писати на <a href="mailto:taras@ascendgriffin.org">taras@ascendgriffin.org</a></li>
+        <li>Видалення — за запитом, протягом 30 днів</li>
+        <li>Виправлення некоректних даних — за запитом</li>
+      </ul>
+
+      <h2>6. Cookies</h2>
+      <p>Сайт не використовує tracking cookies. Plausible / Cloudflare Web Analytics — cookieless.</p>
+
+      <h2>7. Зміни</h2>
+      <p>Оновлюємо політику при потребі. Значні зміни — повідомляємо email-підписчикам (за наявності).</p>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .legal {
+    padding: 80px 0 96px;
+    min-height: 60vh;
+  }
+  .legal h1 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: var(--text-1);
+    margin: 0 0 16px;
+  }
+  .legal h2 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-1);
+    margin: 36px 0 12px;
+  }
+  .legal p, .legal ul {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--text-2);
+    max-width: 68ch;
+    margin: 0 0 12px;
+  }
+  .legal ul { padding-left: 20px; }
+  .legal li { margin-bottom: 6px; }
+  .legal a { color: var(--accent-pressed); text-decoration: underline; text-underline-offset: 3px; }
+  .muted { font-family: var(--font-mono); font-size: 12px; color: var(--text-3); }
+</style>

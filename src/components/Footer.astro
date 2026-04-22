@@ -1,0 +1,131 @@
+---
+import { site } from "../data/site";
+---
+
+<footer class="site-footer">
+  <div class="site-container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">
+          <img src="/logo/ag-symbol-primary.jpg" alt="" width="28" height="28" />
+          <span class="footer-brand-name">{site.name}</span>
+        </div>
+        <p class="footer-tag">{site.footerTagline}</p>
+        <p class="footer-by">— {site.founder}</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Послуги</h5>
+        <ul>
+          <li><a href="#services">Vendor Audit</a></li>
+          <li><a href="#services">AI Workflow Audit</a></li>
+          <li><a href="#services">Discovery Sprint</a></li>
+          <li><a href="#services">Fractional PO</a></li>
+          <li><a href="#services">Full-Cycle Engagement</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <ul>
+          <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+          <li><a href={site.linkedin} target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href={site.calcom}>Discovery Call</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/terms">Terms</a></li>
+          <li><a href="/impressum">Impressum</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© {site.year} {site.name} · {site.domain}</span>
+      <span>Made in {site.madeIn}</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--bg-1);
+    border-top: 1px solid var(--border-1);
+    padding: 56px 0 32px;
+    font-size: 13px;
+    color: var(--text-2);
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  .footer-col h5 {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin: 0 0 16px;
+    font-weight: 600;
+  }
+  .footer-col ul { list-style: none; padding: 0; margin: 0; }
+  .footer-col li { margin-bottom: 8px; }
+  .footer-col a {
+    color: var(--text-2);
+    text-decoration: none;
+    transition: color var(--dur-fast) var(--ease);
+  }
+  .footer-col a:hover { color: var(--accent-pressed); }
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .footer-brand img { border-radius: 2px; }
+  .footer-brand-name {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--text-1);
+  }
+  .footer-tag {
+    font-size: 13px;
+    color: var(--text-3);
+    max-width: 32ch;
+    line-height: 1.55;
+    margin: 0 0 10px;
+  }
+  .footer-by {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-3);
+    letter-spacing: 0.02em;
+    margin: 0;
+  }
+  .footer-bottom {
+    border-top: 1px solid var(--border-1);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--text-3);
+  }
+  @media (max-width: 860px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 520px) {
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,27 +1,30 @@
 ---
-import { pillars } from "../data/pillars";
+import { t } from "../i18n/translations";
+const tr = t(Astro.currentLocale);
+const stepsLabel = Astro.currentLocale === "uk" ? "Етапи" : "Steps";
+const resultLabel = Astro.currentLocale === "uk" ? "Результат:" : "Result:";
 ---
 
 <section class="section why-section" id="why">
   <div class="site-container">
     <div class="section-head">
-      <div class="section-num">05 · Кейси</div>
+      <div class="section-num">{tr.whySection.num}</div>
       <div class="section-head-body">
-        <h2><em>Цифри</em>, а не обіцянки.</h2>
+        <h2 set:html={tr.whySection.h2Html} />
         <p class="lede">
-          Проекти з моєї практики — з результатами, які можна виміряти.
+          {tr.whySection.lede}
         </p>
       </div>
     </div>
 
     <div class="why-grid">
-      {pillars.map((p) => (
+      {tr.pillars.map((p) => (
         <article class="why-item">
           <div class="why-num">{p.num}</div>
           <h3>{p.title}</h3>
           <p class="why-desc">{p.description}</p>
           <div class="why-steps">
-            <div class="why-label">Етапи</div>
+            <div class="why-label">{stepsLabel}</div>
             <ol>
               {p.steps.map((step) => (
                 <li>{step}</li>
@@ -29,7 +32,7 @@ import { pillars } from "../data/pillars";
             </ol>
           </div>
           <div class="why-result">
-            <span class="why-result-label">Результат:</span> {p.result}
+            <span class="why-result-label">{resultLabel}</span> {p.result}
           </div>
         </article>
       ))}

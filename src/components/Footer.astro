@@ -1,5 +1,9 @@
 ---
 import { site } from "../data/site";
+import { t } from "../i18n/translations";
+const tr = t(Astro.currentLocale);
+const isUk = Astro.currentLocale === "uk";
+const localePrefix = isUk ? "/uk" : "";
 ---
 
 <footer class="site-footer">
@@ -9,42 +13,42 @@ import { site } from "../data/site";
         <div class="footer-brand">
           <span class="footer-brand-name">{site.name}</span>
         </div>
-        <p class="footer-tag">{site.footerTagline}</p>
+        <p class="footer-tag">{tr.site.footerTagline}</p>
         <p class="footer-by">— {site.founder}</p>
       </div>
 
       <div class="footer-col">
-        <h5>Формати</h5>
+        <h5>{tr.site.footerServicesH}</h5>
         <ul>
-          <li><a href="#package-audit">Аудит</a></li>
-          <li><a href="#package-discovery">Дослідження</a></li>
-          <li><a href="#package-support">Супровід проекту</a></li>
+          <li><a href="#package-audit">{tr.services[0].name}</a></li>
+          <li><a href="#package-discovery">{tr.services[1].name}</a></li>
+          <li><a href="#package-support">{tr.services[2].name}</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h5>Connect</h5>
+        <h5>{tr.site.footerConnectH}</h5>
         <ul>
           <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
           <li><a href={site.linkedin} target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://taras732.github.io/my_cv/" target="_blank" rel="noopener">CV / Portfolio</a></li>
-          <li><a href="#book" data-modal="booking" data-subject="discovery-call" data-source="footer">Discovery Call</a></li>
+          <li><a href="https://taras732.github.io/my_cv/" target="_blank" rel="noopener">{tr.site.footerCV}</a></li>
+          <li><a href="#book" data-modal="booking" data-subject="discovery-call" data-source="footer">{tr.site.heroCtaPrimary}</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h5>Legal</h5>
+        <h5>{tr.site.footerLegalH}</h5>
         <ul>
-          <li><a href="/privacy">Privacy</a></li>
-          <li><a href="/terms">Terms</a></li>
-          <li><a href="/impressum">Impressum</a></li>
+          <li><a href={`${localePrefix}/privacy`}>Privacy</a></li>
+          <li><a href={`${localePrefix}/terms`}>Terms</a></li>
+          <li><a href={`${localePrefix}/impressum`}>Impressum</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
       <span>© {site.year} {site.name} · {site.domain}</span>
-      <span>Made in {site.madeIn}</span>
+      <span>Made in {tr.site.madeIn}</span>
     </div>
   </div>
 </footer>
@@ -86,7 +90,6 @@ import { site } from "../data/site";
     gap: 12px;
     margin-bottom: 16px;
   }
-  .footer-brand img { border-radius: 2px; }
   .footer-brand-name {
     font-family: var(--font-display);
     font-size: 16px;

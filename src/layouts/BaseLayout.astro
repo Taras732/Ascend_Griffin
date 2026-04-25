@@ -1,6 +1,7 @@
 ---
 import { site } from "../data/site";
 import BookingModal from "../components/BookingModal.astro";
+import { t } from "../i18n/translations";
 import "../styles/tokens.css";
 
 interface Props {
@@ -8,28 +9,34 @@ interface Props {
   description?: string;
 }
 
-const { title = site.seo.title, description = site.seo.description } = Astro.props;
+const tr = t(Astro.currentLocale);
+const lang = Astro.currentLocale === "uk" ? "uk" : "en";
+const { title = tr.site.seo.title, description = tr.site.seo.description } = Astro.props;
 const canonical = new URL(Astro.url.pathname, site.url).toString();
+const altLocaleHref = lang === "uk" ? site.url + "/" : site.url + "/uk/";
+const altLocaleCode = lang === "uk" ? "en" : "uk";
 ---
 
 <!doctype html>
-<html lang="uk">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content={site.seo.keywords} />
+    <meta name="keywords" content={tr.site.seo.keywords} />
     <meta name="author" content={site.founder} />
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang={altLocaleCode} href={altLocaleHref} />
+    <link rel="alternate" hreflang="x-default" href={site.url + "/"} />
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content={site.seo.locale} />
-    <meta property="og:image" content={new URL(site.seo.ogImage, site.url).toString()} />
+    <meta property="og:locale" content={tr.site.seo.locale} />
+    <meta property="og:image" content={new URL(tr.site.seo.ogImage, site.url).toString()} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />

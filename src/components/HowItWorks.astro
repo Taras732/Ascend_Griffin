@@ -1,21 +1,22 @@
 ---
-import { steps } from "../data/steps";
+import { t } from "../i18n/translations";
+const tr = t(Astro.currentLocale);
 ---
 
 <section class="section how-section" id="how">
   <div class="site-container">
     <div class="section-head">
-      <div class="section-num">06 · Процес</div>
+      <div class="section-num">{tr.howSection.num}</div>
       <div class="section-head-body">
-        <h2>Чотири кроки. <em>Просто і ясно</em>.</h2>
+        <h2 set:html={tr.howSection.h2Html} />
         <p class="lede">
-          Знайомство → аналіз і план → пропозиція → робота. На кожному кроці ви знаєте, куди рухаємось і навіщо.
+          {tr.howSection.lede}
         </p>
       </div>
     </div>
 
     <ol class="how-timeline">
-      {steps.map((s) => (
+      {tr.steps.map((s) => (
         <li class="how-step">
           <span class="how-num">{s.num}</span>
           <h4>{s.title}</h4>

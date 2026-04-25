@@ -1,0 +1,80 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import { site } from "../data/site";
+---
+
+<BaseLayout title="Impressum — Ascend Griffin" description="Contact and legal information for ascendgriffin.org">
+  <Nav />
+  <main class="legal">
+    <div class="site-container">
+      <h1>Impressum / Контакти</h1>
+
+      <dl>
+        <dt>Практика</dt>
+        <dd>{site.name}</dd>
+
+        <dt>Засновник</dt>
+        <dd>{site.founder} (ФОП)</dd>
+
+        <dt>Місто</dt>
+        <dd>{site.city}</dd>
+
+        <dt>Email</dt>
+        <dd><a href={`mailto:${site.email}`}>{site.email}</a></dd>
+
+        <dt>LinkedIn</dt>
+        <dd><a href={site.linkedin} target="_blank" rel="noopener">{site.linkedin}</a></dd>
+
+        <dt>Discovery Call</dt>
+        <dd><a href={site.calcom}>{site.calcom}</a></dd>
+      </dl>
+
+      <p class="muted">ФОП реєстраційні дані (EDRPOU / ІПН) — надаються при підписанні SOW.</p>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .legal { padding: 80px 0 96px; min-height: 60vh; }
+  .legal h1 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: var(--text-1);
+    margin: 0 0 32px;
+  }
+  dl {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 12px 24px;
+    max-width: 640px;
+  }
+  dt {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    padding-top: 4px;
+  }
+  dd {
+    margin: 0;
+    font-size: 15px;
+    color: var(--text-1);
+  }
+  dd a { color: var(--accent-pressed); text-decoration: underline; text-underline-offset: 3px; }
+  .muted {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-3);
+    margin-top: 32px;
+  }
+  @media (max-width: 520px) {
+    dl { grid-template-columns: 1fr; gap: 4px 0; }
+    dd { margin-bottom: 16px; }
+  }
+</style>

@@ -1,21 +1,23 @@
 ---
 import { site } from "../data/site";
+import { t } from "../i18n/translations";
+const tr = t(Astro.currentLocale);
 ---
 
 <section class="hero" id="top">
   <div class="site-container">
-    <p class="hero-eyebrow"><span>{site.eyebrow}</span></p>
-    <h1 class="hero-h1" set:html={site.heroH1Html} />
-    <p class="hero-lede">{site.heroLede}</p>
+    <p class="hero-eyebrow"><span>{tr.site.eyebrow}</span></p>
+    <h1 class="hero-h1" set:html={tr.site.heroH1Html} />
+    <p class="hero-lede">{tr.site.heroLede}</p>
 
     <div class="hero-ctas">
       <a href="#book" data-modal="booking" data-subject="discovery-call" data-source="hero" class="btn-primary btn-lg">
-        {site.heroCtaPrimary}
+        {tr.site.heroCtaPrimary}
         <span aria-hidden="true">→</span>
       </a>
-      <a href="#how" class="btn-secondary btn-lg">{site.heroCtaSecondary}</a>
+      <a href="#how" class="btn-secondary btn-lg">{tr.site.heroCtaSecondary}</a>
     </div>
-    {site.heroMicro && <p class="hero-micro">{site.heroMicro}</p>}
+    {tr.site.heroMicro && <p class="hero-micro">{tr.site.heroMicro}</p>}
   </div>
 </section>
 

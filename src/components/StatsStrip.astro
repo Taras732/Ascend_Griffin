@@ -1,10 +1,11 @@
 ---
-import { stats } from "../data/stats";
+import { t } from "../i18n/translations";
+const tr = t(Astro.currentLocale);
 ---
 
 <section class="stats-strip" aria-label="Credentials">
   <div class="stats-grid">
-    {stats.map((stat) => (
+    {tr.stats.map((stat) => (
       <div class="stat">
         {stat.valueHtml ? (
           <div class="stat-value" set:html={stat.valueHtml} />
@@ -61,8 +62,5 @@ import { stats } from "../data/stats";
     .stats-grid { grid-template-columns: 1fr; }
     .stat { border-right: 0; border-bottom: 1px solid var(--border-1); }
     .stat:last-child { border-bottom: 0; }
-  }
-  @media (max-width: 480px) {
-    .stat { padding: 24px 20px; }
   }
 </style>

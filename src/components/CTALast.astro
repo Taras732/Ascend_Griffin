@@ -1,22 +1,24 @@
 ---
 import { site } from "../data/site";
+import { t } from "../i18n/translations";
+const tr = t(Astro.currentLocale);
 ---
 
 <section class="cta-last" id="book">
   <div class="cta-inner">
-    <p class="cta-eyebrow">{site.ctaEyebrow}</p>
-    <h2 set:html={site.ctaH2Html} />
-    <p class="cta-lede">{site.ctaLede}</p>
+    <p class="cta-eyebrow">{tr.site.ctaEyebrow}</p>
+    <h2 set:html={tr.site.ctaH2Html} />
+    <p class="cta-lede">{tr.site.ctaLede}</p>
 
     <a href="#book" data-modal="booking" data-subject="discovery-call" data-source="cta-last" class="btn-primary btn-lg cta-btn">
-      {site.ctaPrimary} <span aria-hidden="true">→</span>
+      {tr.site.ctaPrimary} <span aria-hidden="true">→</span>
     </a>
 
     <a href={site.linkedin} class="cta-alt" target="_blank" rel="noopener">
-      {site.ctaAlt}
+      {tr.site.ctaAlt}
     </a>
 
-    <div class="cta-sig">{site.ctaSig}</div>
+    <div class="cta-sig">{tr.site.ctaSig}</div>
   </div>
 </section>
 

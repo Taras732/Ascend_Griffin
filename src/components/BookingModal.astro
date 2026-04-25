@@ -1,20 +1,19 @@
 ---
 import { site } from "../data/site";
-// Form endpoint placeholder — replace with real Formspree URL after registration:
-// 1. Sign up at https://formspree.io
-// 2. Create a form, copy the endpoint URL
-// 3. Replace FORMSPREE_ENDPOINT below
+import { t } from "../i18n/translations";
+const tr = t(Astro.currentLocale);
+const closeLabel = Astro.currentLocale === "uk" ? "Закрити" : "Close";
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xvzdyojg";
 ---
 
 <dialog id="booking-modal" class="booking-modal" aria-labelledby="booking-title">
-  <button type="button" class="booking-close" aria-label="Закрити" data-close>×</button>
+  <button type="button" class="booking-close" aria-label={closeLabel} data-close>×</button>
 
   <div class="booking-inner">
-    <p class="booking-eyebrow">{site.ctaEyebrow}</p>
-    <h2 id="booking-title" class="booking-title">Залиште заявку</h2>
+    <p class="booking-eyebrow">{tr.booking.eyebrow}</p>
+    <h2 id="booking-title" class="booking-title">{tr.booking.title}</h2>
     <p class="booking-sub">
-      Зв'яжуся з вами протягом 24 годин — узгодимо час знайомства або обговоримо ваш запит.
+      {tr.booking.sub}
     </p>
 
     <form
@@ -25,45 +24,44 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/xvzdyojg";
     >
       <div class="form-row">
         <label class="form-field">
-          <span class="form-label">Ім'я <span class="form-req">*</span></span>
+          <span class="form-label">{tr.booking.labelName} <span class="form-req">{tr.booking.reqLabel}</span></span>
           <input type="text" name="name" required autocomplete="name" />
         </label>
 
         <label class="form-field">
-          <span class="form-label">Email <span class="form-req">*</span></span>
+          <span class="form-label">{tr.booking.labelEmail} <span class="form-req">{tr.booking.reqLabel}</span></span>
           <input type="email" name="email" required autocomplete="email" />
         </label>
       </div>
 
       <label class="form-field">
-        <span class="form-label">Що цікавить</span>
+        <span class="form-label">{tr.booking.labelSubject}</span>
         <select name="subject" data-subject>
-          <option value="discovery-call">Знайомство (Discovery Call)</option>
-          <option value="audit">Аудит — точковий аналіз</option>
-          <option value="discovery">Дослідження — повний план</option>
-          <option value="support">Супровід проекту</option>
-          <option value="other">Інше</option>
+          {tr.booking.subjectOptions.map((opt) => (
+            <option value={opt.value}>{opt.label}</option>
+          ))}
         </select>
       </label>
 
       <label class="form-field">
-        <span class="form-label">Розкажіть коротко про ваш проект</span>
-        <textarea name="message" rows="4" placeholder="На якій стадії ви зараз? Який ваш контекст? (необов'язково)"></textarea>
+        <span class="form-label">{tr.booking.labelMessage}</span>
+        <textarea name="message" rows="4" placeholder={tr.booking.messagePlaceholder}></textarea>
       </label>
 
-      <input type="hidden" name="_subject" value="Нова заявка з ascendgriffin.org" />
+      <input type="hidden" name="_subject" value="New inquiry from ascendgriffin.org" />
+      <input type="hidden" name="_locale" value={Astro.currentLocale || "en"} />
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
       <div class="form-actions">
-        <button type="submit" class="btn-primary btn-lg booking-submit">
-          Надіслати <span aria-hidden="true">→</span>
+        <button type="submit" class="btn-primary btn-lg booking-submit" data-submit-label={tr.booking.submit} data-sending-label={tr.booking.submitSending}>
+          {tr.booking.submit} <span aria-hidden="true">→</span>
         </button>
         <p class="form-note">
-          Або напишіть напряму: <a href={`mailto:${site.email}`}>{site.email}</a>
+          {tr.booking.noteOr} <a href={`mailto:${site.email}`}>{site.email}</a>
         </p>
       </div>
 
-      <div class="form-status" data-status aria-live="polite"></div>
+      <div class="form-status" data-status data-error-msg={tr.booking.errorMsg} aria-live="polite"></div>
     </form>
   </div>
 </dialog>
@@ -71,10 +69,10 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/xvzdyojg";
 <div class="toast" id="success-toast" role="status" aria-live="polite">
   <span class="toast-icon" aria-hidden="true">✓</span>
   <div class="toast-content">
-    <div class="toast-title">Дякую за заявку!</div>
-    <div class="toast-msg">Зв'яжуся з вами протягом 24 годин.</div>
+    <div class="toast-title">{tr.booking.successToastTitle}</div>
+    <div class="toast-msg">{tr.booking.successToastMsg}</div>
   </div>
-  <button type="button" class="toast-close" aria-label="Закрити" data-toast-close>×</button>
+  <button type="button" class="toast-close" aria-label={closeLabel} data-toast-close>×</button>
 </div>
 
 <style>
@@ -506,7 +504,9 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/xvzdyojg";
         }
       } catch (err) {
         status.className = "form-status error";
-        status.textContent = "Не вдалось відправити. Напишіть напряму на email — він знизу форми.";
+        status.textContent =
+          status.dataset.errorMsg ||
+          "Couldn't send. Write directly to email — it's below the form.";
       }
     });
   }

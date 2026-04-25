@@ -26,3 +26,20 @@ import Footer from "../components/Footer.astro";
   </main>
   <Footer />
 </BaseLayout>
+
+<script is:inline>
+  // Browser language redirect — only on first visit, only for root EN page
+  (function () {
+    try {
+      var REDIRECTED_KEY = "ag_lang_redirect_done";
+      if (sessionStorage.getItem(REDIRECTED_KEY)) return;
+      var lang = (navigator.language || "en").toLowerCase();
+      if (lang.indexOf("uk") === 0) {
+        sessionStorage.setItem(REDIRECTED_KEY, "1");
+        window.location.replace("/uk/");
+      }
+    } catch (e) {
+      /* ignore */
+    }
+  })();
+</script>

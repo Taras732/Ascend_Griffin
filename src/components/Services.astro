@@ -1,21 +1,22 @@
 ---
-import { services } from "../data/services";
+import { t } from "../i18n/translations";
+const tr = t(Astro.currentLocale);
 ---
 
 <section class="section services-section" id="services">
   <div class="site-container">
     <div class="section-head">
-      <div class="section-num">04 · Формати</div>
+      <div class="section-num">{tr.servicesSection.num}</div>
       <div class="section-head-body">
-        <h2>Три формати — залежно від <em>вашої стадії</em>.</h2>
+        <h2 set:html={tr.servicesSection.h2Html} />
         <p class="lede">
-          Залежно від задачі і стадії проекту — можливі різні формати роботи. Кожен з чітким результатом і прозорим процесом.
+          {tr.servicesSection.lede}
         </p>
       </div>
     </div>
 
     <div class="services-grid">
-      {services.map((s) => (
+      {tr.services.map((s) => (
         <article class="service" id={`package-${s.id}`}>
           <div class="service-num">{s.num}</div>
           <h3 class="service-name">{s.name}</h3>
@@ -53,7 +54,6 @@ import { services } from "../data/services";
     position: relative;
     transition: transform var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease), background var(--dur-base) var(--ease);
   }
-  /* Hover state — editorial accent reveals on hover (Brand Book v3 style) */
   .service:hover {
     transform: translateY(-3px);
     background: var(--bg-1);
@@ -63,7 +63,6 @@ import { services } from "../data/services";
   .service:hover .service-num {
     color: var(--accent-pressed);
   }
-  /* CTA button transforms to gold on card hover */
   .service-cta {
     transition: background var(--dur-base) var(--ease), color var(--dur-base) var(--ease), border-color var(--dur-base) var(--ease);
   }

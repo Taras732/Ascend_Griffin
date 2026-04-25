@@ -22,7 +22,16 @@ const altLangLabel = isUk ? "EN" : "UA";
       {tr.site.nav.map((link) => (
         <li><a href={link.href}>{link.label}</a></li>
       ))}
-      <li><a href={altLangHref} class="nav-lang" aria-label={`Switch to ${altLangLabel}`}>{altLangLabel}</a></li>
+      <li>
+        <a href={altLangHref} class="nav-lang" aria-label={`Switch to ${altLangLabel}`}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            <path d="M2 12h20" />
+          </svg>
+          <span>{altLangLabel}</span>
+        </a>
+      </li>
       <li><a href="#book" data-modal="booking" data-subject="discovery-call" data-source="nav" class="nav-cta">{tr.site.heroCtaPrimary} →</a></li>
     </ul>
   </div>
@@ -78,14 +87,24 @@ const altLangLabel = isUk ? "EN" : "UA";
   }
   .nav-links a:hover { color: var(--text-1); }
   .nav-lang {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     border: 1px solid var(--border-2);
-    padding: 4px 9px;
+    padding: 6px 12px;
     border-radius: 2px;
+    color: var(--text-2) !important;
+    font-weight: 600;
     transition: all var(--dur-fast) var(--ease);
+  }
+  .nav-lang svg {
+    color: var(--accent-pressed);
+    flex-shrink: 0;
   }
   .nav-lang:hover {
     border-color: var(--accent);
     color: var(--accent-pressed) !important;
+    background: var(--accent-subtle);
   }
   .nav-cta {
     background: var(--accent);

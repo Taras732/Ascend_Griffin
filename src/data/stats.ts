@@ -7,23 +7,18 @@ export interface Stat {
 
 export const stats: Stat[] = [
   {
-    value: "8",
-    valueHtml: "<em>8</em>",
-    label: "Років BA у life-safety",
+    value: "$30-80K",
+    valueHtml: "<em>$30-80K</em>",
+    label: "Типовий перший IT-контракт. На цій сумі легко переплатити вдвічі",
   },
   {
-    value: "4",
-    valueHtml: "<em>4</em>",
-    label: "IT-компанії зсередини",
+    value: "35-70%",
+    valueHtml: "<em>35-70%</em>",
+    label: "Менше зайвих витрат, коли є якісне планування та розуміння процесів",
   },
   {
-    value: "−35%",
-    valueHtml: "<em>−35%</em>",
-    label: "Change requests",
-  },
-  {
-    value: "CEO",
-    valueHtml: "<em>CEO</em>",
-    label: "TreximAI · AI-стартап",
+    value: "23+",
+    valueHtml: "<em>23+</em>",
+    label: "IT-проєктів досвіду — ваш проєкт не буде експериментом",
   },
 ];

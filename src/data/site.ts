@@ -8,26 +8,33 @@ export const site = {
   founderTitle: "CEO TreximAI · 8 років BA у Lviv IT-network",
   city: "Lviv, Ukraine",
   email: "taras@ascendgriffin.org",
-  linkedin: "https://www.linkedin.com/in/taras-smaliukh",
+  linkedin: "https://www.linkedin.com/in/taras732/",
   calcom: "https://cal.com/taras-smaliukh/discovery-30min",
 
+  // Analytics — leave empty to disable, paste Measurement ID to enable
+  // Get yours at: https://analytics.google.com → Admin → Data Streams → Measurement ID (G-XXXXXXXXXX)
+  ga4Id: "",
+  // Cloudflare Web Analytics token (alternative, cookieless)
+  cfAnalyticsToken: "",
+
   // Brand messaging
-  eyebrow: "Accountable Product Ownership · Україна",
+  eyebrow: "IT-супровід від ідеї до результату",
   heroH1Html:
-    'Ваш перший IT-продукт — на <em>моїй репутації</em>.<br>Від <em>PRD до релізу</em>.',
+    'Ваш <em>союзник</em> в IT-проєктах,<br>який діє виключно у <em>ваших інтересах</em>.',
   heroLede:
-    "Один accountable контракт замість п'яти «не моє». Advisor — якщо у вас є команда. Full-cycle — якщо ви хочете мою. Fixed плюс performance, не hourly.",
-  heroCtaPrimary: "Забронювати Discovery Call — 30 хв безкоштовно",
-  heroCtaSecondary: "Подивитись 5 offer-ів",
+    "Ви відчуваєте, що вирішуєте навмання: незрозумілі терміни, різні оцінки від підрядників, брак даних для порівняння. Беру відповідальність за результат — перекладаю складне на зрозуміле, аналізую ринок, звіряю факти, щоб прийняті рішення були максимально ефективними.",
+  heroCtaPrimary: "Discovery Call",
+  heroCtaSecondary: "Як це працює →",
+  heroMicro: "", // TODO: select final variant (see conversation 2026-04-24)
 
   // CTA block
   ctaEyebrow: "НАСТУПНИЙ КРОК",
-  ctaH2Html: "30 хвилин розмови — і ви знаєте, чи я <em>fit</em>.",
+  ctaH2Html: "Зустріч на <em>30 хвилин</em>.",
   ctaLede:
-    "Discovery Call безкоштовний. 50% дзвінків закінчуються «ми не fit» — і я рекомендую іншого. Інших 50% — ми починаємо писати scope.",
-  ctaPrimary: "Забронювати Discovery Call",
-  ctaAlt: "Ще не готовий? Приєднуйтесь у LinkedIn",
-  ctaSig: "— Taras Smaliukh · одна людина, одна репутація",
+    "Безкоштовно. Без презентацій. Просто розмова про ваш проект.",
+  ctaPrimary: "Discovery Call",
+  ctaAlt: "Або стежте за моєю роботою у LinkedIn",
+  ctaSig: "— Taras Smaliukh · Lviv, Ukraine",
 
   // Nav
   nav: [
@@ -40,18 +47,18 @@ export const site = {
   // SEO
   seo: {
     title:
-      "Ascend Griffin — Accountable Product Ownership для non-tech засновників | Львів",
+      "Ascend Griffin — IT-супровід від ідеї до результату | ваш союзник у проектах",
     description:
-      "Один accountable контракт від PRD до релізу. Advisor або full-cycle delivery з battle-tested командою. Для non-tech founder-ів і SMB власників в Україні та EU. Fixed+performance, не hourly.",
+      "Незалежний експерт на вашій стороні у IT-проектах: від перевірки ідеї до масштабування і оптимізації готових продуктів. Аудит, дослідження, супровід — для стартапів і бізнесу.",
     keywords:
-      "accountable product ownership, fractional product owner, discovery sprint, vendor audit, ai workflow audit, non-tech founder, ukraine, lviv",
+      "IT-супровід, союзник у IT-проєктах, дослідження стартапу, аудит IT-проекту, оптимізація продукту, vibe coding, startup advisor, AI-інструменти, валідація ідеї, масштабування MVP",
     ogImage: "/og-image.png",
     locale: "uk_UA",
   },
 
   // Footer
   footerTagline:
-    "Accountable Product Ownership для non-tech засновників і SMB власників. Один контракт від Discovery до релізу.",
+    "IT-супровід від ідеї до результату. Союзник у ваших IT-проектах — від валідації ідеї до масштабування і оптимізації.",
   madeIn: "Lviv, Ukraine",
   year: 2026,
 };

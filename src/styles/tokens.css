@@ -25,15 +25,15 @@
   --border-3: rgba(17,17,17,.34);
   --border-on-ink: rgba(250,250,250,.12);
 
-  /* Brand accent — Electric Yellow (locked 2026-04-22) */
-  --accent:         #FFE600;
-  --accent-hover:   #FFF33D;
-  --accent-pressed: #E6CF00;
-  --accent-subtle:  rgba(255,230,0,.12);
-  --accent-border:  rgba(255,230,0,.44);
-  --accent-ink:     #0A0A0A;
+  /* Accent — editorial gold (v3 Paper Atelier, locked 2026-04-22) */
+  --accent:         #B8873A;
+  --accent-hover:   #A3762A;
+  --accent-pressed: #8B6422;
+  --accent-subtle:  rgba(184,135,58,.10);
+  --accent-border:  rgba(184,135,58,.40);
+  --accent-ink:     #FAF8F3;  /* text on gold */
 
-  /* Editorial gold — only in H1/H2 <em> italic emphasis на ivory */
+  /* Editorial italic emphasis (<em> у H1/H2) — same as accent у v3 */
   --editorial:      #B8873A;
   --editorial-ink:  #FAF8F3;
 
@@ -72,8 +72,8 @@ body {
   background: var(--bg-0);
   color: var(--text-2);
   font-family: var(--font-body);
-  font-size: 14px;
-  line-height: 1.55;
+  font-size: 17px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image:

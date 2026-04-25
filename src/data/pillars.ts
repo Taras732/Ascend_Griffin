@@ -1,28 +1,52 @@
-// Why-me 3 pillars (see Tech_Spec §6.5b + Messaging §1)
+// 3 case studies — same structure as Problem section: title + description + steps + result
+// Source: D:/Dev/cv-site/index.html (Challenge/Action/Result format)
+
 export interface Pillar {
   num: string;
   title: string;
-  body: string;
-  proof: string;
+  description: string;
+  steps: string[];
+  result: string;
 }
 
 export const pillars: Pillar[] = [
   {
     num: "01",
-    title: "Один accountable від PRD до launch",
-    body: "Classic engagement розподіляє відповідальність між vendor / PM / BA / ops. Хтось завжди може сказати «не моє». У моєму контракті — один підпис на sign-off. Якщо продукт не запустився — винен я. Fixed+performance/equity замість hourly — skin-in-the-game.",
-    proof: "8 років BA у 4 IT-компаніях (HUSPI, Stfalcon, SK, Indeema). Я знаю де «не моє» ламається.",
+    title: "Мобільний додаток для енергопостачальника на 500K+ користувачів",
+    description:
+      "Виклик: фрагментований нецифровий досвід для понад 500 000 користувачів, висока навантаженість на підтримку, відсутнє продуктове бачення.",
+    steps: [
+      "Discovery-воркшопи з бізнесом і юристами",
+      "Картування всіх customer journeys",
+      "80+ user stories з критеріями приймання",
+      "Супровід UX і dev до релізу",
+    ],
+    result: "Ключові дії на 35% швидші · Дзвінки в підтримку на 20% менше · Зайвих змін на 25% менше",
   },
   {
     num: "02",
-    title: "Рішення, не документи",
-    body: "Ваш engagement деливер — не 80-сторінковий BRD, не 40-слайдовий deck. Output — decision, який ви захищаєте у board meeting, або shipped milestone у prod. Документи — by-product. Кожен SOW має «decision to be made» або «outcome to ship» на першій сторінці.",
-    proof: "−35% change requests коли один accountable веде PRD → release (моя статистика по 4 проектах).",
+    title: "Відновлення застряглого IT-проекту з перевитратою бюджету",
+    description:
+      "Виклик: проект перевитратив бюджет і відстав від графіку. Нечіткий scope, постійні зміни пріоритетів, розірвана комунікація між бізнесом і dev-командою.",
+    steps: [
+      "Перегляд беклогу і поточного статусу",
+      "Інтерв'ю зі стейкхолдерами",
+      "Переструктурування вимог у пріоритизований беклог",
+      "Поетапний план відновлення з картуванням вузьких місць",
+    ],
+    result: "80% задач закрито за 2 місяці замість 3-6 · Зайвих змін на 35% менше · Витрат на 70% менше",
   },
   {
     num: "03",
-    title: "Practitioner CEO, не consultant",
-    body: "Я щодня CEO AI-стартапу TreximAI — живу з accountability на реальному payroll. Кожна рекомендація проходить тест «я це роблю зараз, і ось що ламається». Не HBR, не McKinsey фреймворк — real-time state команди, pricing, vendor management, AI-stack.",
-    proof: "TreximAI code + Claude Code + BMAD workflow у daily use. Скріни — у LinkedIn feed.",
+    title: "B2B SaaS для логістики — від ідеї до інвестицій і партнерств",
+    description:
+      "Виклик: побудова стартапу з нуля. Український B2B-ринок логістики — консервативні enterprise-клієнти, регульовані індустрії, переважно ручні процеси.",
+    steps: [
+      "Discovery та валідація гіпотез",
+      "MVP-скоуп та продуктова роадмапа",
+      "Залучення інвесторів і капіталу",
+      "Стратегічні партнерства",
+    ],
+    result: "$275K інвестицій · 9 потенційних партнерств · 3 підписані меморандуми · Інтерес від великих компаній",
   },
 ];

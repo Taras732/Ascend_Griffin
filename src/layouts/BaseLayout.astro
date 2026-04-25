@@ -1,5 +1,6 @@
 ---
 import { site } from "../data/site";
+import BookingModal from "../components/BookingModal.astro";
 import "../styles/tokens.css";
 
 interface Props {
@@ -57,7 +58,7 @@ const canonical = new URL(Astro.url.pathname, site.url).toString();
             name: site.founder,
             url: site.url,
             sameAs: [site.linkedin],
-            jobTitle: "Accountable Product Owner · CEO TreximAI",
+            jobTitle: "IT-супровід від ідеї до результату · CEO TreximAI",
             address: { "@type": "PostalAddress", addressLocality: "Lviv", addressCountry: "UA" },
           },
           {
@@ -74,7 +75,104 @@ const canonical = new URL(Astro.url.pathname, site.url).toString();
   </head>
   <body>
     <slot />
-    <!-- Cloudflare Web Analytics (stub — replace token pre-launch) -->
-    <!-- <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "REPLACE_ME"}'></script> -->
+    <BookingModal />
+
+    <!-- Anonymous visitor tracking (localStorage only — no cookies, no PII) -->
+    <script is:inline>
+      (function () {
+        var V_KEY = "ag_visitor";
+        var S_KEY = "ag_session";
+        var now = Date.now();
+
+        // Persistent visitor data
+        var visitor = {};
+        try {
+          visitor = JSON.parse(localStorage.getItem(V_KEY) || "{}");
+        } catch (e) {
+          /* ignore */
+        }
+        if (!visitor.id) {
+          visitor.id = "v_" + Math.random().toString(36).slice(2, 11) + Date.now().toString(36);
+          visitor.firstVisit = now;
+          visitor.totalVisits = 1;
+        } else {
+          visitor.totalVisits = (visitor.totalVisits || 0) + 1;
+        }
+        visitor.lastVisit = now;
+
+        // UTM parameters (captured once on first visit with them)
+        try {
+          var params = new URLSearchParams(window.location.search);
+          ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"].forEach(function (k) {
+            if (params.get(k) && !visitor[k]) visitor[k] = params.get(k);
+          });
+        } catch (e) {
+          /* ignore */
+        }
+
+        try {
+          localStorage.setItem(V_KEY, JSON.stringify(visitor));
+        } catch (e) {
+          /* ignore */
+        }
+
+        // Session data (clears when tab closes)
+        var session = {};
+        try {
+          session = JSON.parse(sessionStorage.getItem(S_KEY) || "{}");
+        } catch (e) {
+          /* ignore */
+        }
+        if (!session.start) {
+          session.start = now;
+          session.pagesViewed = [window.location.pathname];
+        } else {
+          session.pagesViewed = session.pagesViewed || [];
+          if (session.pagesViewed.indexOf(window.location.pathname) === -1) {
+            session.pagesViewed.push(window.location.pathname);
+          }
+        }
+        try {
+          sessionStorage.setItem(S_KEY, JSON.stringify(session));
+        } catch (e) {
+          /* ignore */
+        }
+
+        // Expose for form submission
+        window.__agVisitor = visitor;
+        window.__agSession = session;
+      })();
+    </script>
+
+    {/* Google Analytics 4 — loads only when ga4Id is set */}
+    {site.ga4Id && (
+      <>
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${site.ga4Id}`}
+        ></script>
+        <script is:inline define:vars={{ ga4Id: site.ga4Id }}>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){ dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', ga4Id, {
+              anonymize_ip: true,
+              cookie_flags: 'SameSite=Lax;Secure'
+            });
+            window.gtag = gtag;
+          `}
+        </script>
+      </>
+    )}
+
+    {/* Cloudflare Web Analytics — loads only when token is set */}
+    {site.cfAnalyticsToken && (
+      <script
+        defer
+        src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon={`{"token": "${site.cfAnalyticsToken}"}`}
+      ></script>
+    )}
   </body>
 </html>

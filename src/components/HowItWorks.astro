@@ -5,12 +5,11 @@ import { steps } from "../data/steps";
 <section class="section how-section" id="how">
   <div class="site-container">
     <div class="section-head">
-      <div class="section-num">07 · Процес</div>
+      <div class="section-num">06 · Процес</div>
       <div class="section-head-body">
-        <h2>Чотири кроки. <em>Нічого зайвого</em>.</h2>
+        <h2>Чотири кроки. <em>Просто і ясно</em>.</h2>
         <p class="lede">
-          Discovery Call → Scoping → SOW → Delivery. 50% дзвінків закінчуються
-          «ми не fit» — і це фіча процесу, не баг.
+          Знайомство → аналіз і план → пропозиція → робота. На кожному кроці ви знаєте, куди рухаємось і навіщо.
         </p>
       </div>
     </div>
@@ -20,8 +19,9 @@ import { steps } from "../data/steps";
         <li class="how-step">
           <span class="how-num">{s.num}</span>
           <h4>{s.title}</h4>
+          <p class="how-tagline">{s.tagline}</p>
           <span class="how-duration">{s.duration}</span>
-          <p>{s.body}</p>
+          <p class="how-body">{s.body}</p>
         </li>
       ))}
     </ol>
@@ -74,7 +74,16 @@ import { steps } from "../data/steps";
     letter-spacing: -0.01em;
     line-height: 1.3;
     color: var(--text-1);
-    margin: 0 0 6px;
+    margin: 0 0 10px;
+  }
+  .how-tagline {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--accent-pressed);
+    margin: 0 0 12px;
+    letter-spacing: -0.005em;
   }
   .how-duration {
     font-family: var(--font-mono);
@@ -85,7 +94,7 @@ import { steps } from "../data/steps";
     margin-bottom: 14px;
     display: block;
   }
-  .how-step p {
+  .how-body {
     font-size: 13.5px;
     line-height: 1.6;
     color: var(--text-2);

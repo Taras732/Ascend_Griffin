@@ -2,43 +2,208 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
+import { site } from "../data/site";
+
+const lastUpdated = "25 квітня 2026";
 ---
 
-<BaseLayout title="Privacy Policy — Ascend Griffin" description="Privacy policy for ascendgriffin.org">
+<BaseLayout
+  title={`Політика конфіденційності — ${site.name}`}
+  description="Як Ascend Griffin збирає, використовує і захищає персональні дані відвідувачів і клієнтів."
+>
   <Nav />
   <main class="legal">
-    <div class="site-container">
-      <h1>Privacy Policy</h1>
-      <p class="muted">Остання редакція: 2026-04-22 · <strong>Draft — потребує правової перевірки перед public launch.</strong></p>
+    <div class="site-container legal-container">
+      <header class="legal-header">
+        <p class="legal-eyebrow">Юридична інформація</p>
+        <h1>Політика конфіденційності</h1>
+        <p class="legal-meta">Чинна з {lastUpdated} · {site.name} · {site.city}</p>
+      </header>
 
-      <h2>1. Хто ми</h2>
-      <p>Ascend Griffin — особиста практика Тараса Смалюха, ФОП, Львів, Україна. Контакт: <a href="mailto:taras@ascendgriffin.org">taras@ascendgriffin.org</a>.</p>
+      <section class="legal-section">
+        <h2>1. Загальні положення</h2>
+        <p>
+          Ця Політика конфіденційності описує, як <strong>{site.name}</strong> (надалі — «ми»,
+          «практика»), що належить ФОП {site.founder} ({site.city}, Україна), збирає,
+          обробляє та захищає персональні дані відвідувачів сайту <a href={site.url}>{site.domain}</a>
+          (надалі — «Сайт») і клієнтів практики.
+        </p>
+        <p>
+          Обробка даних здійснюється відповідно до Закону України «Про захист персональних
+          даних» №2297-VI від 01.06.2010 та Загального регламенту захисту даних ЄС (GDPR,
+          Regulation (EU) 2016/679) у частині, що застосовується.
+        </p>
+        <p>
+          Контакти з питань обробки персональних даних:
+          <a href={`mailto:${site.email}`}>{site.email}</a>.
+        </p>
+      </section>
 
-      <h2>2. Які дані ми збираємо</h2>
-      <ul>
-        <li><strong>Discovery Call booking (Cal.com):</strong> ім'я, email, час дзвінка, опис ваших потреб.</li>
-        <li><strong>Analytics (Cloudflare Web Analytics):</strong> анонімна статистика відвідувань, без cookies.</li>
-        <li><strong>Contact form (якщо використовуєте):</strong> ім'я, email, текст звернення.</li>
-      </ul>
+      <section class="legal-section">
+        <h2>2. Які дані ми збираємо</h2>
+        <p>Ми збираємо мінімально необхідний обсяг даних для надання послуг і покращення Сайту:</p>
 
-      <h2>3. Навіщо</h2>
-      <p>Для зв'язку з вами, ведення discovery-процесу, покращення сайту. Не для реклами. Не для продажу третім сторонам.</p>
+        <h3>2.1. Дані, які ви надаєте добровільно</h3>
+        <ul>
+          <li><strong>Через форму контакту:</strong> ім'я, email, тип запиту (Аудит / Дослідження / Супровід / Знайомство), коротке повідомлення (за бажанням).</li>
+          <li><strong>Через email:</strong> усе, що ви надсилаєте у листі.</li>
+          <li><strong>Під час співпраці:</strong> інформація про ваш проект, команду, бюджет, цілі — обсяг визначається в межах підписаного договору.</li>
+        </ul>
 
-      <h2>4. Як довго</h2>
-      <p>Leads і контакти — до 24 місяців після останньої взаємодії. Аналітика — anonymously, без персональних прив'язок.</p>
+        <h3>3.2. Технічні дані, що збираються автоматично при відправці форми</h3>
+        <ul>
+          <li>Тип браузера і операційної системи (User-Agent)</li>
+          <li>Мова браузера</li>
+          <li>Часовий пояс пристрою</li>
+          <li>Розмір екрана і вікна перегляду</li>
+          <li>URL сторінки, з якої відправлена форма</li>
+          <li>Реферер (попередня сторінка або джерело переходу)</li>
+          <li>Дата і час відправки</li>
+          <li>IP-адреса (зберігається сервісом обробки форм Formspree)</li>
+        </ul>
+        <p>
+          Технічні дані використовуються виключно для аналізу джерел трафіку, виявлення
+          спаму та покращення Сайту. Вони не пов'язуються з вашою особою для маркетингових цілей.
+        </p>
 
-      <h2>5. Ваші права (GDPR + ЗУ «Про захист персональних даних»)</h2>
-      <ul>
-        <li>Запит на копію даних — писати на <a href="mailto:taras@ascendgriffin.org">taras@ascendgriffin.org</a></li>
-        <li>Видалення — за запитом, протягом 30 днів</li>
-        <li>Виправлення некоректних даних — за запитом</li>
-      </ul>
+        <h3>2.3. Аналітика відвідувань</h3>
+        <p>
+          Ми використовуємо <strong>Cloudflare Web Analytics</strong> — анонімний сервіс
+          аналітики, що працює без файлів cookies та без збору персональних даних. Збирається
+          лише агрегована статистика: кількість відвідувань, географія (на рівні країни),
+          типи пристроїв.
+        </p>
+      </section>
 
-      <h2>6. Cookies</h2>
-      <p>Сайт не використовує tracking cookies. Plausible / Cloudflare Web Analytics — cookieless.</p>
+      <section class="legal-section">
+        <h2>3. Мета обробки даних</h2>
+        <ul>
+          <li>Відповідь на ваші запити та комунікація</li>
+          <li>Виконання договірних зобов'язань (надання послуг)</li>
+          <li>Покращення якості Сайту і послуг</li>
+          <li>Захист від спаму і зловживань</li>
+          <li>Виконання вимог чинного законодавства</li>
+        </ul>
+        <p>
+          Ми <strong>не використовуємо</strong> ваші дані для рекламних розсилок без явної
+          згоди та <strong>не передаємо їх третім особам</strong> для маркетингових цілей.
+        </p>
+      </section>
 
-      <h2>7. Зміни</h2>
-      <p>Оновлюємо політику при потребі. Значні зміни — повідомляємо email-підписчикам (за наявності).</p>
+      <section class="legal-section">
+        <h2>4. Сторонні сервіси (Processors)</h2>
+        <p>
+          Для функціонування Сайту ми використовуємо такі сторонні сервіси, кожен з яких
+          має власну політику конфіденційності:
+        </p>
+        <ul>
+          <li><strong>Formspree</strong> (<a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">privacy policy</a>) — обробка заявок з форми. Сервер у США. Дані передаються через захищене з'єднання (HTTPS).</li>
+          <li><strong>Cloudflare Pages</strong> (<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">privacy policy</a>) — хостинг сайту, CDN і захист від DDoS.</li>
+          <li><strong>Google Analytics 4</strong> (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a>) — анонімна аналітика відвідувань. IP-адреси анонімізовані. Cookies встановлюються браузером Google.</li>
+          <li><strong>Google Fonts</strong> (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a>) — завантаження шрифтів.</li>
+          <li><strong>LinkedIn</strong> — для зовнішніх посилань (відкриваються у новій вкладці; cookies встановлюються тільки після переходу на linkedin.com).</li>
+        </ul>
+      </section>
+
+      <section class="legal-section">
+        <h2>5. Термін зберігання даних</h2>
+        <ul>
+          <li><strong>Заявки з форми контакту:</strong> до 24 місяців після останньої взаємодії.</li>
+          <li><strong>Email-листування:</strong> до 36 місяців або до запиту на видалення.</li>
+          <li><strong>Договірна документація:</strong> згідно з вимогами податкового законодавства України (мінімум 3 роки).</li>
+          <li><strong>Аналітика Cloudflare:</strong> агрегована, без прив'язки до особи; ретенція згідно з політикою Cloudflare.</li>
+        </ul>
+      </section>
+
+      <section class="legal-section">
+        <h2>6. Ваші права</h2>
+        <p>Згідно з законодавством України та GDPR, ви маєте право:</p>
+        <ul>
+          <li>Отримати копію персональних даних, які ми зберігаємо</li>
+          <li>Вимагати виправлення неточних або застарілих даних</li>
+          <li>Вимагати видалення ваших даних («право бути забутим»)</li>
+          <li>Обмежити обробку ваших даних</li>
+          <li>Заперечити проти обробки</li>
+          <li>Подати скаргу до Уповноваженого Верховної Ради України з прав людини</li>
+        </ul>
+        <p>
+          Для реалізації ваших прав надішліть запит на
+          <a href={`mailto:${site.email}`}>{site.email}</a>.
+          Ми відповімо протягом 30 календарних днів.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>7. Безпека даних</h2>
+        <p>
+          Ми застосовуємо технічні і організаційні заходи для захисту ваших даних: HTTPS-з'єднання,
+          обмежений доступ до систем зберігання, регулярне оновлення інфраструктури. Однак жоден
+          метод передачі або зберігання даних в інтернеті не є абсолютно безпечним — ми робимо все
+          розумне, але не можемо гарантувати 100% безпеки.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>8. Файли cookies та локальне сховище</h2>
+        <p>
+          Сайт <strong>не використовує cookies</strong> для відстеження поведінки користувачів
+          або таргетованої реклами. Аналітика (Cloudflare Web Analytics) працює без cookies.
+        </p>
+
+        <h3>8.1. Локальне сховище браузера (localStorage)</h3>
+        <p>
+          Сайт використовує функціональне локальне сховище браузера (localStorage) для збереження
+          анонімних технічних даних, які допомагають нам розуміти структуру трафіку:
+        </p>
+        <ul>
+          <li>Анонімний ідентифікатор відвідувача (випадковий рядок, не пов'язаний з особою)</li>
+          <li>Дата першого і останнього візиту</li>
+          <li>Загальна кількість візитів</li>
+          <li>UTM-параметри з URL (якщо ви прийшли за рекламним посиланням)</li>
+        </ul>
+        <p>
+          У межах поточної сесії (sessionStorage) ми тимчасово зберігаємо: переглянуті сторінки
+          та час початку сесії. Ці дані видаляються при закритті вкладки браузера.
+        </p>
+        <p>
+          <strong>Що це означає для вас:</strong> жодних персональних даних (ім'я, email, IP)
+          у локальному сховищі не зберігається. Анонімний ID допомагає нам зрозуміти, скільки
+          людей повертається на сайт, без можливості ідентифікувати конкретну особу.
+        </p>
+        <p>
+          <strong>Як видалити:</strong> очистити локальне сховище можна через налаштування
+          браузера (Очистити дані сайтів / Clear site data). Це не вплине на можливість
+          користуватися сайтом.
+        </p>
+
+        <h3>8.2. Технічні cookies сторонніх сервісів</h3>
+        <p>
+          Сторонні сервіси (Formspree під час відправки форми, Cloudflare для безпеки і CDN)
+          можуть встановлювати власні необхідні технічні cookies. Ви можете заблокувати їх у
+          налаштуваннях браузера, але це може вплинути на функціональність форми контакту.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>9. Зміни до Політики</h2>
+        <p>
+          Ми можемо оновлювати цю Політику для відображення змін у законодавстві або наших
+          процесах. Актуальна версія завжди публікується на цій сторінці з датою оновлення.
+          Значні зміни ми додатково повідомляємо клієнтам, з якими ведемо активну комунікацію.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>10. Контакти</h2>
+        <p>
+          З питань цієї Політики або для реалізації ваших прав звертайтеся:
+        </p>
+        <ul class="contact-list">
+          <li><strong>Email:</strong> <a href={`mailto:${site.email}`}>{site.email}</a></li>
+          <li><strong>LinkedIn:</strong> <a href={site.linkedin} target="_blank" rel="noopener">linkedin.com/in/taras732</a></li>
+          <li><strong>Адреса:</strong> {site.city}</li>
+        </ul>
+      </section>
     </div>
   </main>
   <Footer />
@@ -48,31 +213,92 @@ import Footer from "../components/Footer.astro";
   .legal {
     padding: 80px 0 96px;
     min-height: 60vh;
+    background: var(--bg-0);
+  }
+  .legal-container {
+    max-width: 780px;
+  }
+  .legal-header {
+    margin-bottom: 56px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border-1);
+  }
+  .legal-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-pressed);
+    margin: 0 0 12px;
   }
   .legal h1 {
     font-family: var(--font-display);
-    font-size: clamp(28px, 4vw, 44px);
+    font-size: clamp(32px, 4.5vw, 44px);
     font-weight: 800;
     letter-spacing: -0.025em;
     color: var(--text-1);
-    margin: 0 0 16px;
+    margin: 0 0 12px;
+    line-height: 1.15;
+  }
+  .legal-meta {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--text-3);
+    margin: 0;
+  }
+  .legal-section {
+    margin-bottom: 48px;
   }
   .legal h2 {
     font-family: var(--font-display);
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 700;
+    letter-spacing: -0.015em;
     color: var(--text-1);
-    margin: 36px 0 12px;
+    margin: 0 0 16px;
+    line-height: 1.3;
   }
-  .legal p, .legal ul {
+  .legal h3 {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--text-1);
+    margin: 24px 0 10px;
+    line-height: 1.35;
+  }
+  .legal p,
+  .legal ul {
     font-size: 15px;
-    line-height: 1.65;
+    line-height: 1.7;
     color: var(--text-2);
-    max-width: 68ch;
-    margin: 0 0 12px;
+    margin: 0 0 14px;
   }
-  .legal ul { padding-left: 20px; }
-  .legal li { margin-bottom: 6px; }
-  .legal a { color: var(--accent-pressed); text-decoration: underline; text-underline-offset: 3px; }
-  .muted { font-family: var(--font-mono); font-size: 12px; color: var(--text-3); }
+  .legal ul {
+    padding-left: 22px;
+  }
+  .legal li {
+    margin-bottom: 8px;
+  }
+  .legal strong {
+    color: var(--text-1);
+    font-weight: 600;
+  }
+  .legal a {
+    color: var(--accent-pressed);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color var(--dur-fast) var(--ease);
+  }
+  .legal a:hover {
+    color: var(--accent);
+  }
+  .contact-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  .contact-list li {
+    margin-bottom: 6px;
+  }
 </style>

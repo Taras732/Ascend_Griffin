@@ -1,0 +1,513 @@
+---
+import { site } from "../data/site";
+// Form endpoint placeholder — replace with real Formspree URL after registration:
+// 1. Sign up at https://formspree.io
+// 2. Create a form, copy the endpoint URL
+// 3. Replace FORMSPREE_ENDPOINT below
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xvzdyojg";
+---
+
+<dialog id="booking-modal" class="booking-modal" aria-labelledby="booking-title">
+  <button type="button" class="booking-close" aria-label="Закрити" data-close>×</button>
+
+  <div class="booking-inner">
+    <p class="booking-eyebrow">{site.ctaEyebrow}</p>
+    <h2 id="booking-title" class="booking-title">Залиште заявку</h2>
+    <p class="booking-sub">
+      Зв'яжуся з вами протягом 24 годин — узгодимо час знайомства або обговоримо ваш запит.
+    </p>
+
+    <form
+      class="booking-form"
+      action={FORMSPREE_ENDPOINT}
+      method="POST"
+      data-booking-form
+    >
+      <div class="form-row">
+        <label class="form-field">
+          <span class="form-label">Ім'я <span class="form-req">*</span></span>
+          <input type="text" name="name" required autocomplete="name" />
+        </label>
+
+        <label class="form-field">
+          <span class="form-label">Email <span class="form-req">*</span></span>
+          <input type="email" name="email" required autocomplete="email" />
+        </label>
+      </div>
+
+      <label class="form-field">
+        <span class="form-label">Що цікавить</span>
+        <select name="subject" data-subject>
+          <option value="discovery-call">Знайомство (Discovery Call)</option>
+          <option value="audit">Аудит — точковий аналіз</option>
+          <option value="discovery">Дослідження — повний план</option>
+          <option value="support">Супровід проекту</option>
+          <option value="other">Інше</option>
+        </select>
+      </label>
+
+      <label class="form-field">
+        <span class="form-label">Розкажіть коротко про ваш проект</span>
+        <textarea name="message" rows="4" placeholder="На якій стадії ви зараз? Який ваш контекст? (необов'язково)"></textarea>
+      </label>
+
+      <input type="hidden" name="_subject" value="Нова заявка з ascendgriffin.org" />
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+      <div class="form-actions">
+        <button type="submit" class="btn-primary btn-lg booking-submit">
+          Надіслати <span aria-hidden="true">→</span>
+        </button>
+        <p class="form-note">
+          Або напишіть напряму: <a href={`mailto:${site.email}`}>{site.email}</a>
+        </p>
+      </div>
+
+      <div class="form-status" data-status aria-live="polite"></div>
+    </form>
+  </div>
+</dialog>
+
+<div class="toast" id="success-toast" role="status" aria-live="polite">
+  <span class="toast-icon" aria-hidden="true">✓</span>
+  <div class="toast-content">
+    <div class="toast-title">Дякую за заявку!</div>
+    <div class="toast-msg">Зв'яжуся з вами протягом 24 годин.</div>
+  </div>
+  <button type="button" class="toast-close" aria-label="Закрити" data-toast-close>×</button>
+</div>
+
+<style>
+  .booking-modal {
+    border: none;
+    background: var(--bg-0);
+    color: var(--text-1);
+    padding: 0;
+    border-radius: 4px;
+    max-width: 560px;
+    width: calc(100% - 32px);
+    max-height: 90vh;
+    overflow: visible;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.18);
+    position: relative;
+  }
+  .booking-modal::backdrop {
+    background: rgba(17, 17, 17, 0.55);
+    backdrop-filter: blur(2px);
+  }
+  .booking-modal[open] {
+    animation: bookingFadeIn var(--dur-base) var(--ease);
+  }
+  @keyframes bookingFadeIn {
+    from { opacity: 0; transform: translateY(-12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .booking-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    line-height: 1;
+    color: var(--text-3);
+    cursor: pointer;
+    padding: 8px 12px;
+    transition: color var(--dur-fast) var(--ease);
+  }
+  .booking-close:hover { color: var(--text-1); }
+  .booking-inner {
+    padding: 40px 36px 36px;
+    max-height: 86vh;
+    overflow-y: auto;
+  }
+  .booking-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-pressed);
+    margin: 0 0 12px;
+  }
+  .booking-title {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text-1);
+    margin: 0 0 12px;
+    line-height: 1.2;
+  }
+  .booking-sub {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--text-2);
+    margin: 0 0 24px;
+  }
+  .booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .form-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-3);
+  }
+  .form-req {
+    color: var(--accent-pressed);
+  }
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: var(--text-1);
+    background: var(--bg-0);
+    border: 1px solid var(--border-2);
+    border-radius: 2px;
+    padding: 10px 12px;
+    transition: border-color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+  }
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-subtle);
+  }
+  .form-field textarea {
+    resize: vertical;
+    min-height: 96px;
+  }
+  .form-actions {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .booking-submit {
+    align-self: stretch;
+    justify-content: center;
+  }
+  .form-note {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-3);
+    margin: 0;
+  }
+  .form-note a {
+    color: var(--accent-pressed);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .form-status {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    margin-top: 8px;
+    padding: 10px 12px;
+    border-radius: 2px;
+    display: none;
+  }
+  .form-status.success {
+    display: block;
+    background: rgba(46, 125, 79, 0.08);
+    color: var(--success);
+    border: 1px solid rgba(46, 125, 79, 0.3);
+  }
+  .form-status.error {
+    display: block;
+    background: rgba(178, 59, 59, 0.08);
+    color: var(--danger);
+    border: 1px solid rgba(178, 59, 59, 0.3);
+  }
+  @media (max-width: 560px) {
+    .booking-inner { padding: 36px 22px 28px; }
+    .form-row { grid-template-columns: 1fr; }
+    .booking-title { font-size: 22px; }
+  }
+
+  /* Toast — bottom-right success notification */
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--bg-0);
+    border: 1px solid var(--border-2);
+    border-left: 3px solid var(--success);
+    border-radius: 4px;
+    padding: 16px 18px;
+    display: none;
+    align-items: flex-start;
+    gap: 12px;
+    max-width: 380px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14);
+    z-index: 1000;
+  }
+  .toast.show {
+    display: flex;
+    animation: toastSlideIn 320ms var(--ease);
+  }
+  .toast.hide {
+    animation: toastSlideOut 240ms var(--ease) forwards;
+  }
+  .toast-icon {
+    color: var(--success);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.2;
+    flex-shrink: 0;
+  }
+  .toast-content {
+    flex: 1;
+    min-width: 0;
+  }
+  .toast-title {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-1);
+    line-height: 1.3;
+    margin-bottom: 3px;
+  }
+  .toast-msg {
+    font-size: 13px;
+    color: var(--text-2);
+    line-height: 1.4;
+  }
+  .toast-close {
+    background: transparent;
+    border: none;
+    color: var(--text-3);
+    cursor: pointer;
+    font-size: 22px;
+    line-height: 1;
+    padding: 0 4px;
+    flex-shrink: 0;
+    transition: color var(--dur-fast) var(--ease);
+  }
+  .toast-close:hover {
+    color: var(--text-1);
+  }
+  @keyframes toastSlideIn {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes toastSlideOut {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+  }
+  @media (max-width: 560px) {
+    .toast {
+      bottom: 16px;
+      right: 16px;
+      left: 16px;
+      max-width: none;
+    }
+  }
+</style>
+
+<script>
+  const modal = document.getElementById("booking-modal") as HTMLDialogElement | null;
+  if (modal) {
+    const closeBtn = modal.querySelector<HTMLButtonElement>("[data-close]");
+    const form = modal.querySelector<HTMLFormElement>("[data-booking-form]");
+    const status = modal.querySelector<HTMLDivElement>("[data-status]");
+    const subjectSelect = modal.querySelector<HTMLSelectElement>("[data-subject]");
+
+    // Open via any element with data-modal="booking"
+    document.querySelectorAll<HTMLElement>('[data-modal="booking"]').forEach((trigger) => {
+      trigger.addEventListener("click", (e) => {
+        e.preventDefault();
+        // Pre-select subject if data-subject attribute present
+        const subj = trigger.getAttribute("data-subject");
+        if (subj && subjectSelect) {
+          subjectSelect.value = subj;
+        }
+        modal.showModal();
+        document.body.style.overflow = "hidden";
+      });
+    });
+
+    closeBtn?.addEventListener("click", () => modal.close());
+
+    // Close on backdrop click
+    modal.addEventListener("click", (e) => {
+      const rect = modal.getBoundingClientRect();
+      const inside =
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right &&
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom;
+      if (!inside) modal.close();
+    });
+
+    modal.addEventListener("close", () => {
+      document.body.style.overflow = "";
+      if (status) {
+        status.className = "form-status";
+        status.textContent = "";
+      }
+      form?.reset();
+    });
+
+    // Toast helpers
+    const toast = document.getElementById("success-toast");
+    const toastClose = toast?.querySelector<HTMLButtonElement>("[data-toast-close]");
+    let toastTimer: number | undefined;
+
+    function showToast() {
+      if (!toast) return;
+      toast.classList.remove("hide");
+      toast.classList.add("show");
+      window.clearTimeout(toastTimer);
+      toastTimer = window.setTimeout(hideToast, 6000);
+    }
+
+    function hideToast() {
+      if (!toast) return;
+      toast.classList.add("hide");
+      window.setTimeout(() => {
+        toast.classList.remove("show", "hide");
+      }, 240);
+    }
+
+    toastClose?.addEventListener("click", hideToast);
+
+    // Track which CTA opened the modal (for analytics in form submission)
+    let lastTriggerSource = "unknown";
+
+    document.querySelectorAll<HTMLElement>('[data-modal="booking"]').forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        lastTriggerSource =
+          trigger.getAttribute("data-source") ||
+          trigger.getAttribute("data-subject") ||
+          trigger.textContent?.trim().slice(0, 40) ||
+          "unknown";
+      });
+    });
+
+    // Collect device/context/visitor metadata for the form submission
+    function collectMetadata() {
+      const nav = navigator;
+      const screen = window.screen;
+      let timezone = "unknown";
+      try {
+        timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || "unknown";
+      } catch (e) {
+        /* ignore */
+      }
+
+      // Visitor + session data from BaseLayout tracking script
+      const visitor = (window as any).__agVisitor || {};
+      const session = (window as any).__agSession || {};
+      const sessionDurationSec = session.start
+        ? Math.round((Date.now() - session.start) / 1000)
+        : 0;
+      const visitorAgeDays = visitor.firstVisit
+        ? Math.round((Date.now() - visitor.firstVisit) / (1000 * 60 * 60 * 24))
+        : 0;
+
+      return {
+        // Source / context
+        _source: lastTriggerSource,
+        _page_url: window.location.href,
+        _page_path: window.location.pathname,
+        _referrer: document.referrer || "(direct)",
+        _timestamp: new Date().toISOString(),
+
+        // Visitor (returning user data — anonymous)
+        _visitor_id: visitor.id || "first-visit",
+        _visitor_total_visits: String(visitor.totalVisits || 1),
+        _visitor_first_visit: visitor.firstVisit
+          ? new Date(visitor.firstVisit).toISOString()
+          : "first-visit",
+        _visitor_age_days: String(visitorAgeDays),
+        _visitor_returning: (visitor.totalVisits || 1) > 1 ? "yes" : "no",
+
+        // UTM (campaign tracking — if URL had params)
+        _utm_source: visitor.utm_source || "(none)",
+        _utm_medium: visitor.utm_medium || "(none)",
+        _utm_campaign: visitor.utm_campaign || "(none)",
+
+        // Session (current visit)
+        _session_duration_sec: String(sessionDurationSec),
+        _session_pages: (session.pagesViewed || []).join(","),
+        _session_pages_count: String((session.pagesViewed || []).length),
+
+        // Device
+        _user_agent: nav.userAgent,
+        _platform: (nav as any).userAgentData?.platform || nav.platform || "unknown",
+        _language: nav.language || "unknown",
+        _languages: (nav.languages || []).slice(0, 3).join(","),
+        _timezone: timezone,
+        _screen: `${screen.width}x${screen.height}`,
+        _viewport: `${window.innerWidth}x${window.innerHeight}`,
+        _device_pixel_ratio: String(window.devicePixelRatio || 1),
+        _color_scheme: window.matchMedia?.("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light",
+      };
+    }
+
+    // Async form submit (Formspree-compatible)
+    form?.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (!status) return;
+      status.className = "form-status";
+      status.textContent = "Надсилаю...";
+      status.style.display = "block";
+
+      const data = new FormData(form);
+
+      // Append device/context metadata as additional fields
+      const meta = collectMetadata();
+      Object.entries(meta).forEach(([key, value]) => {
+        data.append(key, value);
+      });
+
+      try {
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: data,
+          headers: { Accept: "application/json" },
+        });
+        if (res.ok) {
+          form.reset();
+          modal.close();
+          showToast();
+        } else {
+          throw new Error(`Status ${res.status}`);
+        }
+      } catch (err) {
+        status.className = "form-status error";
+        status.textContent = "Не вдалось відправити. Напишіть напряму на email — він знизу форми.";
+      }
+    });
+  }
+</script>

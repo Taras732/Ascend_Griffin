@@ -2,63 +2,248 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
+import { site } from "../data/site";
+
+const lastUpdated = "25 квітня 2026";
 ---
 
-<BaseLayout title="Terms of Service — Ascend Griffin" description="Terms of service for ascendgriffin.org">
+<BaseLayout
+  title={`Умови використання — ${site.name}`}
+  description="Умови використання сайту і послуг Ascend Griffin."
+>
   <Nav />
   <main class="legal">
-    <div class="site-container">
-      <h1>Terms of Service</h1>
-      <p class="muted">Остання редакція: 2026-04-22 · <strong>Draft — потребує правової перевірки.</strong></p>
+    <div class="site-container legal-container">
+      <header class="legal-header">
+        <p class="legal-eyebrow">Юридична інформація</p>
+        <h1>Умови використання</h1>
+        <p class="legal-meta">Чинна з {lastUpdated} · {site.name} · {site.city}</p>
+      </header>
 
-      <h2>1. Про сайт</h2>
-      <p>ascendgriffin.org — інформаційний сайт практики Ascend Griffin (Тарас Смалюх). Не є публічною офертою. Усі engagement-и оформляються індивідуальним SOW.</p>
+      <section class="legal-section">
+        <h2>1. Загальні положення</h2>
+        <p>
+          Ці Умови використання регулюють відносини між <strong>{site.name}</strong> (надалі —
+          «практика»), що належить ФОП {site.founder} ({site.city}, Україна), і відвідувачами
+          сайту <a href={site.url}>{site.domain}</a> та потенційними клієнтами практики.
+        </p>
+        <p>
+          Використовуючи Сайт або зв'язуючись з нами, ви підтверджуєте, що ознайомилися з цими
+          Умовами і погоджуєтеся з ними.
+        </p>
+      </section>
 
-      <h2>2. Discovery Call</h2>
-      <p>30-хвилинний безкоштовний дзвінок — без обов'язків обох сторін. 50% дзвінків можуть закінчитися висновком «не fit» — і це нормальна практика.</p>
+      <section class="legal-section">
+        <h2>2. Призначення Сайту</h2>
+        <p>
+          Сайт ascendgriffin.org є інформаційним ресурсом практики. Інформація, представлена
+          на Сайті, носить ознайомчий характер і <strong>не є публічною офертою</strong> у розумінні
+          статті 641 Цивільного кодексу України. Конкретні умови співпраці визначаються у
+          індивідуальному договорі або сервісній угоді.
+        </p>
+      </section>
 
-      <h2>3. Платні послуги</h2>
-      <p>Pricing, scope, terms і guarantees описані у кожному окремому SOW перед підписанням. Стандартні умови: 50% prepay, 50% після delivery review.</p>
+      <section class="legal-section">
+        <h2>3. Знайомство (безкоштовна консультація)</h2>
+        <p>
+          Перший дзвінок-знайомство тривалістю до 30 хвилин надається безкоштовно і не створює
+          жодних зобов'язань для жодної зі сторін. Метою є обговорення вашого контексту та
+          визначення, чи можемо бути взаємно корисними.
+        </p>
+      </section>
 
-      <h2>4. Гарантії</h2>
-      <p>Deliverable, що матчить SOW, — гарантований. Business outcome — не гарантується. Деталі у section FAQ #8 на головній сторінці.</p>
+      <section class="legal-section">
+        <h2>4. Платні послуги</h2>
+        <p>
+          Усі платні послуги (Аудит, Дослідження, Супровід проекту) надаються на підставі
+          індивідуального письмового договору або сервісної угоди, в якій визначаються:
+        </p>
+        <ul>
+          <li>Обсяг робіт і очікувані результати</li>
+          <li>Строки виконання</li>
+          <li>Вартість і порядок оплати</li>
+          <li>Гарантії і умови перегляду</li>
+          <li>Умови припинення співпраці</li>
+        </ul>
+        <p>
+          Вказані на Сайті ціни є орієнтовними і можуть змінюватися залежно від обсягу і
+          складності конкретного проекту.
+        </p>
+      </section>
 
-      <h2>5. Відповідальність</h2>
-      <p>Практика не несе відповідальність за business decisions, прийняті клієнтом. Практика несе accountability за якість deliverable в межах підписаного SOW.</p>
+      <section class="legal-section">
+        <h2>5. Гарантії та обмеження відповідальності</h2>
+        <p>
+          <strong>Якість виконання робіт</strong> (аналізу, плану, документації) — гарантована
+          в межах підписаного договору. У разі невідповідності результату узгодженим вимогам —
+          доопрацювання здійснюється безкоштовно.
+        </p>
+        <p>
+          <strong>Бізнес-результати</strong> (зростання продажів, успішний запуск продукту,
+          залучення інвестицій тощо) — не гарантуються, оскільки залежать від багатьох зовнішніх
+          чинників: ринку, дій конкурентів, рішень керівництва клієнта, загальних обставин.
+        </p>
+        <p>
+          Практика не несе відповідальності за:
+        </p>
+        <ul>
+          <li>Бізнес-рішення, прийняті клієнтом на основі наданих рекомендацій</li>
+          <li>Дії або бездіяльність третіх сторін (підрядників, виконавців, постачальників)</li>
+          <li>Зміни ринкової кон'юнктури або законодавства після надання послуги</li>
+          <li>Технічні збої сторонніх сервісів (хостинг, платіжні системи)</li>
+        </ul>
+      </section>
 
-      <h2>6. Інтелектуальна власність</h2>
-      <p>Deliverables, створені у межах engagement, належать клієнту після повної оплати. Methodology, playbooks, internal tools — залишаються IP Ascend Griffin.</p>
+      <section class="legal-section">
+        <h2>6. Інтелектуальна власність</h2>
+        <p>
+          <strong>Контент Сайту</strong> (тексти, дизайн, логотипи, бренд) є інтелектуальною
+          власністю практики. Його копіювання та розповсюдження без письмового дозволу заборонено.
+        </p>
+        <p>
+          <strong>Результати робіт</strong> (документація, аналізи, плани), створені у межах
+          підписаного договору, переходять у власність клієнта після повної оплати, якщо інше
+          не передбачене договором.
+        </p>
+        <p>
+          <strong>Методології, шаблони, внутрішні інструменти</strong>, що використовуються
+          практикою для виконання робіт, залишаються інтелектуальною власністю Ascend Griffin
+          і не передаються клієнту.
+        </p>
+      </section>
 
-      <h2>7. Вирішення суперечок</h2>
-      <p>Застосовується законодавство України. Місце розгляду — Львів. Спочатку — обов'язкова спроба mediation.</p>
+      <section class="legal-section">
+        <h2>7. Конфіденційність</h2>
+        <p>
+          Уся інформація, отримана від клієнта в процесі співпраці, є конфіденційною. Перед
+          детальним обговоренням ми готові підписати взаємний договір про нерозголошення (NDA).
+          Деталі обробки персональних даних — у
+          <a href="/privacy">Політиці конфіденційності</a>.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>8. Порядок оплати</h2>
+        <p>
+          Усі розрахунки за надані послуги проводяться відповідно до умов підписаного договору.
+          Стандартні умови — 50% передоплата і 50% після завершення робіт. Оплата здійснюється
+          у безготівковій формі на банківський рахунок ФОП.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>9. Вирішення спорів</h2>
+        <p>
+          У разі виникнення спорів сторони зобов'язуються спочатку вирішити їх шляхом переговорів.
+          Якщо досягти згоди не вдається — спір передається на розгляд відповідного судового
+          органу за місцем реєстрації виконавця ({site.city}, Україна) згідно з чинним
+          законодавством України.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>10. Зміни до Умов</h2>
+        <p>
+          Ми залишаємо за собою право змінювати ці Умови. Чинна редакція завжди публікується
+          на цій сторінці з датою оновлення. Зміни не мають зворотної дії і не впливають на
+          вже укладені договори.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>11. Контакти</h2>
+        <ul class="contact-list">
+          <li><strong>Email:</strong> <a href={`mailto:${site.email}`}>{site.email}</a></li>
+          <li><strong>LinkedIn:</strong> <a href={site.linkedin} target="_blank" rel="noopener">linkedin.com/in/taras732</a></li>
+          <li><strong>Адреса:</strong> {site.city}</li>
+        </ul>
+      </section>
     </div>
   </main>
   <Footer />
 </BaseLayout>
 
 <style>
-  .legal { padding: 80px 0 96px; min-height: 60vh; }
+  .legal {
+    padding: 80px 0 96px;
+    min-height: 60vh;
+    background: var(--bg-0);
+  }
+  .legal-container {
+    max-width: 780px;
+  }
+  .legal-header {
+    margin-bottom: 56px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border-1);
+  }
+  .legal-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-pressed);
+    margin: 0 0 12px;
+  }
   .legal h1 {
     font-family: var(--font-display);
-    font-size: clamp(28px, 4vw, 44px);
+    font-size: clamp(32px, 4.5vw, 44px);
     font-weight: 800;
     letter-spacing: -0.025em;
     color: var(--text-1);
-    margin: 0 0 16px;
+    margin: 0 0 12px;
+    line-height: 1.15;
+  }
+  .legal-meta {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--text-3);
+    margin: 0;
+  }
+  .legal-section {
+    margin-bottom: 48px;
   }
   .legal h2 {
     font-family: var(--font-display);
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 700;
+    letter-spacing: -0.015em;
     color: var(--text-1);
-    margin: 36px 0 12px;
+    margin: 0 0 16px;
+    line-height: 1.3;
   }
-  .legal p {
+  .legal p,
+  .legal ul {
     font-size: 15px;
-    line-height: 1.65;
+    line-height: 1.7;
     color: var(--text-2);
-    max-width: 68ch;
-    margin: 0 0 12px;
+    margin: 0 0 14px;
   }
-  .muted { font-family: var(--font-mono); font-size: 12px; color: var(--text-3); }
+  .legal ul {
+    padding-left: 22px;
+  }
+  .legal li {
+    margin-bottom: 8px;
+  }
+  .legal strong {
+    color: var(--text-1);
+    font-weight: 600;
+  }
+  .legal a {
+    color: var(--accent-pressed);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color var(--dur-fast) var(--ease);
+  }
+  .legal a:hover {
+    color: var(--accent);
+  }
+  .contact-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  .contact-list li {
+    margin-bottom: 6px;
+  }
 </style>

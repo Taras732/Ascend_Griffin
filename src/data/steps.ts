@@ -1,7 +1,10 @@
-// How it works — 4-step process (see Tech_Spec §6.6)
+// 4-step process — value/clarity-focused
+// No money/commitment talk in body. Focus on what client gets at each step.
+
 export interface Step {
   num: string;
   title: string;
+  tagline: string;
   duration: string;
   body: string;
 }
@@ -9,26 +12,30 @@ export interface Step {
 export const steps: Step[] = [
   {
     num: "01",
-    title: "Discovery Call",
-    duration: "30 min · free · via Cal.com",
-    body: "Я розумію ваш контекст. Ви розумієте fit. 50% дзвінків закінчуються «ми не fit» — і це здорово: я рекомендую іншого. Якщо fit — йдемо до scoping.",
+    title: "Знайомство",
+    tagline: "Розуміємо ваш проект і контекст",
+    duration: "30 хв · онлайн",
+    body: "Перший дзвінок — щоб зрозуміти, що саме ви будуєте, на якій ви стадії і де я можу бути найкорисніший. Після нашої розмови беру кілька днів, щоб проаналізувати ваш ринок, напрямок і потенційні можливості.",
   },
   {
     num: "02",
-    title: "Scoping Call",
-    duration: "30-45 min · free",
-    body: "Глибше у scope: які deliverables, хто stakeholder, який timeline, який budget range. Прямо питаю про бюджет — менше surprises потім. Виходимо з ясним «ок, пишу proposal» або «не fit, ось альтернатива».",
+    title: "Аналіз і план",
+    tagline: "Повертаюсь з конкретним планом дій",
+    duration: "1 година · онлайн",
+    body: "На другому дзвінку повертаюсь з результатами аналізу і попереднім планом — можливі формати співпраці, обсяг роботи, очікувані результати, що варто врахувати. Разом обговорюємо, що найкраще працює для вашої ситуації.",
   },
   {
     num: "03",
-    title: "Proposal + SOW",
+    title: "Пропозиція",
+    tagline: "Конкретна угода під ваші потреби",
     duration: "1-3 робочих дні",
-    body: "1-2 сторінки максимум: проблема, scope, process, інвестиція (одна цифра), що НЕ входить, next step. 50% prepay стандарт. Для Full-Cycle — sleep-on-it 48 год обов'язковий перед підписанням.",
+    body: "Готую пропозицію з варіантами співпраці — обсяг роботи, послідовність кроків, очікувані результати, що входить до кожного варіанту. Ви обираєте формат, який підходить саме вашій ситуації.",
   },
   {
     num: "04",
-    title: "Delivery + Handover",
-    duration: "SOW-dependent",
-    body: "Weekly check-ins, kick-off на Day 1, mid-project demo. Delivery: solution + playbook, який ви можете використати без мене. Upsell розмова у кінці — без тиску; якщо не fit на retainer, прошу case study + 2-3 referral.",
+    title: "Робота і результат",
+    tagline: "Ваш проект — на правильному шляху",
+    duration: "залежить від обсягу",
+    body: "Старт у перший день. Регулярні зустрічі для синхронізації — щоб ви завжди розуміли, де ми і куди йдемо. У фінал — рішення, яке реально працює для вашого бізнесу, і ясне розуміння наступних кроків.",
   },
 ];

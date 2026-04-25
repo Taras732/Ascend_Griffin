@@ -7,7 +7,6 @@ import { site } from "../data/site";
     <div class="footer-grid">
       <div class="footer-col">
         <div class="footer-brand">
-          <img src="/logo/ag-symbol-primary.jpg" alt="" width="28" height="28" />
           <span class="footer-brand-name">{site.name}</span>
         </div>
         <p class="footer-tag">{site.footerTagline}</p>
@@ -15,13 +14,11 @@ import { site } from "../data/site";
       </div>
 
       <div class="footer-col">
-        <h5>Послуги</h5>
+        <h5>Формати</h5>
         <ul>
-          <li><a href="#services">Vendor Audit</a></li>
-          <li><a href="#services">AI Workflow Audit</a></li>
-          <li><a href="#services">Discovery Sprint</a></li>
-          <li><a href="#services">Fractional PO</a></li>
-          <li><a href="#services">Full-Cycle Engagement</a></li>
+          <li><a href="#package-audit">Аудит</a></li>
+          <li><a href="#package-discovery">Дослідження</a></li>
+          <li><a href="#package-support">Супровід проекту</a></li>
         </ul>
       </div>
 
@@ -30,7 +27,7 @@ import { site } from "../data/site";
         <ul>
           <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
           <li><a href={site.linkedin} target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href={site.calcom}>Discovery Call</a></li>
+          <li><a href="#book" data-modal="booking" data-subject="discovery-call" data-source="footer">Discovery Call</a></li>
         </ul>
       </div>
 

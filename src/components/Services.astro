@@ -1,28 +1,23 @@
 ---
-import { services, capacityNote } from "../data/services";
-
-const row1 = services.filter((s) => s.row === 1);
-const row2 = services.filter((s) => s.row === 2);
+import { services } from "../data/services";
 ---
 
 <section class="section services-section" id="services">
   <div class="site-container">
     <div class="section-head">
-      <div class="section-num">04 · Послуги</div>
+      <div class="section-num">04 · Формати</div>
       <div class="section-head-body">
-        <h2>П'ять tier-ів. <em>Одна accountability</em>.</h2>
+        <h2>Три формати — залежно від <em>вашої стадії</em>.</h2>
         <p class="lede">
-          Ladder від $3K аудиту до $150K full-cycle engagement. Tier 1-3 — advisor mode.
-          Tier 4 — full-cycle delivery з battle-tested командою.
+          Залежно від задачі і стадії проекту — можливі різні формати роботи. Кожен з чітким результатом і прозорим процесом.
         </p>
       </div>
     </div>
 
-    <div class="services-row services-row-1">
-      {row1.map((s) => (
-        <article class={`service ${s.featured === "primary" ? "featured-primary" : ""}`}>
-          {s.featured === "primary" && <div class="service-badge">Flagship</div>}
-          <div class="service-tier">{s.tier}</div>
+    <div class="services-grid">
+      {services.map((s) => (
+        <article class="service" id={`package-${s.id}`}>
+          <div class="service-num">{s.num}</div>
           <h3 class="service-name">{s.name}</h3>
           <p class="service-hook">{s.hook}</p>
           <div class="service-price">{s.price}</div>
@@ -30,45 +25,23 @@ const row2 = services.filter((s) => s.row === 2);
           <ul class="service-features">
             {s.features.map((f) => <li>{f}</li>)}
           </ul>
-          <a href={s.ctaHref} class={`${s.featured ? "btn-primary" : "btn-secondary"} btn-full`}>
+          <a href="#book" data-modal="booking" data-subject={s.id} data-source={`service-${s.id}`} class="btn-secondary btn-full service-cta">
             {s.cta} <span aria-hidden="true">→</span>
           </a>
         </article>
       ))}
     </div>
-
-    <div class="services-row services-row-2">
-      {row2.map((s) => (
-        <article class={`service ${s.featured === "secondary" ? "featured-secondary" : ""}`}>
-          {s.featured === "secondary" && <div class="service-badge">Full-Cycle</div>}
-          <div class="service-tier">{s.tier}</div>
-          <h3 class="service-name">{s.name}</h3>
-          <p class="service-hook">{s.hook}</p>
-          <div class="service-price">{s.price}</div>
-          <div class="service-price-note">{s.priceNote}</div>
-          <ul class="service-features">
-            {s.features.map((f) => <li>{f}</li>)}
-          </ul>
-          <a href={s.ctaHref} class={`${s.featured ? "btn-primary" : "btn-secondary"} btn-full`}>
-            {s.cta} <span aria-hidden="true">→</span>
-          </a>
-        </article>
-      ))}
-    </div>
-
-    <p class="services-note">{capacityNote}</p>
   </div>
 </section>
 
 <style>
-  .services-row {
+  .services-grid {
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 0;
     border-left: 1px solid var(--border-1);
     border-top: 1px solid var(--border-1);
   }
-  .services-row-1 { grid-template-columns: repeat(3, 1fr); }
-  .services-row-2 { grid-template-columns: repeat(2, 1fr); }
   .service {
     padding: 36px 28px 32px;
     background: var(--bg-0);
@@ -76,73 +49,59 @@ const row2 = services.filter((s) => s.row === 2);
     border-bottom: 1px solid var(--border-1);
     display: flex;
     flex-direction: column;
-    min-height: 460px;
+    min-height: 500px;
     position: relative;
+    transition: transform var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease), background var(--dur-base) var(--ease);
   }
-  .service.featured-primary {
-    background: var(--bg-ink);
-    color: var(--text-on-ink);
+  /* Hover state — editorial accent reveals on hover (Brand Book v3 style) */
+  .service:hover {
+    transform: translateY(-3px);
+    background: var(--bg-1);
+    box-shadow: inset 0 3px 0 0 var(--accent), var(--shadow-md);
+    z-index: 1;
   }
-  .service.featured-secondary {
-    background: var(--bg-2);
-    border-right-color: var(--border-2);
+  .service:hover .service-num {
+    color: var(--accent-pressed);
   }
-  .service.featured-primary .service-name,
-  .service.featured-primary .service-price {
-    color: var(--text-on-ink);
+  /* CTA button transforms to gold on card hover */
+  .service-cta {
+    transition: background var(--dur-base) var(--ease), color var(--dur-base) var(--ease), border-color var(--dur-base) var(--ease);
   }
-  .service.featured-primary .service-hook,
-  .service.featured-primary .service-features li {
-    color: rgba(250,250,250,.72);
-  }
-  .service.featured-primary .service-tier {
-    color: var(--accent);
-  }
-  .service.featured-primary .service-price-note {
-    color: rgba(250,250,250,.52);
-  }
-  .service.featured-primary .service-features li::before { color: var(--accent); }
-  .service-badge {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+  .service:hover .service-cta {
     background: var(--accent);
     color: var(--accent-ink);
-    padding: 4px 8px;
-    border-radius: 2px;
-    font-weight: 700;
+    border-color: var(--accent);
   }
-  .service-tier {
+  .service:hover .service-cta:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+  }
+  .service-num {
     font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.14em;
     color: var(--text-3);
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
   .service-name {
     font-family: var(--font-display);
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 700;
     letter-spacing: -0.015em;
     color: var(--text-1);
-    margin: 0 0 10px;
+    margin: 0 0 12px;
     line-height: 1.2;
   }
   .service-hook {
-    font-size: 13.5px;
+    font-size: 14px;
     line-height: 1.55;
     color: var(--text-2);
-    margin: 0 0 24px;
-    min-height: 62px;
+    margin: 0 0 26px;
+    min-height: 66px;
   }
   .service-price {
     font-family: var(--font-display);
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 800;
     letter-spacing: -0.02em;
     color: var(--text-1);
@@ -152,11 +111,11 @@ const row2 = services.filter((s) => s.row === 2);
   .service-price-note {
     font-family: var(--font-mono);
     font-size: 10px;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--text-3);
-    margin-top: 6px;
-    margin-bottom: 24px;
+    margin-top: 8px;
+    margin-bottom: 26px;
   }
   .service-features {
     list-style: none;
@@ -170,7 +129,7 @@ const row2 = services.filter((s) => s.row === 2);
     font-size: 13px;
     line-height: 1.55;
     color: var(--text-2);
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
   .service-features li::before {
     content: "✓";
@@ -180,24 +139,8 @@ const row2 = services.filter((s) => s.row === 2);
     font-weight: 700;
     font-family: var(--font-mono);
   }
-  .services-note {
-    margin: 32px auto 0;
-    max-width: 68ch;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--text-3);
-    text-align: center;
-    font-style: italic;
-    line-height: 1.55;
-  }
   @media (max-width: 960px) {
-    .services-row-1 { grid-template-columns: repeat(2, 1fr); }
-    .services-row-1 .service:last-child { grid-column: 1 / -1; }
-  }
-  @media (max-width: 640px) {
-    .services-row-1,
-    .services-row-2 { grid-template-columns: 1fr; }
-    .services-row-1 .service:last-child { grid-column: auto; }
+    .services-grid { grid-template-columns: 1fr; }
     .service { min-height: auto; }
   }
 </style>

@@ -27,7 +27,7 @@ import { stats } from "../data/stats";
     max-width: var(--container);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
   .stat {
     padding: 32px 24px;
@@ -58,11 +58,9 @@ import { stats } from "../data/stats";
     line-height: 1.4;
   }
   @media (max-width: 860px) {
-    .stats-grid { grid-template-columns: repeat(2, 1fr); }
-    .stat:nth-child(2) { border-right: 0; }
-    .stat:nth-child(1), .stat:nth-child(2) {
-      border-bottom: 1px solid var(--border-1);
-    }
+    .stats-grid { grid-template-columns: 1fr; }
+    .stat { border-right: 0; border-bottom: 1px solid var(--border-1); }
+    .stat:last-child { border-bottom: 0; }
   }
   @media (max-width: 480px) {
     .stat { padding: 24px 20px; }

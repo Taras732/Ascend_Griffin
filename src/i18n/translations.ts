@@ -6,24 +6,24 @@ export type Locale = "en" | "uk";
 export const translations = {
   en: {
     site: {
-      eyebrow: "IT support from idea to result",
+      eyebrow: "Strategic IT guidance — from idea to scale",
       heroH1Html:
-        'Your <em>ally</em> in IT projects,<br>acting exclusively in <em>your interests</em>.',
+        'Your <em>strategic IT partner</em><br>— fully aligned with <em>your business outcomes</em>.',
       heroLede:
-        "Feeling like you're deciding blindly? Unclear terms, conflicting vendor estimates, no data to compare. I take responsibility for the outcome — translating complex into simple, analyzing the market, verifying facts, so your decisions become as effective as possible.",
-      heroCtaPrimary: "Discovery Call",
-      heroCtaSecondary: "How it works →",
+        "Tired of making big IT decisions blind? Vendor pitches that don't add up. Technical jargon you can't verify. Numbers without context. I cut through it — translating tech-speak into business decisions, vetting vendors honestly, surfacing the data you need to choose with confidence.",
+      heroCtaPrimary: "Book Discovery Call",
+      heroCtaSecondary: "See how it works →",
       heroMicro: "",
 
-      ctaEyebrow: "NEXT STEP",
-      ctaH2Html: "A 30-minute <em>meeting</em>.",
-      ctaLede: "Free. No slides. Just a conversation about your project.",
-      ctaPrimary: "Discovery Call",
+      ctaEyebrow: "READY TO TALK?",
+      ctaH2Html: "Let's talk for <em>30 minutes</em>.",
+      ctaLede: "Free. No slides. Just a real conversation about your project.",
+      ctaPrimary: "Book Discovery Call",
       ctaAlt: "Or follow my work on LinkedIn",
       ctaSig: "— Taras Smaliukh · Lviv, Ukraine",
 
       nav: [
-        { label: "Formats", href: "#services" },
+        { label: "Services", href: "#services" },
         { label: "Cases", href: "#why" },
         { label: "Process", href: "#how" },
         { label: "FAQ", href: "#faq" },
@@ -31,18 +31,18 @@ export const translations = {
 
       seo: {
         title:
-          "Ascend Griffin — IT support from idea to result | your ally in projects",
+          "Ascend Griffin — Strategic IT Partner for Founders & Startups",
         description:
-          "Independent advisor on your side for IT projects: from idea validation to scaling and optimization of existing products. Audit, Discovery, ongoing Support — for startups and businesses.",
+          "Independent strategic IT advisor for startup founders and growing teams. Vendor audits, discovery sprints, fractional product leadership — from idea to scale. Lviv, Ukraine.",
         keywords:
-          "IT advisor, fractional product owner, vibe coding consultant, startup advisor, MVP validation, AI tools, product discovery, founder ally, audit IT contract",
+          "fractional CTO, fractional product owner, startup IT advisor, vendor evaluation, discovery sprint, MVP validation, AI startup consultant, vibe coding strategy, IT project audit",
         ogImage: "/og-image.png",
         locale: "en_US",
       },
 
       footerTagline:
-        "IT support from idea to result. Ally on your side in IT projects — from idea validation to scaling and optimization.",
-      footerServicesH: "Formats",
+        "Strategic IT guidance from idea to scale. An independent partner — vetting vendors, validating ideas, leading projects to outcomes that actually move the business.",
+      footerServicesH: "Services",
       footerConnectH: "Connect",
       footerLegalH: "Legal",
       footerCV: "CV / Portfolio",
@@ -53,65 +53,65 @@ export const translations = {
       {
         value: "$30-80K",
         valueHtml: "<em>$30-80K</em>",
-        label: "Typical first IT contract. Easy to overpay 2x at this level",
+        label: "Typical first IT contract. Most founders overpay by 2x at this level",
       },
       {
         value: "35-70%",
         valueHtml: "<em>35-70%</em>",
-        label: "Less wasteful spending with quality planning and clear processes",
+        label: "Cost reduction when projects start with proper planning and clear scope",
       },
       {
         value: "23+",
         valueHtml: "<em>23+</em>",
-        label: "IT projects of experience — your project won't be an experiment",
+        label: "IT projects shipped — you won't be my learning curve",
       },
     ],
 
     problemSection: {
-      num: "03 · Result",
-      h2Html: "Four paths to <em>the result</em>.",
+      num: "03 · Approach",
+      h2Html: "Four ways I <em>drive your project forward</em>.",
       lede:
-        "Each stage of your project has its own context and matching outcome. Here are four scenarios I work with — from validating an idea to scaling and optimizing existing products.",
+        "Different stages need different support. Here's how I plug in — and what you walk away with.",
     },
 
     problems: [
       {
         icon: "lightbulb",
-        title: "Startup — from idea to validated hypothesis",
+        title: "Idea stage — concept to validated hypothesis",
         description:
-          "I turn your idea into a tested hypothesis with a concrete prototype plan. Mapping the market, surfacing critical assumptions, picking the right AI tools for fast prototyping. The output: a clear «move forward» or «pivot direction» based on facts, not guesses.",
+          "I turn your idea into a tested hypothesis with a concrete prototype plan. Mapping the market, surfacing critical assumptions, picking the right AI tools for fast prototyping. You walk away with a clear go/pivot decision — based on evidence, not gut feel.",
         steps: [
-          "Market research and competitor analysis",
-          "Validation of key hypotheses",
+          "Market and competitive landscape analysis",
+          "Critical hypothesis validation",
           "Prototype plan with AI tool selection",
-          "Criteria for «move forward» vs «change direction»",
+          "Clear go-forward vs pivot criteria",
         ],
         packageId: "discovery",
         packageLabel: "Discovery",
       },
       {
         icon: "rocket",
-        title: "From MVP to scaling and investment",
+        title: "MVP to scale — ready for users and investors",
         description:
-          "Your MVP (Cursor / v0 / Lovable / Claude) has its first users — time to convert it from experiment to business. I structure customer discovery, prepare investor-grade metrics, plan scaling. If you're preparing for a round or crowdfunding, you'll have the data that convinces investors and audience.",
+          "Your MVP (Cursor / v0 / Lovable / Claude) has first users — time to turn it into a real business. I structure customer discovery, prepare investor-grade metrics, plan the scale. Heading into a fundraise or crowdfunding round? You'll walk in with data that closes deals.",
         steps: [
           "Customer discovery and analytics setup",
-          "Investor-ready metrics and pitch preparation",
+          "Investor-ready metrics and pitch prep",
           "90-day scaling roadmap",
-          "Transition to a stable production version — when truly needed",
+          "Transition to production-grade stack — when it actually matters",
         ],
         packageId: "support",
         packageLabel: "Project Support",
       },
       {
         icon: "compass",
-        title: "Full build from scratch — with the right vendor",
+        title: "First major build — choose the right vendor with confidence",
         description:
-          "You're ready to commission full-scale development and need to choose the right contractor. I run the analysis: business model and profitability, functional requirements, budget and timeline estimate, vendor evaluation. The output: a document package you sign your contract with — informed and at a fair price.",
+          "Ready to commission full-scale development and need to pick the right team. I run the analysis: business model and unit economics, functional requirements, realistic budget and timeline, vendor evaluation. You walk into negotiations with a document package — and walk out with a contract that's actually fair.",
         steps: [
-          "Business model and profitability analysis",
+          "Business model and unit economics review",
           "Functional requirements, budget and timeline estimate",
-          "Vendor evaluation and shortlist of best teams",
+          "Vendor evaluation and shortlist of vetted teams",
           "Delivery oversight through launch",
         ],
         packageId: "discovery",
@@ -119,27 +119,27 @@ export const translations = {
       },
       {
         icon: "refresh-cw",
-        title: "Existing product not delivering as it should",
+        title: "Existing product underperforming — diagnose and turn it around",
         description:
-          "The product is in production but stopped delivering — the market shifted, the product aged, timelines slipping, vendor issues. You need an outside view and a plan: modernize, rebuild, or pivot the business direction.",
+          "Product is in production but the numbers stopped working — market shifted, product aged, timelines slipping, vendor underdelivering. You need an outside read and a clear plan: modernize, rebuild, or pivot the business direction entirely.",
         steps: [
-          "Technical audit and debt assessment",
-          "Market audit and new opportunities",
-          "Organizational audit and processes",
-          "Action plan with predicted outcomes",
+          "Technical audit and tech-debt assessment",
+          "Market audit and growth opportunities",
+          "Organizational and process audit",
+          "Action plan with projected outcomes",
         ],
         packageId: "audit",
         packageLabel: "Audit",
       },
     ],
 
-    problemFooter: "Recommended format:",
+    problemFooter: "Recommended package:",
 
     servicesSection: {
-      num: "04 · Formats",
-      h2Html: "Three formats — depending on <em>your stage</em>.",
+      num: "04 · Services",
+      h2Html: "Three packages — pick what fits <em>your stage</em>.",
       lede:
-        "Depending on the task and stage of your project — different work formats are possible. Each with a clear result and transparent process.",
+        "Different stages need different engagements. Every package — clear deliverable, transparent process, fixed scope.",
     },
 
     services: [
@@ -147,204 +147,204 @@ export const translations = {
         id: "audit",
         num: "01",
         name: "Audit",
-        hook: "Expert analysis — when you need an independent opinion before an important decision.",
+        hook: "An expert second opinion before you commit to a major decision.",
         price: "from $500",
         priceNote: "5-14 days",
         features: [
-          "Identified risks, overpayments and weak spots in your decision — with concrete recommendations on what to do",
+          "Risks, overpayments, and weak spots in your decision — with concrete recommendations on what to do about them",
           "Systematic review of your project across key dimensions",
-          "Structured report with conclusions, risks and recommendations",
-          "Personal meeting to discuss results and next steps",
+          "Structured report with findings, risks, and clear next steps",
+          "Personal review meeting to walk through results",
         ],
-        cta: "Order audit",
+        cta: "Request audit",
         ctaHref: "#book",
       },
       {
         id: "discovery",
         num: "02",
         name: "Discovery",
-        hook: "A clear picture — what we build, for how much, with whom — before spending budget.",
+        hook: "Get clarity on what to build, how much it costs, and who should build it — before you spend a dollar.",
         price: "from $4,000",
         priceNote: "2-8 weeks",
         features: [
-          "Clear understanding of what to build and whether there's a market for it — based on analysis, not guesswork",
-          "Ready prototype plan or functional requirements — your team only needs to execute",
-          "Realistic budget and timeline estimate — no unexpected bills later",
-          "List of vendors that fit your project specifically — with real selection criteria",
-          "Ready package for negotiations — with arguments, numbers and technical details",
+          "Clear answer on what to build and whether there's a real market — based on evidence, not guesswork",
+          "Ready prototype plan or functional spec — your team just needs to execute",
+          "Realistic budget and timeline — no surprise invoices later",
+          "Shortlist of vendors that genuinely fit your project — with real selection criteria",
+          "Negotiation pack — arguments, numbers, technical details to win the conversation",
         ],
-        cta: "Book a call",
+        cta: "Book Discovery Call",
         ctaHref: "#book",
       },
       {
         id: "support",
         num: "03",
         name: "Project Support",
-        hook: "Your project under control — from consultations to full leadership with my responsibility for the result.",
+        hook: "From advisor to acting Product Owner — I take ownership of the outcome alongside your team.",
         price: "from $2,500 / month",
-        priceNote: "flexible to your needs",
+        priceNote: "scoped to your needs",
         features: [
-          "Consultations — weekly meetings and quick answers to important questions",
-          "Oversight — review of vendor proposals, participation in key decisions",
+          "Strategic advice — weekly check-ins and fast turnaround on critical questions",
+          "Oversight — vendor proposal reviews, participation in key decisions",
           "Project leadership — from planning to launch, as Product Owner on your side",
-          "Depth of involvement adapts to your current needs",
+          "Depth of involvement scales with your current needs",
         ],
-        cta: "Discuss collaboration",
+        cta: "Explore working together",
         ctaHref: "#book",
       },
     ],
 
     whySection: {
-      num: "05 · Cases",
+      num: "05 · Track Record",
       h2Html: "<em>Numbers</em>, not promises.",
-      lede: "Projects from my practice — with measurable outcomes.",
+      lede: "Real projects. Real numbers. Outcomes that clients could verify.",
     },
 
     pillars: [
       {
         num: "01",
-        title: "Mobile app for an energy provider with 500K+ users",
+        title: "Mobile app for an energy provider — 500K+ users",
         description:
-          "Challenge: fragmented non-digital experience for over 500,000 active users, high support load, no clear product vision.",
+          "Challenge: fragmented non-digital experience for 500K+ active users, overloaded support team, no clear product vision.",
         steps: [
           "Discovery workshops with business and legal stakeholders",
-          "Mapping all customer journeys",
-          "80+ user stories with acceptance criteria",
-          "UX and dev support through release",
+          "Mapped all customer journeys end-to-end",
+          "80+ user stories with crisp acceptance criteria",
+          "UX and dev support all the way to release",
         ],
         result: "Key actions 35% faster · Support calls down 20% · Change requests down 25%",
       },
       {
         num: "02",
-        title: "Recovering a stalled IT project with budget overrun",
+        title: "Rescued a stalled IT project that overran budget",
         description:
-          "Challenge: project over budget and behind schedule. Unclear scope, shifting priorities, broken communication between business and dev team.",
+          "Challenge: project over budget and behind schedule. Unclear scope, shifting priorities, broken comms between business and dev.",
         steps: [
-          "Backlog and current status review",
+          "Backlog and current status audit",
           "Stakeholder interviews",
-          "Restructuring requirements into prioritized backlog",
-          "Phased recovery plan with bottleneck mapping",
+          "Requirements restructured into prioritized backlog",
+          "Phased recovery plan with bottlenecks mapped",
         ],
-        result: "80% of tasks closed in 2 months instead of 3-6 · Change requests down 35% · Costs down 70%",
+        result: "80% of tasks closed in 2 months instead of 3-6 · Change requests down 35% · Costs cut by 70%",
       },
       {
         num: "03",
         title: "B2B SaaS for logistics — from idea to first pilots",
         description:
-          "Challenge: building a startup from scratch. Ukrainian B2B logistics market — conservative enterprise clients, regulated industries, mostly manual processes.",
+          "Challenge: building a startup from scratch in Ukrainian B2B logistics — conservative enterprise buyers, regulated industries, mostly manual processes.",
         steps: [
-          "Discovery: 9+ negotiations with potential partners",
-          "Product strategy, MVP scope and roadmap",
-          "Backlog management and launch support",
+          "Discovery: 9+ conversations with potential partners",
+          "Product strategy, MVP scope, and roadmap",
+          "Backlog ownership and launch support",
           "Strategic partnerships in regulated industries",
         ],
-        result: "Version 1 in real operations · 9+ partnerships · 3+ MoUs signed · Validated ICP & PMF",
+        result: "v1 live in real operations · 9+ partnerships · 3+ MoUs signed · Validated ICP & PMF",
       },
     ],
 
     howSection: {
       num: "06 · Process",
-      h2Html: "Four steps. <em>Simple and clear</em>.",
+      h2Html: "Four steps. <em>Clear and predictable</em>.",
       lede:
-        "Introduction → analysis and plan → proposal → work. At each step you know where we're going and why.",
+        "Discovery call → strategy session → proposal → work. At every step, you know where we're going and why.",
     },
 
     steps: [
       {
         num: "01",
-        title: "Introduction",
-        tagline: "Understanding your project and context",
+        title: "Discovery Call",
+        tagline: "Understand your project and context",
         duration: "30 min · online",
         body:
-          "First call — to understand what you're building, what stage you're at, and where I can be most useful. 30 minutes — enough for both of us to understand whether to move forward. After our conversation I take a few days to analyze your market, direction and potential opportunities.",
+          "First call — to understand what you're building, what stage you're at, and where I can move the needle most. 30 minutes — enough for both of us to know whether to move forward. After our conversation I take a few days to dig into your market, direction, and the opportunities I see.",
       },
       {
         num: "02",
-        title: "Analysis and Plan",
-        tagline: "I return with a concrete action plan",
+        title: "Strategy Session",
+        tagline: "I come back with a concrete action plan",
         duration: "1 hour · online",
         body:
-          "On the second call I come back with analysis results and a preliminary plan — possible collaboration formats, scope of work, expected outcomes, what's worth considering. Together we discuss what works best for your situation.",
+          "On the second call I bring back analysis and a preliminary plan — engagement options, scope, expected outcomes, what to consider. We discuss what fits your situation best.",
       },
       {
         num: "03",
         title: "Proposal",
-        tagline: "Concrete agreement tailored to your needs",
-        duration: "1-3 working days",
+        tagline: "A concrete agreement, tailored to you",
+        duration: "1-3 business days",
         body:
-          "I prepare a 1-2 page proposal with collaboration options — scope of work, sequence of steps, expected outcomes, what's included in each option. You choose the format that fits your specific situation.",
+          "I prepare a 1-2 page proposal with engagement options — scope, sequence of steps, expected outcomes, what's included in each. You pick the format that fits your situation.",
       },
       {
         num: "04",
-        title: "Work and Result",
-        tagline: "Your project — on the right path",
-        duration: "depends on scope",
+        title: "Execution & Handoff",
+        tagline: "Your project — moving in the right direction",
+        duration: "scope-dependent",
         body:
-          "Day-one start. Regular sync meetings — so you always understand where we are and where we're going. At the end — a solution that genuinely works for your business, with clear understanding of next steps.",
+          "Day-one start. Regular sync meetings so you always know where we are and where we're going. At the end — a solution that actually works for your business, with a clear understanding of what comes next.",
       },
     ],
 
     faqSection: {
-      num: "07 · Questions",
-      h2Html: "Frequent <em>questions</em>.",
+      num: "07 · FAQ",
+      h2Html: "Common <em>questions</em>.",
       lede:
-        "Answers to questions that usually come up before the first call. If yours isn't here — ask during introduction.",
+        "Answers to what usually comes up before the first call. If yours isn't here — ask on the discovery call.",
     },
 
     faq: [
       {
-        q: "How do I choose between Audit, Discovery and Support?",
-        a: "If you need a quick independent view on a specific decision — Audit. If you're planning a serious project and need a complete plan — Discovery. If you want a permanent specialist on the business side — Support. On the first call I'll help determine which format suits you specifically.",
+        q: "How do I choose between Audit, Discovery, and Support?",
+        a: "Need a quick independent read on a specific decision? That's the Audit. Planning a serious project and need a complete plan? Discovery. Want a strategic partner who stays on the business side over time? Project Support. We'll figure out the right fit on the discovery call.",
       },
       {
         q: "How quickly can we start working together?",
-        a: "First call — within a week of your request. After it I take a few days to analyze and return with a plan. Actual work start — from a few days (Audit) to 1-2 weeks (Discovery or Support).",
+        a: "First call — within a week of your request. After it I take a few days to analyze and come back with a plan. Actual work starts in days (Audit) or 1-2 weeks (Discovery or Support).",
       },
       {
-        q: "What if the result doesn't match expectations?",
-        a: "I guarantee execution quality — if the result doesn't match what we agreed at the start, I redo it at my expense. If your expectations changed along the way — we discuss plan correction. Transparent on both sides.",
+        q: "What if the result doesn't meet expectations?",
+        a: "I guarantee execution quality — if the result doesn't match what we agreed at the start, I redo it at my expense. If your expectations shifted along the way, we discuss adjusting the plan. Transparent on both sides.",
       },
       {
         q: "Can you guarantee a business outcome?",
-        a: "I guarantee the quality of my work — analysis, plan, execution. The business outcome depends on many factors: market, circumstances, your team's decisions. I maximize impact on the part that depends on me: identifying risks, preparing data for informed decisions, sharing transparently — so you can act on full information.",
+        a: "I guarantee the quality of my work — analysis, plan, execution. The business outcome depends on many factors: market, circumstances, your team's decisions. I maximize impact on the part that depends on me: surfacing risks, preparing data for informed decisions, sharing transparently — so you can act on full information, not assumptions.",
       },
       {
         q: "How do you protect confidential information?",
-        a: "We sign a mutual NDA before detailed discussion. Template sent within 24 hours of request. No project details in my content or communication without your approval.",
+        a: "We sign a mutual NDA before any detailed conversation. Template sent within 24 hours of request. Zero project details in my content or comms without your approval.",
       },
       {
         q: "What language do you work in?",
-        a: "Ukrainian or English — whichever is convenient for you. Documents prepared in client's language. Meeting and communication format agreed at introduction.",
+        a: "English or Ukrainian — whichever works for you. Documentation prepared in the client's language. Meeting and communication format we agree on the discovery call.",
       },
       {
-        q: "Can you recommend vendors or work with my existing team?",
-        a: "Yes, both options. I have a network of verified teams across different domains — I recommend ones that genuinely fit your project. If you already have a team — I work on your side in negotiations and ongoing support.",
+        q: "Can you recommend vendors, or work with my existing team?",
+        a: "Both. I have a network of vetted teams across domains — I recommend the ones that genuinely fit your project. If you already have a team, I work on your side in vendor negotiations and ongoing support.",
       },
       {
-        q: "What happens after I complete the work?",
-        a: "The result — concrete things that stay with you: clear understanding of next steps, complete documentation for your team's continued work, and additional insights from deeper analysis. Often these additional findings turn out to be the most valuable — they're only visible from inside the project and give you an edge for future decisions.",
+        q: "What do I get when the engagement ends?",
+        a: "Concrete things that stay with you: a clear roadmap of next steps, complete documentation your team can run with, and the additional insights I uncovered along the way. Those extras often turn out to be the most valuable — they're only visible from inside the project and give you an edge for future decisions.",
       },
     ],
 
     booking: {
-      eyebrow: "NEXT STEP",
-      title: "Leave a request",
+      eyebrow: "GET IN TOUCH",
+      title: "Send a message",
       sub:
-        "I'll get back to you within 24 hours — to schedule introduction or discuss your inquiry.",
+        "I'll get back to you within 24 hours — to schedule a discovery call or discuss your inquiry.",
       labelName: "Name",
       labelEmail: "Email",
-      labelSubject: "What interests you",
-      labelMessage: "Tell us briefly about your project",
+      labelSubject: "What's this about",
+      labelMessage: "Tell me a bit about your project",
       messagePlaceholder: "What stage are you at? What's your context? (optional)",
       reqLabel: "*",
       submit: "Send",
       submitSending: "Sending...",
-      noteOr: "Or write directly:",
-      successToastTitle: "Thanks for the request!",
-      successToastMsg: "I'll get back to you within 24 hours.",
-      errorMsg: "Couldn't send. Write directly to email — it's below the form.",
+      noteOr: "Or email directly:",
+      successToastTitle: "Got it. Talk soon.",
+      successToastMsg: "I'll be in touch within 24 hours.",
+      errorMsg: "Something went wrong. Please email me directly — address is below the form.",
       subjectOptions: [
-        { value: "discovery-call", label: "Introduction (Discovery Call)" },
+        { value: "discovery-call", label: "Discovery Call" },
         { value: "audit", label: "Audit — focused analysis" },
         { value: "discovery", label: "Discovery — full plan" },
         { value: "support", label: "Project Support" },

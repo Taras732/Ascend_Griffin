@@ -11,6 +11,13 @@ export const site = {
   linkedin: "https://www.linkedin.com/in/taras732/",
   calcom: "https://cal.com/taras-smaliukh/discovery-30min",
 
+  // Direct contact channels (used in BookingModal quick-contact bar)
+  phone: "+380982508668",
+  phoneFormatted: "+38 098 250 8668",
+  telegram: "https://t.me/TarasSmaliukh",
+  telegramHandle: "@TarasSmaliukh",
+  whatsapp: "https://wa.me/380982508668",
+
   // Analytics — leave empty to disable, paste Measurement ID to enable
   // Get yours at: https://analytics.google.com → Admin → Data Streams → Measurement ID (G-XXXXXXXXXX)
   ga4Id: "",

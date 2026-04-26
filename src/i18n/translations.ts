@@ -328,9 +328,15 @@ export const translations = {
 
     booking: {
       eyebrow: "GET IN TOUCH",
-      title: "Send a message",
+      title: "Let's talk",
       sub:
         "I'll get back to you within 24 hours — to schedule a discovery call or discuss your inquiry.",
+      quickLabel: "Prefer direct contact?",
+      quickPhone: "Phone",
+      quickTelegram: "Telegram",
+      quickWhatsapp: "WhatsApp",
+      quickEmail: "Email",
+      orForm: "or send a message",
       labelName: "Name",
       labelEmail: "Email",
       labelSubject: "What's this about",
@@ -678,9 +684,15 @@ export const translations = {
 
     booking: {
       eyebrow: "НАСТУПНИЙ КРОК",
-      title: "Залиште заявку",
+      title: "Поговорімо",
       sub:
         "Зв'яжуся з вами протягом 24 годин — узгодимо час знайомства або обговоримо ваш запит.",
+      quickLabel: "Хочете швидко?",
+      quickPhone: "Телефон",
+      quickTelegram: "Telegram",
+      quickWhatsapp: "WhatsApp",
+      quickEmail: "Email",
+      orForm: "або надішліть повідомлення",
       labelName: "Ім'я",
       labelEmail: "Email",
       labelSubject: "Що цікавить",

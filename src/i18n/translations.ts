@@ -16,7 +16,7 @@ export const translations = {
       heroMicro: "",
 
       ctaEyebrow: "READY TO TALK?",
-      ctaH2Html: "Let's talk for <em>30 minutes</em>.",
+      ctaH2Html: "<em>30-minute</em> meeting.",
       ctaLede: "Free. No slides. Just a real conversation about your project.",
       ctaPrimary: "Book Discovery Call",
       ctaAlt: "Or follow my work on LinkedIn",

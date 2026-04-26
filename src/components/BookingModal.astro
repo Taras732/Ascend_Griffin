@@ -338,18 +338,34 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/xvzdyojg";
     const status = modal.querySelector<HTMLDivElement>("[data-status]");
     const subjectSelect = modal.querySelector<HTMLSelectElement>("[data-subject]");
 
+    // Track which CTA opened the modal (set inside open handler below)
+    let lastTriggerSource = "unknown";
+
     // Open via any element with data-modal="booking"
+    // Use capture phase + stopImmediatePropagation to prevent any scroll-to-anchor
     document.querySelectorAll<HTMLElement>('[data-modal="booking"]').forEach((trigger) => {
-      trigger.addEventListener("click", (e) => {
-        e.preventDefault();
-        // Pre-select subject if data-subject attribute present
-        const subj = trigger.getAttribute("data-subject");
-        if (subj && subjectSelect) {
-          subjectSelect.value = subj;
-        }
-        modal.showModal();
-        document.body.style.overflow = "hidden";
-      });
+      trigger.addEventListener(
+        "click",
+        (e) => {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          // Track which CTA opened the modal (for analytics in form submission)
+          lastTriggerSource =
+            trigger.getAttribute("data-source") ||
+            trigger.getAttribute("data-subject") ||
+            trigger.textContent?.trim().slice(0, 40) ||
+            "unknown";
+          // Pre-select subject if data-subject attribute present
+          const subj = trigger.getAttribute("data-subject");
+          if (subj && subjectSelect) {
+            subjectSelect.value = subj;
+          }
+          modal.showModal();
+          document.body.style.overflow = "hidden";
+          return false;
+        },
+        { capture: true }
+      );
     });
 
     closeBtn?.addEventListener("click", () => modal.close());
@@ -396,19 +412,6 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/xvzdyojg";
     }
 
     toastClose?.addEventListener("click", hideToast);
-
-    // Track which CTA opened the modal (for analytics in form submission)
-    let lastTriggerSource = "unknown";
-
-    document.querySelectorAll<HTMLElement>('[data-modal="booking"]').forEach((trigger) => {
-      trigger.addEventListener("click", () => {
-        lastTriggerSource =
-          trigger.getAttribute("data-source") ||
-          trigger.getAttribute("data-subject") ||
-          trigger.textContent?.trim().slice(0, 40) ||
-          "unknown";
-      });
-    });
 
     // Collect device/context/visitor metadata for the form submission
     function collectMetadata() {

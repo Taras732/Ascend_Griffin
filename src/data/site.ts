@@ -9,7 +9,7 @@ export const site = {
   city: "Lviv, Ukraine",
   email: "taras@ascendgriffin.org",
   linkedin: "https://www.linkedin.com/in/taras732/",
-  calcom: "https://cal.com/taras-smaliukh/discovery-30min",
+  calcom: "https://cal.com/ascendgriffin/discovery",
 
   // Direct contact channels (used in BookingModal quick-contact bar)
   phone: "+380982508668",

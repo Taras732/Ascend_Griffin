@@ -22,7 +22,7 @@ export const site = {
   // Get yours at: https://analytics.google.com → Admin → Data Streams → Measurement ID (G-XXXXXXXXXX)
   ga4Id: "",
   // Cloudflare Web Analytics token (alternative, cookieless)
-  cfAnalyticsToken: "",
+  cfAnalyticsToken: "eca9d1a59cd4013bf5c575c7d2815a4",
 
   // Brand messaging
   eyebrow: "IT-супровід від ідеї до результату",

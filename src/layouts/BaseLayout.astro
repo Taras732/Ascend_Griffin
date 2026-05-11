@@ -1,6 +1,7 @@
 ---
 import { site } from "../data/site";
 import BookingModal from "../components/BookingModal.astro";
+import ConsentBanner from "../components/ConsentBanner.astro";
 import { t } from "../i18n/translations";
 import "../styles/tokens.css";
 
@@ -79,10 +80,43 @@ const altLocaleCode = lang === "uk" ? "en" : "uk";
         ],
       })}
     />
+
+    {/* Google Consent Mode v2 — must run BEFORE GA4 loads. */}
+    {/* Defaults to denied; user choice from localStorage applied immediately if present. */}
+    <script is:inline>
+      (function () {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          window.dataLayer.push(arguments);
+        }
+        window.gtag = gtag;
+
+        var stored = null;
+        try {
+          stored = JSON.parse(localStorage.getItem("ag_consent_v1") || "null");
+        } catch (e) {
+          /* ignore */
+        }
+        var analytics = stored && stored.v === 1 && stored.analytics === true ? "granted" : "denied";
+
+        gtag("consent", "default", {
+          ad_storage: "denied",
+          ad_user_data: "denied",
+          ad_personalization: "denied",
+          analytics_storage: analytics,
+          functionality_storage: "granted",
+          security_storage: "granted",
+          wait_for_update: 500,
+        });
+
+        gtag("js", new Date());
+      })();
+    </script>
   </head>
   <body>
     <slot />
     <BookingModal />
+    <ConsentBanner />
 
     <!-- Anonymous visitor tracking (localStorage only — no cookies, no PII) -->
     <script is:inline>
@@ -151,7 +185,8 @@ const altLocaleCode = lang === "uk" ? "en" : "uk";
       })();
     </script>
 
-    {/* Google Analytics 4 — loads only when ga4Id is set */}
+    {/* Google Analytics 4 — gtag stub + Consent Mode default are set in <head>. */}
+    {/* Loads only when ga4Id is set; respects analytics_storage consent state. */}
     {site.ga4Id && (
       <>
         <script
@@ -160,20 +195,18 @@ const altLocaleCode = lang === "uk" ? "en" : "uk";
         ></script>
         <script is:inline define:vars={{ ga4Id: site.ga4Id }}>
           {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){ dataLayer.push(arguments); }
-            gtag('js', new Date());
-            gtag('config', ga4Id, {
-              anonymize_ip: true,
-              cookie_flags: 'SameSite=Lax;Secure'
-            });
-            window.gtag = gtag;
+            if (typeof window.gtag === 'function') {
+              window.gtag('config', ga4Id, {
+                anonymize_ip: true,
+                cookie_flags: 'SameSite=Lax;Secure'
+              });
+            }
           `}
         </script>
       </>
     )}
 
-    {/* Cloudflare Web Analytics — loads only when token is set */}
+    {/* Cloudflare Web Analytics — cookieless beacon (no consent gating needed). */}
     {site.cfAnalyticsToken && (
       <script
         defer
@@ -181,5 +214,10 @@ const altLocaleCode = lang === "uk" ? "en" : "uk";
         data-cf-beacon={`{"token": "${site.cfAnalyticsToken}"}`}
       ></script>
     )}
+
+    {/* Consent banner controller — auto-initializes on DOM ready. */}
+    <script>
+      import "../scripts/consent";
+    </script>
   </body>
 </html>

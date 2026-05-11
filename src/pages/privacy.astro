@@ -4,7 +4,7 @@ import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 import { site } from "../data/site";
 
-const lastUpdated = "25 квітня 2026";
+const lastUpdated = "11 травня 2026";
 ---
 
 <BaseLayout
@@ -99,7 +99,7 @@ const lastUpdated = "25 квітня 2026";
         <ul>
           <li><strong>Formspree</strong> (<a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">privacy policy</a>) — обробка заявок з форми. Сервер у США. Дані передаються через захищене з'єднання (HTTPS).</li>
           <li><strong>Cloudflare Pages</strong> (<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">privacy policy</a>) — хостинг сайту, CDN і захист від DDoS.</li>
-          <li><strong>Google Analytics 4</strong> (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a>) — анонімна аналітика відвідувань. IP-адреси анонімізовані. Cookies встановлюються браузером Google.</li>
+          <li><strong>Google Analytics 4</strong> (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a>) — анонімна аналітика відвідувань. Завантажується <strong>ЛИШЕ після вашої згоди</strong> через банер cookies. IP-адреси анонімізовані. До отримання згоди використовується Google Consent Mode v2 (default: denied) — лише агреговане моделювання без cookies.</li>
           <li><strong>Google Fonts</strong> (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a>) — завантаження шрифтів.</li>
           <li><strong>LinkedIn</strong> — для зовнішніх посилань (відкриваються у новій вкладці; cookies встановлюються тільки після переходу на linkedin.com).</li>
         </ul>
@@ -144,13 +144,55 @@ const lastUpdated = "25 квітня 2026";
       </section>
 
       <section class="legal-section">
-        <h2>8. Файли cookies та локальне сховище</h2>
+        <h2>8. Файли cookies</h2>
         <p>
-          Сайт <strong>не використовує cookies</strong> для відстеження поведінки користувачів
-          або таргетованої реклами. Аналітика (Cloudflare Web Analytics) працює без cookies.
+          Сайт використовує мінімальний набір cookies. <strong>Аналітичні cookies завантажуються
+          лише після вашої явної згоди</strong> через банер при першому візиті
+          (Google Consent Mode v2). Необхідні технічні cookies (відправка форми, безпека CDN)
+          працюють завжди — без них сайт не функціонував би.
         </p>
 
-        <h3>8.1. Локальне сховище браузера (localStorage)</h3>
+        <h3>8.1. Які cookies ми використовуємо</h3>
+        <div class="cookie-table-wrap">
+          <table class="cookie-table">
+            <thead>
+              <tr>
+                <th>Категорія</th>
+                <th>Cookie / сервіс</th>
+                <th>Призначення</th>
+                <th>Термін</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Необхідні</strong><br /><span class="cookie-tag cookie-tag-on">завжди увімкнено</span></td>
+                <td>Formspree (під час відправки форми)</td>
+                <td>Захист від спаму, доставка повідомлення</td>
+                <td>сесія</td>
+              </tr>
+              <tr>
+                <td><strong>Необхідні</strong><br /><span class="cookie-tag cookie-tag-on">завжди увімкнено</span></td>
+                <td>Cloudflare (<code>__cf_bm</code>, <code>__cfruid</code>)</td>
+                <td>Безпека CDN, захист від ботів</td>
+                <td>до 30 хв / сесія</td>
+              </tr>
+              <tr>
+                <td><strong>Аналітичні</strong><br /><span class="cookie-tag cookie-tag-opt">потребує згоди</span></td>
+                <td>Google Analytics 4 (<code>_ga</code>, <code>_ga_TQLPJZGJEL</code>)</td>
+                <td>Анонімна статистика відвідувань (IP анонімізований)</td>
+                <td>13 місяців</td>
+              </tr>
+              <tr>
+                <td><strong>Функціональні</strong><br /><span class="cookie-tag cookie-tag-cookieless">без cookies</span></td>
+                <td>Cloudflare Web Analytics (beacon)</td>
+                <td>Анонімна агрегована статистика; без cookies, без PII</td>
+                <td>—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>8.2. Локальне сховище браузера (localStorage)</h3>
         <p>
           Сайт використовує функціональне локальне сховище браузера (localStorage) для збереження
           анонімних технічних даних, які допомагають нам розуміти структуру трафіку:
@@ -160,9 +202,10 @@ const lastUpdated = "25 квітня 2026";
           <li>Дата першого і останнього візиту</li>
           <li>Загальна кількість візитів</li>
           <li>UTM-параметри з URL (якщо ви прийшли за рекламним посиланням)</li>
+          <li>Запис вашого вибору щодо cookies (<code>ag_consent_v1</code>)</li>
         </ul>
         <p>
-          У межах поточної сесії (sessionStorage) ми тимчасово зберігаємо: переглянуті сторінки
+          У межах поточної сесії (sessionStorage) ми тимчасово зберігаємо переглянуті сторінки
           та час початку сесії. Ці дані видаляються при закритті вкладки браузера.
         </p>
         <p>
@@ -173,14 +216,18 @@ const lastUpdated = "25 квітня 2026";
         <p>
           <strong>Як видалити:</strong> очистити локальне сховище можна через налаштування
           браузера (Очистити дані сайтів / Clear site data). Це не вплине на можливість
-          користуватися сайтом.
+          користуватися сайтом — але банер cookies з'явиться знову при наступному візиті.
         </p>
 
-        <h3>8.2. Технічні cookies сторонніх сервісів</h3>
+        <h3>8.3. Керування налаштуваннями cookies</h3>
         <p>
-          Сторонні сервіси (Formspree під час відправки форми, Cloudflare для безпеки і CDN)
-          можуть встановлювати власні необхідні технічні cookies. Ви можете заблокувати їх у
-          налаштуваннях браузера, але це може вплинути на функціональність форми контакту.
+          Ви можете змінити свій вибір щодо cookies у будь-який момент. Зміни застосовуються одразу.
+          Відкликання згоди не впливає на легітимність обробки даних до моменту відкликання.
+        </p>
+        <p>
+          <button type="button" class="consent-trigger-btn" data-consent-trigger>
+            Змінити налаштування cookies
+          </button>
         </p>
       </section>
 
@@ -300,5 +347,89 @@ const lastUpdated = "25 квітня 2026";
   }
   .contact-list li {
     margin-bottom: 6px;
+  }
+
+  /* Cookie table */
+  .cookie-table-wrap {
+    overflow-x: auto;
+    margin: 16px 0 24px;
+    border: 1px solid var(--border-1);
+    border-radius: 3px;
+  }
+  .cookie-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-2);
+  }
+  .cookie-table th,
+  .cookie-table td {
+    text-align: left;
+    padding: 12px 14px;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border-1);
+  }
+  .cookie-table th {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    font-weight: 600;
+    background: var(--bg-1);
+  }
+  .cookie-table tbody tr:last-child td { border-bottom: 0; }
+  .cookie-table code {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    background: var(--bg-1);
+    padding: 1px 5px;
+    border-radius: 2px;
+    color: var(--text-1);
+  }
+  .cookie-tag {
+    display: inline-block;
+    margin-top: 4px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    padding: 2px 6px;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+  .cookie-tag-on {
+    background: var(--accent-subtle);
+    color: var(--accent-pressed);
+  }
+  .cookie-tag-opt {
+    background: rgba(181, 114, 27, 0.10);
+    color: var(--warning);
+  }
+  .cookie-tag-cookieless {
+    background: rgba(46, 125, 79, 0.10);
+    color: var(--success);
+  }
+
+  /* Consent re-open trigger */
+  .consent-trigger-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 11px 18px;
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    background: transparent;
+    color: var(--text-1);
+    border: 1px solid var(--border-3);
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all var(--dur-base) var(--ease);
+  }
+  .consent-trigger-btn:hover {
+    border-color: var(--text-1);
+    background: var(--bg-1);
+    transform: translateY(-1px);
   }
 </style>

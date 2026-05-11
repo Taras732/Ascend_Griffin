@@ -148,7 +148,7 @@ export const translations = {
         num: "01",
         name: "Audit",
         hook: "An expert second opinion before you commit to a major decision.",
-        price: "from $500",
+        price: "from $1,000",
         priceNote: "5-14 days",
         features: [
           "Risks, overpayments, and weak spots in your decision — with concrete recommendations on what to do about them",
@@ -528,7 +528,7 @@ export const translations = {
         num: "01",
         name: "Аудит",
         hook: "Експертний аналіз — коли потрібна незалежна думка перед важливим рішенням.",
-        price: "від $500",
+        price: "від $1,000",
         priceNote: "5-14 днів",
         features: [
           "Виявлені ризики, переплати та слабкі місця у рішенні — і конкретні рекомендації, що з цим робити",

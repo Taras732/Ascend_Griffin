@@ -20,7 +20,7 @@ export const site = {
 
   // Analytics — leave empty to disable, paste Measurement ID to enable
   // Get yours at: https://analytics.google.com → Admin → Data Streams → Measurement ID (G-XXXXXXXXXX)
-  ga4Id: "",
+  ga4Id: "G-TQLPJZGJEL",
   // Cloudflare Web Analytics token (alternative, cookieless)
   cfAnalyticsToken: "eca9d1a59cd4013bf5c575c7d2815a4",
 

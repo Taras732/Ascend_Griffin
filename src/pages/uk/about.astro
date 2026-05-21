@@ -3,237 +3,200 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Nav from "../../components/Nav.astro";
 import Footer from "../../components/Footer.astro";
 import FoundingCTA from "../../components/FoundingCTA.astro";
-import PageNav from "../../components/PageNav.astro";
 
-const title = "Тарас Смалюх — IT-союзник у Львові | Ascend Griffin";
+const title = "Тарас Смалюх — експерт-радник | Ascend Griffin";
 const description =
-  "Тарас Смалюх — CEO TreximAI та засновник Ascend Griffin. 8 років бізнес-аналізу в AI, логістиці, фінтеху. Львів. Союзник засновників у IT-проєктах.";
-
-const sections = [
-  { id: "who-i-am", num: "01", label: "Хто я" },
-  { id: "what-i-do", num: "02", label: "Що я роблю" },
-  { id: "how", num: "03", label: "Три формати" },
-  { id: "now", num: "04", label: "Де я зараз" },
-  { id: "for-whom", num: "05", label: "Для кого" },
-  { id: "other-options", num: "06", label: "Інші варіанти" },
-];
+  "Тарас Смалюх — CEO TreximAI та засновник Ascend Griffin. 8 років бізнес-аналізу в AI, логістиці, фінтеху. Львів. Експерт-радник на стороні замовника.";
 ---
 
 <BaseLayout title={title} description={description}>
   <Nav />
-  <main class="svc">
+  <main class="about">
     {/* ── Hero ────────────────────────────────────────────────────── */}
-    <section class="svc-hero">
-      <div class="svc-grid">
-        <div class="svc-hero-rail">
-          <p class="hero-eyebrow">Про мене</p>
-        </div>
+    <section class="hero">
+      <div class="about-shell">
+        <p class="hero-eyebrow">Про мене · Ascend Griffin</p>
 
-        <div class="svc-hero-body">
-          <p class="svc-epigraph">
-            "Більшість IT-проєктів провалюються не через поганий код.<br />
-            А тому, що на боці клієнта не було нікого, хто міг би це побачити заздалегідь."
-          </p>
+        <h1 class="hero-h1">
+          Тарас Смалюх — <em>експерт-радник</em>.
+        </h1>
 
-          <h1 class="svc-h1">
-            Тарас Смалюх — <em>експерт-радник</em> на вашому боці столу.
-          </h1>
+        <p class="hero-lede">
+          Я ваш союзник на боці замовника в IT-рішеннях. Дію виключно у ваших інтересах — від першої розмови про ідею до готового, працюючого результату.
+        </p>
 
-          <p class="svc-lede">
-            Я ваш союзник на боці замовника в IT-рішеннях. Дію виключно у ваших інтересах — від першої розмови про ідею до готового, працюючого результату.
-          </p>
-        </div>
+        <p class="hero-hint">↓ Розгорніть секцію, щоб дізнатися більше</p>
       </div>
     </section>
 
-    {/* ── Хто я ──────────────────────────────────────────────────── */}
-    <section class="svc-section" id="who-i-am">
-      <div class="svc-grid">
-        <PageNav sections={sections} topLabel="На цій сторінці" />
-
-        <div class="svc-section-body">
-          <p class="section-marker">01 · Хто я</p>
-          <h2 class="svc-h2">8 років у IT. Обидві сторони столу.</h2>
-
-          <div class="prose">
+    {/* ── Accordion ──────────────────────────────────────────────── */}
+    <section class="acc-section">
+      <div class="about-shell">
+        <details class="acc" name="about" id="who-i-am">
+          <summary class="acc-summary">
+            <span class="acc-num">01</span>
+            <span class="acc-label">Хто я</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
             <p>Я провів 8 років у IT як бізнес-аналітик і продакт-оунер — у сфері AI-продуктів, логістики, фінтеху та B2B SaaS. Я сидів з обох боків столу: вів перемовини з вендорами, управляв продуктовими беклогами, запускав discovery, збирав команди з нуля.</p>
 
             <p>Моє початкове навчання — системи з критичними вимогами до безпеки, управління повітряним рухом. Там нечіткі вимоги призводять не до поганого UX, а до аварій. Ця дисципліна залишається зі мною у кожному продукті.</p>
 
             <p>Зараз я CEO і CPO <strong>TreximAI</strong> — B2B AI-платформа логістики, що працює з банками, мережами АЗС, страховими та електронним підписом. Я зібрав команду і продукт з нуля, залучив шестизначний капітал на розробку, уклав угоди з гравцями у регульованих галузях.</p>
 
-            <p>Цей досвід — не строчка у резюме. Це причина, чому я розумію, як IT-проєкти насправді поводяться під тиском. Не з книжок і не зі слайдів — з практики, де ціна помилки реальна.</p>
-
-            <p>Ascend Griffin — це місце, де я застосовую цей досвід на вашому боці.</p>
+            <p>Цей досвід — не строчка у резюме. Це причина, чому я розумію, як IT-проєкти поводяться під тиском. Не з книжок і не зі слайдів — з практики, де ціна помилки реальна.</p>
           </div>
-        </div>
-      </div>
-    </section>
+        </details>
 
-    {/* ── Що я роблю ─────────────────────────────────────────────── */}
-    <section class="svc-section" id="what-i-do">
-      <div class="svc-grid">
-        <div class="svc-spacer-rail"></div>
+        <details class="acc" name="about" id="what-i-do">
+          <summary class="acc-summary">
+            <span class="acc-num">02</span>
+            <span class="acc-label">Що я роблю</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <h3 class="acc-h">Консультанти радять. Я <em>націлений на результат</em>.</h3>
 
-        <div class="svc-section-body">
-          <p class="section-marker">02 · Що я роблю</p>
-          <h2 class="svc-h2">Радник дає пораду. Я залишаюся <em>до результату</em>.</h2>
-
-          <div class="prose">
             <p>Конкретно: я читаю контракти з вендорами і показую, які пункти вдарять вас на третьому місяці. Я веду структурований discovery, щоб ви не будували не те. Я сиджу на демо і ставлю технічні питання, які ви поки що не знаєте, що треба ставити. Я перевіряю оцінки і знаходжу припущення, через які проєкт за $40K стає за $70K.</p>
 
-            <p>Коли щось іде не так — я та людина, яка каже "ось що зламалося і ось порядок виправлення", а не "давайте познайомимо вас із ще одним радником".</p>
+            <p>Коли щось іде не так — я та людина, яка каже "ось що зламалося і ось порядок виправлення", а не "давайте познайомимо вас із ще одним консультантом".</p>
 
             <p>Я не технічний архітектор. Я не писатиму ваш код. Але я переконаюся, що ті, хто його пишуть, відповідають перед вашими інтересами, а не своїми.</p>
           </div>
-        </div>
-      </div>
-    </section>
+        </details>
 
-    {/* ── Три формати ───────────────────────────────────────────── */}
-    <section class="svc-section svc-section-muted" id="how">
-      <div class="svc-grid">
-        <div class="svc-spacer-rail"></div>
+        <details class="acc" name="about" id="how">
+          <summary class="acc-summary">
+            <span class="acc-num">03</span>
+            <span class="acc-label">Як я працюю</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <h3 class="acc-h">Три способи співпраці.</h3>
 
-        <div class="svc-section-body">
-          <p class="section-marker">03 · Як я працюю</p>
-          <h2 class="svc-h2">Три способи співпраці.</h2>
-          <p class="svc-section-lede">
-            Спочатку — завжди discovery. 30-хвилинна розмова, щоб зрозуміти вашу ситуацію. Якщо я не той читач — скажу прямо і зазвичай порекомендую когось іншого.
-          </p>
+            <p class="acc-lede">Спочатку — завжди discovery. 30-хвилинна розмова, щоб зрозуміти вашу ситуацію. Якщо я не підходжу — скажу прямо і зазвичай порекомендую когось іншого.</p>
 
-          <ol class="ledger">
-            <li class="ledger-item">
-              <span class="ledger-num">A</span>
-              <div class="ledger-content">
-                <h4>Соло-консультування.</h4>
-                <p>Я працюю безпосередньо з вами: перевіряю deliverables, беру участь у ключових дзвінках, забезпечую структурований нагляд за вашим вендором або командою. Ви зберігаєте контроль; я — досвідчений голос у кімнаті на вашому боці. Підходить, коли команда або вендор вже є, але потрібен другий погляд.</p>
-              </div>
-            </li>
-            <li class="ledger-item">
-              <span class="ledger-num">B</span>
-              <div class="ledger-content">
-                <h4>Повний цикл з моєю мережею.</h4>
-                <p>Для засновників, які хочуть один підзвітний контракт — одна людина відповідає від брифу до готового продукту. Я координую перевірену мережу розробників, дизайнерів і QA-спеціалістів. Один контакт, один контракт, чіткі milestone з фіксованою ціною.</p>
-              </div>
-            </li>
-            <li class="ledger-item">
-              <span class="ledger-num">C</span>
-              <div class="ledger-content">
-                <h4>Discovery і передача.</h4>
-                <p>Ми валідуємо, що ви будуєте, виробляємо повний продуктовий бриф і вимоги, і я допомагаю знайти та проінструктувати правильного вендора. Ви маєте результат. Я допомагаю почати правильно, а не бути вічно поруч.</p>
-              </div>
-            </li>
-          </ol>
+            <ol class="modes">
+              <li class="mode">
+                <span class="mode-letter">A</span>
+                <div class="mode-body">
+                  <h4>Соло-консультування.</h4>
+                  <p>Я працюю безпосередньо з вами: перевіряю deliverables, беру участь у ключових дзвінках, забезпечую структурований нагляд за вашим вендором або командою. Ви зберігаєте контроль; я — досвідчений голос у кімнаті на вашому боці.</p>
+                </div>
+              </li>
+              <li class="mode">
+                <span class="mode-letter">B</span>
+                <div class="mode-body">
+                  <h4>Повний цикл з моєю мережею.</h4>
+                  <p>Для засновників, які хочуть один підзвітний контракт — одна людина відповідає від брифу до готового продукту. Я координую перевірену мережу розробників, дизайнерів і QA-спеціалістів. Один контакт, один контракт, чіткі milestone з фіксованою ціною.</p>
+                </div>
+              </li>
+              <li class="mode">
+                <span class="mode-letter">C</span>
+                <div class="mode-body">
+                  <h4>Discovery і передача.</h4>
+                  <p>Ми валідуємо, що ви будуєте, виробляємо повний продуктовий бриф і вимоги, і я допомагаю знайти та проінструктувати правильного вендора. Ви маєте результат. Я допомагаю почати правильно, а не бути вічно поруч.</p>
+                </div>
+              </li>
+            </ol>
 
-          <p class="footnote">У кожному випадку: фіксована або фіксована-плюс-бонус ціна. Погодинного виставлення рахунків немає.</p>
-        </div>
-      </div>
-    </section>
-
-    {/* ── Де я зараз ─────────────────────────────────────────────── */}
-    <section class="svc-section" id="now">
-      <div class="svc-grid">
-        <div class="svc-spacer-rail"></div>
-
-        <div class="svc-section-body">
-          <p class="section-marker">04 · Де я зараз</p>
-          <h2 class="svc-h2">Нова практика. Стара експертиза.</h2>
-
-          <div class="prose">
-            <p>Ascend Griffin запустився у квітні 2026 року. Це нова <em>оболонка</em> моєї роботи — нова назва, новий формат, новий веб-сайт. Сама робота — та сама, що я виконував у IT останні 8 років.</p>
-
-            <p>Що означає на практиці: 8 років бізнес-аналізу і продуктового менеджменту з обох боків столу — як співробітник IT-компаній і як засновник власних. Той же тип задач, той же рівень глибини, нова форма подачі.</p>
-
-            <p>Ілюстративні патерни нижче описують типи ситуацій, з якими я працюю — засновані на реальних проблемних патернах, не вигадані для сторінки. Вони чесні щодо того, чим є: узагальнення, а не рекомендаційні листи.</p>
+            <p class="acc-note">Ціна фіксована або фіксована-плюс-бонус. Погодинного виставлення рахунків немає — у жодному форматі.</p>
           </div>
-        </div>
-      </div>
-    </section>
+        </details>
 
-    {/* ── Для кого я ─────────────────────────────────────────────── */}
-    <section class="svc-section" id="for-whom">
-      <div class="svc-grid">
-        <div class="svc-spacer-rail"></div>
+        <details class="acc" name="about" id="now">
+          <summary class="acc-summary">
+            <span class="acc-num">04</span>
+            <span class="acc-label">8 років досвіду + AI-інструменти</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <h3 class="acc-h">Чому зараз — інший рівень роботи, ніж 5 років тому.</h3>
 
-        <div class="svc-section-body">
-          <p class="section-marker">05 · Для кого</p>
-          <h2 class="svc-h2">Чотири типи засновників, з якими я працюю.</h2>
+            <p>Ascend Griffin запустився у квітні 2026 року. Це нова форма роботи, але <em>не нова робота</em> — 8 років бізнес-аналізу і продуктового менеджменту під моїми руками. Зміна — в інструментах і моделі співпраці.</p>
 
-          <article class="icp-card">
-            <header class="icp-header">
-              <span class="icp-num">A</span>
-              <h3 class="icp-title">Засновник, що зібрав щось реальне.</h3>
-            </header>
-            <p class="illustrative-label">Ілюстративний патерн — ситуація, яку я бачу часто.</p>
-            <p>Засновник зібрав робочий прототип у Cursor або аналогічному інструменті. Двадцять платних користувачів, кілька фіч до додавання і зростаюче відчуття, що щось у фундаменті не так. Розробником він не є — не вміє читати кодову базу, тільки промптувати в неї. Йому потрібен хтось, хто подивиться на те, що зібрано, і скаже: що тримається, що ні, і як виглядає реальний шлях до production-ready стану. Не технічною мовою. Просто і по пріоритетах.</p>
-          </article>
+            <p><strong>AI-інструменти змінили глибину роботи.</strong> Аналіз 50-сторінкової пропозиції від вендора — година замість двох днів. Discovery з клієнтом — глибший, бо AI-агент тримає весь контекст. Документація — генерується автоматично, я лише валідую. Та сама інтуїція з 8 років практики застосовується значно глибше, швидше і за меншу ціну, ніж колись.</p>
 
-          <hr class="hairline" />
+            <p><strong>Інша модель співпраці.</strong> Я працюю напряму з людиною, у якої є реальний інтерес у результаті — не у годинах, не у процесі, не у внутрішній політиці агенції. Це інший контракт ніж робота з типовим IT-партнером.</p>
 
-          <article class="icp-card">
-            <header class="icp-header">
-              <span class="icp-num">B</span>
-              <h3 class="icp-title">Нетехнічний засновник, який готується підписати контракт.</h3>
-            </header>
-            <p class="illustrative-label">Ілюстративний патерн — ситуація, що зустрічається найчастіше.</p>
-            <p>Власник бізнесу має три пропозиції від вендорів. Цифри — від $45K до $120K за те, що звучить як один і той самий проєкт. Один вендор впевнений, двоє розпливчасті, всі три переконливі. Без технічного бекграунду майже неможливо зрозуміти, яка пропозиція чесна, яка роздута, а яка виросте на 40% після першого запиту на зміни. Завдання — прочитати ці пропозиції так, як вендор їх писав, і перекласти це на зрозуміле: рекомендацію і конкретні ризики.</p>
-          </article>
+            <p>Ілюстративні патерни нижче описують типи ситуацій, з якими я працюю — реальні проблемні шаблони, не вигадані для сторінки. Чесно щодо того, чим є: узагальнення, а не клієнтські рекомендаційні листи.</p>
+          </div>
+        </details>
 
-          <hr class="hairline" />
+        <details class="acc" name="about" id="for-whom">
+          <summary class="acc-summary">
+            <span class="acc-num">05</span>
+            <span class="acc-label">Для кого</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <h3 class="acc-h">Чотири типи засновників, з якими я працюю.</h3>
 
-          <article class="icp-card">
-            <header class="icp-header">
-              <span class="icp-num">C</span>
-              <h3 class="icp-title">Засновник з ідеєю і доменною експертизою.</h3>
-            </header>
-            <p class="illustrative-label">Ілюстративний патерн — рання стадія.</p>
-            <p>Людина з глибоким знанням конкретної галузі — логістики, фінтеху, медичного адміністрування — думає про software-продукт вже два роки. Доменна експертиза, якої у більшості розробників ніколи не буде. Чого немає — чіткої відповіді на: чи взагалі варто це будувати? Скільки це реально коштуватиме? Що має бути правдою, щоб це спрацювало? Перш ніж витратити $50–80K на розробку, ці питання заслуговують серйозної відповіді від когось, хто фінансово не зацікавлений у самому факті будівництва.</p>
-          </article>
+            <article class="icp-card">
+              <header class="icp-header">
+                <span class="icp-letter">A</span>
+                <h4 class="icp-title">Засновник, що зібрав щось реальне.</h4>
+              </header>
+              <p class="illustrative">Ілюстративний патерн — ситуація, яку я бачу часто.</p>
+              <p>Засновник зібрав робочий прототип у Cursor або аналогічному інструменті. Двадцять платних користувачів, кілька фіч до додавання і зростаюче відчуття, що щось у фундаменті не так. Розробником він не є — не вміє читати кодову базу, тільки промптувати в неї. Йому потрібен хтось, хто подивиться на те, що зібрано, і скаже: що тримається, що ні, і як виглядає реальний шлях до production-ready стану.</p>
+            </article>
 
-          <hr class="hairline" />
+            <article class="icp-card">
+              <header class="icp-header">
+                <span class="icp-letter">B</span>
+                <h4 class="icp-title">Нетехнічний засновник, що готується підписати контракт.</h4>
+              </header>
+              <p class="illustrative">Ілюстративний патерн — ситуація, що зустрічається найчастіше.</p>
+              <p>Власник бізнесу має три пропозиції від вендорів. Цифри — від $45K до $120K за те, що звучить як один і той самий проєкт. Один вендор впевнений, двоє розпливчасті, всі три переконливі. Без технічного бекграунду майже неможливо зрозуміти, яка пропозиція чесна, яка роздута, а яка виросте на 40% після першого запиту на зміни.</p>
+            </article>
 
-          <article class="icp-card">
-            <header class="icp-header">
-              <span class="icp-num">D</span>
-              <h3 class="icp-title">Засновник, чий продукт тихо ламається.</h3>
-            </header>
-            <p class="illustrative-label">Ілюстративний патерн — rescue ситуація.</p>
-            <p>Команда запустила продукт. Він працює, переважно. Але швидкість delivery впала майже до нуля, початковий вендор відповідає повільніше, бюджет витрачається на обслуговування без видимого прогресу, і ніхто не може чітко пояснити чому. Перший крок — не переархітектурувати. Це чітка діагностика: що зламалося, коли і чому, і пріоритетний шлях вперед, який не починається з "переписати все з нуля".</p>
-          </article>
-        </div>
-      </div>
-    </section>
+            <article class="icp-card">
+              <header class="icp-header">
+                <span class="icp-letter">C</span>
+                <h4 class="icp-title">Засновник з ідеєю і доменною експертизою.</h4>
+              </header>
+              <p class="illustrative">Ілюстративний патерн — рання стадія.</p>
+              <p>Людина з глибоким знанням конкретної галузі — логістики, фінтеху, медичного адміністрування — думає про software-продукт вже два роки. Доменна експертиза, якої у більшості розробників ніколи не буде. Чого немає — чіткої відповіді на: чи взагалі варто це будувати? Скільки це реально коштуватиме? Що має бути правдою, щоб це спрацювало?</p>
+            </article>
 
-    {/* ── Інші варіанти ──────────────────────────────────────────── */}
-    <section class="svc-section svc-section-muted" id="other-options">
-      <div class="svc-grid">
-        <div class="svc-spacer-rail"></div>
+            <article class="icp-card">
+              <header class="icp-header">
+                <span class="icp-letter">D</span>
+                <h4 class="icp-title">Засновник, чий продукт тихо ламається.</h4>
+              </header>
+              <p class="illustrative">Ілюстративний патерн — rescue ситуація.</p>
+              <p>Команда запустила продукт. Він працює, переважно. Але швидкість delivery впала майже до нуля, початковий вендор відповідає повільніше, бюджет витрачається на обслуговування без видимого прогресу, і ніхто не може чітко пояснити чому. Перший крок — не переархітектурувати. Це чітка діагностика: що зламалося, коли і чому.</p>
+            </article>
+          </div>
+        </details>
 
-        <div class="svc-section-body">
-          <p class="section-marker">06 · Коли я раджу інший шлях</p>
-          <h2 class="svc-h2">Деякі задачі — не моя сильна сторона.</h2>
-          <p class="svc-section-lede">Чесний орієнтир, щоб ви не витрачали час на не той розмови:</p>
+        <details class="acc" name="about" id="other-options">
+          <summary class="acc-summary">
+            <span class="acc-num">06</span>
+            <span class="acc-label">Коли я раджу інший шлях</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <h3 class="acc-h">Деякі задачі — не моя сильна сторона.</h3>
+            <p class="acc-lede">Чесний орієнтир, щоб ви не витрачали час на не той розмови:</p>
 
-          <ul class="exclude">
-            <li>
-              <span class="exclude-mark">→</span>
-              <span><strong>Pitch deck або фандрейзинг.</strong> Окрема компетенція з власними експертами. Можу рекомендувати людей, які роблять це краще, ніж я.</span>
-            </li>
-            <li>
-              <span class="exclude-mark">→</span>
-              <span><strong>Рекрутинг команди.</strong> Я не headhunter. Можу порадити, кого ви шукаєте і як їх правильно інтерв'ювати — але саме процес найму ведуть інші.</span>
-            </li>
-            <li>
-              <span class="exclude-mark">→</span>
-              <span><strong>Чисто технічна архітектура без бізнес-сторони.</strong> Якщо запит — лише про tech stack без рішень бізнес-рівня, є архітектори, які зроблять це глибше.</span>
-            </li>
-            <li>
-              <span class="exclude-mark">→</span>
-              <span><strong>Підтвердження того, що ви вже вирішили.</strong> Якщо шукаєте незалежного голосу — приходьте. Якщо шукаєте підтвердження — це інший формат розмови.</span>
-            </li>
-          </ul>
-        </div>
+            <ul class="exclude">
+              <li>
+                <span class="exclude-mark">→</span>
+                <span><strong>Pitch deck або фандрейзинг.</strong> Окрема компетенція з власними експертами. Можу рекомендувати людей, які роблять це краще, ніж я.</span>
+              </li>
+              <li>
+                <span class="exclude-mark">→</span>
+                <span><strong>Рекрутинг команди.</strong> Я не headhunter. Можу порадити, кого ви шукаєте і як їх правильно інтерв'ювати — але саме процес найму ведуть інші.</span>
+              </li>
+              <li>
+                <span class="exclude-mark">→</span>
+                <span><strong>Чисто технічна архітектура без бізнес-сторони.</strong> Якщо запит — лише про tech stack без рішень бізнес-рівня, є архітектори, які зроблять це глибше.</span>
+              </li>
+            </ul>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -254,14 +217,7 @@ const sections = [
         { "@type": "Organization", name: "Ascend Griffin", url: "https://ascendgriffin.org" },
         { "@type": "Organization", name: "TreximAI" },
       ],
-      knowsAbout: [
-        "бізнес-аналіз",
-        "продуктовий discovery",
-        "AI-інструменти",
-        "вибір IT-вендорів",
-        "рятування проєктів",
-        "buyer-side IT-супровід",
-      ],
+      knowsAbout: ["бізнес-аналіз", "продуктовий discovery", "AI-інструменти", "вибір IT-вендорів", "рятування проєктів"],
       homeLocation: { "@type": "Place", name: "Львів, Україна" },
       sameAs: ["https://www.linkedin.com/in/taras732/"],
       inLanguage: "uk",
@@ -270,84 +226,210 @@ const sections = [
 </BaseLayout>
 
 <style>
-  .svc { background: radial-gradient(ellipse at top right, rgba(184, 135, 58, 0.04), transparent 50%), radial-gradient(ellipse at bottom left, rgba(184, 135, 58, 0.03), transparent 40%), var(--bg-0); min-height: 100vh; }
-  .svc-grid { display: grid; grid-template-columns: 220px 1fr; gap: 64px; max-width: 1160px; margin: 0 auto; padding: 0 var(--gutter); }
-  @media (max-width: 900px) { .svc-grid { grid-template-columns: 1fr; gap: 24px; padding: 0 var(--gutter-sm); } }
-
-  /* Hero rail is just an eyebrow */
-  .svc-hero-rail {
-    position: sticky;
-    top: 88px;
-    align-self: start;
-    height: fit-content;
-    padding-top: 14px;
-    border-top: 1px solid var(--text-1);
+  .about {
+    background:
+      radial-gradient(ellipse at top right, rgba(184, 135, 58, 0.04), transparent 50%),
+      radial-gradient(ellipse at bottom left, rgba(184, 135, 58, 0.03), transparent 40%),
+      var(--bg-0);
+    min-height: 100vh;
   }
-  @media (max-width: 900px) { .svc-hero-rail { position: static; padding-top: 0; border-top: 0; } }
+  .about-shell {
+    max-width: 880px; margin: 0 auto; padding: 0 var(--gutter);
+  }
+  @media (max-width: 720px) { .about-shell { padding: 0 var(--gutter-sm); } }
+
+  /* Hero — compact, no horizontal grid */
+  .hero { padding: 96px 0 48px; }
+  @media (max-width: 720px) { .hero { padding: 56px 0 32px; } }
   .hero-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--text-3);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent-pressed); margin: 0 0 24px; font-weight: 600;
+  }
+  .hero-h1 {
+    font-family: var(--font-display);
+    font-size: clamp(44px, 6vw, 76px);
+    line-height: 1.02; letter-spacing: -0.03em;
+    color: var(--text-1); margin: 0 0 28px;
+    font-weight: 700; max-width: 16ch;
+  }
+  .hero-h1 em { font-style: italic; color: var(--editorial); font-weight: 700; }
+  .hero-lede {
+    font-size: 19px; line-height: 1.6;
+    color: var(--text-2); margin: 0 0 24px; max-width: 56ch;
+  }
+  .hero-hint {
+    font-family: var(--font-mono); font-size: 12px;
+    color: var(--text-3); letter-spacing: 0.04em;
     margin: 0;
-    font-weight: 600;
   }
 
-  /* Spacer for sections that should keep grid alignment without nav */
-  .svc-spacer-rail { display: block; }
-  @media (max-width: 900px) { .svc-spacer-rail { display: none; } }
+  /* Accordion */
+  .acc-section { padding: 16px 0 40px; }
 
-  .svc-hero { padding: 80px 0 56px; }
-  @media (max-width: 720px) { .svc-hero { padding: 48px 0 32px; } }
-  .svc-epigraph { font-family: var(--font-mono); font-size: 13px; line-height: 1.65; color: var(--text-3); font-style: italic; margin: 0 0 32px; padding-left: 18px; border-left: 2px solid var(--accent); max-width: 56ch; }
-  .svc-h1 { font-family: var(--font-display); font-size: clamp(40px, 5.5vw, 68px); line-height: 1.04; letter-spacing: -0.025em; color: var(--text-1); margin: 0 0 28px; font-weight: 700; max-width: 20ch; }
-  .svc-h1 em { font-style: italic; color: var(--editorial); font-weight: 700; }
-  .svc-lede { font-size: 19px; line-height: 1.6; color: var(--text-2); margin: 0 0 32px; max-width: 60ch; }
+  .acc {
+    border-top: 1px solid var(--border-2);
+    transition: background var(--dur-base) var(--ease);
+  }
+  .acc:last-of-type { border-bottom: 1px solid var(--border-2); }
+  .acc[open] {
+    background: var(--bg-1);
+    border-top-color: var(--text-1);
+  }
+  .acc[open] + .acc { border-top-color: var(--text-1); }
 
-  .svc-section { padding: 80px 0; border-top: 1px solid var(--border-1); scroll-margin-top: 88px; }
-  @media (max-width: 720px) { .svc-section { padding: 48px 0; } }
-  .svc-section-muted { background: var(--bg-1); }
+  .acc-summary {
+    display: grid;
+    grid-template-columns: 56px 1fr 32px;
+    align-items: center;
+    gap: 16px;
+    padding: 24px 0;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  .acc-summary::-webkit-details-marker { display: none; }
+  .acc-summary:hover .acc-label { color: var(--accent-pressed); }
+  .acc-summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
 
-  .section-marker {
+  .acc-num {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: 13px; font-weight: 700;
     color: var(--accent-pressed);
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    margin: 0 0 16px;
+    letter-spacing: 0.04em;
+    line-height: 1;
+  }
+  .acc-label {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.4vw, 26px);
+    color: var(--text-1);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    transition: color var(--dur-fast) var(--ease);
+  }
+  .acc[open] .acc-label { color: var(--editorial); }
+  .acc-toggle {
+    font-family: var(--font-mono);
+    font-size: 28px;
+    color: var(--accent-pressed);
+    line-height: 1; text-align: right;
+    transition: transform var(--dur-base) var(--ease);
+    font-weight: 300;
+  }
+  .acc[open] .acc-toggle { transform: rotate(45deg); }
+
+  .acc-body {
+    padding: 0 0 36px 72px;
+    max-width: 68ch;
+  }
+  @media (max-width: 720px) {
+    .acc-body { padding: 0 0 28px 0; }
+  }
+
+  .acc-h {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 2.6vw, 28px);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: var(--text-1);
+    margin: 0 0 20px;
+    font-weight: 700;
+    max-width: 24ch;
+  }
+  .acc-h em { font-style: italic; color: var(--editorial); }
+
+  .acc-body p {
+    font-size: 17px; line-height: 1.7;
+    color: var(--text-2); margin: 0 0 18px;
+  }
+  .acc-body p:last-child { margin-bottom: 0; }
+  .acc-body p strong { color: var(--text-1); font-weight: 700; }
+  .acc-body p em { font-style: italic; color: var(--text-1); }
+
+  .acc-lede {
+    font-size: 17px;
+    color: var(--text-2);
+    margin: 0 0 28px;
+  }
+  .acc-note {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-3);
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-1);
+  }
+
+  /* Modes */
+  .modes { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--border-2); }
+  .mode {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 20px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border-1);
+    align-items: start;
+  }
+  .mode-letter {
+    font-family: var(--font-mono);
+    font-size: 20px;
+    color: var(--accent-pressed);
+    font-weight: 700;
+    line-height: 1;
+  }
+  .mode-body h4 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    color: var(--text-1);
+    margin: 0 0 8px;
+    line-height: 1.35;
     font-weight: 700;
   }
+  .mode-body p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-2);
+    margin: 0;
+  }
 
-  .svc-h2 { font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 40px); line-height: 1.15; letter-spacing: -0.015em; color: var(--text-1); margin: 0 0 16px; font-weight: 700; max-width: 24ch; }
-  .svc-h2 em { font-style: italic; color: var(--editorial); }
-  .svc-section-lede { font-size: 17px; line-height: 1.6; color: var(--text-2); margin: 0 0 40px; max-width: 60ch; }
+  /* ICP cards */
+  .icp-card { margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--border-1); }
+  .icp-card:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
+  .icp-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .icp-letter {
+    font-family: var(--font-mono); font-size: 12px;
+    color: var(--accent-pressed); font-weight: 700;
+    letter-spacing: 0.04em; background: var(--accent-subtle);
+    padding: 3px 8px; border-radius: 2px; line-height: 1.2;
+  }
+  .icp-title {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.25; letter-spacing: -0.01em;
+    color: var(--text-1); margin: 0; font-weight: 600;
+  }
+  .illustrative {
+    font-family: var(--font-mono); font-size: 11px;
+    color: var(--text-3); font-style: italic;
+    margin: 0 0 10px !important; letter-spacing: 0.02em;
+  }
 
-  .prose p { font-size: 17px; line-height: 1.7; color: var(--text-2); margin: 0 0 18px; max-width: 65ch; }
-  .prose p strong { color: var(--text-1); font-weight: 600; }
-  .prose p em { font-style: italic; color: var(--text-1); }
-
-  .icp-card { margin-bottom: 32px; }
-  .icp-card:last-child { margin-bottom: 0; }
-  .icp-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 8px; }
-  .icp-num { font-family: var(--font-mono); font-size: 13px; color: var(--accent-pressed); font-weight: 700; letter-spacing: 0.04em; background: var(--accent-subtle); padding: 4px 10px; border-radius: 2px; line-height: 1; }
-  .icp-title { font-family: var(--font-display); font-size: clamp(20px, 2.4vw, 24px); line-height: 1.25; letter-spacing: -0.01em; color: var(--text-1); margin: 0; font-weight: 600; flex: 1; }
-  .illustrative-label { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); font-style: italic; margin: 0 0 12px; letter-spacing: 0.02em; }
-  .icp-card p:not(.illustrative-label) { font-size: 16px; line-height: 1.65; color: var(--text-2); margin: 0; max-width: 65ch; }
-  .hairline { border: 0; border-top: 1px solid var(--border-1); margin: 32px 0; }
-
-  .ledger { list-style: none; padding: 0; margin: 0 0 24px; border-top: 1px solid var(--text-1); }
-  .ledger-item { display: grid; grid-template-columns: 64px 1fr; gap: 24px; padding: 28px 0; border-bottom: 1px solid var(--border-1); align-items: start; }
-  @media (max-width: 720px) { .ledger-item { grid-template-columns: 40px 1fr; gap: 16px; padding: 24px 0; } }
-  .ledger-num { font-family: var(--font-mono); font-size: 24px; color: var(--accent-pressed); font-weight: 600; line-height: 1; letter-spacing: -0.02em; }
-  .ledger-content h4 { font-family: var(--font-display); font-size: 18px; color: var(--text-1); margin: 0 0 8px; line-height: 1.35; font-weight: 600; letter-spacing: -0.005em; }
-  .ledger-content p { font-size: 15px; line-height: 1.6; color: var(--text-2); margin: 0; max-width: 60ch; }
-
-  .footnote { font-family: var(--font-mono); font-size: 12px; color: var(--text-3); letter-spacing: 0.02em; max-width: 60ch; line-height: 1.5; margin: 16px 0 0; padding: 12px 16px; background: var(--bg-0); border-left: 2px solid var(--accent); }
-
+  /* Exclude list */
   .exclude { list-style: none; padding: 0; margin: 0; }
-  .exclude li { display: flex; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px dashed var(--border-1); color: var(--text-2); font-size: 16px; line-height: 1.55; }
+  .exclude li {
+    display: flex; align-items: baseline; gap: 16px;
+    padding: 14px 0; border-bottom: 1px dashed var(--border-1);
+    color: var(--text-2); font-size: 16px; line-height: 1.55;
+  }
   .exclude li:last-child { border-bottom: 0; }
-  .exclude-mark { font-family: var(--font-mono); color: var(--accent-pressed); font-size: 18px; line-height: 1; flex-shrink: 0; font-weight: 700; }
-  .exclude strong { color: var(--text-1); font-weight: 600; }
+  .exclude-mark {
+    font-family: var(--font-mono); color: var(--accent-pressed);
+    font-size: 18px; line-height: 1; flex-shrink: 0; font-weight: 700;
+  }
+  .exclude strong { color: var(--text-1); font-weight: 700; }
 </style>

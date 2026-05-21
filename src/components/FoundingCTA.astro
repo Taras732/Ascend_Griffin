@@ -10,15 +10,11 @@ const copy = isUk
   ? {
       eyebrow: "Наступний крок",
       h: "Discovery Call — 30 хвилин.",
-      body:
-        "Знайомство, щоб зрозуміти вашу ситуацію і чи я той читач для неї. Якщо ні — скажу прямо і порекомендую когось краще.",
       cta: "Записатися на Discovery Call",
     }
   : {
       eyebrow: "Next step",
       h: "Discovery Call — 30 minutes.",
-      body:
-        "A first conversation to understand your situation and whether I'm the right read for it. If not, I'll say so and point you toward someone better suited.",
       cta: "Book Discovery Call",
     };
 ---
@@ -28,7 +24,6 @@ const copy = isUk
     <div class="founding-card">
       <p class="founding-eyebrow">{copy.eyebrow}</p>
       <h2 class="founding-h">{copy.h}</h2>
-      <p class="founding-body">{copy.body}</p>
       <a
         href="#book"
         class="founding-btn"
@@ -43,69 +38,42 @@ const copy = isUk
 </section>
 
 <style>
-  .founding-cta {
-    padding: 56px 0 80px;
-  }
+  .founding-cta { padding: 56px 0 80px; }
   .founding-card {
     background: var(--bg-ink);
     color: var(--text-on-ink);
-    padding: 56px 48px;
+    padding: 48px 48px;
     border-radius: 4px;
     text-align: center;
     position: relative;
     overflow: hidden;
   }
-  @media (max-width: 720px) {
-    .founding-card { padding: 40px 24px; }
-  }
+  @media (max-width: 720px) { .founding-card { padding: 36px 24px; } }
   .founding-card::before {
     content: "";
-    position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 600px;
-    height: 600px;
+    position: absolute; top: -50%; right: -20%;
+    width: 600px; height: 600px;
     background: radial-gradient(circle, rgba(184,135,58,.08), transparent 60%);
     pointer-events: none;
   }
   .founding-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin: 0 0 18px;
-    font-weight: 600;
-    position: relative;
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent); margin: 0 0 16px;
+    font-weight: 600; position: relative;
   }
   .founding-h {
     font-family: var(--font-display);
     font-size: clamp(24px, 3.5vw, 36px);
     color: var(--text-on-ink);
-    line-height: 1.2;
-    letter-spacing: -0.015em;
-    margin: 0 0 20px;
-    font-weight: 700;
-    position: relative;
-  }
-  .founding-body {
-    color: var(--text-on-ink-muted);
-    font-size: 16px;
-    line-height: 1.6;
-    max-width: 60ch;
-    margin: 0 auto 32px;
-    position: relative;
+    line-height: 1.2; letter-spacing: -0.015em;
+    margin: 0 0 28px; font-weight: 700; position: relative;
   }
   .founding-btn {
     display: inline-block;
-    background: var(--accent);
-    color: var(--accent-ink);
-    padding: 16px 32px;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 2px;
-    font-size: 15px;
-    letter-spacing: 0.02em;
+    background: var(--accent); color: var(--accent-ink);
+    padding: 16px 32px; text-decoration: none;
+    font-weight: 600; border-radius: 2px;
+    font-size: 15px; letter-spacing: 0.02em;
     transition: background var(--dur-fast) var(--ease);
     position: relative;
   }

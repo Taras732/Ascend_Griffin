@@ -1,0 +1,187 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+import TrustBlock from "../../components/TrustBlock.astro";
+import FoundingCTA from "../../components/FoundingCTA.astro";
+
+const title = "Практика — що я роблю | Ascend Griffin";
+const description =
+  "Огляд напрямків моєї практики: AI-аудит, продуктовий Discovery і відновлення проєкту. Як обрати формат, що реально пасує вашій ситуації.";
+---
+
+<BaseLayout title={title} description={description}>
+  <Nav />
+  <main class="practices">
+    <section class="hero">
+      <div class="practices-shell">
+        <p class="hero-eyebrow">Практика · Ascend Griffin</p>
+
+        <h1 class="hero-h1">
+          Що я <em>роблю</em>.
+        </h1>
+
+        <p class="hero-lede">
+          Залежно від того, на якій ви стадії і яка ситуація — я працюю у трьох форматах. Один — швидкий аудит. Другий — повноцінний продуктовий Discovery. Третій — довший супровід для проєкту, що втратив темп.
+        </p>
+      </div>
+    </section>
+
+    {/* ── Три напрямки ─────────────────────────────────────────── */}
+    <section class="services-section">
+      <div class="practices-shell">
+        <div class="services-grid">
+          <a href="/uk/ai-readiness-audit/" class="service-card">
+            <div class="service-card-num">01</div>
+            <h2 class="service-card-title">Аудит AI-готовності</h2>
+            <p class="service-card-price">від $1,000 · 5-14 днів</p>
+            <p class="service-card-desc">
+              Незалежна оцінка vibe-coded прототипу, пропозиції від вендора або AI-функції, що перестала працювати. Перед тим, як вкладати більше — структуроване читання.
+            </p>
+            <p class="service-card-for">
+              <strong>Для кого:</strong> ви зібрали щось у Cursor/Lovable/v0 і не впевнені, чи воно тримає. Або у вас 3 пропозиції від вендорів — і треба обрати чесно.
+            </p>
+            <span class="service-card-link">Дізнатись більше →</span>
+          </a>
+
+          <article class="service-card service-card-soon">
+            <div class="service-card-num">02</div>
+            <h2 class="service-card-title">Дослідження</h2>
+            <p class="service-card-price">від $4,000 · 2-8 тижнів</p>
+            <p class="service-card-desc">
+              Discovery Sprint для нетехнічних засновників: від ідеї до повного продуктового брифа, оцінки бюджету і списку правильних вендорів.
+            </p>
+            <p class="service-card-for">
+              <strong>Для кого:</strong> ви маєте ідею і доменну експертизу, але не знаєте з чого почати, скільки це коштуватиме і хто має це будувати.
+            </p>
+            <span class="service-card-soon-tag">Окрема сторінка — скоро</span>
+          </article>
+
+          <a href="/uk/project-rescue/" class="service-card">
+            <div class="service-card-num">03</div>
+            <h2 class="service-card-title">Відновлення проєкту</h2>
+            <p class="service-card-price">від $2,500/міс · retainer</p>
+            <p class="service-card-desc">
+              Проєкт втратив темп, вендор не відповідає, бюджет тане без видимого прогресу. Структурне відновлення з ясним планом, що далі.
+            </p>
+            <p class="service-card-for">
+              <strong>Для кого:</strong> у вас проєкт у роботі, але швидкість delivery впала, а причини не зрозумілі. Або вендорські стосунки треба переглянути.
+            </p>
+            <span class="service-card-link">Дізнатись більше →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <TrustBlock />
+
+    {/* ── Як обрати формат ─────────────────────────────────────── */}
+    <section class="services-section services-section-bg">
+      <div class="practices-shell">
+        <p class="hero-eyebrow">Як обрати</p>
+        <h2 class="section-h2">
+          Три типові питання — і який формат їм відповідає.
+        </h2>
+
+        <div class="chooser">
+          <div class="chooser-item">
+            <p class="chooser-q">"У мене є прототип, який працює — чи варто його розвивати далі?"</p>
+            <p class="chooser-a">→ <strong>Аудит AI-готовності</strong>. Чесна оцінка того, що ви зібрали, і ясний шлях до production.</p>
+          </div>
+          <div class="chooser-item">
+            <p class="chooser-q">"У мене є ідея і експертиза, але не знаю, з чого починати і скільки це коштуватиме."</p>
+            <p class="chooser-a">→ <strong>Дослідження (Discovery)</strong>. Від ідеї до повного брифа, оцінки бюджету і списку правильних виконавців.</p>
+          </div>
+          <div class="chooser-item">
+            <p class="chooser-q">"У мене вже є проєкт, але швидкість впала, і я не розумію чому."</p>
+            <p class="chooser-a">→ <strong>Відновлення проєкту</strong>. Структуроване читання ситуації і повернення на курс.</p>
+          </div>
+        </div>
+
+        <p class="chooser-note">
+          Не впевнені, який формат пасує? Discovery Call на 30 хвилин — і визначимось разом. Якщо я не той читач — скажу прямо і порекомендую когось іншого.
+        </p>
+      </div>
+    </section>
+
+    {/* ── Кейси coming soon ────────────────────────────────────── */}
+    <section class="services-section">
+      <div class="practices-shell">
+        <p class="hero-eyebrow">Кейси · скоро</p>
+        <h2 class="section-h2">Реальні приклади — у роботі.</h2>
+        <p class="section-lede">
+          AG у фазі валідації — перші публічні кейси з'являться, коли мої перші клієнти готові їх показати. Поки що описи вище — це ілюстративні патерни з 8 років роботи у IT, не вигадані для сторінки.
+        </p>
+      </div>
+    </section>
+
+    <FoundingCTA service="discovery" />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .practices { background: radial-gradient(ellipse at top right, rgba(184, 135, 58, 0.04), transparent 50%), var(--bg-0); min-height: 100vh; }
+  .practices-shell { max-width: 1120px; margin: 0 auto; padding: 0 var(--gutter); }
+  @media (max-width: 720px) { .practices-shell { padding: 0 var(--gutter-sm); } }
+
+  .hero { padding: 96px 0 56px; }
+  @media (max-width: 720px) { .hero { padding: 56px 0 32px; } }
+  .hero-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-pressed); margin: 0 0 24px; font-weight: 600; }
+  .hero-h1 { font-family: var(--font-display); font-size: clamp(44px, 6vw, 76px); line-height: 1.02; letter-spacing: -0.03em; color: var(--text-1); margin: 0 0 28px; font-weight: 700; max-width: 14ch; }
+  .hero-h1 em { font-style: italic; color: var(--editorial); font-weight: 700; }
+  .hero-lede { font-size: 19px; line-height: 1.6; color: var(--text-2); margin: 0; max-width: 62ch; }
+
+  .services-section { padding: 64px 0; border-top: 1px solid var(--border-1); }
+  @media (max-width: 720px) { .services-section { padding: 48px 0; } }
+  .services-section-bg { background: var(--bg-1); }
+
+  .section-h2 { font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 36px); line-height: 1.15; letter-spacing: -0.015em; color: var(--text-1); margin: 0 0 16px; font-weight: 700; max-width: 24ch; }
+  .section-h2 em { font-style: italic; color: var(--editorial); }
+  .section-lede { font-size: 17px; line-height: 1.6; color: var(--text-2); margin: 0; max-width: 60ch; }
+
+  /* Service cards bigger than home */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+  @media (max-width: 900px) { .services-grid { grid-template-columns: 1fr; gap: 16px; } }
+  .service-card {
+    background: var(--bg-0);
+    border: 1px solid var(--border-1);
+    border-radius: 4px;
+    padding: 36px 32px;
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--dur-base) var(--ease);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 360px;
+  }
+  .service-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  .service-card-soon { background: var(--bg-2); cursor: default; opacity: 0.9; }
+  .service-card-soon:hover { transform: none; border-color: var(--border-1); box-shadow: none; }
+  .service-card-num { font-family: var(--font-mono); font-size: 12px; color: var(--accent-pressed); font-weight: 700; letter-spacing: 0.04em; margin-bottom: 4px; }
+  .service-card-title { font-family: var(--font-display); font-size: 24px; line-height: 1.25; letter-spacing: -0.015em; color: var(--text-1); margin: 0; font-weight: 700; }
+  .service-card-price { font-family: var(--font-mono); font-size: 12px; color: var(--text-3); margin: 0 0 8px; letter-spacing: 0.02em; }
+  .service-card-desc { font-size: 15px; line-height: 1.55; color: var(--text-2); margin: 0; }
+  .service-card-for { font-size: 14px; line-height: 1.55; color: var(--text-2); margin: 6px 0 0; padding: 12px 14px; background: var(--bg-1); border-radius: 2px; flex: 1; }
+  .service-card-for strong { color: var(--text-1); font-weight: 700; }
+  .service-card-soon .service-card-for { background: var(--bg-0); }
+  .service-card-link { font-family: var(--font-mono); font-size: 12px; color: var(--accent-pressed); letter-spacing: 0.04em; font-weight: 600; margin-top: 8px; }
+  .service-card-soon-tag { font-family: var(--font-mono); font-size: 11px; color: var(--text-4); letter-spacing: 0.04em; margin-top: 8px; font-style: italic; }
+
+  /* Chooser */
+  .chooser { display: flex; flex-direction: column; gap: 24px; margin: 32px 0; max-width: 760px; }
+  .chooser-item { padding: 20px 24px; background: var(--bg-0); border-left: 3px solid var(--accent); border-radius: 0 2px 2px 0; }
+  .chooser-q { font-size: 17px; color: var(--text-1); margin: 0 0 10px; line-height: 1.5; font-style: italic; }
+  .chooser-a { font-size: 15px; color: var(--text-2); margin: 0; line-height: 1.55; }
+  .chooser-a strong { color: var(--accent-pressed); font-weight: 700; }
+  .chooser-note { font-family: var(--font-mono); font-size: 13px; color: var(--text-3); line-height: 1.55; max-width: 60ch; margin: 28px 0 0; font-style: italic; }
+</style>

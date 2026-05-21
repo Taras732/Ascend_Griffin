@@ -1,29 +1,90 @@
 ---
 import { site } from "../data/site";
-import { t } from "../i18n/translations";
-const tr = t(Astro.currentLocale);
+
 const isUk = Astro.currentLocale === "uk";
 const homeHref = isUk ? "/uk/" : "/";
 const altLangHref = isUk ? "/" : "/uk/";
 const altLangLabel = isUk ? "EN" : "UA";
+
+const labels = isUk
+  ? {
+      about: "Про мене",
+      practice: "Практика",
+      practiceOverview: "Огляд",
+      audit: "Аудит AI",
+      recovery: "Відновлення",
+      discoverySoon: "Дослідження (скоро)",
+      casesSoon: "Кейси (скоро)",
+      howIWork: "Як я працюю",
+      blog: "Блог",
+      cta: "Discovery Call",
+      menu: "Меню",
+      altLangAria: `Switch to English`,
+    }
+  : {
+      about: "About",
+      practice: "Practice",
+      practiceOverview: "Overview",
+      audit: "AI Audit",
+      recovery: "Recovery",
+      discoverySoon: "Discovery (soon)",
+      casesSoon: "Cases (soon)",
+      howIWork: "How I work",
+      blog: "Blog",
+      cta: "Discovery Call",
+      menu: "Menu",
+      altLangAria: `Switch to Ukrainian`,
+    };
+
+const prefix = isUk ? "/uk" : "";
+const links = {
+  about: `${prefix}/about/`,
+  practice: `${prefix}/practices/`,
+  audit: `${prefix}/ai-readiness-audit/`,
+  recovery: `${prefix}/project-rescue/`,
+  howIWork: `${prefix}/how-i-work/`,
+  blog: `${prefix}/blog/`,
+};
 ---
 
 <nav class="site-nav" aria-label="Primary">
   <div class="site-container nav-inner">
-    <a href={homeHref} class="nav-brand" aria-label="Ascend Griffin — home">
+    <a href={homeHref} class="nav-brand" aria-label={`${site.name} — home`}>
       <span class="nav-brand-name">{site.name}</span>
     </a>
 
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-controls="nav-links" aria-expanded="false">
-      Menu
+    <button class="nav-toggle" aria-label={labels.menu} aria-controls="nav-links" aria-expanded="false">
+      {labels.menu}
     </button>
 
     <ul class="nav-links" id="nav-links">
-      {tr.site.nav.map((link) => (
-        <li><a href={link.href}>{link.label}</a></li>
-      ))}
+      <li><a href={links.about}>{labels.about}</a></li>
+
+      <li class="nav-dropdown">
+        <button
+          type="button"
+          class="nav-dropdown-trigger"
+          aria-expanded="false"
+          aria-controls="nav-practice-menu"
+        >
+          {labels.practice}
+          <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <ul class="nav-dropdown-menu" id="nav-practice-menu" role="menu">
+          <li role="none"><a role="menuitem" href={links.practice}>{labels.practiceOverview}</a></li>
+          <li role="none"><a role="menuitem" href={links.audit}>{labels.audit}</a></li>
+          <li role="none"><a role="menuitem" href={links.recovery}>{labels.recovery}</a></li>
+          <li role="none" class="nav-dropdown-soon"><span>{labels.discoverySoon}</span></li>
+          <li role="none" class="nav-dropdown-soon"><span>{labels.casesSoon}</span></li>
+        </ul>
+      </li>
+
+      <li><a href={links.howIWork}>{labels.howIWork}</a></li>
+      <li><a href={links.blog}>{labels.blog}</a></li>
       <li>
-        <a href={altLangHref} class="nav-lang" aria-label={`Switch to ${altLangLabel}`}>
+        <a href={altLangHref} class="nav-lang" aria-label={labels.altLangAria}>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="12" cy="12" r="10" />
             <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
@@ -32,7 +93,7 @@ const altLangLabel = isUk ? "EN" : "UA";
           <span>{altLangLabel}</span>
         </a>
       </li>
-      <li><a href="#book" data-modal="booking" data-subject="discovery-call" data-source="nav" class="nav-cta">{tr.site.heroCtaPrimary} →</a></li>
+      <li><a href="#book" data-modal="booking" data-subject="discovery-call" data-source="nav" class="nav-cta">{labels.cta} →</a></li>
     </ul>
   </div>
 </nav>
@@ -53,30 +114,15 @@ const altLangLabel = isUk ? "EN" : "UA";
     max-width: var(--container);
     margin: 0 auto;
   }
-  @media (max-width: 720px) {
-    .nav-inner { padding: 14px var(--gutter-sm); }
-  }
-  .nav-brand {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: var(--text-1);
-  }
-  .nav-brand-name {
-    font-family: var(--font-display);
-    font-size: 17px;
-    font-weight: 700;
-    letter-spacing: -0.015em;
-  }
+  @media (max-width: 720px) { .nav-inner { padding: 14px var(--gutter-sm); } }
+  .nav-brand { display: flex; align-items: center; text-decoration: none; color: var(--text-1); }
+  .nav-brand-name { font-family: var(--font-display); font-size: 17px; font-weight: 700; letter-spacing: -0.015em; }
   .nav-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    gap: 28px;
+    list-style: none; margin: 0; padding: 0;
+    display: flex; align-items: center; gap: 24px;
   }
-  .nav-links a {
+  .nav-links > li > a,
+  .nav-dropdown-trigger {
     font-family: var(--font-mono);
     font-size: 11px;
     letter-spacing: 0.08em;
@@ -84,8 +130,81 @@ const altLangLabel = isUk ? "EN" : "UA";
     color: var(--text-3);
     text-decoration: none;
     transition: color var(--dur-fast) var(--ease);
+    background: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    font-weight: 400;
   }
-  .nav-links a:hover { color: var(--text-1); }
+  .nav-links > li > a:hover,
+  .nav-dropdown-trigger:hover {
+    color: var(--text-1);
+  }
+
+  /* Dropdown */
+  .nav-dropdown { position: relative; }
+  .nav-dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-dropdown-trigger svg {
+    transition: transform var(--dur-fast) var(--ease);
+  }
+  .nav-dropdown.is-open .nav-dropdown-trigger svg {
+    transform: rotate(180deg);
+  }
+  .nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 14px);
+    left: -16px;
+    min-width: 220px;
+    background: var(--bg-0);
+    border: 1px solid var(--border-2);
+    border-radius: 4px;
+    box-shadow: var(--shadow-lg);
+    padding: 8px 0;
+    list-style: none;
+    margin: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease), visibility var(--dur-fast);
+  }
+  .nav-dropdown.is-open .nav-dropdown-menu,
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .nav-dropdown-menu li { margin: 0; }
+  .nav-dropdown-menu a {
+    display: block;
+    padding: 10px 18px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--text-1);
+    text-decoration: none;
+    letter-spacing: 0;
+    text-transform: none;
+    line-height: 1.4;
+    font-weight: 500;
+    transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  }
+  .nav-dropdown-menu a:hover { background: var(--bg-1); color: var(--accent-pressed); }
+  .nav-dropdown-soon span {
+    display: block;
+    padding: 10px 18px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--text-4);
+    font-style: italic;
+    line-height: 1.4;
+    cursor: default;
+  }
+
+  /* Language toggle */
   .nav-lang {
     display: inline-flex;
     align-items: center;
@@ -97,15 +216,10 @@ const altLangLabel = isUk ? "EN" : "UA";
     font-weight: 600;
     transition: all var(--dur-fast) var(--ease);
   }
-  .nav-lang svg {
-    color: var(--accent-pressed);
-    flex-shrink: 0;
-  }
-  .nav-lang:hover {
-    border-color: var(--accent);
-    color: var(--accent-pressed) !important;
-    background: var(--accent-subtle);
-  }
+  .nav-lang svg { color: var(--accent-pressed); flex-shrink: 0; }
+  .nav-lang:hover { border-color: var(--accent); color: var(--accent-pressed) !important; background: var(--accent-subtle); }
+
+  /* CTA */
   .nav-cta {
     background: var(--accent);
     color: var(--accent-ink) !important;
@@ -115,6 +229,8 @@ const altLangLabel = isUk ? "EN" : "UA";
     letter-spacing: 0.04em !important;
   }
   .nav-cta:hover { background: var(--accent-hover); }
+
+  /* Toggle */
   .nav-toggle {
     display: none;
     background: transparent;
@@ -128,7 +244,9 @@ const altLangLabel = isUk ? "EN" : "UA";
     cursor: pointer;
     border-radius: 2px;
   }
-  @media (max-width: 720px) {
+
+  /* Mobile */
+  @media (max-width: 860px) {
     .nav-links { display: none; }
     .nav-toggle { display: block; }
     .nav-links.open {
@@ -141,9 +259,28 @@ const altLangLabel = isUk ? "EN" : "UA";
       background: var(--bg-0);
       padding: 20px var(--gutter-sm);
       border-bottom: 1px solid var(--border-1);
-      align-items: flex-start;
-      gap: 18px;
+      align-items: stretch;
+      gap: 14px;
+      max-height: calc(100vh - 64px);
+      overflow-y: auto;
     }
+    .nav-links.open > li {
+      width: 100%;
+    }
+    .nav-dropdown-menu {
+      position: static;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      box-shadow: none;
+      border: 0;
+      border-left: 2px solid var(--border-2);
+      border-radius: 0;
+      padding: 4px 0 4px 12px;
+      margin-top: 8px;
+      display: none;
+    }
+    .nav-dropdown.is-open .nav-dropdown-menu { display: block; }
   }
 </style>
 
@@ -155,11 +292,40 @@ const altLangLabel = isUk ? "EN" : "UA";
       const open = links.classList.toggle("open");
       toggle.setAttribute("aria-expanded", String(open));
     });
-    links.querySelectorAll("a").forEach((a) => {
+    links.querySelectorAll<HTMLAnchorElement>("a:not(.nav-dropdown-trigger)").forEach((a) => {
       a.addEventListener("click", () => {
         links.classList.remove("open");
         toggle.setAttribute("aria-expanded", "false");
       });
     });
   }
+
+  // Dropdown click behavior (mobile + accessibility)
+  document.querySelectorAll<HTMLElement>(".nav-dropdown").forEach((dd) => {
+    const trigger = dd.querySelector<HTMLButtonElement>(".nav-dropdown-trigger");
+    if (!trigger) return;
+    trigger.addEventListener("click", (e) => {
+      e.preventDefault();
+      const isOpen = dd.classList.toggle("is-open");
+      trigger.setAttribute("aria-expanded", String(isOpen));
+    });
+  });
+
+  // Close dropdowns on outside click + Escape
+  document.addEventListener("click", (e) => {
+    document.querySelectorAll<HTMLElement>(".nav-dropdown.is-open").forEach((dd) => {
+      if (!dd.contains(e.target as Node)) {
+        dd.classList.remove("is-open");
+        dd.querySelector<HTMLButtonElement>(".nav-dropdown-trigger")?.setAttribute("aria-expanded", "false");
+      }
+    });
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      document.querySelectorAll<HTMLElement>(".nav-dropdown.is-open").forEach((dd) => {
+        dd.classList.remove("is-open");
+        dd.querySelector<HTMLButtonElement>(".nav-dropdown-trigger")?.setAttribute("aria-expanded", "false");
+      });
+    }
+  });
 </script>

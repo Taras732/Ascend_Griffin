@@ -1,0 +1,162 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import TrustBlock from "../components/TrustBlock.astro";
+import FoundingCTA from "../components/FoundingCTA.astro";
+
+const title = "Practice — what I do | Ascend Griffin";
+const description =
+  "Overview of my practice: AI audit, product Discovery, and project recovery. How to pick the format that actually fits your situation.";
+---
+
+<BaseLayout title={title} description={description}>
+  <Nav />
+  <main class="practices">
+    <section class="hero">
+      <div class="practices-shell">
+        <p class="hero-eyebrow">Practice · Ascend Griffin</p>
+
+        <h1 class="hero-h1">
+          What I <em>do</em>.
+        </h1>
+
+        <p class="hero-lede">
+          Depending on the stage you're at and the situation in front of you, I work in three formats. One is a fast audit. One is a full product Discovery. One is a longer retainer for a project that's lost momentum.
+        </p>
+      </div>
+    </section>
+
+    <section class="services-section">
+      <div class="practices-shell">
+        <div class="services-grid">
+          <a href="/ai-readiness-audit/" class="service-card">
+            <div class="service-card-num">01</div>
+            <h2 class="service-card-title">AI Readiness Audit</h2>
+            <p class="service-card-price">from $1,000 · 5-14 days</p>
+            <p class="service-card-desc">
+              An independent read on a vibe-coded prototype, a vendor proposal on your desk, or an AI feature that stopped working. Before you commit more capital — a structured review.
+            </p>
+            <p class="service-card-for">
+              <strong>Best fit:</strong> you've built something in Cursor/Lovable/v0 and aren't sure it holds up. Or you have 3 vendor proposals and need an honest pick.
+            </p>
+            <span class="service-card-link">Learn more →</span>
+          </a>
+
+          <article class="service-card service-card-soon">
+            <div class="service-card-num">02</div>
+            <h2 class="service-card-title">Discovery</h2>
+            <p class="service-card-price">from $4,000 · 2-8 weeks</p>
+            <p class="service-card-desc">
+              Discovery Sprint for non-technical founders: from idea to a complete product brief, realistic budget, and shortlist of the right vendors.
+            </p>
+            <p class="service-card-for">
+              <strong>Best fit:</strong> you have an idea and domain expertise, but don't know where to start, what it'll cost, or who should build it.
+            </p>
+            <span class="service-card-soon-tag">Dedicated page — coming soon</span>
+          </article>
+
+          <a href="/project-rescue/" class="service-card">
+            <div class="service-card-num">03</div>
+            <h2 class="service-card-title">Project Recovery</h2>
+            <p class="service-card-price">from $2,500/month · retainer</p>
+            <p class="service-card-desc">
+              Project lost momentum, vendor unresponsive, budget draining without visible progress. Structured recovery with a clear plan for what comes next.
+            </p>
+            <p class="service-card-for">
+              <strong>Best fit:</strong> you've got a project in flight but delivery has slowed and the reasons aren't clear. Or vendor relationships need a reset.
+            </p>
+            <span class="service-card-link">Learn more →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <TrustBlock />
+
+    <section class="services-section services-section-bg">
+      <div class="practices-shell">
+        <p class="hero-eyebrow">How to choose</p>
+        <h2 class="section-h2">
+          Three typical questions — and which format answers them.
+        </h2>
+
+        <div class="chooser">
+          <div class="chooser-item">
+            <p class="chooser-q">"I have a working prototype — is it worth building on?"</p>
+            <p class="chooser-a">→ <strong>AI Readiness Audit</strong>. An honest read of what you've built, and a clear path to production.</p>
+          </div>
+          <div class="chooser-item">
+            <p class="chooser-q">"I have an idea and domain expertise, but don't know where to begin or what it'll cost."</p>
+            <p class="chooser-a">→ <strong>Discovery</strong>. From idea to a complete brief, budget estimate, and shortlist of the right teams.</p>
+          </div>
+          <div class="chooser-item">
+            <p class="chooser-q">"My project is in flight, but velocity dropped and I don't understand why."</p>
+            <p class="chooser-a">→ <strong>Project Recovery</strong>. A structured read of the situation and a return to course.</p>
+          </div>
+        </div>
+
+        <p class="chooser-note">
+          Not sure which format fits? A 30-minute Discovery Call — we figure it out together. If I'm not the right read, I'll say so and point you toward someone better.
+        </p>
+      </div>
+    </section>
+
+    <section class="services-section">
+      <div class="practices-shell">
+        <p class="hero-eyebrow">Cases · coming soon</p>
+        <h2 class="section-h2">Real examples — in progress.</h2>
+        <p class="section-lede">
+          AG is in validation phase — the first public case studies will appear once my first clients are ready to share them. For now, the descriptions above are illustrative patterns from 8 years inside IT, not invented for the page.
+        </p>
+      </div>
+    </section>
+
+    <FoundingCTA service="discovery" />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .practices { background: radial-gradient(ellipse at top right, rgba(184, 135, 58, 0.04), transparent 50%), var(--bg-0); min-height: 100vh; }
+  .practices-shell { max-width: 1120px; margin: 0 auto; padding: 0 var(--gutter); }
+  @media (max-width: 720px) { .practices-shell { padding: 0 var(--gutter-sm); } }
+
+  .hero { padding: 96px 0 56px; }
+  @media (max-width: 720px) { .hero { padding: 56px 0 32px; } }
+  .hero-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-pressed); margin: 0 0 24px; font-weight: 600; }
+  .hero-h1 { font-family: var(--font-display); font-size: clamp(44px, 6vw, 76px); line-height: 1.02; letter-spacing: -0.03em; color: var(--text-1); margin: 0 0 28px; font-weight: 700; max-width: 14ch; }
+  .hero-h1 em { font-style: italic; color: var(--editorial); font-weight: 700; }
+  .hero-lede { font-size: 19px; line-height: 1.6; color: var(--text-2); margin: 0; max-width: 62ch; }
+
+  .services-section { padding: 64px 0; border-top: 1px solid var(--border-1); }
+  @media (max-width: 720px) { .services-section { padding: 48px 0; } }
+  .services-section-bg { background: var(--bg-1); }
+
+  .section-h2 { font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 36px); line-height: 1.15; letter-spacing: -0.015em; color: var(--text-1); margin: 0 0 16px; font-weight: 700; max-width: 24ch; }
+  .section-h2 em { font-style: italic; color: var(--editorial); }
+  .section-lede { font-size: 17px; line-height: 1.6; color: var(--text-2); margin: 0; max-width: 60ch; }
+
+  .services-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+  @media (max-width: 900px) { .services-grid { grid-template-columns: 1fr; gap: 16px; } }
+  .service-card { background: var(--bg-0); border: 1px solid var(--border-1); border-radius: 4px; padding: 36px 32px; text-decoration: none; color: inherit; transition: all var(--dur-base) var(--ease); display: flex; flex-direction: column; gap: 10px; min-height: 360px; }
+  .service-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .service-card-soon { background: var(--bg-2); cursor: default; opacity: 0.9; }
+  .service-card-soon:hover { transform: none; border-color: var(--border-1); box-shadow: none; }
+  .service-card-num { font-family: var(--font-mono); font-size: 12px; color: var(--accent-pressed); font-weight: 700; letter-spacing: 0.04em; margin-bottom: 4px; }
+  .service-card-title { font-family: var(--font-display); font-size: 24px; line-height: 1.25; letter-spacing: -0.015em; color: var(--text-1); margin: 0; font-weight: 700; }
+  .service-card-price { font-family: var(--font-mono); font-size: 12px; color: var(--text-3); margin: 0 0 8px; letter-spacing: 0.02em; }
+  .service-card-desc { font-size: 15px; line-height: 1.55; color: var(--text-2); margin: 0; }
+  .service-card-for { font-size: 14px; line-height: 1.55; color: var(--text-2); margin: 6px 0 0; padding: 12px 14px; background: var(--bg-1); border-radius: 2px; flex: 1; }
+  .service-card-for strong { color: var(--text-1); font-weight: 700; }
+  .service-card-soon .service-card-for { background: var(--bg-0); }
+  .service-card-link { font-family: var(--font-mono); font-size: 12px; color: var(--accent-pressed); letter-spacing: 0.04em; font-weight: 600; margin-top: 8px; }
+  .service-card-soon-tag { font-family: var(--font-mono); font-size: 11px; color: var(--text-4); letter-spacing: 0.04em; margin-top: 8px; font-style: italic; }
+
+  .chooser { display: flex; flex-direction: column; gap: 24px; margin: 32px 0; max-width: 760px; }
+  .chooser-item { padding: 20px 24px; background: var(--bg-0); border-left: 3px solid var(--accent); border-radius: 0 2px 2px 0; }
+  .chooser-q { font-size: 17px; color: var(--text-1); margin: 0 0 10px; line-height: 1.5; font-style: italic; }
+  .chooser-a { font-size: 15px; color: var(--text-2); margin: 0; line-height: 1.55; }
+  .chooser-a strong { color: var(--accent-pressed); font-weight: 700; }
+  .chooser-note { font-family: var(--font-mono); font-size: 13px; color: var(--text-3); line-height: 1.55; max-width: 60ch; margin: 28px 0 0; font-style: italic; }
+</style>

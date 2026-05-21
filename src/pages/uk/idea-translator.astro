@@ -1,0 +1,371 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+import TrustBlock from "../../components/TrustBlock.astro";
+import FoundingCTA from "../../components/FoundingCTA.astro";
+import PricingBadge from "../../components/PricingBadge.astro";
+
+const title = "Дослідження (Discovery) — від $4,000 | Ascend Griffin";
+const description =
+  "Discovery Sprint для нетехнічних засновників: від ідеї до повного продуктового брифа, оцінки бюджету і списку правильних виконавців. Від $4,000 · 2-8 тижнів.";
+---
+
+<BaseLayout title={title} description={description}>
+  <Nav />
+  <main class="about">
+    <section class="hero">
+      <div class="about-shell">
+        <p class="hero-eyebrow">01 · Дослідження (Discovery)</p>
+
+        <h1 class="hero-h1">
+          Від ідеї <em>до плану</em>, який можна реалізувати.
+        </h1>
+
+        <p class="hero-lede">
+          У вас є ідея і доменна експертиза, але немає чіткої відповіді: чи варто це будувати, скільки це коштуватиме, хто має це робити. Discovery Sprint — структуроване дослідження, на виході якого ви отримуєте повний продуктовий бриф, реалістичну оцінку бюджету і строків, і список правильних виконавців.
+        </p>
+
+        <PricingBadge price="від $4,000" duration="2-8 тижнів" />
+
+        <div class="hero-cta">
+          <a
+            href="#book"
+            class="btn-primary"
+            data-modal="booking"
+            data-subject="discovery"
+            data-source="discovery-hero"
+          >
+            Discovery Call →
+          </a>
+          <a href="#what-you-get" class="btn-ghost">Що отримаєте →</a>
+        </div>
+
+        <p class="hero-hint">↓ Розгорніть секцію, щоб дізнатися більше</p>
+      </div>
+    </section>
+
+    <TrustBlock />
+
+    <section class="acc-section">
+      <div class="about-shell">
+        <details class="acc" name="discovery" id="who">
+          <summary class="acc-summary">
+            <span class="acc-num">02</span>
+            <span class="acc-label">Для кого</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <h3 class="acc-h">Три типові ситуації, з якими я працюю.</h3>
+
+            <article class="icp-card">
+              <header class="icp-header">
+                <span class="icp-letter">A</span>
+                <h4 class="icp-title">Засновник з ідеєю і доменною експертизою.</h4>
+              </header>
+              <p>Ви маєте глибоке знання конкретної галузі — логістики, фінтеху, медичного адміністрування, освіти. Бачите проблему, яку інші не бачать, тому що щодня з нею стикаєтесь. Ідея для продукту крутиться в голові вже рік-два. Але — як перейти від "ідеї" до "плану", за яким можна реально щось будувати? <em>Discovery дає структуру: де гіпотеза, де факт, що варто будувати, що ні.</em></p>
+            </article>
+
+            <article class="icp-card">
+              <header class="icp-header">
+                <span class="icp-letter">B</span>
+                <h4 class="icp-title">Бізнес-власник, що готується інвестувати у свій перший digital-продукт.</h4>
+              </header>
+              <p>У вас є офлайн-бізнес, який треба digitalізувати, або ідея додаткового продукту поверх існуючого. Запитання — що саме будувати у першій версії, який обсяг роботи реалістичний, скільки це коштуватиме, хто має це робити. <em>Discovery дає відповіді на ці питання у вигляді документа, з яким можна йти до вендорів — або навіть інвесторів.</em></p>
+            </article>
+
+            <article class="icp-card">
+              <header class="icp-header">
+                <span class="icp-letter">C</span>
+                <h4 class="icp-title">Команда, що хоче запустити внутрішній продукт або сервіс.</h4>
+              </header>
+              <p>Корпорація, агенція, або стартап, який хоче запустити нову лінію — або B2B-сервіс на базі своїх компетенцій, або внутрішній інструмент, що автоматизує рутину. <em>Discovery дає об'єктивне дослідження ідеї і конкретний product brief, з яким команда може почати робити.</em></p>
+            </article>
+          </div>
+        </details>
+
+        <details class="acc" name="discovery" id="what-you-get">
+          <summary class="acc-summary">
+            <span class="acc-num">03</span>
+            <span class="acc-label">Що отримаєте</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <h3 class="acc-h">П'ять артефактів, готових до дії.</h3>
+            <p class="acc-lede">Документи, з якими ваша команда (або вендор, якого ви наймете) почне роботу одразу — без зайвих "а що ще треба з'ясувати?".</p>
+
+            <ol class="modes">
+              <li class="mode">
+                <span class="mode-letter">01</span>
+                <div class="mode-body">
+                  <h4>Продуктовий бриф першої версії.</h4>
+                  <p>Що саме будуємо у v1: ключові фічі, користувацькі сценарії, що НЕ входить у v1 (явно зафіксовано — це часто важливіше). Бриф можна показати вендорам, інвесторам, команді — усі зрозуміють однаково.</p>
+                </div>
+              </li>
+              <li class="mode">
+                <span class="mode-letter">02</span>
+                <div class="mode-body">
+                  <h4>Підтверджені гіпотези і відкинуті ризики.</h4>
+                  <p>Перевіряємо ключові припущення: чи потрібен ринку продукт у такому вигляді, чи готові клієнти за це платити, чи технічно реально це зібрати у розумних строках. Підтверджені — рухаємо в план. Відкинуті — відразу, з обґрунтуванням.</p>
+                </div>
+              </li>
+              <li class="mode">
+                <span class="mode-letter">03</span>
+                <div class="mode-body">
+                  <h4>Реалістична оцінка бюджету і строків.</h4>
+                  <p>Не "плюс-мінус кілька десятків тисяч". Конкретні діапазони з обґрунтуванням, де лежать ключові точки невизначеності, як вони впливають на ціну. Можна показати фінансовому директору або раді — питань не виникне.</p>
+                </div>
+              </li>
+              <li class="mode">
+                <span class="mode-letter">04</span>
+                <div class="mode-body">
+                  <h4>Шорт-ліст правильних виконавців.</h4>
+                  <p>3-5 команд або підрядників, що реально підходять вашому проекту — за технічним стеком, доменним досвідом і ціновим діапазоном. З коротким описом сильних і слабких сторін кожного, плюс конкретні питання, які варто поставити на дзвінку.</p>
+                </div>
+              </li>
+              <li class="mode">
+                <span class="mode-letter">05</span>
+                <div class="mode-body">
+                  <h4>Пакет для переговорів.</h4>
+                  <p>Аргументи, цифри, технічні деталі — все, що знадобиться під час перемовин з вибраним виконавцем. Щоб ви заходили у розмову з даними, а не з відчуттями.</p>
+                </div>
+              </li>
+            </ol>
+
+            <div class="outcomes">
+              <p class="outcomes-h">Кінцева цінність — не у документах самих по собі, а у тому, що ви знаєте, що робити далі:</p>
+              <ul class="outcomes-list">
+                <li>Підписати контракт з виконавцем на чесних умовах — за бюджет, що тримається.</li>
+                <li>Або отримати підтвердження від інвесторів, бо їм показано конкретний план з обґрунтованими цифрами.</li>
+                <li>Або чесно прийняти рішення поки не будувати — і зекономити сотні тисяч, які пішли б на маловідповідний продукт.</li>
+                <li>Або модифікувати ідею до варіанту, що тримає — на основі тверезого дослідження, а не здогадок.</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="acc" name="discovery" id="how">
+          <summary class="acc-summary">
+            <span class="acc-num">04</span>
+            <span class="acc-label">Як це працює</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <h3 class="acc-h">Три фази, кожна з конкретним артефактом.</h3>
+
+            <ol class="modes">
+              <li class="mode">
+                <span class="mode-letter">01</span>
+                <div class="mode-body">
+                  <h4>Контекст і гіпотези (тиждень 1).</h4>
+                  <p>Глибокі інтерв'ю — з вами, з потенційними клієнтами (4-6 розмов), з представниками галузі. Збираю реальну картину: що болить, що вже намагалися робити, що ринку насправді бракує. Артефакт фази: документ "Context & Hypotheses" з ключовими припущеннями, які треба перевірити.</p>
+                </div>
+              </li>
+              <li class="mode">
+                <span class="mode-letter">02</span>
+                <div class="mode-body">
+                  <h4>Валідація і дизайн рішення (тижні 2-5).</h4>
+                  <p>Перевіряю критичні гіпотези: чи готові клієнти платити, чи технічно реально, чи є ринковий простір. Паралельно — формую product brief: фічі першої версії, user flows, технічні припущення. Артефакт фази: повний продуктовий бриф + перевірені гіпотези.</p>
+                </div>
+              </li>
+              <li class="mode">
+                <span class="mode-letter">03</span>
+                <div class="mode-body">
+                  <h4>Шорт-ліст і пакет для переговорів (тижні 6-8).</h4>
+                  <p>Підбираю 3-5 виконавців, що реально підходять. Запитую у них коротку оцінку на основі брифа. Складаю пакет для переговорів — з аргументами, цифрами, червоними прапорцями. Артефакт фази: ready-to-negotiate пакет.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </details>
+
+        <details class="acc" name="discovery" id="not-included">
+          <summary class="acc-summary">
+            <span class="acc-num">05</span>
+            <span class="acc-label">Не входить</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <h3 class="acc-h">Чим Discovery <em>не є</em>.</h3>
+
+            <ul class="exclude">
+              <li>
+                <span class="exclude-mark">→</span>
+                <span><strong>Розробка прототипу.</strong> Я не пишу production-код. Якщо у фазі 2 потрібен функціональний прототип для тестування — це окремий формат або залучення команди.</span>
+              </li>
+              <li>
+                <span class="exclude-mark">→</span>
+                <span><strong>Маркетингова стратегія цілком.</strong> Я роблю base-level позиціонування і ринкове дослідження як частину discovery, але повний GTM-план — окрема компетенція з власними експертами.</span>
+              </li>
+              <li>
+                <span class="exclude-mark">→</span>
+                <span><strong>Юридична частина.</strong> Договори, ліцензування, патенти — я не юрист. Можу порадити юриста, але сама консультація не входить.</span>
+              </li>
+              <li>
+                <span class="exclude-mark">→</span>
+                <span><strong>Гарантія успіху продукту.</strong> Discovery не може гарантувати, що продукт "вистрелить". Що Discovery гарантує — це що ви рухаєтесь з найкращим знанням, доступним на момент запуску.</span>
+              </li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="acc" name="discovery" id="faq">
+          <summary class="acc-summary">
+            <span class="acc-num">06</span>
+            <span class="acc-label">Часті питання</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <div class="qa">
+              <h4 class="qa-q">Чим це відрізняється від звичайного "написати ТЗ"?</h4>
+              <p>ТЗ — це опис того, що треба зробити. Discovery дає не тільки "що", а й "чому" і "наскільки впевнено". На виході — не сухе ТЗ, а пакет, з яким ви приймаєте рішення вкладати чи не вкладати капітал.</p>
+            </div>
+            <div class="qa">
+              <h4 class="qa-q">А якщо у мене вже є MVP, чи варто робити Discovery?</h4>
+              <p>Якщо MVP вже працює і має перших користувачів — швидше за все, ні. Discovery — для стадії "до коду". Якщо MVP є, але результат не задовольняє — варто говорити про Аудит, не Discovery.</p>
+            </div>
+            <div class="qa">
+              <h4 class="qa-q">Скільки інтерв'ю з клієнтами зазвичай потрібно?</h4>
+              <p>4-6 глибоких розмов з потенційними або діючими клієнтами вашої галузі — це мінімум, з якого можна формувати об'єктивні гіпотези. Якщо ваша галузь дуже вузька або клієнти важкодоступні — обговорюємо альтернативи (вторинні джерела, експертні розмови, аналітика).</p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <FoundingCTA service="discovery" />
+  </main>
+  <Footer />
+
+  <script>
+    (function () {
+      const NAME = "discovery";
+      function openAccordionFromHash(hash: string | null) {
+        if (!hash || hash === "#" || hash === "#book") return;
+        let target: HTMLElement | null = null;
+        try { target = document.querySelector(hash); } catch { return; }
+        if (target && target instanceof HTMLDetailsElement && target.getAttribute("name") === NAME) {
+          if (!target.open) target.open = true;
+        }
+      }
+      function init() {
+        const items = document.querySelectorAll<HTMLDetailsElement>(`details[name="${NAME}"]`);
+        if (!items.length) return;
+        const STICKY_OFFSET = 88;
+        items.forEach((det) => {
+          det.addEventListener("toggle", () => {
+            if (!det.open) return;
+            const summary = det.querySelector("summary");
+            if (!summary) return;
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                const rect = summary.getBoundingClientRect();
+                window.scrollTo({ top: window.scrollY + rect.top - STICKY_OFFSET, behavior: "smooth" });
+              });
+            });
+          });
+        });
+        document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((link) => {
+          const href = link.getAttribute("href");
+          if (!href || href === "#" || href === "#book") return;
+          link.addEventListener("click", () => { openAccordionFromHash(href); });
+        });
+        openAccordionFromHash(location.hash);
+      }
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", init);
+      } else { init(); }
+    })();
+  </script>
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Дослідження (Discovery Sprint)",
+      provider: { "@type": "Person", name: "Тарас Смалюх", alternateName: "Taras Smaliukh", url: "https://ascendgriffin.org/uk/about/" },
+      areaServed: ["Україна", "Worldwide"],
+      description,
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "USD",
+        price: "4000",
+        priceSpecification: { "@type": "PriceSpecification", minPrice: 4000, priceCurrency: "USD" },
+      },
+      serviceType: "Discovery Sprint",
+      inLanguage: "uk",
+    })}
+  />
+</BaseLayout>
+
+<style>
+  .about { background: radial-gradient(ellipse at top right, rgba(184, 135, 58, 0.04), transparent 50%), radial-gradient(ellipse at bottom left, rgba(184, 135, 58, 0.03), transparent 40%), var(--bg-0); min-height: 100vh; }
+  .about-shell { max-width: 880px; margin: 0 auto; padding: 0 var(--gutter); }
+  @media (max-width: 720px) { .about-shell { padding: 0 var(--gutter-sm); } }
+  .hero { padding: 96px 0 48px; }
+  @media (max-width: 720px) { .hero { padding: 56px 0 32px; } }
+  .hero-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-pressed); margin: 0 0 24px; font-weight: 600; }
+  .hero-h1 { font-family: var(--font-display); font-size: clamp(44px, 6vw, 76px); line-height: 1.02; letter-spacing: -0.03em; color: var(--text-1); margin: 0 0 28px; font-weight: 700; max-width: 18ch; }
+  .hero-h1 em { font-style: italic; color: var(--editorial); font-weight: 700; }
+  .hero-lede { font-size: 19px; line-height: 1.6; color: var(--text-2); margin: 0 0 24px; max-width: 60ch; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin: 16px 0 24px; }
+  .btn-primary { background: var(--bg-ink); color: var(--text-on-ink); padding: 16px 28px; border-radius: 2px; text-decoration: none; font-weight: 600; font-size: 15px; letter-spacing: 0.02em; transition: background var(--dur-fast) var(--ease); }
+  .btn-primary:hover { background: #2a2724; }
+  .btn-ghost { color: var(--text-1); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; font-size: 14px; font-weight: 500; transition: color var(--dur-fast) var(--ease); }
+  .btn-ghost:hover { color: var(--accent-pressed); }
+  .hero-hint { font-family: var(--font-mono); font-size: 12px; color: var(--text-3); letter-spacing: 0.04em; margin: 24px 0 0; }
+
+  .acc-section { padding: 16px 0 40px; }
+  .acc { border-top: 1px solid var(--border-2); transition: background var(--dur-base) var(--ease); }
+  .acc:last-of-type { border-bottom: 1px solid var(--border-2); }
+  .acc[open] { background: var(--bg-1); border-top-color: var(--text-1); }
+  .acc[open] + .acc { border-top-color: var(--text-1); }
+  .acc-summary { display: grid; grid-template-columns: 56px 1fr 32px; align-items: center; gap: 16px; padding: 24px 0; cursor: pointer; list-style: none; user-select: none; }
+  .acc-summary::-webkit-details-marker { display: none; }
+  .acc-summary:hover .acc-label { color: var(--accent-pressed); }
+  .acc-summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+  .acc-num { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--accent-pressed); letter-spacing: 0.04em; line-height: 1; }
+  .acc-label { font-family: var(--font-display); font-size: clamp(20px, 2.4vw, 26px); color: var(--text-1); line-height: 1.2; letter-spacing: -0.01em; font-weight: 700; transition: color var(--dur-fast) var(--ease); }
+  .acc[open] .acc-label { color: var(--editorial); }
+  .acc-toggle { font-family: var(--font-mono); font-size: 28px; color: var(--accent-pressed); line-height: 1; text-align: right; transition: transform var(--dur-base) var(--ease); font-weight: 300; }
+  .acc[open] .acc-toggle { transform: rotate(45deg); }
+  .acc-body { padding: 0 0 36px 72px; max-width: 68ch; }
+  @media (max-width: 720px) { .acc-body { padding: 0 0 28px 0; } }
+  .acc-h { font-family: var(--font-display); font-size: clamp(22px, 2.6vw, 28px); line-height: 1.2; letter-spacing: -0.015em; color: var(--text-1); margin: 0 0 20px; font-weight: 700; max-width: 26ch; }
+  .acc-h em { font-style: italic; color: var(--editorial); }
+  .acc-body p { font-size: 17px; line-height: 1.7; color: var(--text-2); margin: 0 0 18px; }
+  .acc-body p:last-child { margin-bottom: 0; }
+  .acc-body p strong { color: var(--text-1); font-weight: 700; }
+  .acc-body p em { font-style: italic; color: var(--text-1); }
+  .acc-lede { font-size: 17px; color: var(--text-2); margin: 0 0 28px; }
+
+  .icp-card { margin-bottom: 28px; padding-bottom: 22px; border-bottom: 1px solid var(--border-1); }
+  .icp-card:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
+  .icp-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 12px; }
+  .icp-letter { font-family: var(--font-mono); font-size: 12px; color: var(--accent-pressed); font-weight: 700; letter-spacing: 0.04em; background: var(--accent-subtle); padding: 3px 8px; border-radius: 2px; line-height: 1.2; }
+  .icp-title { font-family: var(--font-display); font-size: clamp(18px, 2.2vw, 22px); line-height: 1.25; letter-spacing: -0.01em; color: var(--text-1); margin: 0; font-weight: 600; }
+
+  .modes { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--border-2); }
+  .mode { display: grid; grid-template-columns: 40px 1fr; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--border-1); align-items: start; }
+  .mode:last-child { border-bottom: 0; }
+  .mode-letter { font-family: var(--font-mono); font-size: 18px; color: var(--accent-pressed); font-weight: 700; line-height: 1; letter-spacing: -0.01em; }
+  .mode-body h4 { font-family: var(--font-display); font-size: 18px; color: var(--text-1); margin: 0 0 8px; line-height: 1.35; font-weight: 700; }
+  .mode-body p { font-size: 15px; line-height: 1.6; color: var(--text-2); margin: 0; max-width: 60ch; }
+
+  .outcomes { margin-top: 32px; padding: 24px 28px; background: var(--bg-0); border-left: 3px solid var(--accent); border-radius: 0 2px 2px 0; }
+  .outcomes-h { font-family: var(--font-display); font-size: 16px; color: var(--text-1); font-weight: 600; margin: 0 0 14px; line-height: 1.45; }
+  .outcomes-list { list-style: none; padding: 0; margin: 0; }
+  .outcomes-list li { position: relative; padding: 6px 0 6px 22px; font-size: 15px; line-height: 1.55; color: var(--text-2); }
+  .outcomes-list li::before { content: "→"; position: absolute; left: 0; top: 6px; color: var(--accent-pressed); font-family: var(--font-mono); font-weight: 700; }
+
+  .exclude { list-style: none; padding: 0; margin: 0; }
+  .exclude li { display: flex; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px dashed var(--border-1); color: var(--text-2); font-size: 16px; line-height: 1.55; }
+  .exclude li:last-child { border-bottom: 0; }
+  .exclude-mark { font-family: var(--font-mono); color: var(--accent-pressed); font-size: 18px; line-height: 1; flex-shrink: 0; font-weight: 700; }
+  .exclude strong { color: var(--text-1); font-weight: 700; }
+
+  .qa { margin-bottom: 28px; padding-bottom: 22px; border-bottom: 1px solid var(--border-1); }
+  .qa:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
+  .qa-q { font-family: var(--font-display); font-size: 18px; color: var(--text-1); margin: 0 0 10px; line-height: 1.35; font-weight: 600; }
+</style>

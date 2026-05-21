@@ -21,8 +21,8 @@ const labels = isUk
       practice: "Практика",
       practiceOverview: "Огляд",
       audit: "Аудит AI",
+      discovery: "Дослідження",
       recovery: "Відновлення",
-      discoverySoon: "Дослідження (скоро)",
       casesSoon: "Кейси (скоро)",
       howIWork: "Як я працюю",
       blog: "Блог",
@@ -35,8 +35,8 @@ const labels = isUk
       practice: "Practice",
       practiceOverview: "Overview",
       audit: "AI Audit",
+      discovery: "Discovery",
       recovery: "Recovery",
-      discoverySoon: "Discovery (soon)",
       casesSoon: "Cases (soon)",
       howIWork: "How I work",
       blog: "Blog",
@@ -50,6 +50,7 @@ const links = {
   about: `${prefix}/about/`,
   practice: `${prefix}/practices/`,
   audit: `${prefix}/ai-readiness-audit/`,
+  discovery: `${prefix}/idea-translator/`,
   recovery: `${prefix}/project-rescue/`,
   howIWork: `${prefix}/how-i-work/`,
   blog: `${prefix}/blog/`,
@@ -84,8 +85,8 @@ const links = {
         <ul class="nav-dropdown-menu" id="nav-practice-menu" role="menu">
           <li role="none"><a role="menuitem" href={links.practice}>{labels.practiceOverview}</a></li>
           <li role="none"><a role="menuitem" href={links.audit}>{labels.audit}</a></li>
+          <li role="none"><a role="menuitem" href={links.discovery}>{labels.discovery}</a></li>
           <li role="none"><a role="menuitem" href={links.recovery}>{labels.recovery}</a></li>
-          <li role="none" class="nav-dropdown-soon"><span>{labels.discoverySoon}</span></li>
           <li role="none" class="nav-dropdown-soon"><span>{labels.casesSoon}</span></li>
         </ul>
       </li>

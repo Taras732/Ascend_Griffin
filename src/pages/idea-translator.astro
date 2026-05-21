@@ -1,0 +1,358 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import TrustBlock from "../components/TrustBlock.astro";
+import FoundingCTA from "../components/FoundingCTA.astro";
+import PricingBadge from "../components/PricingBadge.astro";
+
+const title = "Discovery Sprint — from $4,000 | Ascend Griffin";
+const description =
+  "Discovery Sprint for non-technical founders: from idea to a complete product brief, realistic budget, and shortlist of right vendors. From $4,000 · 2-8 weeks.";
+---
+
+<BaseLayout title={title} description={description}>
+  <Nav />
+  <main class="about">
+    <section class="hero">
+      <div class="about-shell">
+        <p class="hero-eyebrow">01 · Discovery Sprint</p>
+
+        <h1 class="hero-h1">
+          From idea <em>to an actionable plan</em>.
+        </h1>
+
+        <p class="hero-lede">
+          You have an idea and domain expertise — but no clear answer to: should this be built, what would it cost, who should build it. A Discovery Sprint is structured research that ends with a complete product brief, a realistic budget and timeline, and a shortlist of the right teams to deliver.
+        </p>
+
+        <PricingBadge price="from $4,000" duration="2-8 weeks" />
+
+        <div class="hero-cta">
+          <a
+            href="#book"
+            class="btn-primary"
+            data-modal="booking"
+            data-subject="discovery"
+            data-source="discovery-hero"
+          >
+            Book Discovery Call →
+          </a>
+          <a href="#what-you-get" class="btn-ghost">See what you get →</a>
+        </div>
+
+        <p class="hero-hint">↓ Expand a section to read more</p>
+      </div>
+    </section>
+
+    <TrustBlock />
+
+    <section class="acc-section">
+      <div class="about-shell">
+        <details class="acc" name="discovery" id="who">
+          <summary class="acc-summary">
+            <span class="acc-num">02</span>
+            <span class="acc-label">Who this is for</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <h3 class="acc-h">Three typical situations I work with.</h3>
+
+            <article class="icp-card">
+              <header class="icp-header">
+                <span class="icp-letter">A</span>
+                <h4 class="icp-title">A founder with an idea and domain expertise.</h4>
+              </header>
+              <p>You have deep knowledge of a specific industry — logistics, fintech, healthcare admin, education. You see a problem others don't, because you live with it daily. The product idea has been turning in your head for a year or two. But — how do you get from "idea" to a plan you can actually build against? <em>Discovery brings structure: where's the hypothesis, where's the fact, what's worth building, what isn't.</em></p>
+            </article>
+
+            <article class="icp-card">
+              <header class="icp-header">
+                <span class="icp-letter">B</span>
+                <h4 class="icp-title">A business owner about to invest in their first digital product.</h4>
+              </header>
+              <p>You have an offline business that needs digitalizing, or an idea for a product on top of your existing one. The question is — what to build in v1, what's a realistic scope, what it'll cost, who should build it. <em>Discovery gives you those answers as a document you can take to vendors — or even to investors.</em></p>
+            </article>
+
+            <article class="icp-card">
+              <header class="icp-header">
+                <span class="icp-letter">C</span>
+                <h4 class="icp-title">A team launching a new internal product or service.</h4>
+              </header>
+              <p>A corporation, agency, or startup that wants to launch a new line — either a B2B service built on existing expertise, or an internal tool that automates a routine. <em>Discovery gives you objective research on the idea and a concrete product brief the team can start building from.</em></p>
+            </article>
+          </div>
+        </details>
+
+        <details class="acc" name="discovery" id="what-you-get">
+          <summary class="acc-summary">
+            <span class="acc-num">03</span>
+            <span class="acc-label">What you receive</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <h3 class="acc-h">Five artifacts, ready for action.</h3>
+            <p class="acc-lede">Documents your team (or the vendor you hire) can start working from immediately — no "what else needs figuring out?" overhead.</p>
+
+            <ol class="modes">
+              <li class="mode">
+                <span class="mode-letter">01</span>
+                <div class="mode-body">
+                  <h4>Product brief for v1.</h4>
+                  <p>What exactly we're building in v1: key features, user flows, what's NOT in v1 (explicitly stated — often more important). The brief works the same with vendors, investors, and the team — everyone reads it the same way.</p>
+                </div>
+              </li>
+              <li class="mode">
+                <span class="mode-letter">02</span>
+                <div class="mode-body">
+                  <h4>Validated hypotheses and rejected risks.</h4>
+                  <p>We test critical assumptions: does the market need this product in this shape, are customers ready to pay, can it realistically be built in sensible timelines. Confirmed — moves into the plan. Rejected — out, with reasoning.</p>
+                </div>
+              </li>
+              <li class="mode">
+                <span class="mode-letter">03</span>
+                <div class="mode-body">
+                  <h4>Realistic budget and timeline.</h4>
+                  <p>Not "plus or minus a few tens of thousands." Concrete ranges with reasoning, where the key uncertainty points are, how they affect price. Show it to a CFO or board — no surprise questions.</p>
+                </div>
+              </li>
+              <li class="mode">
+                <span class="mode-letter">04</span>
+                <div class="mode-body">
+                  <h4>Shortlist of the right vendors.</h4>
+                  <p>3-5 teams or contractors that genuinely fit your project — by tech stack, domain experience, and price range. With a brief summary of each one's strengths and weaknesses, plus specific questions to ask on the discovery call.</p>
+                </div>
+              </li>
+              <li class="mode">
+                <span class="mode-letter">05</span>
+                <div class="mode-body">
+                  <h4>Negotiation pack.</h4>
+                  <p>Arguments, numbers, technical details — everything you'll need during talks with the chosen vendor. So you walk into the conversation with data, not feelings.</p>
+                </div>
+              </li>
+            </ol>
+
+            <div class="outcomes">
+              <p class="outcomes-h">The end value isn't the documents themselves — it's knowing exactly what to do next:</p>
+              <ul class="outcomes-list">
+                <li>Sign a vendor contract on honest terms — within a budget that holds.</li>
+                <li>Or get investor confirmation, because they see a concrete plan with grounded numbers.</li>
+                <li>Or honestly decide not to build for now — and save the hundreds of thousands a misaligned product would have cost.</li>
+                <li>Or modify the idea into a version that holds — based on sober research, not guesses.</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="acc" name="discovery" id="how">
+          <summary class="acc-summary">
+            <span class="acc-num">04</span>
+            <span class="acc-label">How it works</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <h3 class="acc-h">Three phases, each with a concrete artifact.</h3>
+
+            <ol class="modes">
+              <li class="mode">
+                <span class="mode-letter">01</span>
+                <div class="mode-body">
+                  <h4>Context and hypotheses (week 1).</h4>
+                  <p>Deep interviews — with you, with potential clients (4-6 conversations), with industry reps. I gather the real picture: what hurts, what's been tried, what the market actually lacks. End-of-phase artifact: a "Context & Hypotheses" doc with the key assumptions to test.</p>
+                </div>
+              </li>
+              <li class="mode">
+                <span class="mode-letter">02</span>
+                <div class="mode-body">
+                  <h4>Validation and solution design (weeks 2-5).</h4>
+                  <p>I test the critical hypotheses: are clients ready to pay, is it technically feasible, is there market space. In parallel — I form the product brief: v1 features, user flows, technical assumptions. End-of-phase: complete product brief + validated hypotheses.</p>
+                </div>
+              </li>
+              <li class="mode">
+                <span class="mode-letter">03</span>
+                <div class="mode-body">
+                  <h4>Shortlist and negotiation pack (weeks 6-8).</h4>
+                  <p>I pick 3-5 vendors that genuinely fit. Ask them for a short estimate based on the brief. Assemble a negotiation pack — arguments, numbers, red flags. End-of-phase: a ready-to-negotiate package.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </details>
+
+        <details class="acc" name="discovery" id="not-included">
+          <summary class="acc-summary">
+            <span class="acc-num">05</span>
+            <span class="acc-label">Not included</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <h3 class="acc-h">What Discovery <em>isn't</em>.</h3>
+
+            <ul class="exclude">
+              <li><span class="exclude-mark">→</span><span><strong>Building a working prototype.</strong> I don't write production code. If phase 2 needs a functional prototype for testing — that's a separate format or bringing in a team.</span></li>
+              <li><span class="exclude-mark">→</span><span><strong>Full marketing strategy.</strong> I do base-level positioning and market research as part of discovery, but a full GTM plan is a separate craft with its own specialists.</span></li>
+              <li><span class="exclude-mark">→</span><span><strong>The legal side.</strong> Contracts, licensing, patents — I'm not a lawyer. I can recommend one, but the actual legal advice isn't included.</span></li>
+              <li><span class="exclude-mark">→</span><span><strong>A guarantee the product will succeed.</strong> Discovery can't guarantee a product "takes off." What it does guarantee: you move with the best knowledge available at launch.</span></li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="acc" name="discovery" id="faq">
+          <summary class="acc-summary">
+            <span class="acc-num">06</span>
+            <span class="acc-label">Common questions</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <div class="qa">
+              <h4 class="qa-q">How is this different from "writing a spec"?</h4>
+              <p>A spec describes what needs to be done. Discovery gives you not only "what" but also "why" and "how confident." The output isn't a dry spec — it's a package you use to decide whether to commit capital at all.</p>
+            </div>
+            <div class="qa">
+              <h4 class="qa-q">I already have an MVP, is Discovery worth it?</h4>
+              <p>If the MVP already works and has first users — probably not. Discovery is for the pre-code stage. If the MVP exists but the result isn't satisfying — we should talk about Audit, not Discovery.</p>
+            </div>
+            <div class="qa">
+              <h4 class="qa-q">How many customer interviews are typically needed?</h4>
+              <p>4-6 deep conversations with potential or existing clients in your industry — that's the minimum needed to form objective hypotheses. If your industry is very narrow or clients are hard to reach — we discuss alternatives (secondary sources, expert conversations, analytics).</p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <FoundingCTA service="discovery" />
+  </main>
+  <Footer />
+
+  <script>
+    (function () {
+      const NAME = "discovery";
+      function openAccordionFromHash(hash: string | null) {
+        if (!hash || hash === "#" || hash === "#book") return;
+        let target: HTMLElement | null = null;
+        try { target = document.querySelector(hash); } catch { return; }
+        if (target && target instanceof HTMLDetailsElement && target.getAttribute("name") === NAME) {
+          if (!target.open) target.open = true;
+        }
+      }
+      function init() {
+        const items = document.querySelectorAll<HTMLDetailsElement>(`details[name="${NAME}"]`);
+        if (!items.length) return;
+        const STICKY_OFFSET = 88;
+        items.forEach((det) => {
+          det.addEventListener("toggle", () => {
+            if (!det.open) return;
+            const summary = det.querySelector("summary");
+            if (!summary) return;
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                const rect = summary.getBoundingClientRect();
+                window.scrollTo({ top: window.scrollY + rect.top - STICKY_OFFSET, behavior: "smooth" });
+              });
+            });
+          });
+        });
+        document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((link) => {
+          const href = link.getAttribute("href");
+          if (!href || href === "#" || href === "#book") return;
+          link.addEventListener("click", () => { openAccordionFromHash(href); });
+        });
+        openAccordionFromHash(location.hash);
+      }
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", init);
+      } else { init(); }
+    })();
+  </script>
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Discovery Sprint",
+      provider: { "@type": "Person", name: "Taras Smaliukh", url: "https://ascendgriffin.org/about/" },
+      areaServed: ["Ukraine", "United Kingdom", "Germany", "United States"],
+      description,
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "USD",
+        price: "4000",
+        priceSpecification: { "@type": "PriceSpecification", minPrice: 4000, priceCurrency: "USD" },
+      },
+      serviceType: "Discovery Sprint for non-technical founders",
+    })}
+  />
+</BaseLayout>
+
+<style>
+  .about { background: radial-gradient(ellipse at top right, rgba(184, 135, 58, 0.04), transparent 50%), radial-gradient(ellipse at bottom left, rgba(184, 135, 58, 0.03), transparent 40%), var(--bg-0); min-height: 100vh; }
+  .about-shell { max-width: 880px; margin: 0 auto; padding: 0 var(--gutter); }
+  @media (max-width: 720px) { .about-shell { padding: 0 var(--gutter-sm); } }
+  .hero { padding: 96px 0 48px; }
+  @media (max-width: 720px) { .hero { padding: 56px 0 32px; } }
+  .hero-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-pressed); margin: 0 0 24px; font-weight: 600; }
+  .hero-h1 { font-family: var(--font-display); font-size: clamp(44px, 6vw, 76px); line-height: 1.02; letter-spacing: -0.03em; color: var(--text-1); margin: 0 0 28px; font-weight: 700; max-width: 18ch; }
+  .hero-h1 em { font-style: italic; color: var(--editorial); font-weight: 700; }
+  .hero-lede { font-size: 19px; line-height: 1.6; color: var(--text-2); margin: 0 0 24px; max-width: 60ch; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin: 16px 0 24px; }
+  .btn-primary { background: var(--bg-ink); color: var(--text-on-ink); padding: 16px 28px; border-radius: 2px; text-decoration: none; font-weight: 600; font-size: 15px; letter-spacing: 0.02em; transition: background var(--dur-fast) var(--ease); }
+  .btn-primary:hover { background: #2a2724; }
+  .btn-ghost { color: var(--text-1); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; font-size: 14px; font-weight: 500; transition: color var(--dur-fast) var(--ease); }
+  .btn-ghost:hover { color: var(--accent-pressed); }
+  .hero-hint { font-family: var(--font-mono); font-size: 12px; color: var(--text-3); letter-spacing: 0.04em; margin: 24px 0 0; }
+
+  .acc-section { padding: 16px 0 40px; }
+  .acc { border-top: 1px solid var(--border-2); transition: background var(--dur-base) var(--ease); }
+  .acc:last-of-type { border-bottom: 1px solid var(--border-2); }
+  .acc[open] { background: var(--bg-1); border-top-color: var(--text-1); }
+  .acc[open] + .acc { border-top-color: var(--text-1); }
+  .acc-summary { display: grid; grid-template-columns: 56px 1fr 32px; align-items: center; gap: 16px; padding: 24px 0; cursor: pointer; list-style: none; user-select: none; }
+  .acc-summary::-webkit-details-marker { display: none; }
+  .acc-summary:hover .acc-label { color: var(--accent-pressed); }
+  .acc-summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+  .acc-num { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--accent-pressed); letter-spacing: 0.04em; line-height: 1; }
+  .acc-label { font-family: var(--font-display); font-size: clamp(20px, 2.4vw, 26px); color: var(--text-1); line-height: 1.2; letter-spacing: -0.01em; font-weight: 700; transition: color var(--dur-fast) var(--ease); }
+  .acc[open] .acc-label { color: var(--editorial); }
+  .acc-toggle { font-family: var(--font-mono); font-size: 28px; color: var(--accent-pressed); line-height: 1; text-align: right; transition: transform var(--dur-base) var(--ease); font-weight: 300; }
+  .acc[open] .acc-toggle { transform: rotate(45deg); }
+  .acc-body { padding: 0 0 36px 72px; max-width: 68ch; }
+  @media (max-width: 720px) { .acc-body { padding: 0 0 28px 0; } }
+  .acc-h { font-family: var(--font-display); font-size: clamp(22px, 2.6vw, 28px); line-height: 1.2; letter-spacing: -0.015em; color: var(--text-1); margin: 0 0 20px; font-weight: 700; max-width: 26ch; }
+  .acc-h em { font-style: italic; color: var(--editorial); }
+  .acc-body p { font-size: 17px; line-height: 1.7; color: var(--text-2); margin: 0 0 18px; }
+  .acc-body p:last-child { margin-bottom: 0; }
+  .acc-body p strong { color: var(--text-1); font-weight: 700; }
+  .acc-body p em { font-style: italic; color: var(--text-1); }
+  .acc-lede { font-size: 17px; color: var(--text-2); margin: 0 0 28px; }
+
+  .icp-card { margin-bottom: 28px; padding-bottom: 22px; border-bottom: 1px solid var(--border-1); }
+  .icp-card:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
+  .icp-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 12px; }
+  .icp-letter { font-family: var(--font-mono); font-size: 12px; color: var(--accent-pressed); font-weight: 700; letter-spacing: 0.04em; background: var(--accent-subtle); padding: 3px 8px; border-radius: 2px; line-height: 1.2; }
+  .icp-title { font-family: var(--font-display); font-size: clamp(18px, 2.2vw, 22px); line-height: 1.25; letter-spacing: -0.01em; color: var(--text-1); margin: 0; font-weight: 600; }
+
+  .modes { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--border-2); }
+  .mode { display: grid; grid-template-columns: 40px 1fr; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--border-1); align-items: start; }
+  .mode:last-child { border-bottom: 0; }
+  .mode-letter { font-family: var(--font-mono); font-size: 18px; color: var(--accent-pressed); font-weight: 700; line-height: 1; letter-spacing: -0.01em; }
+  .mode-body h4 { font-family: var(--font-display); font-size: 18px; color: var(--text-1); margin: 0 0 8px; line-height: 1.35; font-weight: 700; }
+  .mode-body p { font-size: 15px; line-height: 1.6; color: var(--text-2); margin: 0; max-width: 60ch; }
+
+  .outcomes { margin-top: 32px; padding: 24px 28px; background: var(--bg-0); border-left: 3px solid var(--accent); border-radius: 0 2px 2px 0; }
+  .outcomes-h { font-family: var(--font-display); font-size: 16px; color: var(--text-1); font-weight: 600; margin: 0 0 14px; line-height: 1.45; }
+  .outcomes-list { list-style: none; padding: 0; margin: 0; }
+  .outcomes-list li { position: relative; padding: 6px 0 6px 22px; font-size: 15px; line-height: 1.55; color: var(--text-2); }
+  .outcomes-list li::before { content: "→"; position: absolute; left: 0; top: 6px; color: var(--accent-pressed); font-family: var(--font-mono); font-weight: 700; }
+
+  .exclude { list-style: none; padding: 0; margin: 0; }
+  .exclude li { display: flex; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px dashed var(--border-1); color: var(--text-2); font-size: 16px; line-height: 1.55; }
+  .exclude li:last-child { border-bottom: 0; }
+  .exclude-mark { font-family: var(--font-mono); color: var(--accent-pressed); font-size: 18px; line-height: 1; flex-shrink: 0; font-weight: 700; }
+  .exclude strong { color: var(--text-1); font-weight: 700; }
+
+  .qa { margin-bottom: 28px; padding-bottom: 22px; border-bottom: 1px solid var(--border-1); }
+  .qa:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
+  .qa-q { font-family: var(--font-display); font-size: 18px; color: var(--text-1); margin: 0 0 10px; line-height: 1.35; font-weight: 600; }
+</style>

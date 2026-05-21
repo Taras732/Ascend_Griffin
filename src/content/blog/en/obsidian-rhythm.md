@@ -1,7 +1,7 @@
 ---
 title: "Daily + Weekly ritual: how to keep the vault alive"
 description: "10 minutes a day + 30 minutes a week. A concrete ritual that keeps your vault from turning into a graveyard of 500 notes you never open."
-pubDate: 2026-10-14
+pubDate: 2026-05-22
 lang: en
 tags: [obsidian, productivity, weekly-review, daily-note, knowledge-management]
 readingTime: "7 min"

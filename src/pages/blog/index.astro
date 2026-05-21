@@ -50,52 +50,26 @@ const description =
       </div>
     </header>
 
-    <div class="series-stack">
-      <div class="blog-shell">
-        {Array.from(seriesGroups.entries()).map(([seriesKey, posts]) => (
-          <details class="series-acc" name="blog-series">
-            <summary class="series-summary">
-              <span class="series-summary-text">
-                <span class="series-label">{seriesMeta[seriesKey]?.label ?? seriesKey}</span>
-                <span class="series-count">{posts.length} {posts.length === 1 ? "post" : "posts"}</span>
-              </span>
-              <span class="series-chevron" aria-hidden="true">+</span>
-            </summary>
-            <div class="series-body">
-              {seriesMeta[seriesKey]?.intro && (
-                <p class="series-intro">{seriesMeta[seriesKey].intro}</p>
-              )}
-
-              <ol class="series-list">
-                {posts.map((post, i) => (
-                  <li class="series-item">
-                    <a href={`/blog/${post.id.replace(/^en\//, "")}/`} class="series-link">
-                      <span class="series-num">{String(i + 1).padStart(2, "0")}</span>
-                      <span class="series-content">
-                        <span class="series-title">{post.data.title}</span>
-                        <span class="series-desc">{post.data.description}</span>
-                        <span class="series-meta">
-                          <time datetime={post.data.pubDate.toISOString()}>
-                            {post.data.pubDate.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
-                          </time>
-                          {post.data.readingTime && (
-                            <>
-                              <span class="dot">·</span>
-                              <span>{post.data.readingTime}</span>
-                            </>
-                          )}
-                        </span>
-                      </span>
-                      <span class="series-arrow" aria-hidden="true">→</span>
-                    </a>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </details>
-        ))}
-      </div>
-    </div>
+    {seriesGroups.size > 0 && (
+      <section class="series-cards-section">
+        <div class="blog-shell">
+          <p class="section-eyebrow">Series</p>
+          <div class="series-cards-grid">
+            {Array.from(seriesGroups.entries()).map(([seriesKey, posts], i) => (
+              <a href={`/blog/series/${seriesKey}/`} class="series-card">
+                <div class="series-card-num">{String(i + 1).padStart(2, "0")}</div>
+                <h2 class="series-card-title">{(seriesMeta[seriesKey]?.label ?? seriesKey).replace(/^Series · /, "")}</h2>
+                <p class="series-card-intro">{seriesMeta[seriesKey]?.intro ?? ""}</p>
+                <div class="series-card-foot">
+                  <span class="series-card-count">{posts.length} {posts.length === 1 ? "post" : "posts"}</span>
+                  <span class="series-card-arrow" aria-hidden="true">→</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
 
     {soloPosts.length > 0 && (
       <section class="solo-section">
@@ -149,36 +123,19 @@ const description =
   .blog-h1 em { font-style: italic; color: var(--editorial); }
   .blog-lede { font-size: 19px; line-height: 1.6; color: var(--text-2); margin: 0 0 32px; max-width: 60ch; }
 
-  .series-stack { padding: 40px 0; }
-  .series-acc { border-top: 1px solid var(--border-2); transition: background var(--dur-base) var(--ease); }
-  .series-acc:last-of-type { border-bottom: 1px solid var(--border-2); }
-  .series-acc[open] { background: var(--bg-1); border-top-color: var(--text-1); }
-  .series-acc[open] + .series-acc { border-top-color: var(--text-1); }
-  .series-summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 0; cursor: pointer; list-style: none; user-select: none; }
-  .series-summary::-webkit-details-marker { display: none; }
-  .series-summary:hover .series-label { color: var(--text-1); }
-  .series-summary-text { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
-  .series-label { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-pressed); font-weight: 700; transition: color var(--dur-fast) var(--ease); }
-  .series-acc[open] .series-label { color: var(--text-1); }
-  .series-count { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); }
-  .series-chevron { font-family: var(--font-mono); font-size: 24px; color: var(--accent-pressed); line-height: 1; transition: transform var(--dur-base) var(--ease); font-weight: 300; }
-  .series-acc[open] .series-chevron { transform: rotate(45deg); }
-  .series-body { padding: 8px 0 40px; }
-  .series-intro { font-size: 16px; line-height: 1.55; color: var(--text-2); max-width: 60ch; margin: 0 0 28px; }
-
-  .series-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--text-1); }
-  .series-item { margin: 0; }
-  .series-link { display: grid; grid-template-columns: 64px 1fr 32px; gap: 20px; align-items: center; padding: 24px 0; border-bottom: 1px solid var(--border-1); text-decoration: none; color: inherit; transition: background var(--dur-fast) var(--ease); }
-  .series-link:hover { background: var(--bg-1); }
-  .series-link:hover .series-arrow { color: var(--accent-pressed); transform: translateX(4px); }
-  @media (max-width: 720px) { .series-link { grid-template-columns: 40px 1fr 24px; gap: 14px; padding: 20px 0; } }
-  .series-num { font-family: var(--font-mono); font-size: 22px; color: var(--accent-pressed); font-weight: 700; line-height: 1; letter-spacing: -0.02em; }
-  .series-content { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
-  .series-title { font-family: var(--font-display); font-size: clamp(18px, 2.2vw, 21px); line-height: 1.25; color: var(--text-1); font-weight: 700; letter-spacing: -0.01em; }
-  .series-desc { font-size: 14px; line-height: 1.5; color: var(--text-2); max-width: 68ch; }
-  .series-meta { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); letter-spacing: 0.02em; margin-top: 2px; }
-  .series-meta .dot { margin: 0 6px; }
-  .series-arrow { font-family: var(--font-mono); font-size: 18px; color: var(--text-4); text-align: right; transition: all var(--dur-fast) var(--ease); }
+  .series-cards-section { padding: 48px 0 40px; }
+  .section-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-pressed); margin: 0 0 20px; font-weight: 700; }
+  .series-cards-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  @media (max-width: 720px) { .series-cards-grid { grid-template-columns: 1fr; } }
+  .series-card { background: var(--bg-1); border: 1px solid var(--border-1); border-radius: 4px; padding: 32px 28px; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 12px; min-height: 220px; transition: all var(--dur-base) var(--ease); }
+  .series-card:hover { border-color: var(--accent); background: var(--bg-0); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .series-card:hover .series-card-arrow { color: var(--accent-pressed); transform: translateX(4px); }
+  .series-card-num { font-family: var(--font-mono); font-size: 12px; color: var(--accent-pressed); font-weight: 700; letter-spacing: 0.06em; }
+  .series-card-title { font-family: var(--font-display); font-size: clamp(22px, 2.6vw, 26px); line-height: 1.2; letter-spacing: -0.015em; color: var(--text-1); margin: 0; font-weight: 700; }
+  .series-card-intro { font-size: 15px; line-height: 1.55; color: var(--text-2); margin: 0; flex: 1; }
+  .series-card-foot { display: flex; align-items: baseline; justify-content: space-between; margin-top: 4px; }
+  .series-card-count { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); letter-spacing: 0.04em; }
+  .series-card-arrow { font-family: var(--font-mono); font-size: 18px; color: var(--text-4); transition: all var(--dur-fast) var(--ease); }
 
   .solo-section { padding: 56px 0; }
   @media (max-width: 720px) { .solo-section { padding: 40px 0; } }

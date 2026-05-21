@@ -6,9 +6,9 @@ import TrustBlock from "../../components/TrustBlock.astro";
 import FoundingCTA from "../../components/FoundingCTA.astro";
 import PricingBadge from "../../components/PricingBadge.astro";
 
-const title = "Рятування IT-проєкту | Ascend Griffin";
+const title = "Відновлення IT-проєкту | Ascend Griffin";
 const description =
-  "Рятуємо IT-проєкт, що горить — vibe-coded додатки, зниклі вендори, спіраль технічного боргу. Союзник на вашому боці. Від $2,500/місяць.";
+  "Структурне відновлення IT-проєкту, що втратив темп. Повернення ритму delivery, перегляд угод з вендором, ясний план далі. Від $2,500/місяць.";
 ---
 
 <BaseLayout title={title} description={description}>
@@ -16,14 +16,14 @@ const description =
   <main class="about">
     <section class="hero">
       <div class="about-shell">
-        <p class="hero-eyebrow">01 · Рятування IT-проєкту</p>
+        <p class="hero-eyebrow">01 · Відновлення IT-проєкту</p>
 
         <h1 class="hero-h1">
-          Рятуємо проєкт. <em>Зупиняємо кровотечу</em>.
+          Повернути проєкт <em>на курс</em>.
         </h1>
 
         <p class="hero-lede">
-          Проект горить бюджетом. Вендор зник. Швидкість впала. Технічний борг з'їдає кожен спринт. Перед тим, як звільнити команду, переписати з нуля або списати витрати — структуроване рятування від того, чий єдиний інтерес ваш результат.
+          Проєкт втратив темп. Вендор не відповідає. Бюджет тане без видимого прогресу. Перш ніж звільняти команду, переписувати з нуля чи списувати витрати — структурне відновлення з ясним планом, що далі.
         </p>
 
         <PricingBadge price="від $2,500" duration="щомісячний retainer" unit="/міс" />
@@ -34,11 +34,11 @@ const description =
             class="btn-primary"
             data-modal="booking"
             data-subject="support"
-            data-source="rescue-hero"
+            data-source="recovery-hero"
           >
-            Запит на рятування →
+            Discovery Call →
           </a>
-          <a href="#scenarios" class="btn-ghost">Як це працює →</a>
+          <a href="#how" class="btn-ghost">Як це працює →</a>
         </div>
 
         <p class="hero-hint">↓ Розгорніть секцію, щоб дізнатися більше</p>
@@ -49,104 +49,137 @@ const description =
 
     <section class="acc-section">
       <div class="about-shell">
-        <details class="acc" name="rescue" id="scenarios">
+        <details class="acc" name="rescue" id="who">
           <summary class="acc-summary">
             <span class="acc-num">02</span>
-            <span class="acc-label">Три сценарії</span>
+            <span class="acc-label">Для кого</span>
             <span class="acc-toggle" aria-hidden="true">+</span>
           </summary>
           <div class="acc-body">
-            <h3 class="acc-h">Три патерни, з якими я працюю найчастіше.</h3>
-            <p class="acc-lede">Кожен починається як інша проблема, а закінчується тим самим: хтось має бути у кімнаті і чесно прочитати ситуацію.</p>
+            <h3 class="acc-h">Три типові ситуації, з якими я працюю.</h3>
+            <p class="acc-lede">Кожна починається як інша проблема, а закінчується схожим запитом: треба, щоб хтось чесно прочитав ситуацію і запропонував робочий план.</p>
 
             <article class="icp-card">
               <header class="icp-header">
                 <span class="icp-letter">A</span>
-                <h4 class="icp-title">Вендор зник.</h4>
+                <h4 class="icp-title">Вендор перестав активно працювати.</h4>
               </header>
-              <p>Дзвінки переносяться. Оновлення припинилися. Slack-канал, де колись була робота, мовчить три тижні. Можливо, вони перевантажені; можливо, вирішили, що ваш проект нерентабельний; можливо, їх senior dev звільнився і вони сподіваються, що ви не помітите. Так чи інакше — ви не можете до них дотягнутись, а бюджет горить. <em>Перше завдання — зрозуміти, чи лагодити стосунки, чи завершувати їх чисто.</em></p>
+              <p>Дзвінки переносяться. Оновлення приходять рідше. Slack-канал, де раніше була робота, поступово затих. Можливо, команда перевантажена; можливо, проєкт став для них непріоритетним; можливо, ключовий розробник пішов. У будь-якому разі — реакція повільніша, ніж потрібно, а витрати йдуть. <em>Перше завдання — чесно зрозуміти, чи можна налагодити стосунки, чи краще завершити їх чисто.</em></p>
             </article>
 
             <article class="icp-card">
               <header class="icp-header">
                 <span class="icp-letter">B</span>
-                <h4 class="icp-title">Спіраль scope creep.</h4>
+                <h4 class="icp-title">Обсяг росте, результат не з'являється.</h4>
               </header>
-              <p>Старт на $40K. Зараз — $80K, а оригінальний список фіч ще наполовину не зданий. Кожен запит на зміни приходить у п'ятницю з новим "це потребуватиме ще два тижні". Ви не впевнені, чи вас "катають", чи оригінальна оцінка була нечесно низькою. <em>Перше завдання — відокремити законне re-scope від накачки, і переписати угоду до того, як ще місяць не витече кровотечею.</em></p>
+              <p>Старт був на $40K. Зараз — $80K, а оригінальний список фіч ще не закритий. Кожен запит на зміни приходить з новим "це потребуватиме ще два тижні". Ви не впевнені, чи це чесне re-scope, чи проєкт просто розтягують. <em>Перше завдання — розділити справжні зміни обсягу від накачки, переписати угоду на прозорих умовах, і відновити прогрес за milestones.</em></p>
             </article>
 
             <article class="icp-card">
               <header class="icp-header">
                 <span class="icp-letter">C</span>
-                <h4 class="icp-title">Команда не дає результат — і не ясно чому.</h4>
+                <h4 class="icp-title">Команда працює, але delivery не йде.</h4>
               </header>
-              <p>Люди працюють. Стендапи відбуваються. Sprint review показують рух. Але ship зупинився, ваше нутро каже, щось не так, і ніхто у команді не може це сформулювати. <em>Перше завдання — прочитати ситуацію поза політикою — процес, люди, scope, стек — і витягнути реальний блокер, не спалюючи мостів.</em></p>
+              <p>Люди залучені. Стендапи відбуваються. Sprint review показує рух. Але реальний ship зупинився — і ніхто всередині команди не може це назвати. <em>Перше завдання — прочитати ситуацію поза внутрішньою політикою: процес, scope, технічні припущення — і знайти справжній блокер без шкоди для відносин.</em></p>
             </article>
           </div>
         </details>
 
-        <details class="acc" name="rescue" id="rescue-arc">
+        <details class="acc" name="rescue" id="how">
           <summary class="acc-summary">
             <span class="acc-num">03</span>
-            <span class="acc-label">Дуга рятування</span>
+            <span class="acc-label">Як це працює</span>
             <span class="acc-toggle" aria-hidden="true">+</span>
           </summary>
           <div class="acc-body">
-            <h3 class="acc-h">Три фази. Кожна закінчується рішенням, яке ви можете прийняти.</h3>
+            <h3 class="acc-h">Що ви отримуєте на кожному етапі.</h3>
+            <p class="acc-lede">Робота йде поетапно. Кожна фаза закінчується конкретним рішенням, яке ви можете прийняти на основі реальних даних.</p>
 
             <ol class="modes">
               <li class="mode">
                 <span class="mode-letter">01</span>
                 <div class="mode-body">
                   <h4>Діагностика (тиждень 1-2).</h4>
-                  <p>Читаю кодову базу, контракт, історію комунікацій і команду. Виявляю, що насправді зламано vs. симптоматичне. Артефакт фази — одно-сторінковий план рятування, який можна показати кофаундерам або раді.</p>
+                  <p>Читаю кодову базу, контракт з вендором, історію комунікацій, інтерв'юю команду. Виявляю, що насправді не працює, а що — лише симптом. На виході: одно-сторінковий план відновлення, який можна показати кофаундерам, інвесторам чи раді.</p>
                 </div>
               </li>
               <li class="mode">
                 <span class="mode-letter">02</span>
                 <div class="mode-body">
                   <h4>Стабілізація (тижні 3-8).</h4>
-                  <p>Переписуємо угоду з вендором або закриваємо. Відновлюємо щотижневий ритм delivery. Тріажуємо технічний борг — що лагодити, з чим жити, що планувати навколо. До кінця фази: передбачуване ship відновлено, безпосередня фінансова кровотеча зупинена.</p>
+                  <p>Або переписуємо угоду з вендором на прозорих умовах, або чисто закриваємо співпрацю. Відновлюємо щотижневий ритм delivery. Триажуємо технічний борг — що виправляємо, з чим живемо, що плануємо на потім. На виході: predictable ship і зупинена фінансова втрата.</p>
                 </div>
               </li>
               <li class="mode">
                 <span class="mode-letter">03</span>
                 <div class="mode-body">
                   <h4>Передача (тиждень 8+).</h4>
-                  <p>Або: проект стабільний з існуючою командою — я виходжу, залишаючи документацію. Або: переходимо до перевіреного вендора з моєї мережі зі структурованим handover. Будь-який шлях завершується тим, що проект працює без мене у кімнаті.</p>
+                  <p>Один з двох сценаріїв. Або проєкт стабільний з існуючою командою — я виходжу, залишаючи документацію і ясний наступний крок. Або переходимо до перевіреної команди з мережі — зі структурованим handover. У будь-якому разі проєкт працює без мене у кімнаті.</p>
                 </div>
               </li>
             </ol>
+
+            <div class="outcomes">
+              <p class="outcomes-h">Кінцева цінність — не у плані самому по собі, а у тому, до чого він приводить:</p>
+              <ul class="outcomes-list">
+                <li>Повернути ритм delivery — щотижневий predictable progress, який можна показувати інвесторам або команді.</li>
+                <li>Зупинити фінансові втрати на маловідповідних рішеннях — переглянуті угоди, чесні milestones, прозорі витрати.</li>
+                <li>Завершити проєкт з робочим результатом — або з вами, або з новою командою з мережі.</li>
+                <li>Або прийняти чесне рішення припинити — з мінімальними втратами і ясним планом, що робити з наявним кодом і даними.</li>
+              </ul>
+            </div>
           </div>
         </details>
 
         <details class="acc" name="rescue" id="not-included">
           <summary class="acc-summary">
             <span class="acc-num">04</span>
-            <span class="acc-label">Чим це не є</span>
+            <span class="acc-label">Не входить</span>
             <span class="acc-toggle" aria-hidden="true">+</span>
           </summary>
           <div class="acc-body">
-            <h3 class="acc-h">Чим рятування <em>не є</em>.</h3>
+            <h3 class="acc-h">Чим відновлення <em>не є</em>.</h3>
 
             <ul class="exclude">
               <li>
                 <span class="exclude-mark">→</span>
-                <span><strong>Заміна engineering manager.</strong> Я читаю; я не керую вашими інженерами щодня. Якщо потрібен fractional eng manager — це інший найм.</span>
+                <span><strong>Заміна engineering manager.</strong> Я читаю проєкт, погоджую план, забезпечую процес — але не керую розробниками щодня. Якщо потрібен fractional eng manager — це інший формат.</span>
               </li>
               <li>
                 <span class="exclude-mark">→</span>
-                <span><strong>Рефакторинг коду.</strong> Я не переписую. Я кажу, що треба переписати і кому.</span>
+                <span><strong>Рефакторинг коду власноруч.</strong> Я не переписую виробничий код. Я кажу, що треба переписати, кому і у якому пріоритеті.</span>
               </li>
               <li>
                 <span class="exclude-mark">→</span>
-                <span><strong>"Просто звільніть вендора."</strong> Іноді це і є відповідь. Часто дешевше — лагодити стосунки, і вам потрібен хтось незалежний, щоб назвати, який варіант.</span>
+                <span><strong>"Просто звільніть вендора".</strong> Іноді це і є відповідь. Часто дешевше — переглянути умови. Незалежний голос потрібен саме щоб назвати, який варіант реальніший.</span>
               </li>
               <li>
                 <span class="exclude-mark">→</span>
-                <span><strong>Гарантоване рятування.</strong> Деякі проекти не варто рятувати. Чесна відповідь — частина цінності.</span>
+                <span><strong>Гарантоване рятування за будь-яку ціну.</strong> Деякі проєкти варто чесно завершити, а не тягнути. Це теж частина цінності — і я скажу про це прямо, якщо це ваш випадок.</span>
               </li>
             </ul>
+          </div>
+        </details>
+
+        <details class="acc" name="rescue" id="faq">
+          <summary class="acc-summary">
+            <span class="acc-num">05</span>
+            <span class="acc-label">Часті питання</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <div class="qa">
+              <h4 class="qa-q">Чим це відрізняється від найму нової команди?</h4>
+              <p>Нова команда вирішує задачу "хто буде писати код". Відновлення вирішує задачу "що саме треба робити і чому проєкт зараз не йде". Часто перший крок виявляє, що команда не є проблемою — проблема у scope, угоді чи процесі. У такому випадку нова команда лише повторить ту ж ситуацію через 3 місяці.</p>
+            </div>
+            <div class="qa">
+              <h4 class="qa-q">А якщо проєкт неможливо відновити?</h4>
+              <p>Це чесна відповідь, і я скажу її прямо. Тоді робота фокусується на: чітке закриття поточних угод з мінімальними втратами; рятування того, що можна зберегти (дані, частина коду, ринкові висновки); і план, що робити з бюджетом, який залишився. Краще прийняти це рішення на 5-му тижні, ніж витратити ще 4 місяці на те, що не злетить.</p>
+            </div>
+            <div class="qa">
+              <h4 class="qa-q">Скільки часу потрібно, щоб побачити стабілізацію?</h4>
+              <p>Перший продуктивний ефект — на кінець фази 1 (тиждень 2): ви матимете план і чесну картину. Реальна стабілізація delivery — фаза 2 (тижні 3-8), залежно від глибини проблеми. Якщо проєкт у дуже глибокій кризі — буде довше; чесний прогноз обговорюємо після діагностики.</p>
+            </div>
           </div>
         </details>
       </div>
@@ -212,7 +245,7 @@ const description =
     set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Service",
-      name: "Рятування IT-проєкту",
+      name: "Відновлення IT-проєкту",
       provider: { "@type": "Person", name: "Тарас Смалюх", alternateName: "Taras Smaliukh", url: "https://ascendgriffin.org/uk/about/" },
       areaServed: ["Україна", "Worldwide"],
       description,
@@ -222,7 +255,7 @@ const description =
         price: "2500",
         priceSpecification: { "@type": "UnitPriceSpecification", minPrice: 2500, priceCurrency: "USD", unitText: "MONTH" },
       },
-      serviceType: "Рятування та нагляд над IT-проєктом",
+      serviceType: "Відновлення IT-проєкту і нагляд",
       inLanguage: "uk",
     })}
   />
@@ -282,9 +315,19 @@ const description =
   .mode-body h4 { font-family: var(--font-display); font-size: 18px; color: var(--text-1); margin: 0 0 8px; line-height: 1.35; font-weight: 700; }
   .mode-body p { font-size: 15px; line-height: 1.6; color: var(--text-2); margin: 0; max-width: 60ch; }
 
+  .outcomes { margin-top: 32px; padding: 24px 28px; background: var(--bg-0); border-left: 3px solid var(--accent); border-radius: 0 2px 2px 0; }
+  .outcomes-h { font-family: var(--font-display); font-size: 16px; color: var(--text-1); font-weight: 600; margin: 0 0 14px; line-height: 1.45; }
+  .outcomes-list { list-style: none; padding: 0; margin: 0; }
+  .outcomes-list li { position: relative; padding: 6px 0 6px 22px; font-size: 15px; line-height: 1.55; color: var(--text-2); }
+  .outcomes-list li::before { content: "→"; position: absolute; left: 0; top: 6px; color: var(--accent-pressed); font-family: var(--font-mono); font-weight: 700; }
+
   .exclude { list-style: none; padding: 0; margin: 0; }
   .exclude li { display: flex; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px dashed var(--border-1); color: var(--text-2); font-size: 16px; line-height: 1.55; }
   .exclude li:last-child { border-bottom: 0; }
   .exclude-mark { font-family: var(--font-mono); color: var(--accent-pressed); font-size: 18px; line-height: 1; flex-shrink: 0; font-weight: 700; }
   .exclude strong { color: var(--text-1); font-weight: 700; }
+
+  .qa { margin-bottom: 28px; padding-bottom: 22px; border-bottom: 1px solid var(--border-1); }
+  .qa:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
+  .qa-q { font-family: var(--font-display); font-size: 18px; color: var(--text-1); margin: 0 0 10px; line-height: 1.35; font-weight: 600; }
 </style>

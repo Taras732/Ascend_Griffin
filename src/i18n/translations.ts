@@ -26,7 +26,7 @@ export const translations = {
         { label: "About", href: "/about/" },
         { label: "How I work", href: "/how-i-work/" },
         { label: "AI Audit", href: "/ai-readiness-audit/" },
-        { label: "Rescue", href: "/project-rescue/" },
+        { label: "Recovery", href: "/project-rescue/" },
         { label: "Blog", href: "/blog/" },
       ],
 
@@ -407,7 +407,7 @@ export const translations = {
         { label: "Про мене", href: "/uk/about/" },
         { label: "Як я працюю", href: "/uk/how-i-work/" },
         { label: "Аудит AI", href: "/uk/ai-readiness-audit/" },
-        { label: "Рятування", href: "/uk/project-rescue/" },
+        { label: "Відновлення", href: "/uk/project-rescue/" },
         { label: "Блог", href: "/uk/blog/" },
       ],
 

@@ -454,8 +454,8 @@ const hasToc = tocItems.length >= 3;
     padding: 24px 0;
     border-top: 1px solid var(--border-1);
     border-bottom: 1px solid var(--border-1);
-    margin-bottom: 48px;
-    max-width: 720px;
+    margin: 0 auto 48px;
+    max-width: 880px;
   }
   .post-tags-label {
     font-family: var(--font-mono);
@@ -477,10 +477,14 @@ const hasToc = tocItems.length >= 3;
   .post-cta {
     background: var(--bg-ink);
     color: var(--text-on-ink);
-    padding: 40px;
+    padding: 56px 48px;
     border-radius: 4px;
     text-align: center;
-    max-width: 720px;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+  @media (max-width: 720px) {
+    .post-cta { padding: 40px 24px; }
   }
   .post-cta h3 {
     font-family: var(--font-display);

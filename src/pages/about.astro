@@ -1,0 +1,358 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import FoundingCTA from "../components/FoundingCTA.astro";
+
+const title = "Taras Smaliukh — Buyer-Side IT Ally | Ascend Griffin";
+const description =
+  "Taras Smaliukh — CEO of TreximAI and founder of Ascend Griffin. 8 years BA across AI, logistics, and fintech. Lviv-based ally for founders navigating IT.";
+---
+
+<BaseLayout title={title} description={description}>
+  <Nav />
+  <main class="svc">
+    {/* ── Hero ────────────────────────────────────────────────────── */}
+    <section class="svc-hero">
+      <div class="svc-grid">
+        <aside class="svc-rail">
+          <div class="rail-marker">00</div>
+          <div class="rail-label">About</div>
+        </aside>
+
+        <div class="svc-hero-body">
+          <p class="svc-epigraph">
+            "Most IT projects don't fail because of bad code.<br />
+            They fail because no one on the client's side had the technical fluency to see it coming."
+          </p>
+
+          <h1 class="svc-h1">
+            Taras Smaliukh — the <em>operator</em> on your side of the table.
+          </h1>
+
+          <p class="svc-lede">
+            I'm a buyer-side IT ally for non-technical founders and vibe coders. I act exclusively in your interests — from the first conversation about your idea to a working outcome delivered.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    {/* ── Who I am ───────────────────────────────────────────────── */}
+    <section class="svc-section">
+      <div class="svc-grid">
+        <aside class="svc-rail">
+          <div class="rail-marker">01</div>
+          <div class="rail-label">Who I am</div>
+        </aside>
+
+        <div class="svc-section-body">
+          <h2 class="svc-h2">8 years inside IT. Both sides of the table.</h2>
+
+          <div class="prose">
+            <p>I've spent 8 years inside IT as a business analyst and product owner — across AI products, logistics, fintech, and B2B SaaS. I've sat on both sides of the table: negotiating with vendors, owning product backlogs, running discovery, building teams from scratch.</p>
+
+            <p>My original training was in safety-critical systems — Air Traffic Control, where unclear requirements don't produce bad UX, they produce accidents. That discipline carries into everything I do with products now.</p>
+
+            <p>I'm currently CEO and Chief Product Officer at <strong>TreximAI</strong>, a B2B AI logistics platform — banking, fuel retail, insurance, e-signature. I built the team and the product from zero, secured six-figure development capital, and negotiated agreements with incumbents across regulated sectors.</p>
+
+            <p>That practitioner background is what I bring to your side of the table — not frameworks, not decks, but a working understanding of how IT projects actually behave under pressure.</p>
+
+            <p>Ascend Griffin is where I put that experience to work for you.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ── What I actually do ─────────────────────────────────────── */}
+    <section class="svc-section">
+      <div class="svc-grid">
+        <aside class="svc-rail">
+          <div class="rail-marker">02</div>
+          <div class="rail-label">What I actually do</div>
+        </aside>
+
+        <div class="svc-section-body">
+          <h2 class="svc-h2">A consultant advises. I stay in the room <em>until the outcome lands</em>.</h2>
+
+          <div class="prose">
+            <p>Concretely: I read vendor contracts and tell you which clauses will cost you in month three. I run structured discovery so you're not building the wrong thing. I sit on demos and ask the technical questions you don't yet know to ask. I review estimates and spot the assumptions that turn a $40K project into a $70K one.</p>
+
+            <p>When something goes wrong, I'm the person who says "here's exactly what broke and here's the fix order" — not "let me introduce you to another consultant."</p>
+
+            <p>I'm not a technical architect. I won't write your code. But I will make sure the people writing it are accountable to your interests, not theirs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ── How I work ─────────────────────────────────────────────── */}
+    <section class="svc-section svc-section-muted">
+      <div class="svc-grid">
+        <aside class="svc-rail">
+          <div class="rail-marker">03</div>
+          <div class="rail-label">Three engagement modes</div>
+        </aside>
+
+        <div class="svc-section-body">
+          <h2 class="svc-h2">Three ways we work together.</h2>
+          <p class="svc-section-lede">
+            Discovery comes first, always. A 30-minute conversation to understand your situation. If I'm not the right read, I'll say so — and usually recommend who is.
+          </p>
+
+          <ol class="ledger">
+            <li class="ledger-item">
+              <span class="ledger-num">A</span>
+              <div class="ledger-content">
+                <h4>Solo advisory.</h4>
+                <p>I work directly with you: reviewing deliverables, joining key calls, providing structured oversight of your vendor or in-house team. You keep control of your team; I'm the experienced voice in the room on your side. Right when you already have a team or vendor and need a second set of eyes on the work and the decisions.</p>
+              </div>
+            </li>
+            <li class="ledger-item">
+              <span class="ledger-num">B</span>
+              <div class="ledger-content">
+                <h4>Full delivery with my network.</h4>
+                <p>For founders who want one accountable contract — one person responsible from brief to working product. I coordinate a tight, tested network of engineers, designers, and QA specialists. One point of contact, one contract, clear milestones with fixed pricing.</p>
+              </div>
+            </li>
+            <li class="ledger-item">
+              <span class="ledger-num">C</span>
+              <div class="ledger-content">
+                <h4>Discovery and handoff.</h4>
+                <p>We validate what you're building, produce a complete product brief and scoped requirements, and I help you find and brief the right vendor. You own the result. I help you start right, not stay forever.</p>
+              </div>
+            </li>
+          </ol>
+
+          <p class="footnote">In every case: fixed or fixed-plus-performance pricing. No hourly billing.</p>
+        </div>
+      </div>
+    </section>
+
+    {/* ── Where I am now ─────────────────────────────────────────── */}
+    <section class="svc-section">
+      <div class="svc-grid">
+        <aside class="svc-rail">
+          <div class="rail-marker">04</div>
+          <div class="rail-label">Validation phase</div>
+        </aside>
+
+        <div class="svc-section-body">
+          <h2 class="svc-h2">Where I am right now.</h2>
+
+          <div class="prose">
+            <p>Ascend Griffin launched in April 2026. I'm in validation phase — which means: no published clients yet, no five-year case study archive, no logos on a wall.</p>
+
+            <p>What I do have: 8 years of doing this work inside IT companies and as a founder. The advisory practice is a new vehicle. The expertise is not.</p>
+
+            <p>The illustrative patterns on this site describe the kinds of situations I work on — drawn from real problem types, not invented for the page. They're honest about what they are: composites, not credentials.</p>
+
+            <p>I'm choosing the first clients carefully. That means I'll be more available than I will be in twelve months. If that context matters to your decision — it should. I'm telling you now rather than hoping you don't ask.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ── Who I am for ───────────────────────────────────────────── */}
+    <section class="svc-section">
+      <div class="svc-grid">
+        <aside class="svc-rail">
+          <div class="rail-marker">05</div>
+          <div class="rail-label">Who I am for</div>
+        </aside>
+
+        <div class="svc-section-body">
+          <h2 class="svc-h2">Four kinds of founders I read for.</h2>
+
+          <article class="icp-card">
+            <header class="icp-header">
+              <span class="icp-num">A</span>
+              <h3 class="icp-title">The vibe coder who built something real.</h3>
+            </header>
+            <p class="illustrative-label">Illustrative — a pattern I work with often.</p>
+            <p>A founder built a working prototype in Cursor. Twenty paying users, a few features to add, and a growing feeling that something in the foundation isn't quite right. They're not a developer — they don't know how to read the codebase, only how to prompt into it. What they need is someone who can look at what they've built and tell them: what holds, what doesn't, and what the path to production-readiness actually looks like. Not in jargon. In plain terms, prioritized.</p>
+          </article>
+
+          <hr class="hairline" />
+
+          <article class="icp-card">
+            <header class="icp-header">
+              <span class="icp-num">B</span>
+              <h3 class="icp-title">The non-technical founder about to sign a contract.</h3>
+            </header>
+            <p class="illustrative-label">Illustrative — the situation that comes up most often.</p>
+            <p>A business owner has three vendor proposals. The numbers range from $45K to $120K for what sounds like the same project. One vendor is confident, two are vague, all three are professionally persuasive. Without a technical background, it's nearly impossible to tell which quote is honest, which is padded, and which is going to grow by 40% the moment a change request lands. The job here is to read those proposals the way the vendor read them when they wrote them — and translate that into a clear recommendation.</p>
+          </article>
+
+          <hr class="hairline" />
+
+          <article class="icp-card">
+            <header class="icp-header">
+              <span class="icp-num">C</span>
+              <h3 class="icp-title">The founder with an idea and domain expertise.</h3>
+            </header>
+            <p class="illustrative-label">Illustrative — an early-stage pattern.</p>
+            <p>Someone with deep knowledge of a specific industry — logistics, fintech, healthcare admin — has been thinking about a software product for two years. They have domain expertise most developers will never have. What they don't have is a clear answer to: should this be built at all? What would it actually cost? What would need to be true for it to succeed? Before spending $50–80K on development, those questions deserve a serious answer from someone without a financial interest in the build decision.</p>
+          </article>
+
+          <hr class="hairline" />
+
+          <article class="icp-card">
+            <header class="icp-header">
+              <span class="icp-num">D</span>
+              <h3 class="icp-title">The founder whose product is quietly breaking.</h3>
+            </header>
+            <p class="illustrative-label">Illustrative — a rescue pattern.</p>
+            <p>A team shipped a product. It works, mostly. But delivery velocity has slowed to almost nothing, the original vendor is less responsive, the budget is burning on maintenance without visible progress, and no one can clearly explain why. The first step isn't re-architecting. It's a clear-eyed diagnostic: what broke, when, and why — and a prioritized path forward that doesn't start with "rebuild everything from scratch."</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    {/* ── Not for ────────────────────────────────────────────────── */}
+    <section class="svc-section svc-section-muted">
+      <div class="svc-grid">
+        <aside class="svc-rail">
+          <div class="rail-marker">06</div>
+          <div class="rail-label">Not for</div>
+        </aside>
+
+        <div class="svc-section-body">
+          <h2 class="svc-h2">Who I'm <em>not</em> for.</h2>
+          <p class="svc-section-lede">Saving us both time:</p>
+
+          <ul class="exclude">
+            <li><span class="exclude-mark">—</span><span>If you already have a CTO or a trusted technical co-founder, you probably don't need me.</span></li>
+            <li><span class="exclude-mark">—</span><span>If your main question is "who should I hire," I'm not a recruiter.</span></li>
+            <li><span class="exclude-mark">—</span><span>If you need someone to write a pitch deck or help you raise funding, that's not this.</span></li>
+            <li><span class="exclude-mark">—</span><span>If your budget for a first engagement is under $3,000, the economics won't work for either of us.</span></li>
+            <li><span class="exclude-mark">—</span><span>If you want someone to tell you what you want to hear rather than what's true, I'm definitely not the right read.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <FoundingCTA service="discovery" spotsLeft={2} />
+  </main>
+  <Footer />
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: "Taras Smaliukh",
+      alternateName: ["Taras Smalych"],
+      url: "https://ascendgriffin.org/about/",
+      jobTitle: "Founder, Ascend Griffin · CEO, TreximAI",
+      worksFor: [
+        { "@type": "Organization", name: "Ascend Griffin", url: "https://ascendgriffin.org" },
+        { "@type": "Organization", name: "TreximAI" },
+      ],
+      knowsAbout: [
+        "Business analysis",
+        "Product discovery",
+        "AI workflows",
+        "IT vendor selection",
+        "Project rescue",
+        "Buyer-side IT advisory",
+      ],
+      homeLocation: { "@type": "Place", name: "Lviv, Ukraine" },
+      sameAs: ["https://www.linkedin.com/in/taras732/"],
+    })}
+  />
+</BaseLayout>
+
+<style>
+  .svc {
+    background:
+      radial-gradient(ellipse at top right, rgba(184, 135, 58, 0.04), transparent 50%),
+      radial-gradient(ellipse at bottom left, rgba(184, 135, 58, 0.03), transparent 40%),
+      var(--bg-0);
+    min-height: 100vh;
+  }
+  .svc-grid {
+    display: grid; grid-template-columns: 180px 1fr; gap: 64px;
+    max-width: 1120px; margin: 0 auto; padding: 0 var(--gutter);
+  }
+  @media (max-width: 900px) {
+    .svc-grid { grid-template-columns: 1fr; gap: 24px; padding: 0 var(--gutter-sm); }
+  }
+  .svc-rail {
+    position: sticky; top: 88px; align-self: start; height: fit-content;
+    border-top: 1px solid var(--text-1); padding-top: 14px;
+  }
+  @media (max-width: 900px) {
+    .svc-rail { position: static; display: flex; align-items: baseline; gap: 12px; padding-top: 8px; }
+  }
+  .rail-marker { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--text-1); letter-spacing: 0.04em; line-height: 1; }
+  .rail-label { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 6px; }
+  @media (max-width: 900px) { .rail-label { margin-top: 0; } }
+
+  .svc-hero { padding: 80px 0 56px; }
+  @media (max-width: 720px) { .svc-hero { padding: 48px 0 32px; } }
+  .svc-epigraph {
+    font-family: var(--font-mono); font-size: 13px; line-height: 1.65; color: var(--text-3);
+    font-style: italic; margin: 0 0 32px; padding-left: 18px;
+    border-left: 2px solid var(--accent); max-width: 56ch;
+  }
+  .svc-h1 {
+    font-family: var(--font-display); font-size: clamp(40px, 5.5vw, 68px); line-height: 1.04;
+    letter-spacing: -0.025em; color: var(--text-1); margin: 0 0 28px; font-weight: 700; max-width: 20ch;
+  }
+  .svc-h1 em { font-style: italic; color: var(--editorial); font-weight: 700; }
+  .svc-lede { font-size: 19px; line-height: 1.6; color: var(--text-2); margin: 0 0 32px; max-width: 60ch; }
+
+  .svc-section { padding: 80px 0; border-top: 1px solid var(--border-1); }
+  @media (max-width: 720px) { .svc-section { padding: 48px 0; } }
+  .svc-section-muted { background: var(--bg-1); }
+  .svc-h2 {
+    font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 40px); line-height: 1.15;
+    letter-spacing: -0.015em; color: var(--text-1); margin: 0 0 16px; font-weight: 700; max-width: 24ch;
+  }
+  .svc-h2 em { font-style: italic; color: var(--editorial); }
+  .svc-section-lede { font-size: 17px; line-height: 1.6; color: var(--text-2); margin: 0 0 40px; max-width: 60ch; }
+
+  .prose p {
+    font-size: 17px; line-height: 1.7; color: var(--text-2); margin: 0 0 18px;
+    max-width: 65ch;
+  }
+  .prose p strong { color: var(--text-1); font-weight: 600; }
+
+  .icp-card { margin-bottom: 32px; }
+  .icp-card:last-child { margin-bottom: 0; }
+  .icp-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 8px; }
+  .icp-num {
+    font-family: var(--font-mono); font-size: 13px; color: var(--accent-pressed); font-weight: 700;
+    letter-spacing: 0.04em; background: var(--accent-subtle); padding: 4px 10px; border-radius: 2px; line-height: 1;
+  }
+  .icp-title {
+    font-family: var(--font-display); font-size: clamp(20px, 2.4vw, 24px); line-height: 1.25;
+    letter-spacing: -0.01em; color: var(--text-1); margin: 0; font-weight: 600; flex: 1;
+  }
+  .illustrative-label {
+    font-family: var(--font-mono); font-size: 11px; color: var(--text-3);
+    font-style: italic; margin: 0 0 12px; letter-spacing: 0.02em;
+  }
+  .icp-card p:not(.illustrative-label) {
+    font-size: 16px; line-height: 1.65; color: var(--text-2); margin: 0; max-width: 65ch;
+  }
+  .hairline { border: 0; border-top: 1px solid var(--border-1); margin: 32px 0; }
+
+  .ledger { list-style: none; padding: 0; margin: 0 0 24px; border-top: 1px solid var(--text-1); }
+  .ledger-item { display: grid; grid-template-columns: 64px 1fr; gap: 24px; padding: 28px 0; border-bottom: 1px solid var(--border-1); align-items: start; }
+  @media (max-width: 720px) { .ledger-item { grid-template-columns: 40px 1fr; gap: 16px; padding: 24px 0; } }
+  .ledger-num { font-family: var(--font-mono); font-size: 24px; color: var(--accent-pressed); font-weight: 600; line-height: 1; letter-spacing: -0.02em; }
+  .ledger-content h4 { font-family: var(--font-display); font-size: 18px; color: var(--text-1); margin: 0 0 8px; line-height: 1.35; font-weight: 600; letter-spacing: -0.005em; }
+  .ledger-content p { font-size: 15px; line-height: 1.6; color: var(--text-2); margin: 0; max-width: 60ch; }
+
+  .footnote {
+    font-family: var(--font-mono); font-size: 12px; color: var(--text-3);
+    letter-spacing: 0.02em; max-width: 60ch; line-height: 1.5;
+    margin: 16px 0 0; padding: 12px 16px; background: var(--bg-0); border-left: 2px solid var(--accent);
+  }
+
+  .exclude { list-style: none; padding: 0; margin: 0; }
+  .exclude li { display: flex; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px dashed var(--border-1); color: var(--text-2); font-size: 16px; line-height: 1.55; }
+  .exclude li:last-child { border-bottom: 0; }
+  .exclude-mark { font-family: var(--font-mono); color: var(--text-4); font-size: 18px; line-height: 1; flex-shrink: 0; }
+</style>

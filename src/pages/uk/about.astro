@@ -1,0 +1,315 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+import FoundingCTA from "../../components/FoundingCTA.astro";
+
+const title = "Тарас Смалюх — IT-союзник у Львові | Ascend Griffin";
+const description =
+  "Тарас Смалюх — CEO TreximAI та засновник Ascend Griffin. 8 років бізнес-аналізу в AI, логістиці, фінтеху. Львів. Союзник засновників у IT-проєктах.";
+---
+
+<BaseLayout title={title} description={description}>
+  <Nav />
+  <main class="svc">
+    {/* ── Hero ────────────────────────────────────────────────────── */}
+    <section class="svc-hero">
+      <div class="svc-grid">
+        <aside class="svc-rail">
+          <div class="rail-marker">00</div>
+          <div class="rail-label">Про мене</div>
+        </aside>
+
+        <div class="svc-hero-body">
+          <p class="svc-epigraph">
+            "Більшість IT-проєктів провалюються не через поганий код.<br />
+            А тому, що на боці клієнта не було нікого, хто міг би це побачити заздалегідь."
+          </p>
+
+          <h1 class="svc-h1">
+            Тарас Смалюх — <em>оператор</em> на вашому боці столу.
+          </h1>
+
+          <p class="svc-lede">
+            Я ваш союзник на боці замовника в IT-рішеннях. Дію виключно у ваших інтересах — від першої розмови про ідею до готового, працюючого результату.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    {/* ── Хто я ──────────────────────────────────────────────────── */}
+    <section class="svc-section">
+      <div class="svc-grid">
+        <aside class="svc-rail">
+          <div class="rail-marker">01</div>
+          <div class="rail-label">Хто я</div>
+        </aside>
+
+        <div class="svc-section-body">
+          <h2 class="svc-h2">8 років у IT. Обидві сторони столу.</h2>
+
+          <div class="prose">
+            <p>Я провів 8 років у IT як бізнес-аналітик і продакт-оунер — у сфері AI-продуктів, логістики, фінтеху та B2B SaaS. Я сидів з обох боків столу: вів перемовини з вендорами, управляв продуктовими беклогами, запускав discovery, збирав команди з нуля.</p>
+
+            <p>Моє початкове навчання — системи з критичними вимогами до безпеки, управління повітряним рухом. Там нечіткі вимоги призводять не до поганого UX, а до аварій. Ця дисципліна залишається зі мною у кожному продукті.</p>
+
+            <p>Зараз я CEO і CPO <strong>TreximAI</strong> — B2B AI-платформа логістики, що працює з банками, мережами АЗС, страховими та електронним підписом. Я зібрав команду і продукт з нуля, залучив шестизначний капітал на розробку, уклав угоди з гравцями у регульованих галузях.</p>
+
+            <p>Це не приміткою — це причина, чому я розумію, як IT-проєкти насправді поводяться під тиском. Не за frameworks і не за слайдами — за досвідом.</p>
+
+            <p>Ascend Griffin — це місце, де я застосовую цей досвід на вашому боці.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ── Що я насправді роблю ──────────────────────────────────── */}
+    <section class="svc-section">
+      <div class="svc-grid">
+        <aside class="svc-rail">
+          <div class="rail-marker">02</div>
+          <div class="rail-label">Що я роблю</div>
+        </aside>
+
+        <div class="svc-section-body">
+          <h2 class="svc-h2">Консультант радить. Я залишаюся <em>до результату</em>.</h2>
+
+          <div class="prose">
+            <p>Конкретно: я читаю контракти з вендорами і показую, які пункти вдарять вас на третьому місяці. Я веду структурований discovery, щоб ви не будували не те. Я сиджу на демо і ставлю технічні питання, які ви поки що не знаєте, що треба ставити. Я перевіряю оцінки і знаходжу припущення, через які проєкт за $40K стає за $70K.</p>
+
+            <p>Коли щось іде не так — я та людина, яка каже "ось що зламалося і ось порядок виправлення", а не "давайте познайомимо вас із ще одним консультантом".</p>
+
+            <p>Я не технічний архітектор. Я не писатиму ваш код. Але я переконаюся, що ті, хто його пишуть, відповідають перед вашими інтересами, а не своїми.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ── Як я працюю ───────────────────────────────────────────── */}
+    <section class="svc-section svc-section-muted">
+      <div class="svc-grid">
+        <aside class="svc-rail">
+          <div class="rail-marker">03</div>
+          <div class="rail-label">Три формати</div>
+        </aside>
+
+        <div class="svc-section-body">
+          <h2 class="svc-h2">Три способи співпраці.</h2>
+          <p class="svc-section-lede">
+            Спочатку — завжди discovery. 30-хвилинна розмова, щоб зрозуміти вашу ситуацію. Якщо я не той читач — скажу прямо і зазвичай порекомендую когось іншого.
+          </p>
+
+          <ol class="ledger">
+            <li class="ledger-item">
+              <span class="ledger-num">A</span>
+              <div class="ledger-content">
+                <h4>Соло-консультування.</h4>
+                <p>Я працюю безпосередньо з вами: перевіряю deliverables, беру участь у ключових дзвінках, забезпечую структурований нагляд за вашим вендором або командою. Ви зберігаєте контроль; я — досвідчений голос у кімнаті на вашому боці. Підходить, коли команда або вендор вже є, але потрібен другий погляд.</p>
+              </div>
+            </li>
+            <li class="ledger-item">
+              <span class="ledger-num">B</span>
+              <div class="ledger-content">
+                <h4>Повний цикл з моєю мережею.</h4>
+                <p>Для засновників, які хочуть один підзвітний контракт — одна людина відповідає від брифу до готового продукту. Я координую перевірену мережу розробників, дизайнерів і QA-спеціалістів. Один контакт, один контракт, чіткі milestone з фіксованою ціною.</p>
+              </div>
+            </li>
+            <li class="ledger-item">
+              <span class="ledger-num">C</span>
+              <div class="ledger-content">
+                <h4>Discovery і передача.</h4>
+                <p>Ми валідуємо, що ви будуєте, виробляємо повний продуктовий бриф і вимоги, і я допомагаю знайти та проінструктувати правильного вендора. Ви маєте результат. Я допомагаю почати правильно, а не бути вічно поруч.</p>
+              </div>
+            </li>
+          </ol>
+
+          <p class="footnote">У кожному випадку: фіксована або фіксована-плюс-бонус ціна. Погодинного виставлення рахунків немає.</p>
+        </div>
+      </div>
+    </section>
+
+    {/* ── Де я зараз ─────────────────────────────────────────────── */}
+    <section class="svc-section">
+      <div class="svc-grid">
+        <aside class="svc-rail">
+          <div class="rail-marker">04</div>
+          <div class="rail-label">Фаза валідації</div>
+        </aside>
+
+        <div class="svc-section-body">
+          <h2 class="svc-h2">Де я зараз.</h2>
+
+          <div class="prose">
+            <p>Ascend Griffin запустився у квітні 2026 року. Я у фазі валідації — тобто: немає опублікованих клієнтів, немає п'ятирічного архіву кейсів, немає логотипів на стіні.</p>
+
+            <p>Що є: 8 років виконання цієї роботи всередині IT та як засновник. Практика — новий інструмент. Експертиза — ні.</p>
+
+            <p>Ілюстративні патерни на цьому сайті описують типи ситуацій, з якими я працюю — засновані на реальних проблемних патернах, не вигадані для сторінки. Вони чесні щодо того, чим є: узагальнення, а не рекомендаційні листи.</p>
+
+            <p>Я обираю перших клієнтів ретельно. Це означає: я буду більш доступний, ніж через дванадцять місяців. Якщо цей контекст важливий для вашого рішення — він і справді важливий. Я кажу вам зараз, а не сподіваюся, що ви не запитаєте.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ── Для кого я ─────────────────────────────────────────────── */}
+    <section class="svc-section">
+      <div class="svc-grid">
+        <aside class="svc-rail">
+          <div class="rail-marker">05</div>
+          <div class="rail-label">Для кого</div>
+        </aside>
+
+        <div class="svc-section-body">
+          <h2 class="svc-h2">Чотири типи засновників, з якими я працюю.</h2>
+
+          <article class="icp-card">
+            <header class="icp-header">
+              <span class="icp-num">A</span>
+              <h3 class="icp-title">Засновник, що зібрав щось реальне.</h3>
+            </header>
+            <p class="illustrative-label">Ілюстративний патерн — ситуація, яку я бачу часто.</p>
+            <p>Засновник зібрав робочий прототип у Cursor або аналогічному інструменті. Двадцять платних користувачів, кілька фіч до додавання і зростаюче відчуття, що щось у фундаменті не так. Розробником він не є — не вміє читати кодову базу, тільки промптувати в неї. Йому потрібен хтось, хто подивиться на те, що зібрано, і скаже: що тримається, що ні, і як виглядає реальний шлях до production-ready стану. Не технічною мовою. Просто і по пріоритетах.</p>
+          </article>
+
+          <hr class="hairline" />
+
+          <article class="icp-card">
+            <header class="icp-header">
+              <span class="icp-num">B</span>
+              <h3 class="icp-title">Нетехнічний засновник, який готується підписати контракт.</h3>
+            </header>
+            <p class="illustrative-label">Ілюстративний патерн — ситуація, що зустрічається найчастіше.</p>
+            <p>Власник бізнесу має три пропозиції від вендорів. Цифри — від $45K до $120K за те, що звучить як один і той самий проєкт. Один вендор впевнений, двоє розпливчасті, всі три переконливі. Без технічного бекграунду майже неможливо зрозуміти, яка пропозиція чесна, яка роздута, а яка виросте на 40% після першого запиту на зміни. Завдання — прочитати ці пропозиції так, як вендор їх писав, і перекласти це на зрозуміле: рекомендацію і конкретні ризики.</p>
+          </article>
+
+          <hr class="hairline" />
+
+          <article class="icp-card">
+            <header class="icp-header">
+              <span class="icp-num">C</span>
+              <h3 class="icp-title">Засновник з ідеєю і доменною експертизою.</h3>
+            </header>
+            <p class="illustrative-label">Ілюстративний патерн — рання стадія.</p>
+            <p>Людина з глибоким знанням конкретної галузі — логістики, фінтеху, медичного адміністрування — думає про software-продукт вже два роки. Доменна експертиза, якої у більшості розробників ніколи не буде. Чого немає — чіткої відповіді на: чи взагалі варто це будувати? Скільки це реально коштуватиме? Що має бути правдою, щоб це спрацювало? Перш ніж витратити $50–80K на розробку, ці питання заслуговують серйозної відповіді від когось, хто фінансово не зацікавлений у самому факті будівництва.</p>
+          </article>
+
+          <hr class="hairline" />
+
+          <article class="icp-card">
+            <header class="icp-header">
+              <span class="icp-num">D</span>
+              <h3 class="icp-title">Засновник, чий продукт тихо ламається.</h3>
+            </header>
+            <p class="illustrative-label">Ілюстративний патерн — rescue ситуація.</p>
+            <p>Команда запустила продукт. Він працює, переважно. Але швидкість delivery впала майже до нуля, початковий вендор відповідає повільніше, бюджет витрачається на обслуговування без видимого прогресу, і ніхто не може чітко пояснити чому. Перший крок — не переархітектурувати. Це чітка діагностика: що зламалося, коли і чому, і пріоритетний шлях вперед, який не починається з "переписати все з нуля".</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    {/* ── Для кого я не ──────────────────────────────────────────── */}
+    <section class="svc-section svc-section-muted">
+      <div class="svc-grid">
+        <aside class="svc-rail">
+          <div class="rail-marker">06</div>
+          <div class="rail-label">Не для кого</div>
+        </aside>
+
+        <div class="svc-section-body">
+          <h2 class="svc-h2">Для кого я <em>не</em> підходжу.</h2>
+          <p class="svc-section-lede">Заощаджу час — ваш і свій:</p>
+
+          <ul class="exclude">
+            <li><span class="exclude-mark">—</span><span>Якщо у вас вже є CTO або довірений технічний кофаундер — ви, мабуть, мене не потребуєте.</span></li>
+            <li><span class="exclude-mark">—</span><span>Якщо ваше головне питання — "кого мені найняти", я не рекрутер.</span></li>
+            <li><span class="exclude-mark">—</span><span>Якщо потрібен pitch deck або допомога з залученням інвестицій — це не про мене.</span></li>
+            <li><span class="exclude-mark">—</span><span>Якщо ваш бюджет на першу роботу менше $3,000, економіка не складеться для жодного з нас.</span></li>
+            <li><span class="exclude-mark">—</span><span>Якщо вам потрібен хтось, хто скаже те, що ви хочете почути, а не правду — я точно не той.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <FoundingCTA service="discovery" spotsLeft={2} />
+  </main>
+  <Footer />
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: "Тарас Смалюх",
+      alternateName: ["Taras Smaliukh", "Taras Smalych"],
+      url: "https://ascendgriffin.org/uk/about/",
+      jobTitle: "Засновник Ascend Griffin · CEO TreximAI",
+      worksFor: [
+        { "@type": "Organization", name: "Ascend Griffin", url: "https://ascendgriffin.org" },
+        { "@type": "Organization", name: "TreximAI" },
+      ],
+      knowsAbout: [
+        "бізнес-аналіз",
+        "продуктовий discovery",
+        "AI-інструменти",
+        "вибір IT-вендорів",
+        "рятування проєктів",
+        "buyer-side IT-супровід",
+      ],
+      homeLocation: { "@type": "Place", name: "Львів, Україна" },
+      sameAs: ["https://www.linkedin.com/in/taras732/"],
+      inLanguage: "uk",
+    })}
+  />
+</BaseLayout>
+
+<style>
+  .svc { background: radial-gradient(ellipse at top right, rgba(184, 135, 58, 0.04), transparent 50%), radial-gradient(ellipse at bottom left, rgba(184, 135, 58, 0.03), transparent 40%), var(--bg-0); min-height: 100vh; }
+  .svc-grid { display: grid; grid-template-columns: 180px 1fr; gap: 64px; max-width: 1120px; margin: 0 auto; padding: 0 var(--gutter); }
+  @media (max-width: 900px) { .svc-grid { grid-template-columns: 1fr; gap: 24px; padding: 0 var(--gutter-sm); } }
+  .svc-rail { position: sticky; top: 88px; align-self: start; height: fit-content; border-top: 1px solid var(--text-1); padding-top: 14px; }
+  @media (max-width: 900px) { .svc-rail { position: static; display: flex; align-items: baseline; gap: 12px; padding-top: 8px; } }
+  .rail-marker { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--text-1); letter-spacing: 0.04em; line-height: 1; }
+  .rail-label { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 6px; }
+  @media (max-width: 900px) { .rail-label { margin-top: 0; } }
+
+  .svc-hero { padding: 80px 0 56px; }
+  @media (max-width: 720px) { .svc-hero { padding: 48px 0 32px; } }
+  .svc-epigraph { font-family: var(--font-mono); font-size: 13px; line-height: 1.65; color: var(--text-3); font-style: italic; margin: 0 0 32px; padding-left: 18px; border-left: 2px solid var(--accent); max-width: 56ch; }
+  .svc-h1 { font-family: var(--font-display); font-size: clamp(40px, 5.5vw, 68px); line-height: 1.04; letter-spacing: -0.025em; color: var(--text-1); margin: 0 0 28px; font-weight: 700; max-width: 20ch; }
+  .svc-h1 em { font-style: italic; color: var(--editorial); font-weight: 700; }
+  .svc-lede { font-size: 19px; line-height: 1.6; color: var(--text-2); margin: 0 0 32px; max-width: 60ch; }
+
+  .svc-section { padding: 80px 0; border-top: 1px solid var(--border-1); }
+  @media (max-width: 720px) { .svc-section { padding: 48px 0; } }
+  .svc-section-muted { background: var(--bg-1); }
+  .svc-h2 { font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 40px); line-height: 1.15; letter-spacing: -0.015em; color: var(--text-1); margin: 0 0 16px; font-weight: 700; max-width: 24ch; }
+  .svc-h2 em { font-style: italic; color: var(--editorial); }
+  .svc-section-lede { font-size: 17px; line-height: 1.6; color: var(--text-2); margin: 0 0 40px; max-width: 60ch; }
+
+  .prose p { font-size: 17px; line-height: 1.7; color: var(--text-2); margin: 0 0 18px; max-width: 65ch; }
+  .prose p strong { color: var(--text-1); font-weight: 600; }
+
+  .icp-card { margin-bottom: 32px; }
+  .icp-card:last-child { margin-bottom: 0; }
+  .icp-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 8px; }
+  .icp-num { font-family: var(--font-mono); font-size: 13px; color: var(--accent-pressed); font-weight: 700; letter-spacing: 0.04em; background: var(--accent-subtle); padding: 4px 10px; border-radius: 2px; line-height: 1; }
+  .icp-title { font-family: var(--font-display); font-size: clamp(20px, 2.4vw, 24px); line-height: 1.25; letter-spacing: -0.01em; color: var(--text-1); margin: 0; font-weight: 600; flex: 1; }
+  .illustrative-label { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); font-style: italic; margin: 0 0 12px; letter-spacing: 0.02em; }
+  .icp-card p:not(.illustrative-label) { font-size: 16px; line-height: 1.65; color: var(--text-2); margin: 0; max-width: 65ch; }
+  .hairline { border: 0; border-top: 1px solid var(--border-1); margin: 32px 0; }
+
+  .ledger { list-style: none; padding: 0; margin: 0 0 24px; border-top: 1px solid var(--text-1); }
+  .ledger-item { display: grid; grid-template-columns: 64px 1fr; gap: 24px; padding: 28px 0; border-bottom: 1px solid var(--border-1); align-items: start; }
+  @media (max-width: 720px) { .ledger-item { grid-template-columns: 40px 1fr; gap: 16px; padding: 24px 0; } }
+  .ledger-num { font-family: var(--font-mono); font-size: 24px; color: var(--accent-pressed); font-weight: 600; line-height: 1; letter-spacing: -0.02em; }
+  .ledger-content h4 { font-family: var(--font-display); font-size: 18px; color: var(--text-1); margin: 0 0 8px; line-height: 1.35; font-weight: 600; letter-spacing: -0.005em; }
+  .ledger-content p { font-size: 15px; line-height: 1.6; color: var(--text-2); margin: 0; max-width: 60ch; }
+
+  .footnote { font-family: var(--font-mono); font-size: 12px; color: var(--text-3); letter-spacing: 0.02em; max-width: 60ch; line-height: 1.5; margin: 16px 0 0; padding: 12px 16px; background: var(--bg-0); border-left: 2px solid var(--accent); }
+
+  .exclude { list-style: none; padding: 0; margin: 0; }
+  .exclude li { display: flex; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px dashed var(--border-1); color: var(--text-2); font-size: 16px; line-height: 1.55; }
+  .exclude li:last-child { border-bottom: 0; }
+  .exclude-mark { font-family: var(--font-mono); color: var(--text-4); font-size: 18px; line-height: 1; flex-shrink: 0; }
+</style>

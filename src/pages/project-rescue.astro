@@ -146,10 +146,22 @@ const description =
 
   <script>
     (function () {
+      const NAME = "rescue";
+
+      function openAccordionFromHash(hash: string | null) {
+        if (!hash || hash === "#" || hash === "#book") return;
+        let target: HTMLElement | null = null;
+        try { target = document.querySelector(hash); } catch { return; }
+        if (target && target instanceof HTMLDetailsElement && target.getAttribute("name") === NAME) {
+          if (!target.open) target.open = true;
+        }
+      }
+
       function init() {
-        const items = document.querySelectorAll<HTMLDetailsElement>('details[name="rescue"]');
+        const items = document.querySelectorAll<HTMLDetailsElement>(`details[name="${NAME}"]`);
         if (!items.length) return;
         const STICKY_OFFSET = 88;
+
         items.forEach((det) => {
           det.addEventListener("toggle", () => {
             if (!det.open) return;
@@ -163,7 +175,18 @@ const description =
             });
           });
         });
+
+        document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((link) => {
+          const href = link.getAttribute("href");
+          if (!href || href === "#" || href === "#book") return;
+          link.addEventListener("click", () => {
+            openAccordionFromHash(href);
+          });
+        });
+
+        openAccordionFromHash(location.hash);
       }
+
       if (document.readyState === "loading") {
         document.addEventListener("DOMContentLoaded", init);
       } else {

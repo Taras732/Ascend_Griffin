@@ -10,7 +10,7 @@ const copy = isUk
       methodLabel: "З якими типами рішень працюю",
       methodValue: "Аудит · Дослідження · Супровід",
       networkLabel: "Локація",
-      networkValue: "Львів, Україна · працюю EN та UA",
+      networkValue: "Львів, Україна · дистанційно · подорожі за потреби",
       validationNote:
         "Ascend Griffin — нова практика (запущена 04.2026). Опублікованих клієнтів поки немає. Усі кейси на сайті — це ілюстративні патерни з 8 років роботи у IT.",
     }
@@ -22,14 +22,14 @@ const copy = isUk
       methodLabel: "Engagement formats",
       methodValue: "Audit · Discovery · Project Support",
       networkLabel: "Based in",
-      networkValue: "Lviv, Ukraine · working EN and UA",
+      networkValue: "Lviv, Ukraine · fully remote · travel when it helps",
       validationNote:
         "Ascend Griffin is a new practice (launched 04/2026). No published clients yet. Cases on this site are illustrative patterns drawn from 8 years inside IT — not invented for the page.",
     };
 ---
 
 <section class="trust-block">
-  <div class="content-shell">
+  <div class="trust-shell">
     <p class="trust-eyebrow">{copy.eyebrow}</p>
     <p class="trust-proof">{copy.careerProof}</p>
 
@@ -54,11 +54,19 @@ const copy = isUk
 
 <style>
   .trust-block {
-    padding: 56px 0;
+    padding: 48px 0;
     background: var(--bg-1);
     border-top: 1px solid var(--border-1);
     border-bottom: 1px solid var(--border-1);
-    margin: 56px 0;
+    margin: 0;
+  }
+  .trust-shell {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+  }
+  @media (max-width: 720px) {
+    .trust-shell { padding: 0 var(--gutter-sm); }
   }
   .trust-eyebrow {
     font-family: var(--font-mono);
@@ -71,31 +79,32 @@ const copy = isUk
   }
   .trust-proof {
     font-family: var(--font-display);
-    font-size: clamp(18px, 2.4vw, 22px);
+    font-size: clamp(18px, 2.2vw, 22px);
     color: var(--text-1);
-    margin: 0 0 32px;
+    margin: 0 0 28px;
     line-height: 1.4;
     font-weight: 600;
     max-width: 56ch;
   }
   .trust-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-bottom: 28px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
   }
   @media (max-width: 720px) {
-    .trust-grid { grid-template-columns: 1fr; }
+    .trust-grid { grid-template-columns: 1fr; gap: 12px; }
   }
   .trust-card {
     background: var(--bg-0);
-    padding: 24px;
+    padding: 20px;
     border-radius: 2px;
     border: 1px solid var(--border-1);
+    min-width: 0;
   }
   .trust-stat {
     font-family: var(--font-display);
-    font-size: 36px;
+    font-size: 32px;
     color: var(--editorial);
     line-height: 1;
     margin-bottom: 8px;
@@ -110,12 +119,14 @@ const copy = isUk
     letter-spacing: 0.06em;
     text-transform: uppercase;
     margin-bottom: 6px;
+    line-height: 1.4;
   }
   .trust-meta-value {
-    font-size: 15px;
+    font-size: 14px;
     color: var(--text-1);
-    line-height: 1.4;
+    line-height: 1.45;
     font-weight: 500;
+    word-wrap: break-word;
   }
   .trust-note {
     font-family: var(--font-mono);

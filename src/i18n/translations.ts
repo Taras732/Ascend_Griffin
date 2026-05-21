@@ -23,15 +23,16 @@ export const translations = {
       ctaSig: "— Taras Smaliukh · Lviv, Ukraine",
 
       nav: [
-        { label: "Services", href: "#services" },
-        { label: "Cases", href: "#why" },
-        { label: "Process", href: "#how" },
-        { label: "FAQ", href: "#faq" },
+        { label: "About", href: "/about/" },
+        { label: "How I work", href: "/how-i-work/" },
+        { label: "AI Audit", href: "/ai-readiness-audit/" },
+        { label: "Rescue", href: "/project-rescue/" },
+        { label: "Blog", href: "/blog/" },
       ],
 
       seo: {
         title:
-          "Ascend Griffin — Strategic IT Partner for Founders & Startups",
+          "Ascend Griffin — Buyer-Side IT Ally for Founders & Startups",
         description:
           "Independent strategic IT advisor for startup founders and growing teams. Vendor audits, discovery sprints, fractional product leadership — from idea to scale. Lviv, Ukraine.",
         keywords:
@@ -403,10 +404,11 @@ export const translations = {
       ctaSig: "— Taras Smaliukh · Lviv, Ukraine",
 
       nav: [
-        { label: "Формати", href: "#services" },
-        { label: "Кейси", href: "#why" },
-        { label: "Процес", href: "#how" },
-        { label: "FAQ", href: "#faq" },
+        { label: "Про мене", href: "/uk/about/" },
+        { label: "Як я працюю", href: "/uk/how-i-work/" },
+        { label: "Аудит AI", href: "/uk/ai-readiness-audit/" },
+        { label: "Рятування", href: "/uk/project-rescue/" },
+        { label: "Блог", href: "/uk/blog/" },
       ],
 
       seo: {

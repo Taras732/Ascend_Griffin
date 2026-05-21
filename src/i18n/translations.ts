@@ -8,9 +8,9 @@ export const translations = {
     site: {
       eyebrow: "IT support from idea to outcome",
       heroH1Html:
-        'Your <em>ally</em> in IT projects —<br>working in <em>your interest</em>, not the vendor\'s.',
+        'Your <em>ally</em> in IT projects —<br>working entirely in <em>your interest</em>.',
       heroLede:
-        "Decisions made blind: unclear timelines, conflicting vendor estimates, no data to compare. I take the buyer side — translate the complexity into business decisions, vet options honestly, surface the risks you don't yet see.",
+        "Decisions made blind: unclear timelines, mixed signals from teams and vendors, no data to compare. I take the buyer side — translate the complexity into business decisions, surface the risks you don't yet see.",
       heroCtaPrimary: "Book Discovery Call",
       heroCtaSecondary: "See how it works →",
       heroMicro: "",

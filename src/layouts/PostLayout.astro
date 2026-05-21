@@ -216,6 +216,44 @@ const hasToc = tocItems.length >= 3;
   <Footer />
 
   <script>
+    // Copy-to-clipboard button on every <pre> code block in post body
+    (function () {
+      function initCopyButtons() {
+        const lang = document.documentElement.lang === "uk" ? "uk" : "en";
+        const labelCopy = lang === "uk" ? "Копіювати" : "Copy";
+        const labelDone = lang === "uk" ? "Скопійовано ✓" : "Copied ✓";
+
+        document.querySelectorAll<HTMLPreElement>(".post-body pre").forEach((pre) => {
+          if (pre.querySelector(".code-copy-btn")) return;
+          pre.classList.add("has-copy-btn");
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "code-copy-btn";
+          btn.textContent = labelCopy;
+          btn.setAttribute("aria-label", labelCopy);
+          btn.addEventListener("click", async () => {
+            const code = pre.querySelector("code")?.innerText ?? pre.innerText;
+            try {
+              await navigator.clipboard.writeText(code.replace(/\n$/, ""));
+              btn.textContent = labelDone;
+              setTimeout(() => { btn.textContent = labelCopy; }, 1500);
+            } catch (e) {
+              btn.textContent = "Error";
+              setTimeout(() => { btn.textContent = labelCopy; }, 1500);
+            }
+          });
+          pre.appendChild(btn);
+        });
+      }
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initCopyButtons);
+      } else {
+        initCopyButtons();
+      }
+    })();
+  </script>
+
+  <script>
     // Active section highlight in ToC + smooth scroll w/ sticky-nav offset
     (function () {
       function init() {
@@ -339,6 +377,28 @@ const hasToc = tocItems.length >= 3;
     margin: 24px 0;
     font-size: 13px;
     line-height: 1.6;
+    position: relative;
+  }
+  .post-body pre.has-copy-btn { padding-top: 44px; }
+  .post-body pre .code-copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(250, 248, 243, 0.12);
+    color: var(--text-on-ink);
+    border: 1px solid rgba(250, 248, 243, 0.2);
+    border-radius: 2px;
+    padding: 4px 10px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+    z-index: 1;
+  }
+  .post-body pre .code-copy-btn:hover {
+    background: rgba(184, 135, 58, 0.3);
+    border-color: var(--accent);
   }
   .post-body pre code {
     background: transparent;

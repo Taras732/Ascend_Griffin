@@ -49,18 +49,6 @@ Magical thing. Builds "queries" across the vault — like "show me all active pr
 **What it does:** gives you a query language (similar to SQL but simpler) you can drop right into a note. The result updates automatically.
 **Savings:** instead of walking through 50 files by hand and collecting a list — you get a dashboard that updates itself.
 
-Example query in a note:
-```
-```dataview
-table status, due_date
-from "10_Projects"
-where status = "active"
-sort due_date asc
-```
-```
-
-This shows a table of all active projects with deadlines. By itself.
-
 ### 4. Calendar
 
 A small widget on the side: current month's calendar, days with notes highlighted, click on a day — creates or opens a daily note.

@@ -13,150 +13,176 @@ const description =
 
 <BaseLayout title={title} description={description}>
   <Nav />
-  <main class="svc">
-    <section class="svc-hero">
-      <div class="svc-grid">
-        <aside class="svc-rail">
-          <div class="rail-marker">01</div>
-          <div class="rail-label">Рятування</div>
-        </aside>
+  <main class="about">
+    <section class="hero">
+      <div class="about-shell">
+        <p class="hero-eyebrow">01 · Рятування IT-проєкту</p>
 
-        <div class="svc-hero-body">
-          <p class="svc-epigraph">
-            "На той момент, коли засновник дзвонить заради рятування,<br />
-            бюджет ніколи не з'їдає сам баг."
-          </p>
+        <h1 class="hero-h1">
+          Рятуємо проєкт. <em>Зупиняємо кровотечу</em>.
+        </h1>
 
-          <h1 class="svc-h1">
-            Рятування IT-проєкту — <em>зупиняємо кровотечу</em>, на вашому боці.
-          </h1>
+        <p class="hero-lede">
+          Проект горить бюджетом. Вендор зник. Швидкість впала. Технічний борг з'їдає кожен спринт. Перед тим, як звільнити команду, переписати з нуля або списати витрати — структуроване рятування від того, чий єдиний інтерес ваш результат.
+        </p>
 
-          <p class="svc-lede">
-            Проект горить бюджетом. Вендор зник. Швидкість впала. Технічний борг з'їдає кожен спринт. Перед тим, як звільнити команду, переписати з нуля, або списати витрати — структуроване рятування від того, чий єдиний інтерес — ваш результат.
-          </p>
+        <PricingBadge price="від $2,500" duration="щомісячний retainer" unit="/міс" />
 
-          <PricingBadge price="від $2,500" duration="щомісячний retainer" unit="/міс" />
-
-          <div class="svc-hero-cta">
-            <a
-              href="#book"
-              class="svc-btn-primary"
-              data-modal="booking"
-              data-subject="support"
-              data-source="rescue-hero"
-            >
-              Запит на рятування →
-            </a>
-            <a href="#scenarios" class="svc-btn-ghost">Як це працює →</a>
-          </div>
+        <div class="hero-cta">
+          <a
+            href="#book"
+            class="btn-primary"
+            data-modal="booking"
+            data-subject="support"
+            data-source="rescue-hero"
+          >
+            Запит на рятування →
+          </a>
+          <a href="#scenarios" class="btn-ghost">Як це працює →</a>
         </div>
+
+        <p class="hero-hint">↓ Розгорніть секцію, щоб дізнатися більше</p>
       </div>
     </section>
 
     <TrustBlock />
 
-    <section class="svc-section" id="scenarios">
-      <div class="svc-grid">
-        <aside class="svc-rail">
-          <div class="rail-marker">02</div>
-          <div class="rail-label">Три сценарії</div>
-        </aside>
+    <section class="acc-section">
+      <div class="about-shell">
+        <details class="acc" name="rescue" id="scenarios">
+          <summary class="acc-summary">
+            <span class="acc-num">02</span>
+            <span class="acc-label">Три сценарії</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <h3 class="acc-h">Три патерни, з якими я працюю найчастіше.</h3>
+            <p class="acc-lede">Кожен починається як інша проблема, а закінчується тим самим: хтось має бути у кімнаті і чесно прочитати ситуацію.</p>
 
-        <div class="svc-section-body">
-          <h2 class="svc-h2">Три патерни, з якими я працюю найчастіше.</h2>
-          <p class="svc-section-lede">
-            Кожен починається як інша проблема, а закінчується тим самим: хтось має бути у кімнаті і чесно прочитати ситуацію.
-          </p>
+            <article class="icp-card">
+              <header class="icp-header">
+                <span class="icp-letter">A</span>
+                <h4 class="icp-title">Вендор зник.</h4>
+              </header>
+              <p>Дзвінки переносяться. Оновлення припинилися. Slack-канал, де колись була робота, мовчить три тижні. Можливо, вони перевантажені; можливо, вирішили, що ваш проект нерентабельний; можливо, їх senior dev звільнився і вони сподіваються, що ви не помітите. Так чи інакше — ви не можете до них дотягнутись, а бюджет горить. <em>Перше завдання — зрозуміти, чи лагодити стосунки, чи завершувати їх чисто.</em></p>
+            </article>
 
-          <article class="icp-card">
-            <header class="icp-header">
-              <span class="icp-num">A</span>
-              <h3 class="icp-title">Вендор зник.</h3>
-            </header>
-            <p>Дзвінки переносяться. Оновлення припинилися. Slack-канал, де колись була робота, мовчить три тижні. Можливо, вони перевантажені; можливо, вирішили, що ваш проект нерентабельний; можливо, їх senior dev звільнився і вони сподіваються, що ви не помітите. Так чи інакше — ви не можете до них дотягнутись, а бюджет горить. <em>Перше завдання — зрозуміти, чи лагодити стосунки, чи завершувати їх чисто.</em></p>
-            <hr class="hairline" />
-          </article>
+            <article class="icp-card">
+              <header class="icp-header">
+                <span class="icp-letter">B</span>
+                <h4 class="icp-title">Спіраль scope creep.</h4>
+              </header>
+              <p>Старт на $40K. Зараз — $80K, а оригінальний список фіч ще наполовину не зданий. Кожен запит на зміни приходить у п'ятницю з новим "це потребуватиме ще два тижні". Ви не впевнені, чи вас "катають", чи оригінальна оцінка була нечесно низькою. <em>Перше завдання — відокремити законне re-scope від накачки, і переписати угоду до того, як ще місяць не витече кровотечею.</em></p>
+            </article>
 
-          <article class="icp-card">
-            <header class="icp-header">
-              <span class="icp-num">B</span>
-              <h3 class="icp-title">Спіраль scope creep.</h3>
-            </header>
-            <p>Старт на $40K. Зараз — $80K, а оригінальний список фіч ще наполовину не зданий. Кожен запит на зміни приходить у п'ятницю з новим "це потребуватиме ще два тижні". Ви не впевнені, чи вас "катають", чи оригінальна оцінка була нечесно низькою. <em>Перше завдання — відокремити законне re-scope від накачки, і переписати угоду до того, як ще місяць не витече кровотечею.</em></p>
-            <hr class="hairline" />
-          </article>
+            <article class="icp-card">
+              <header class="icp-header">
+                <span class="icp-letter">C</span>
+                <h4 class="icp-title">Команда не дає результат — і не ясно чому.</h4>
+              </header>
+              <p>Люди працюють. Стендапи відбуваються. Sprint review показують рух. Але ship зупинився, ваше нутро каже, щось не так, і ніхто у команді не може це сформулювати. <em>Перше завдання — прочитати ситуацію поза політикою — процес, люди, scope, стек — і витягнути реальний блокер, не спалюючи мостів.</em></p>
+            </article>
+          </div>
+        </details>
 
-          <article class="icp-card">
-            <header class="icp-header">
-              <span class="icp-num">C</span>
-              <h3 class="icp-title">Команда не дає результат — і не ясно чому.</h3>
-            </header>
-            <p>Люди працюють. Стендапи відбуваються. Sprint review показують рух. Але ship зупинився, ваше нутро каже, щось не так, і ніхто у команді не може це сформулювати. <em>Перше завдання — прочитати ситуацію поза політикою — процес, люди, scope, стек — і витягнути реальний блокер, не спалюючи мостів.</em></p>
-          </article>
-        </div>
+        <details class="acc" name="rescue" id="rescue-arc">
+          <summary class="acc-summary">
+            <span class="acc-num">03</span>
+            <span class="acc-label">Дуга рятування</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <h3 class="acc-h">Три фази. Кожна закінчується рішенням, яке ви можете прийняти.</h3>
+
+            <ol class="modes">
+              <li class="mode">
+                <span class="mode-letter">01</span>
+                <div class="mode-body">
+                  <h4>Діагностика (тиждень 1-2).</h4>
+                  <p>Читаю кодову базу, контракт, історію комунікацій і команду. Виявляю, що насправді зламано vs. симптоматичне. Артефакт фази — одно-сторінковий план рятування, який можна показати кофаундерам або раді.</p>
+                </div>
+              </li>
+              <li class="mode">
+                <span class="mode-letter">02</span>
+                <div class="mode-body">
+                  <h4>Стабілізація (тижні 3-8).</h4>
+                  <p>Переписуємо угоду з вендором або закриваємо. Відновлюємо щотижневий ритм delivery. Тріажуємо технічний борг — що лагодити, з чим жити, що планувати навколо. До кінця фази: передбачуване ship відновлено, безпосередня фінансова кровотеча зупинена.</p>
+                </div>
+              </li>
+              <li class="mode">
+                <span class="mode-letter">03</span>
+                <div class="mode-body">
+                  <h4>Передача (тиждень 8+).</h4>
+                  <p>Або: проект стабільний з існуючою командою — я виходжу, залишаючи документацію. Або: переходимо до перевіреного вендора з моєї мережі зі структурованим handover. Будь-який шлях завершується тим, що проект працює без мене у кімнаті.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </details>
+
+        <details class="acc" name="rescue" id="not-included">
+          <summary class="acc-summary">
+            <span class="acc-num">04</span>
+            <span class="acc-label">Чим це не є</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <h3 class="acc-h">Чим рятування <em>не є</em>.</h3>
+
+            <ul class="exclude">
+              <li>
+                <span class="exclude-mark">→</span>
+                <span><strong>Заміна engineering manager.</strong> Я читаю; я не керую вашими інженерами щодня. Якщо потрібен fractional eng manager — це інший найм.</span>
+              </li>
+              <li>
+                <span class="exclude-mark">→</span>
+                <span><strong>Рефакторинг коду.</strong> Я не переписую. Я кажу, що треба переписати і кому.</span>
+              </li>
+              <li>
+                <span class="exclude-mark">→</span>
+                <span><strong>"Просто звільніть вендора."</strong> Іноді це і є відповідь. Часто дешевше — лагодити стосунки, і вам потрібен хтось незалежний, щоб назвати, який варіант.</span>
+              </li>
+              <li>
+                <span class="exclude-mark">→</span>
+                <span><strong>Гарантоване рятування.</strong> Деякі проекти не варто рятувати. Чесна відповідь — частина цінності.</span>
+              </li>
+            </ul>
+          </div>
+        </details>
       </div>
     </section>
 
-    <section class="svc-section svc-section-muted">
-      <div class="svc-grid">
-        <aside class="svc-rail">
-          <div class="rail-marker">03</div>
-          <div class="rail-label">Дуга рятування</div>
-        </aside>
-
-        <div class="svc-section-body">
-          <h2 class="svc-h2">Три фази. Кожна закінчується рішенням, яке ви можете прийняти.</h2>
-
-          <ol class="ledger">
-            <li class="ledger-item">
-              <span class="ledger-num">01</span>
-              <div class="ledger-content">
-                <h4>Діагностика (тиждень 1-2).</h4>
-                <p>Читаю кодову базу, контракт, історію комунікацій і команду. Виявляю, що насправді зламано vs. симптоматичне. Артефакт фази — одно-сторінковий план рятування, який можна показати кофаундерам або раді.</p>
-              </div>
-            </li>
-            <li class="ledger-item">
-              <span class="ledger-num">02</span>
-              <div class="ledger-content">
-                <h4>Стабілізація (тижні 3-8).</h4>
-                <p>Переписуємо угоду з вендором або закриваємо. Відновлюємо щотижневий ритм delivery. Тріажуємо технічний борг — що лагодити, з чим жити, що планувати навколо. До кінця фази: передбачуване ship відновлено, безпосередня фінансова кровотеча зупинена.</p>
-              </div>
-            </li>
-            <li class="ledger-item">
-              <span class="ledger-num">03</span>
-              <div class="ledger-content">
-                <h4>Передача (тиждень 8+).</h4>
-                <p>Або: проект стабільний з існуючою командою — я виходжу, залишаючи документацію. Або: переходимо до перевіреного вендора з моєї мережі зі структурованим handover. Будь-який шлях завершується тим, що проект працює без мене у кімнаті.</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-      </div>
-    </section>
-
-    <section class="svc-section">
-      <div class="svc-grid">
-        <aside class="svc-rail">
-          <div class="rail-marker">04</div>
-          <div class="rail-label">Чим це не є</div>
-        </aside>
-
-        <div class="svc-section-body">
-          <h2 class="svc-h2">Чим рятування <em>не є</em>.</h2>
-
-          <ul class="exclude">
-            <li><span class="exclude-mark">—</span><span><strong>Заміна engineering manager.</strong> Я читаю; я не керую вашими інженерами щодня. Якщо потрібен fractional eng manager — це інший найм.</span></li>
-            <li><span class="exclude-mark">—</span><span><strong>Рефакторинг коду.</strong> Я не переписую. Я кажу, що треба переписати і кому.</span></li>
-            <li><span class="exclude-mark">—</span><span><strong>"Просто звільніть вендора."</strong> Іноді це і є відповідь. Часто дешевше — лагодити стосунки, і вам потрібен хтось незалежний, щоб назвати, який варіант.</span></li>
-            <li><span class="exclude-mark">—</span><span><strong>Гарантоване рятування.</strong> Деякі проекти не варто рятувати. Чесна відповідь — частина цінності.</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <FoundingCTA service="rescue" spotsLeft={2} />
+    <FoundingCTA service="rescue" />
   </main>
   <Footer />
+
+  <script>
+    (function () {
+      function init() {
+        const items = document.querySelectorAll<HTMLDetailsElement>('details[name="rescue"]');
+        if (!items.length) return;
+        const STICKY_OFFSET = 88;
+        items.forEach((det) => {
+          det.addEventListener("toggle", () => {
+            if (!det.open) return;
+            const summary = det.querySelector("summary");
+            if (!summary) return;
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                const rect = summary.getBoundingClientRect();
+                window.scrollTo({ top: window.scrollY + rect.top - STICKY_OFFSET, behavior: "smooth" });
+              });
+            });
+          });
+        });
+      }
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", init);
+      } else {
+        init();
+      }
+    })();
+  </script>
 
   <script
     type="application/ld+json"
@@ -164,24 +190,14 @@ const description =
       "@context": "https://schema.org",
       "@type": "Service",
       name: "Рятування IT-проєкту",
-      provider: {
-        "@type": "Person",
-        name: "Тарас Смалюх",
-        alternateName: "Taras Smaliukh",
-        url: "https://ascendgriffin.org/uk/about/",
-      },
+      provider: { "@type": "Person", name: "Тарас Смалюх", alternateName: "Taras Smaliukh", url: "https://ascendgriffin.org/uk/about/" },
       areaServed: ["Україна", "Worldwide"],
       description,
       offers: {
         "@type": "Offer",
         priceCurrency: "USD",
         price: "2500",
-        priceSpecification: {
-          "@type": "UnitPriceSpecification",
-          minPrice: 2500,
-          priceCurrency: "USD",
-          unitText: "MONTH",
-        },
+        priceSpecification: { "@type": "UnitPriceSpecification", minPrice: 2500, priceCurrency: "USD", unitText: "MONTH" },
       },
       serviceType: "Рятування та нагляд над IT-проєктом",
       inLanguage: "uk",
@@ -190,53 +206,62 @@ const description =
 </BaseLayout>
 
 <style>
-  .svc { background: radial-gradient(ellipse at top right, rgba(184, 135, 58, 0.04), transparent 50%), radial-gradient(ellipse at bottom left, rgba(184, 135, 58, 0.03), transparent 40%), var(--bg-0); min-height: 100vh; }
-  .svc-grid { display: grid; grid-template-columns: 180px 1fr; gap: 64px; max-width: 1120px; margin: 0 auto; padding: 0 var(--gutter); }
-  @media (max-width: 900px) { .svc-grid { grid-template-columns: 1fr; gap: 24px; padding: 0 var(--gutter-sm); } }
-  .svc-rail { position: sticky; top: 88px; align-self: start; height: fit-content; border-top: 1px solid var(--text-1); padding-top: 14px; }
-  @media (max-width: 900px) { .svc-rail { position: static; display: flex; align-items: baseline; gap: 12px; padding-top: 8px; } }
-  .rail-marker { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--text-1); letter-spacing: 0.04em; line-height: 1; }
-  .rail-label { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 6px; }
-  @media (max-width: 900px) { .rail-label { margin-top: 0; } }
+  .about { background: radial-gradient(ellipse at top right, rgba(184, 135, 58, 0.04), transparent 50%), radial-gradient(ellipse at bottom left, rgba(184, 135, 58, 0.03), transparent 40%), var(--bg-0); min-height: 100vh; }
+  .about-shell { max-width: 880px; margin: 0 auto; padding: 0 var(--gutter); }
+  @media (max-width: 720px) { .about-shell { padding: 0 var(--gutter-sm); } }
+  .hero { padding: 96px 0 48px; }
+  @media (max-width: 720px) { .hero { padding: 56px 0 32px; } }
+  .hero-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-pressed); margin: 0 0 24px; font-weight: 600; }
+  .hero-h1 { font-family: var(--font-display); font-size: clamp(44px, 6vw, 76px); line-height: 1.02; letter-spacing: -0.03em; color: var(--text-1); margin: 0 0 28px; font-weight: 700; max-width: 16ch; }
+  .hero-h1 em { font-style: italic; color: var(--editorial); font-weight: 700; }
+  .hero-lede { font-size: 19px; line-height: 1.6; color: var(--text-2); margin: 0 0 24px; max-width: 60ch; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin: 16px 0 24px; }
+  .btn-primary { background: var(--bg-ink); color: var(--text-on-ink); padding: 16px 28px; border-radius: 2px; text-decoration: none; font-weight: 600; font-size: 15px; letter-spacing: 0.02em; transition: background var(--dur-fast) var(--ease); }
+  .btn-primary:hover { background: #2a2724; }
+  .btn-ghost { color: var(--text-1); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; font-size: 14px; font-weight: 500; transition: color var(--dur-fast) var(--ease); }
+  .btn-ghost:hover { color: var(--accent-pressed); }
+  .hero-hint { font-family: var(--font-mono); font-size: 12px; color: var(--text-3); letter-spacing: 0.04em; margin: 24px 0 0; }
 
-  .svc-hero { padding: 80px 0 56px; }
-  @media (max-width: 720px) { .svc-hero { padding: 48px 0 32px; } }
-  .svc-epigraph { font-family: var(--font-mono); font-size: 13px; line-height: 1.65; color: var(--text-3); font-style: italic; margin: 0 0 32px; padding-left: 18px; border-left: 2px solid var(--accent); max-width: 56ch; }
-  .svc-h1 { font-family: var(--font-display); font-size: clamp(40px, 5.5vw, 68px); line-height: 1.04; letter-spacing: -0.025em; color: var(--text-1); margin: 0 0 28px; font-weight: 700; max-width: 20ch; }
-  .svc-h1 em { font-style: italic; color: var(--editorial); font-weight: 700; }
-  .svc-lede { font-size: 19px; line-height: 1.6; color: var(--text-2); margin: 0 0 32px; max-width: 60ch; }
-  .svc-hero-cta { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-top: 12px; }
-  .svc-btn-primary { background: var(--bg-ink); color: var(--text-on-ink); padding: 16px 28px; border-radius: 2px; text-decoration: none; font-weight: 600; font-size: 15px; letter-spacing: 0.02em; transition: background var(--dur-fast) var(--ease); }
-  .svc-btn-primary:hover { background: #2a2724; }
-  .svc-btn-ghost { color: var(--text-1); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; font-size: 14px; font-weight: 500; transition: color var(--dur-fast) var(--ease); }
-  .svc-btn-ghost:hover { color: var(--accent-pressed); }
+  .acc-section { padding: 16px 0 40px; }
+  .acc { border-top: 1px solid var(--border-2); transition: background var(--dur-base) var(--ease); }
+  .acc:last-of-type { border-bottom: 1px solid var(--border-2); }
+  .acc[open] { background: var(--bg-1); border-top-color: var(--text-1); }
+  .acc[open] + .acc { border-top-color: var(--text-1); }
+  .acc-summary { display: grid; grid-template-columns: 56px 1fr 32px; align-items: center; gap: 16px; padding: 24px 0; cursor: pointer; list-style: none; user-select: none; }
+  .acc-summary::-webkit-details-marker { display: none; }
+  .acc-summary:hover .acc-label { color: var(--accent-pressed); }
+  .acc-summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+  .acc-num { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--accent-pressed); letter-spacing: 0.04em; line-height: 1; }
+  .acc-label { font-family: var(--font-display); font-size: clamp(20px, 2.4vw, 26px); color: var(--text-1); line-height: 1.2; letter-spacing: -0.01em; font-weight: 700; transition: color var(--dur-fast) var(--ease); }
+  .acc[open] .acc-label { color: var(--editorial); }
+  .acc-toggle { font-family: var(--font-mono); font-size: 28px; color: var(--accent-pressed); line-height: 1; text-align: right; transition: transform var(--dur-base) var(--ease); font-weight: 300; }
+  .acc[open] .acc-toggle { transform: rotate(45deg); }
+  .acc-body { padding: 0 0 36px 72px; max-width: 68ch; }
+  @media (max-width: 720px) { .acc-body { padding: 0 0 28px 0; } }
+  .acc-h { font-family: var(--font-display); font-size: clamp(22px, 2.6vw, 28px); line-height: 1.2; letter-spacing: -0.015em; color: var(--text-1); margin: 0 0 20px; font-weight: 700; max-width: 24ch; }
+  .acc-h em { font-style: italic; color: var(--editorial); }
+  .acc-body p { font-size: 17px; line-height: 1.7; color: var(--text-2); margin: 0 0 18px; }
+  .acc-body p:last-child { margin-bottom: 0; }
+  .acc-body p strong { color: var(--text-1); font-weight: 700; }
+  .acc-body p em { font-style: italic; color: var(--text-1); }
+  .acc-lede { font-size: 17px; color: var(--text-2); margin: 0 0 28px; }
 
-  .svc-section { padding: 80px 0; border-top: 1px solid var(--border-1); }
-  @media (max-width: 720px) { .svc-section { padding: 48px 0; } }
-  .svc-section-muted { background: var(--bg-1); }
-  .svc-h2 { font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 40px); line-height: 1.15; letter-spacing: -0.015em; color: var(--text-1); margin: 0 0 16px; font-weight: 700; max-width: 24ch; }
-  .svc-h2 em { font-style: italic; color: var(--editorial); }
-  .svc-section-lede { font-size: 17px; line-height: 1.6; color: var(--text-2); margin: 0 0 40px; max-width: 60ch; }
+  .icp-card { margin-bottom: 28px; padding-bottom: 22px; border-bottom: 1px solid var(--border-1); }
+  .icp-card:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
+  .icp-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 12px; }
+  .icp-letter { font-family: var(--font-mono); font-size: 12px; color: var(--accent-pressed); font-weight: 700; letter-spacing: 0.04em; background: var(--accent-subtle); padding: 3px 8px; border-radius: 2px; line-height: 1.2; }
+  .icp-title { font-family: var(--font-display); font-size: clamp(18px, 2.2vw, 22px); line-height: 1.25; letter-spacing: -0.01em; color: var(--text-1); margin: 0; font-weight: 600; }
 
-  .icp-card { margin-bottom: 32px; }
-  .icp-card:last-child { margin-bottom: 0; }
-  .icp-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 12px; }
-  .icp-num { font-family: var(--font-mono); font-size: 13px; color: var(--accent-pressed); font-weight: 700; letter-spacing: 0.04em; background: var(--accent-subtle); padding: 4px 10px; border-radius: 2px; line-height: 1; }
-  .icp-title { font-family: var(--font-display); font-size: clamp(20px, 2.4vw, 24px); line-height: 1.25; letter-spacing: -0.01em; color: var(--text-1); margin: 0; font-weight: 600; flex: 1; }
-  .icp-card p { font-size: 17px; line-height: 1.65; color: var(--text-2); margin: 0; max-width: 65ch; }
-  .icp-card p em { font-style: italic; color: var(--text-1); font-weight: 500; }
-  .hairline { border: 0; border-top: 1px solid var(--border-1); margin: 32px 0 0; }
-
-  .ledger { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--text-1); }
-  .ledger-item { display: grid; grid-template-columns: 64px 1fr; gap: 24px; padding: 28px 0; border-bottom: 1px solid var(--border-1); align-items: start; }
-  @media (max-width: 720px) { .ledger-item { grid-template-columns: 40px 1fr; gap: 16px; padding: 24px 0; } }
-  .ledger-num { font-family: var(--font-mono); font-size: 24px; color: var(--accent-pressed); font-weight: 600; line-height: 1; letter-spacing: -0.02em; }
-  .ledger-content h4 { font-family: var(--font-display); font-size: 18px; color: var(--text-1); margin: 0 0 8px; line-height: 1.35; font-weight: 600; letter-spacing: -0.005em; }
-  .ledger-content p { font-size: 15px; line-height: 1.6; color: var(--text-2); margin: 0; max-width: 60ch; }
+  .modes { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--border-2); }
+  .mode { display: grid; grid-template-columns: 40px 1fr; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--border-1); align-items: start; }
+  .mode:last-child { border-bottom: 0; }
+  .mode-letter { font-family: var(--font-mono); font-size: 18px; color: var(--accent-pressed); font-weight: 700; line-height: 1; letter-spacing: -0.01em; }
+  .mode-body h4 { font-family: var(--font-display); font-size: 18px; color: var(--text-1); margin: 0 0 8px; line-height: 1.35; font-weight: 700; }
+  .mode-body p { font-size: 15px; line-height: 1.6; color: var(--text-2); margin: 0; max-width: 60ch; }
 
   .exclude { list-style: none; padding: 0; margin: 0; }
   .exclude li { display: flex; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px dashed var(--border-1); color: var(--text-2); font-size: 16px; line-height: 1.55; }
   .exclude li:last-child { border-bottom: 0; }
-  .exclude-mark { font-family: var(--font-mono); color: var(--text-4); font-size: 18px; line-height: 1; flex-shrink: 0; }
-  .exclude strong { color: var(--text-1); font-weight: 600; }
+  .exclude-mark { font-family: var(--font-mono); color: var(--accent-pressed); font-size: 18px; line-height: 1; flex-shrink: 0; font-weight: 700; }
+  .exclude strong { color: var(--text-1); font-weight: 700; }
 </style>

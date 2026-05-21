@@ -202,6 +202,39 @@ const description =
   </main>
   <Footer />
 
+  <script>
+    // Scroll opened accordion section into view smoothly,
+    // accounting for sticky nav offset (~88px).
+    (function () {
+      function init() {
+        const items = document.querySelectorAll<HTMLDetailsElement>('details[name="about"]');
+        if (!items.length) return;
+        const STICKY_OFFSET = 88;
+
+        items.forEach((det) => {
+          det.addEventListener("toggle", () => {
+            if (!det.open) return;
+            const summary = det.querySelector("summary");
+            if (!summary) return;
+
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                const rect = summary.getBoundingClientRect();
+                const targetY = window.scrollY + rect.top - STICKY_OFFSET;
+                window.scrollTo({ top: targetY, behavior: "smooth" });
+              });
+            });
+          });
+        });
+      }
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+
   <script
     type="application/ld+json"
     set:html={JSON.stringify({

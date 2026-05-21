@@ -4,176 +4,213 @@ import Nav from "../../components/Nav.astro";
 import Footer from "../../components/Footer.astro";
 import FoundingCTA from "../../components/FoundingCTA.astro";
 
-const title = "Як я працюю — принципи IT-союзника | Ascend Griffin";
+const title = "Як я працюю — п'ять принципів | Ascend Griffin";
 const description =
   "Як я працюю із засновниками: завжди на боці покупця, без комісій від вендорів, прозорі мілстоуни, фіксована ціна на кожен етап. 5 принципів.";
 ---
 
 <BaseLayout title={title} description={description}>
   <Nav />
-  <main class="svc">
-    <section class="svc-hero">
-      <div class="svc-grid">
-        <aside class="svc-rail">
-          <div class="rail-marker">00</div>
-          <div class="rail-label">Як я працюю</div>
-        </aside>
+  <main class="about">
+    <section class="hero">
+      <div class="about-shell">
+        <p class="hero-eyebrow">Як я працюю · Ascend Griffin</p>
 
-        <div class="svc-hero-body">
-          <p class="svc-epigraph">
-            "Умови, які радник відмовляється записати на папері —<br />
-            саме ті, через які клієнту варто хвилюватися найбільше."
-          </p>
+        <h1 class="hero-h1">
+          П'ять принципів, <em>жодних сюрпризів</em>.
+        </h1>
 
-          <h1 class="svc-h1">
-            Як я працюю — <em>п'ять принципів</em>, жодних сюрпризів.
-          </h1>
+        <p class="hero-lede">
+          Це контракт перед контрактом. Кожна співпраця — Аудит, Дослідження, Супровід — йде по цих п'яти правилах. Якщо хоч одне з них для вас dealbreaker, краще обом дізнатися зараз, а не після підписання.
+        </p>
 
-          <p class="svc-lede">
-            Це контракт перед контрактом. Кожна співпраця — Аудит, Дослідження, Супровід — йде по цих п'яти правилах. Якщо хоч одне з них — dealbreaker для вашої ситуації, краще нам обом дізнатися зараз, а не після підписання.
-          </p>
-        </div>
+        <p class="hero-hint">↓ Розгорніть секцію, щоб дізнатися більше</p>
       </div>
     </section>
 
-    <section class="svc-section">
-      <div class="svc-grid">
-        <aside class="svc-rail">
-          <div class="rail-marker">01</div>
-          <div class="rail-label">П'ять</div>
-        </aside>
+    <section class="acc-section">
+      <div class="about-shell">
+        <details class="acc" name="how" id="the-five">
+          <summary class="acc-summary">
+            <span class="acc-num">01</span>
+            <span class="acc-label">П'ять принципів</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <h3 class="acc-h">П'ять речей, які <em>я не міняю</em>.</h3>
 
-        <div class="svc-section-body">
-          <h2 class="svc-h2">П'ять речей, які я не міняю.</h2>
+            <ol class="modes">
+              <li class="mode">
+                <span class="mode-letter">01</span>
+                <div class="mode-body">
+                  <h4>Я завжди на боці покупця.</h4>
+                  <p>Жодних комісій від вендорів. Жодних referral-плат. Жодного revenue share з тим, кого я рекомендую. Якщо я вказую вам на розробника, дизайнера або вендора — це тому, що він підходить вашому проекту, а не моїй кишені. Якщо вендор пропонує комісію за рекомендацію — я повідомляю вам і відмовляюся.</p>
+                </div>
+              </li>
+              <li class="mode">
+                <span class="mode-letter">02</span>
+                <div class="mode-body">
+                  <h4>Я фіксую ціну до старту роботи.</h4>
+                  <p>Погодинного виставлення рахунків немає. Фіксована або фіксована-плюс-бонус ціна на кожну роботу. Якщо обсяг зростає в процесі — ми переписуємо угоду, ніколи не буває тихого "ой, це коштуватиме трохи більше". Ця розмова завжди до роботи, не після.</p>
+                </div>
+              </li>
+              <li class="mode">
+                <span class="mode-letter">03</span>
+                <div class="mode-body">
+                  <h4>Я ніколи не починаю без discovery.</h4>
+                  <p>30-хвилинна розмова — завжди першою, навіть для одно-сторінкових аудитів. Без неї я не можу чесно сказати, чи я підходжу до вашої ситуації, чи ви маєте з цього вигоду. Якщо не підходжу — кажу прямо і зазвичай вказую на когось, хто підійде.</p>
+                </div>
+              </li>
+              <li class="mode">
+                <span class="mode-letter">04</span>
+                <div class="mode-body">
+                  <h4>Я залишаю задокументований слід.</h4>
+                  <p>Кожна рекомендація — у тексті. Кожне рішення — у нотатці. Якщо наступного місяця кофаундер, член ради або новий співробітник запитає "що ми вирішили?" — є рядок, який можна процитувати. Ви не маєте бути єдиним, хто тримає контекст проекту в голові.</p>
+                </div>
+              </li>
+              <li class="mode">
+                <span class="mode-letter">05</span>
+                <div class="mode-body">
+                  <h4>Я ніколи не оптимізую для подовження роботи.</h4>
+                  <p>Коли проект готовий до передачі — ми передаємо. Я не роздуваю engagement, щоб залишитися релевантним, і скоріше закрию співпрацю чисто, ніж дописую її заради retainer-лінії. Чесна версія цієї роботи — зробити себе замінним за відомим графіком.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </details>
 
-          <ol class="ledger">
-            <li class="ledger-item">
-              <span class="ledger-num">01</span>
-              <div class="ledger-content">
-                <h4>Я завжди на боці покупця.</h4>
-                <p>Жодних комісій від вендорів. Жодних referral-плат. Жодного revenue share з тим, кого я рекомендую. Якщо я вказую вам на розробника, дизайнера або вендора — це тому, що він підходить вашому проекту, а не моїй кишені. Якщо вендор пропонує мені комісію за рекомендацію — я повідомляю вам і відмовляюся.</p>
-              </div>
-            </li>
-            <li class="ledger-item">
-              <span class="ledger-num">02</span>
-              <div class="ledger-content">
-                <h4>Я фіксую ціну до старту роботи.</h4>
-                <p>Погодинного виставлення рахунків немає. Фіксована або фіксована-плюс-бонус ціна на кожну роботу. Якщо обсяг зростає в процесі — ми переписуємо угоду, ніколи не буває тихого "ой, це коштуватиме трохи більше". Ця розмова завжди до роботи, не після.</p>
-              </div>
-            </li>
-            <li class="ledger-item">
-              <span class="ledger-num">03</span>
-              <div class="ledger-content">
-                <h4>Я ніколи не починаю без discovery.</h4>
-                <p>30-хвилинна розмова — завжди першою, навіть для одно-сторінкових аудитів. Без неї я не можу чесно сказати, чи я той читач для вашої ситуації, чи ви маєте з цього вигоду. Якщо я не той — кажу прямо на розмові і зазвичай вказую на когось, хто підійде. Я скоріше втрачу роботу, ніж візьму те, що не виконаю добре.</p>
-              </div>
-            </li>
-            <li class="ledger-item">
-              <span class="ledger-num">04</span>
-              <div class="ledger-content">
-                <h4>Я залишаю задокументований слід.</h4>
-                <p>Кожна рекомендація — у тексті. Кожне рішення — у нотатці. Якщо наступного місяця кофаундер, член ради або новий співробітник запитає "що ми вирішили?" — є рядок, який можна процитувати. Ви не маєте бути єдиним, хто тримає контекст проекту в голові.</p>
-              </div>
-            </li>
-            <li class="ledger-item">
-              <span class="ledger-num">05</span>
-              <div class="ledger-content">
-                <h4>Я ніколи не оптимізую для подовження роботи.</h4>
-                <p>Коли проект готовий до передачі — ми передаємо. Я не роздуваю engagement, щоб залишитися релевантним, і скоріше закрию співпрацю чисто, ніж дописую її заради retainer-лінії. Чесна версія цієї роботи — зробити себе замінним за відомим графіком.</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-      </div>
-    </section>
+        <details class="acc" name="how" id="in-practice">
+          <summary class="acc-summary">
+            <span class="acc-num">02</span>
+            <span class="acc-label">Як це виглядає на практиці</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <p class="acc-lede">Три конкретні речі, що випливають з принципів вище — частини, які зазвичай дивують у першу співпрацю.</p>
 
-    <section class="svc-section svc-section-muted">
-      <div class="svc-grid">
-        <aside class="svc-rail">
-          <div class="rail-marker">02</div>
-          <div class="rail-label">На практиці</div>
-        </aside>
-
-        <div class="svc-section-body">
-          <h2 class="svc-h2">Як це виглядає на практиці.</h2>
-          <p class="svc-section-lede">
-            Три конкретні речі, що випливають з принципів вище — частини, які зазвичай дивують у першу співпрацю.
-          </p>
-
-          <div class="prose">
             <p><strong>Конфлікти інтересів — на запис.</strong> Якщо я маю будь-який зв'язок — попередній проект, дружба, минулий роботодавець — з вендором, якого ми розглядаємо, ви знатимете про це до порівняльної розмови. Не після. Розкриття "до речі" — це саме той момент, коли втрачається довіра.</p>
 
             <p><strong>Я порекомендую вам мене не наймати.</strong> Іноді правильна відповідь — "вам не потрібен зовнішній read, вам треба одну годину з вашою dev-командою". Я скоріше дам вам цю 15-хвилинну відповідь безкоштовно, ніж візьму $1,000 за підтвердження того, що ви вже знаєте.</p>
 
             <p><strong>Фінальний результат — те, чим ви можете користуватися без мене.</strong> Звіти аудиту, discovery-брифи, документи порівняння вендорів — написані так, щоб тримати воду, якщо я завтра зникну. Жодних залежностей від того, що я у кімнаті.</p>
           </div>
-        </div>
+        </details>
+
+        <details class="acc" name="how" id="from-you">
+          <summary class="acc-summary">
+            <span class="acc-num">03</span>
+            <span class="acc-label">Що я очікую від вас</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <h3 class="acc-h">Чесна двостороння угода.</h3>
+
+            <ul class="exclude">
+              <li>
+                <span class="exclude-mark">→</span>
+                <span><strong>Скажіть мені, що насправді відбувається.</strong> Включно з тим, що ви ще не хочете вимовляти вголос. Чим раніше я бачу справжню картину — тим я корисніший.</span>
+              </li>
+              <li>
+                <span class="exclude-mark">→</span>
+                <span><strong>Швидко вирішуйте, коли я приношу варіанти.</strong> 5-денна затримка рішення — нормально. 5-тижнева перетворює $4,000 роботу у $9,000.</span>
+              </li>
+              <li>
+                <span class="exclude-mark">→</span>
+                <span><strong>Залучайте мене до підписання вендорських паперів, а не після.</strong> Читати контракт, який ви вже підписали — це інша (гірша, дорожча) робота.</span>
+              </li>
+              <li>
+                <span class="exclude-mark">→</span>
+                <span><strong>Заперечуйте, коли не згодні.</strong> Я іноді помиляюся. Чим раніше ви це скажете — тим кращий результат.</span>
+              </li>
+            </ul>
+          </div>
+        </details>
       </div>
     </section>
 
-    <section class="svc-section">
-      <div class="svc-grid">
-        <aside class="svc-rail">
-          <div class="rail-marker">03</div>
-          <div class="rail-label">Від вас</div>
-        </aside>
-
-        <div class="svc-section-body">
-          <h2 class="svc-h2">Що я очікую від вас.</h2>
-          <p class="svc-section-lede">Чесна двостороння угода.</p>
-
-          <ul class="exclude">
-            <li><span class="exclude-mark">—</span><span><strong>Скажіть мені, що насправді відбувається.</strong> Включно з тим, що ви ще не хочете вимовляти вголос. Чим раніше я бачу справжню картину — тим я корисніший.</span></li>
-            <li><span class="exclude-mark">—</span><span><strong>Швидко вирішуйте, коли я приношу варіанти.</strong> 5-денна затримка рішення — нормально. 5-тижнева перетворює $4,000 роботу у $9,000.</span></li>
-            <li><span class="exclude-mark">—</span><span><strong>Залучайте мене до підписання вендорських паперів, а не після.</strong> Читати контракт, який ви вже підписали — це інша (гірша, дорожча) робота.</span></li>
-            <li><span class="exclude-mark">—</span><span><strong>Заперечуйте, коли не згодні.</strong> Я іноді помиляюся. Чим раніше ви це скажете — тим кращий результат.</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <FoundingCTA service="discovery" spotsLeft={2} />
+    <FoundingCTA service="discovery" />
   </main>
   <Footer />
+
+  <script>
+    (function () {
+      function init() {
+        const items = document.querySelectorAll<HTMLDetailsElement>('details[name="how"]');
+        if (!items.length) return;
+        const STICKY_OFFSET = 88;
+        items.forEach((det) => {
+          det.addEventListener("toggle", () => {
+            if (!det.open) return;
+            const summary = det.querySelector("summary");
+            if (!summary) return;
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                const rect = summary.getBoundingClientRect();
+                window.scrollTo({ top: window.scrollY + rect.top - STICKY_OFFSET, behavior: "smooth" });
+              });
+            });
+          });
+        });
+      }
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", init);
+      } else {
+        init();
+      }
+    })();
+  </script>
 </BaseLayout>
 
 <style>
-  .svc { background: radial-gradient(ellipse at top right, rgba(184, 135, 58, 0.04), transparent 50%), radial-gradient(ellipse at bottom left, rgba(184, 135, 58, 0.03), transparent 40%), var(--bg-0); min-height: 100vh; }
-  .svc-grid { display: grid; grid-template-columns: 180px 1fr; gap: 64px; max-width: 1120px; margin: 0 auto; padding: 0 var(--gutter); }
-  @media (max-width: 900px) { .svc-grid { grid-template-columns: 1fr; gap: 24px; padding: 0 var(--gutter-sm); } }
-  .svc-rail { position: sticky; top: 88px; align-self: start; height: fit-content; border-top: 1px solid var(--text-1); padding-top: 14px; }
-  @media (max-width: 900px) { .svc-rail { position: static; display: flex; align-items: baseline; gap: 12px; padding-top: 8px; } }
-  .rail-marker { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--text-1); letter-spacing: 0.04em; line-height: 1; }
-  .rail-label { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 6px; }
-  @media (max-width: 900px) { .rail-label { margin-top: 0; } }
+  .about { background: radial-gradient(ellipse at top right, rgba(184, 135, 58, 0.04), transparent 50%), radial-gradient(ellipse at bottom left, rgba(184, 135, 58, 0.03), transparent 40%), var(--bg-0); min-height: 100vh; }
+  .about-shell { max-width: 880px; margin: 0 auto; padding: 0 var(--gutter); }
+  @media (max-width: 720px) { .about-shell { padding: 0 var(--gutter-sm); } }
 
-  .svc-hero { padding: 80px 0 56px; }
-  @media (max-width: 720px) { .svc-hero { padding: 48px 0 32px; } }
-  .svc-epigraph { font-family: var(--font-mono); font-size: 13px; line-height: 1.65; color: var(--text-3); font-style: italic; margin: 0 0 32px; padding-left: 18px; border-left: 2px solid var(--accent); max-width: 56ch; }
-  .svc-h1 { font-family: var(--font-display); font-size: clamp(40px, 5.5vw, 68px); line-height: 1.04; letter-spacing: -0.025em; color: var(--text-1); margin: 0 0 28px; font-weight: 700; max-width: 20ch; }
-  .svc-h1 em { font-style: italic; color: var(--editorial); font-weight: 700; }
-  .svc-lede { font-size: 19px; line-height: 1.6; color: var(--text-2); margin: 0 0 32px; max-width: 60ch; }
+  .hero { padding: 96px 0 48px; }
+  @media (max-width: 720px) { .hero { padding: 56px 0 32px; } }
+  .hero-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-pressed); margin: 0 0 24px; font-weight: 600; }
+  .hero-h1 { font-family: var(--font-display); font-size: clamp(44px, 6vw, 76px); line-height: 1.02; letter-spacing: -0.03em; color: var(--text-1); margin: 0 0 28px; font-weight: 700; max-width: 16ch; }
+  .hero-h1 em { font-style: italic; color: var(--editorial); font-weight: 700; }
+  .hero-lede { font-size: 19px; line-height: 1.6; color: var(--text-2); margin: 0 0 24px; max-width: 56ch; }
+  .hero-hint { font-family: var(--font-mono); font-size: 12px; color: var(--text-3); letter-spacing: 0.04em; margin: 0; }
 
-  .svc-section { padding: 80px 0; border-top: 1px solid var(--border-1); }
-  @media (max-width: 720px) { .svc-section { padding: 48px 0; } }
-  .svc-section-muted { background: var(--bg-1); }
-  .svc-h2 { font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 40px); line-height: 1.15; letter-spacing: -0.015em; color: var(--text-1); margin: 0 0 16px; font-weight: 700; max-width: 24ch; }
-  .svc-h2 em { font-style: italic; color: var(--editorial); }
-  .svc-section-lede { font-size: 17px; line-height: 1.6; color: var(--text-2); margin: 0 0 40px; max-width: 60ch; }
+  .acc-section { padding: 16px 0 40px; }
+  .acc { border-top: 1px solid var(--border-2); transition: background var(--dur-base) var(--ease); }
+  .acc:last-of-type { border-bottom: 1px solid var(--border-2); }
+  .acc[open] { background: var(--bg-1); border-top-color: var(--text-1); }
+  .acc[open] + .acc { border-top-color: var(--text-1); }
 
-  .prose p { font-size: 17px; line-height: 1.7; color: var(--text-2); margin: 0 0 18px; max-width: 65ch; }
-  .prose p strong { color: var(--text-1); font-weight: 600; }
+  .acc-summary { display: grid; grid-template-columns: 56px 1fr 32px; align-items: center; gap: 16px; padding: 24px 0; cursor: pointer; list-style: none; user-select: none; }
+  .acc-summary::-webkit-details-marker { display: none; }
+  .acc-summary:hover .acc-label { color: var(--accent-pressed); }
+  .acc-summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
 
-  .ledger { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--text-1); }
-  .ledger-item { display: grid; grid-template-columns: 64px 1fr; gap: 24px; padding: 28px 0; border-bottom: 1px solid var(--border-1); align-items: start; }
-  @media (max-width: 720px) { .ledger-item { grid-template-columns: 40px 1fr; gap: 16px; padding: 24px 0; } }
-  .ledger-num { font-family: var(--font-mono); font-size: 24px; color: var(--accent-pressed); font-weight: 600; line-height: 1; letter-spacing: -0.02em; }
-  .ledger-content h4 { font-family: var(--font-display); font-size: 18px; color: var(--text-1); margin: 0 0 8px; line-height: 1.35; font-weight: 600; letter-spacing: -0.005em; }
-  .ledger-content p { font-size: 15px; line-height: 1.6; color: var(--text-2); margin: 0; max-width: 60ch; }
+  .acc-num { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--accent-pressed); letter-spacing: 0.04em; line-height: 1; }
+  .acc-label { font-family: var(--font-display); font-size: clamp(20px, 2.4vw, 26px); color: var(--text-1); line-height: 1.2; letter-spacing: -0.01em; font-weight: 700; transition: color var(--dur-fast) var(--ease); }
+  .acc[open] .acc-label { color: var(--editorial); }
+  .acc-toggle { font-family: var(--font-mono); font-size: 28px; color: var(--accent-pressed); line-height: 1; text-align: right; transition: transform var(--dur-base) var(--ease); font-weight: 300; }
+  .acc[open] .acc-toggle { transform: rotate(45deg); }
+
+  .acc-body { padding: 0 0 36px 72px; max-width: 68ch; }
+  @media (max-width: 720px) { .acc-body { padding: 0 0 28px 0; } }
+  .acc-h { font-family: var(--font-display); font-size: clamp(22px, 2.6vw, 28px); line-height: 1.2; letter-spacing: -0.015em; color: var(--text-1); margin: 0 0 20px; font-weight: 700; max-width: 24ch; }
+  .acc-h em { font-style: italic; color: var(--editorial); }
+  .acc-body p { font-size: 17px; line-height: 1.7; color: var(--text-2); margin: 0 0 18px; }
+  .acc-body p:last-child { margin-bottom: 0; }
+  .acc-body p strong { color: var(--text-1); font-weight: 700; }
+  .acc-body p em { font-style: italic; color: var(--text-1); }
+  .acc-lede { font-size: 17px; color: var(--text-2); margin: 0 0 28px; }
+
+  .modes { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--border-2); }
+  .mode { display: grid; grid-template-columns: 40px 1fr; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--border-1); align-items: start; }
+  .mode:last-child { border-bottom: 0; }
+  .mode-letter { font-family: var(--font-mono); font-size: 18px; color: var(--accent-pressed); font-weight: 700; line-height: 1; letter-spacing: -0.01em; }
+  .mode-body h4 { font-family: var(--font-display); font-size: 18px; color: var(--text-1); margin: 0 0 8px; line-height: 1.35; font-weight: 700; }
+  .mode-body p { font-size: 15px; line-height: 1.6; color: var(--text-2); margin: 0; max-width: 60ch; }
 
   .exclude { list-style: none; padding: 0; margin: 0; }
   .exclude li { display: flex; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px dashed var(--border-1); color: var(--text-2); font-size: 16px; line-height: 1.55; }
   .exclude li:last-child { border-bottom: 0; }
-  .exclude-mark { font-family: var(--font-mono); color: var(--text-4); font-size: 18px; line-height: 1; flex-shrink: 0; }
-  .exclude strong { color: var(--text-1); font-weight: 600; }
+  .exclude-mark { font-family: var(--font-mono); color: var(--accent-pressed); font-size: 18px; line-height: 1; flex-shrink: 0; font-weight: 700; }
+  .exclude strong { color: var(--text-1); font-weight: 700; }
 </style>

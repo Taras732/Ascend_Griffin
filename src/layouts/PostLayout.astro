@@ -3,6 +3,12 @@ import BaseLayout from "./BaseLayout.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
 interface Props {
   title: string;
   description: string;
@@ -11,9 +17,21 @@ interface Props {
   lang: "en" | "uk";
   tags?: string[];
   ogImage?: string;
+  readingTime?: string;
+  headings?: Heading[];
 }
 
-const { title, description, pubDate, updatedDate, lang, tags = [] } = Astro.props;
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  lang,
+  tags = [],
+  readingTime,
+  headings = [],
+} = Astro.props;
+
 const isUk = lang === "uk";
 const formattedPubDate = pubDate.toLocaleDateString(isUk ? "uk-UA" : "en-US", {
   year: "numeric",
@@ -27,23 +45,35 @@ const formattedUpdated = updatedDate
       day: "numeric",
     })
   : null;
+
 const backToBlog = isUk ? "/uk/blog/" : "/blog/";
 const backLabel = isUk ? "← Усі статті" : "← All posts";
 const updatedLabel = isUk ? "Оновлено" : "Updated";
 const tagsLabel = isUk ? "Теми" : "Tags";
+const tocLabel = isUk ? "Зміст" : "Contents";
+
+// Only H2 headings in ToC (H3 etc. are sub-points)
+const tocItems = headings.filter((h) => h.depth === 2);
+const hasToc = tocItems.length >= 3;
 ---
 
 <BaseLayout title={title} description={description}>
   <Nav />
   <main class="page-main">
     <article class="post">
-      <div class="content-shell">
+      <div class="post-shell">
         <a class="post-back" href={backToBlog}>{backLabel}</a>
 
         <header class="post-header">
           <h1 class="post-h1">{title}</h1>
           <p class="post-meta">
             <time datetime={pubDate.toISOString()}>{formattedPubDate}</time>
+            {readingTime && (
+              <>
+                <span class="dot">·</span>
+                <span>{readingTime}</span>
+              </>
+            )}
             {formattedUpdated && (
               <>
                 <span class="dot">·</span>
@@ -54,8 +84,26 @@ const tagsLabel = isUk ? "Теми" : "Tags";
           {description && <p class="post-lede">{description}</p>}
         </header>
 
-        <div class="post-body content-section">
-          <slot />
+        <div class={hasToc ? "post-grid" : "post-grid post-grid-single"}>
+          {hasToc && (
+            <aside class="post-toc" aria-label={tocLabel}>
+              <p class="post-toc-label">{tocLabel}</p>
+              <ol class="post-toc-list">
+                {tocItems.map((h, i) => (
+                  <li class="post-toc-item">
+                    <a href={`#${h.slug}`} data-target={h.slug} class="post-toc-link">
+                      <span class="post-toc-num">{String(i + 1).padStart(2, "0")}</span>
+                      <span class="post-toc-text">{h.text}</span>
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </aside>
+          )}
+
+          <div class="post-body content-section">
+            <slot />
+          </div>
         </div>
 
         {tags.length > 0 && (
@@ -92,15 +140,177 @@ const tagsLabel = isUk ? "Теми" : "Tags";
     </article>
   </main>
   <Footer />
+
+  <script>
+    // Active section highlight in ToC + smooth scroll w/ sticky-nav offset
+    (function () {
+      function init() {
+        const links = document.querySelectorAll<HTMLAnchorElement>(".post-toc-link[data-target]");
+        if (!links.length) return;
+        const STICKY = 88;
+        const targets: HTMLElement[] = [];
+        links.forEach((l) => {
+          const el = document.getElementById(l.dataset.target!);
+          if (el) {
+            targets.push(el);
+            l.addEventListener("click", (e) => {
+              e.preventDefault();
+              const y = window.scrollY + el.getBoundingClientRect().top - STICKY;
+              window.scrollTo({ top: y, behavior: "smooth" });
+              history.replaceState(null, "", `#${l.dataset.target}`);
+            });
+          }
+        });
+
+        const setActive = (id: string) => {
+          links.forEach((l) => l.classList.toggle("is-active", l.dataset.target === id));
+        };
+
+        const obs = new IntersectionObserver(
+          (entries) => {
+            const visible = entries
+              .filter((e) => e.isIntersecting)
+              .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+            if (visible.length) setActive(visible[0].target.id);
+          },
+          { rootMargin: "-20% 0px -70% 0px", threshold: 0 }
+        );
+        targets.forEach((t) => obs.observe(t));
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", init);
+      } else {
+        init();
+      }
+    })();
+  </script>
 </BaseLayout>
 
+<style is:global>
+  /* Anchor link styling on rendered markdown H2/H3 (Astro auto-IDs) */
+  .post-body h2,
+  .post-body h3 {
+    scroll-margin-top: 96px;
+    position: relative;
+  }
+  .post-body h2 {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3vw, 30px);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: var(--text-1);
+    margin: 56px 0 18px;
+    font-weight: 700;
+    padding-top: 8px;
+    border-top: 1px solid var(--border-1);
+  }
+  .post-body h3 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    line-height: 1.3;
+    color: var(--text-1);
+    margin: 36px 0 12px;
+    font-weight: 600;
+  }
+  .post-body p {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-2);
+    margin: 0 0 20px;
+  }
+  .post-body p strong { color: var(--text-1); font-weight: 700; }
+  .post-body p em { color: var(--text-1); }
+  .post-body ul,
+  .post-body ol {
+    padding-left: 24px;
+    margin: 0 0 20px;
+    color: var(--text-2);
+  }
+  .post-body li {
+    margin-bottom: 10px;
+    line-height: 1.65;
+    font-size: 17px;
+  }
+  .post-body blockquote {
+    border-left: 3px solid var(--accent);
+    padding: 6px 0 6px 22px;
+    margin: 28px 0;
+    color: var(--text-1);
+    font-style: italic;
+    background: var(--accent-subtle);
+    border-radius: 0 2px 2px 0;
+  }
+  .post-body blockquote p { margin: 0; }
+  .post-body a {
+    color: var(--accent-pressed);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .post-body a:hover { color: var(--accent-hover); }
+  .post-body code {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    background: var(--bg-1);
+    padding: 2px 6px;
+    border-radius: 2px;
+    color: var(--text-1);
+  }
+  .post-body pre {
+    background: var(--bg-ink);
+    color: var(--text-on-ink);
+    padding: 20px 24px;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin: 24px 0;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .post-body pre code {
+    background: transparent;
+    padding: 0;
+    color: var(--text-on-ink);
+    font-size: 13px;
+  }
+  .post-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 15px;
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .post-body th,
+  .post-body td {
+    border: 1px solid var(--border-1);
+    padding: 10px 14px;
+    text-align: left;
+  }
+  .post-body th {
+    background: var(--bg-1);
+    font-weight: 600;
+    color: var(--text-1);
+    white-space: nowrap;
+  }
+  .post-body hr {
+    border: 0;
+    border-top: 1px solid var(--border-1);
+    margin: 40px 0;
+  }
+</style>
+
 <style>
-  .post {
-    padding: 64px 0 96px;
+  .post { padding: 64px 0 96px; }
+  @media (max-width: 720px) { .post { padding: 40px 0 64px; } }
+
+  .post-shell {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 var(--gutter);
   }
-  @media (max-width: 720px) {
-    .post { padding: 40px 0 64px; }
-  }
+  @media (max-width: 720px) { .post-shell { padding: 0 var(--gutter-sm); } }
+
   .post-back {
     display: inline-block;
     font-family: var(--font-mono);
@@ -113,14 +323,17 @@ const tagsLabel = isUk ? "Теми" : "Tags";
   }
   .post-back:hover { color: var(--accent-pressed); }
 
-  .post-header { margin-bottom: 48px; }
+  .post-header {
+    max-width: 760px;
+    margin: 0 0 48px;
+  }
   .post-h1 {
     font-family: var(--font-display);
-    font-size: clamp(32px, 4.5vw, 48px);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    font-size: clamp(32px, 4.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
     color: var(--text-1);
-    margin: 0 0 16px;
+    margin: 0 0 20px;
     font-weight: 700;
   }
   .post-meta {
@@ -133,13 +346,105 @@ const tagsLabel = isUk ? "Теми" : "Tags";
   .post-meta .dot { margin: 0 8px; }
   .post-lede {
     font-size: 20px;
-    line-height: 1.5;
+    line-height: 1.55;
     color: var(--text-2);
     margin: 0;
     max-width: 60ch;
   }
 
-  .post-body { margin-bottom: 56px; }
+  /* Grid: ToC sidebar + body */
+  .post-grid {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 64px;
+    margin-bottom: 56px;
+    align-items: start;
+  }
+  .post-grid-single { grid-template-columns: 1fr; }
+  @media (max-width: 900px) {
+    .post-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  .post-toc {
+    position: sticky;
+    top: 88px;
+    align-self: start;
+    height: fit-content;
+    padding-top: 14px;
+    border-top: 1px solid var(--text-1);
+  }
+  @media (max-width: 900px) {
+    .post-toc {
+      position: static;
+      border: 0;
+      padding: 16px 0;
+      border-top: 1px solid var(--border-1);
+      border-bottom: 1px solid var(--border-1);
+      margin: 0 0 8px;
+    }
+  }
+  .post-toc-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-4);
+    margin: 0 0 14px;
+    font-weight: 600;
+  }
+  .post-toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  @media (max-width: 900px) {
+    .post-toc-list {
+      gap: 8px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+  }
+  .post-toc-item { margin: 0; padding: 0; }
+  .post-toc-link {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 8px;
+    text-decoration: none;
+    padding: 6px 0;
+    transition: color var(--dur-fast) var(--ease);
+    align-items: baseline;
+  }
+  .post-toc-num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-4);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+  }
+  .post-toc-text {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-3);
+    line-height: 1.45;
+    letter-spacing: 0.02em;
+  }
+  .post-toc-link:hover .post-toc-num,
+  .post-toc-link:hover .post-toc-text { color: var(--text-1); }
+  .post-toc-link.is-active .post-toc-num { color: var(--accent-pressed); }
+  .post-toc-link.is-active .post-toc-text {
+    color: var(--text-1);
+    font-weight: 700;
+  }
+
+  .post-body { max-width: 720px; }
+  @media (max-width: 900px) { .post-body { max-width: none; } }
 
   .post-tags {
     display: flex;
@@ -150,6 +455,7 @@ const tagsLabel = isUk ? "Теми" : "Tags";
     border-top: 1px solid var(--border-1);
     border-bottom: 1px solid var(--border-1);
     margin-bottom: 48px;
+    max-width: 720px;
   }
   .post-tags-label {
     font-family: var(--font-mono);
@@ -172,8 +478,9 @@ const tagsLabel = isUk ? "Теми" : "Tags";
     background: var(--bg-ink);
     color: var(--text-on-ink);
     padding: 40px;
-    border-radius: 2px;
+    border-radius: 4px;
     text-align: center;
+    max-width: 720px;
   }
   .post-cta h3 {
     font-family: var(--font-display);

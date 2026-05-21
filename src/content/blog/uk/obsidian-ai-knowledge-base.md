@@ -4,6 +4,7 @@ description: "Як побудувати власну базу знань на Ob
 pubDate: 2026-05-20
 lang: uk
 tags: [obsidian, ai, knowledge-management, para, claude-code]
+readingTime: "18 хв"
 canonical: https://ascendgriffin.org/uk/blog/obsidian-ai-knowledge-base/
 ---
 

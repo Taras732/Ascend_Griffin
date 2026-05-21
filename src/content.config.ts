@@ -14,6 +14,7 @@ const blog = defineCollection({
     canonical: z.string().optional(),
     draft: z.boolean().default(false),
     relatedService: z.enum(["audit", "discovery", "support", "rescue"]).optional(),
+    readingTime: z.string().optional(),
   }),
 });
 

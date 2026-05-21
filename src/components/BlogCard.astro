@@ -1,0 +1,85 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  description: string;
+  pubDate: Date;
+  lang: "en" | "uk";
+  tags?: string[];
+}
+
+const { href, title, description, pubDate, lang, tags = [] } = Astro.props;
+const isUk = lang === "uk";
+const formattedDate = pubDate.toLocaleDateString(isUk ? "uk-UA" : "en-US", {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+});
+const readMoreLabel = isUk ? "Читати →" : "Read →";
+---
+
+<a href={href} class="blog-card">
+  <div class="blog-card-meta">
+    <time datetime={pubDate.toISOString()}>{formattedDate}</time>
+    {tags.length > 0 && (
+      <>
+        <span class="dot">·</span>
+        <span class="blog-card-tag">{tags[0]}</span>
+      </>
+    )}
+  </div>
+  <h3 class="blog-card-title">{title}</h3>
+  <p class="blog-card-desc">{description}</p>
+  <span class="blog-card-readmore">{readMoreLabel}</span>
+</a>
+
+<style>
+  .blog-card {
+    display: block;
+    padding: 32px;
+    background: var(--bg-1);
+    border: 1px solid var(--border-1);
+    border-radius: 2px;
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--dur-base) var(--ease);
+    height: 100%;
+  }
+  .blog-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  .blog-card-meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-3);
+    letter-spacing: 0.04em;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .blog-card-meta .dot { margin: 0 6px; }
+  .blog-card-tag { color: var(--accent-pressed); }
+  .blog-card-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--text-1);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+  .blog-card-desc {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--text-2);
+    margin: 0 0 18px;
+  }
+  .blog-card-readmore {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent-pressed);
+    letter-spacing: 0.04em;
+    font-weight: 600;
+  }
+</style>

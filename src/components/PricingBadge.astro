@@ -1,0 +1,70 @@
+---
+interface Props {
+  price: string;
+  duration?: string;
+  unit?: string;
+}
+
+const { price, duration, unit } = Astro.props;
+const isUk = Astro.currentLocale === "uk";
+const priceLabel = isUk ? "Інвестиція" : "Investment";
+const durationLabel = isUk ? "Тривалість" : "Timeline";
+---
+
+<aside class="pricing-badge">
+  <div class="pricing-row">
+    <span class="pricing-label">{priceLabel}</span>
+    <span class="pricing-value">{price}{unit && <span class="pricing-unit"> {unit}</span>}</span>
+  </div>
+  {duration && (
+    <div class="pricing-row">
+      <span class="pricing-label">{durationLabel}</span>
+      <span class="pricing-value pricing-value-secondary">{duration}</span>
+    </div>
+  )}
+</aside>
+
+<style>
+  .pricing-badge {
+    background: var(--bg-1);
+    border: 1px solid var(--border-1);
+    border-left: 3px solid var(--accent);
+    padding: 20px 24px;
+    border-radius: 2px;
+    margin: 24px 0 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 480px;
+  }
+  .pricing-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .pricing-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-3);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .pricing-value {
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: var(--text-1);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .pricing-value-secondary {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-2);
+  }
+  .pricing-unit {
+    font-size: 14px;
+    color: var(--text-3);
+    font-weight: 500;
+  }
+</style>

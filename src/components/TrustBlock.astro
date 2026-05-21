@@ -1,0 +1,129 @@
+---
+const isUk = Astro.currentLocale === "uk";
+
+const copy = isUk
+  ? {
+      eyebrow: "Чому мені можна довіряти",
+      careerProof: "Діючий CEO AI-стартапу TreximAI · 8 років BA у IT — AI-продукти, логістика, фінтех, B2B SaaS",
+      statLabel: "IT-проєктів за плечима",
+      statValue: "23+",
+      methodLabel: "З якими типами рішень працюю",
+      methodValue: "Аудит · Дослідження · Супровід",
+      networkLabel: "Локація",
+      networkValue: "Львів, Україна · працюю EN та UA",
+      validationNote:
+        "Ascend Griffin — нова практика (запущена 04.2026). Опублікованих клієнтів поки немає. Усі кейси на сайті — це ілюстративні патерни з 8 років роботи у IT.",
+    }
+  : {
+      eyebrow: "Why you can trust me",
+      careerProof: "Acting CEO of TreximAI · 8 years BA across AI products, logistics, fintech, B2B SaaS",
+      statLabel: "IT projects shipped",
+      statValue: "23+",
+      methodLabel: "Engagement formats",
+      methodValue: "Audit · Discovery · Project Support",
+      networkLabel: "Based in",
+      networkValue: "Lviv, Ukraine · working EN and UA",
+      validationNote:
+        "Ascend Griffin is a new practice (launched 04/2026). No published clients yet. Cases on this site are illustrative patterns drawn from 8 years inside IT — not invented for the page.",
+    };
+---
+
+<section class="trust-block">
+  <div class="content-shell">
+    <p class="trust-eyebrow">{copy.eyebrow}</p>
+    <p class="trust-proof">{copy.careerProof}</p>
+
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div class="trust-stat">{copy.statValue}</div>
+        <div class="trust-label">{copy.statLabel}</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-meta-label">{copy.methodLabel}</div>
+        <div class="trust-meta-value">{copy.methodValue}</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-meta-label">{copy.networkLabel}</div>
+        <div class="trust-meta-value">{copy.networkValue}</div>
+      </div>
+    </div>
+
+    <p class="trust-note">{copy.validationNote}</p>
+  </div>
+</section>
+
+<style>
+  .trust-block {
+    padding: 56px 0;
+    background: var(--bg-1);
+    border-top: 1px solid var(--border-1);
+    border-bottom: 1px solid var(--border-1);
+    margin: 56px 0;
+  }
+  .trust-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-pressed);
+    margin: 0 0 12px;
+    font-weight: 600;
+  }
+  .trust-proof {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 2.4vw, 22px);
+    color: var(--text-1);
+    margin: 0 0 32px;
+    line-height: 1.4;
+    font-weight: 600;
+    max-width: 56ch;
+  }
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 28px;
+  }
+  @media (max-width: 720px) {
+    .trust-grid { grid-template-columns: 1fr; }
+  }
+  .trust-card {
+    background: var(--bg-0);
+    padding: 24px;
+    border-radius: 2px;
+    border: 1px solid var(--border-1);
+  }
+  .trust-stat {
+    font-family: var(--font-display);
+    font-size: 36px;
+    color: var(--editorial);
+    line-height: 1;
+    margin-bottom: 8px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .trust-label,
+  .trust-meta-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-3);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .trust-meta-value {
+    font-size: 15px;
+    color: var(--text-1);
+    line-height: 1.4;
+    font-weight: 500;
+  }
+  .trust-note {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-3);
+    line-height: 1.55;
+    max-width: 70ch;
+    margin: 0;
+    font-style: italic;
+  }
+</style>

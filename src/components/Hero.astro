@@ -2,6 +2,8 @@
 import { site } from "../data/site";
 import { t } from "../i18n/translations";
 const tr = t(Astro.currentLocale);
+const isUk = Astro.currentLocale === "uk";
+const howIWorkHref = isUk ? "/uk/how-i-work/" : "/how-i-work/";
 ---
 
 <section class="hero" id="top">
@@ -15,7 +17,7 @@ const tr = t(Astro.currentLocale);
         {tr.site.heroCtaPrimary}
         <span aria-hidden="true">→</span>
       </a>
-      <a href="#how" class="btn-secondary btn-lg">{tr.site.heroCtaSecondary}</a>
+      <a href={howIWorkHref} class="btn-secondary btn-lg">{tr.site.heroCtaSecondary}</a>
     </div>
     {tr.site.heroMicro && <p class="hero-micro">{tr.site.heroMicro}</p>}
   </div>

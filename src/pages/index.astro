@@ -2,44 +2,191 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.astro";
 import Hero from "../components/Hero.astro";
-import StatsStrip from "../components/StatsStrip.astro";
-import Problem from "../components/Problem.astro";
-import Services from "../components/Services.astro";
-import WhyMe from "../components/WhyMe.astro";
-import HowItWorks from "../components/HowItWorks.astro";
-import FAQ from "../components/FAQ.astro";
-import CTALast from "../components/CTALast.astro";
+import TrustBlock from "../components/TrustBlock.astro";
+import FoundingCTA from "../components/FoundingCTA.astro";
 import Footer from "../components/Footer.astro";
+import BlogCard from "../components/BlogCard.astro";
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection("blog", ({ data }) => data.lang === "en" && !data.draft);
+const latestPosts = allPosts
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 2);
 ---
 
 <BaseLayout>
   <Nav />
   <main>
     <Hero />
-    <StatsStrip />
-    <Problem />
-    <Services />
-    <WhyMe />
-    <HowItWorks />
-    <FAQ />
-    <CTALast />
+
+    {/* ── Services ────────────────────────────────────────────── */}
+    <section class="home-section">
+      <div class="home-shell">
+        <p class="home-eyebrow">Engagement formats</p>
+        <h2 class="home-h2">Three ways to <em>get a problem solved</em>.</h2>
+        <p class="home-lede">
+          Depending on the stage you're at and what you need right now — we pick the format that actually fits your situation.
+        </p>
+
+        <div class="services-grid">
+          <a href="/ai-readiness-audit/" class="service-card">
+            <div class="service-card-num">01</div>
+            <h3 class="service-card-title">AI Readiness Audit</h3>
+            <p class="service-card-price">from $1,000 · 5-14 days</p>
+            <p class="service-card-desc">
+              An independent read on a vibe-coded prototype, a vendor proposal on your desk, or an AI feature that stopped working. Before you commit more capital — a structured review.
+            </p>
+            <span class="service-card-link">Learn more →</span>
+          </a>
+
+          <article class="service-card service-card-soon">
+            <div class="service-card-num">02</div>
+            <h3 class="service-card-title">Discovery</h3>
+            <p class="service-card-price">from $4,000 · 2-8 weeks</p>
+            <p class="service-card-desc">
+              Discovery Sprint for non-technical founders: from idea to a complete product brief, realistic budget, and shortlist of right vendors.
+            </p>
+            <span class="service-card-soon-tag">Dedicated page — coming soon</span>
+          </article>
+
+          <a href="/project-rescue/" class="service-card">
+            <div class="service-card-num">03</div>
+            <h3 class="service-card-title">Project Rescue</h3>
+            <p class="service-card-price">from $2,500/month · retainer</p>
+            <p class="service-card-desc">
+              Project burning budget. Vendor ghosting. Velocity gone. A structured rescue from someone whose only interest is your outcome.
+            </p>
+            <span class="service-card-link">Learn more →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <TrustBlock />
+
+    {/* ── About teaser ─────────────────────────────────────────── */}
+    <section class="home-section home-section-bg">
+      <div class="home-shell">
+        <p class="home-eyebrow">Who I am</p>
+        <h2 class="home-h2">8 years inside IT. <em>Both sides of the table</em>.</h2>
+
+        <div class="prose">
+          <p>I'm Taras Smaliukh — CEO and CPO of TreximAI (a B2B AI logistics platform) and founder of Ascend Griffin. 8 years of business analysis and product ownership across AI products, logistics, fintech, and B2B SaaS.</p>
+          <p>I'm not a technical architect and I don't write code. I'm the person who reads on the client's side — contracts, vendor proposals, vibe-coded prototypes, AI features — and translates that into a clear recommendation.</p>
+        </div>
+
+        <a href="/about/" class="link-arrow">More about me →</a>
+      </div>
+    </section>
+
+    {/* ── How I work teaser ────────────────────────────────────── */}
+    <section class="home-section">
+      <div class="home-shell">
+        <p class="home-eyebrow">How I work</p>
+        <h2 class="home-h2">Five principles, <em>no surprises</em>.</h2>
+        <p class="home-lede">
+          The contract before the contract. Every engagement — Audit, Discovery, Project Support — runs on these five rules. If any of them is a dealbreaker, better we both know now.
+        </p>
+
+        <ul class="principles-list">
+          <li><span class="principle-num">01</span><span>Always on your side — no hidden arrangements with vendors.</span></li>
+          <li><span class="principle-num">02</span><span>Price fixed before work starts. No quiet "oh, this will be a bit more."</span></li>
+          <li><span class="principle-num">03</span><span>Discovery first, always. If I'm not the right read — I'll say so.</span></li>
+          <li><span class="principle-num">04</span><span>I leave a documented trail — every decision in writing.</span></li>
+          <li><span class="principle-num">05</span><span>I work to the plan, not to the clock. No work-for-the-sake-of-work.</span></li>
+        </ul>
+
+        <a href="/how-i-work/" class="link-arrow">More on the principles →</a>
+      </div>
+    </section>
+
+    {/* ── Blog teaser ──────────────────────────────────────────── */}
+    {latestPosts.length > 0 && (
+      <section class="home-section home-section-bg">
+        <div class="home-shell">
+          <p class="home-eyebrow">From the blog</p>
+          <h2 class="home-h2">Notes and thoughts.</h2>
+          <p class="home-lede">
+            On IT projects, AI tools, and other practices I use in my work.
+          </p>
+
+          <div class="blog-teaser-grid">
+            {latestPosts.map((post) => (
+              <BlogCard
+                href={`/blog/${post.id.replace(/^en\//, "")}/`}
+                title={post.data.title}
+                description={post.data.description}
+                pubDate={post.data.pubDate}
+                lang="en"
+                tags={post.data.tags}
+              />
+            ))}
+          </div>
+
+          <a href="/blog/" class="link-arrow">All posts →</a>
+        </div>
+      </section>
+    )}
+
+    <FoundingCTA service="discovery" />
   </main>
   <Footer />
+
+  <script is:inline>
+    // Browser language redirect — only on first visit, only for root EN page
+    (function () {
+      try {
+        var REDIRECTED_KEY = "ag_lang_redirect_done";
+        if (sessionStorage.getItem(REDIRECTED_KEY)) return;
+        var lang = (navigator.language || "en").toLowerCase();
+        if (lang.indexOf("uk") === 0) {
+          sessionStorage.setItem(REDIRECTED_KEY, "1");
+          window.location.replace("/uk/");
+        }
+      } catch (e) {
+        /* ignore */
+      }
+    })();
+  </script>
 </BaseLayout>
 
-<script is:inline>
-  // Browser language redirect — only on first visit, only for root EN page
-  (function () {
-    try {
-      var REDIRECTED_KEY = "ag_lang_redirect_done";
-      if (sessionStorage.getItem(REDIRECTED_KEY)) return;
-      var lang = (navigator.language || "en").toLowerCase();
-      if (lang.indexOf("uk") === 0) {
-        sessionStorage.setItem(REDIRECTED_KEY, "1");
-        window.location.replace("/uk/");
-      }
-    } catch (e) {
-      /* ignore */
-    }
-  })();
-</script>
+<style>
+  .home-shell { max-width: 1120px; margin: 0 auto; padding: 0 var(--gutter); }
+  @media (max-width: 720px) { .home-shell { padding: 0 var(--gutter-sm); } }
+
+  .home-section { padding: 80px 0; border-top: 1px solid var(--border-1); }
+  @media (max-width: 720px) { .home-section { padding: 56px 0; } }
+  .home-section-bg { background: var(--bg-1); }
+
+  .home-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-pressed); margin: 0 0 16px; font-weight: 600; }
+  .home-h2 { font-family: var(--font-display); font-size: clamp(32px, 4vw, 44px); line-height: 1.1; letter-spacing: -0.02em; color: var(--text-1); margin: 0 0 20px; font-weight: 700; max-width: 22ch; }
+  .home-h2 em { font-style: italic; color: var(--editorial); }
+  .home-lede { font-size: 18px; line-height: 1.6; color: var(--text-2); margin: 0 0 40px; max-width: 60ch; }
+
+  .services-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 8px; }
+  @media (max-width: 900px) { .services-grid { grid-template-columns: 1fr; } }
+  .service-card { background: var(--bg-0); border: 1px solid var(--border-1); border-radius: 4px; padding: 32px 28px; text-decoration: none; color: inherit; transition: all var(--dur-base) var(--ease); display: flex; flex-direction: column; gap: 10px; min-height: 280px; }
+  .service-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .service-card-soon { background: var(--bg-2); cursor: default; opacity: 0.85; }
+  .service-card-soon:hover { transform: none; border-color: var(--border-1); box-shadow: none; }
+  .service-card-num { font-family: var(--font-mono); font-size: 12px; color: var(--accent-pressed); font-weight: 700; letter-spacing: 0.04em; margin-bottom: 4px; }
+  .service-card-title { font-family: var(--font-display); font-size: 22px; line-height: 1.25; letter-spacing: -0.015em; color: var(--text-1); margin: 0; font-weight: 700; }
+  .service-card-price { font-family: var(--font-mono); font-size: 12px; color: var(--text-3); margin: 0 0 8px; letter-spacing: 0.02em; }
+  .service-card-desc { font-size: 15px; line-height: 1.55; color: var(--text-2); margin: 0; flex: 1; }
+  .service-card-link { font-family: var(--font-mono); font-size: 12px; color: var(--accent-pressed); letter-spacing: 0.04em; font-weight: 600; margin-top: 8px; }
+  .service-card-soon-tag { font-family: var(--font-mono); font-size: 11px; color: var(--text-4); letter-spacing: 0.04em; margin-top: 8px; font-style: italic; }
+
+  .prose p { font-size: 17px; line-height: 1.7; color: var(--text-2); margin: 0 0 18px; max-width: 65ch; }
+  .prose p:last-child { margin-bottom: 0; }
+  .prose p strong { color: var(--text-1); font-weight: 700; }
+
+  .link-arrow { display: inline-block; margin-top: 32px; color: var(--accent-pressed); text-decoration: none; font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.02em; font-weight: 600; border-bottom: 1px solid var(--accent); padding-bottom: 2px; transition: color var(--dur-fast) var(--ease); }
+  .link-arrow:hover { color: var(--accent-hover); }
+
+  .principles-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--text-1); }
+  .principles-list li { display: grid; grid-template-columns: 56px 1fr; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--border-1); align-items: baseline; font-size: 17px; line-height: 1.5; color: var(--text-2); max-width: 70ch; }
+  .principle-num { font-family: var(--font-mono); font-size: 16px; color: var(--accent-pressed); font-weight: 700; letter-spacing: 0.02em; line-height: 1.4; }
+
+  .blog-teaser-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 8px; }
+  @media (max-width: 720px) { .blog-teaser-grid { grid-template-columns: 1fr; } }
+</style>

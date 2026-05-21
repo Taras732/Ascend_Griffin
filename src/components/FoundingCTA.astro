@@ -1,29 +1,25 @@
 ---
 interface Props {
   service?: "audit" | "discovery" | "rescue" | "support";
-  spotsLeft?: number;
-  deadline?: string;
 }
 
-const { service = "discovery", spotsLeft = 2, deadline } = Astro.props;
+const { service = "discovery" } = Astro.props;
 const isUk = Astro.currentLocale === "uk";
 
 const copy = isUk
   ? {
-      eyebrow: `Founding Discovery — ${spotsLeft} місця залишилось`,
-      h: "Перші клієнти отримують більше моєї уваги.",
+      eyebrow: "Наступний крок",
+      h: "Discovery Call — 30 хвилин.",
       body:
-        "Ascend Griffin у фазі валідації. Це означає, що ці кілька перших розмов я веду особисто і глибше, ніж робитиму через 12 місяців. Якщо цей контекст важливий для вашого рішення — це ваш момент.",
-      cta: "Discovery Call · 30 хв",
-      footnote: deadline ? `Founding-набір закривається ${deadline}.` : "Кількість обмежена.",
+        "Знайомство, щоб зрозуміти вашу ситуацію і чи я той читач для неї. Якщо ні — скажу прямо і порекомендую когось краще.",
+      cta: "Записатися на Discovery Call",
     }
   : {
-      eyebrow: `Founding Discovery — ${spotsLeft} spots left`,
-      h: "Early clients get more of my attention.",
+      eyebrow: "Next step",
+      h: "Discovery Call — 30 minutes.",
       body:
-        "Ascend Griffin is in validation phase. That means these first conversations I run personally and deeper than I will twelve months from now. If that context matters to your decision — this is your window.",
-      cta: "Book Discovery Call · 30 min",
-      footnote: deadline ? `Founding cohort closes ${deadline}.` : "Limited spots.",
+        "A first conversation to understand your situation and whether I'm the right read for it. If not, I'll say so and point you toward someone better suited.",
+      cta: "Book Discovery Call",
     };
 ---
 
@@ -42,7 +38,6 @@ const copy = isUk
       >
         {copy.cta} →
       </a>
-      <p class="founding-footnote">{copy.footnote}</p>
     </div>
   </div>
 </section>
@@ -115,12 +110,4 @@ const copy = isUk
     position: relative;
   }
   .founding-btn:hover { background: var(--accent-hover); }
-  .founding-footnote {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--text-on-ink-muted);
-    letter-spacing: 0.04em;
-    margin: 20px 0 0;
-    position: relative;
-  }
 </style>

@@ -1,0 +1,172 @@
+---
+interface Section {
+  id: string;
+  num: string;
+  label: string;
+}
+
+interface Props {
+  sections: Section[];
+  topLabel?: string;
+}
+
+const { sections, topLabel } = Astro.props;
+---
+
+<aside class="page-nav" aria-label="On this page">
+  {topLabel && <p class="page-nav-top-label">{topLabel}</p>}
+  <ol class="page-nav-list">
+    {sections.map((s) => (
+      <li class="page-nav-item">
+        <a href={`#${s.id}`} data-target={s.id} class="page-nav-link">
+          <span class="page-nav-num">{s.num}</span>
+          <span class="page-nav-label">{s.label}</span>
+        </a>
+      </li>
+    ))}
+  </ol>
+</aside>
+
+<style>
+  .page-nav {
+    position: sticky;
+    top: 88px;
+    align-self: start;
+    height: fit-content;
+    padding-top: 14px;
+    border-top: 1px solid var(--text-1);
+  }
+  @media (max-width: 900px) {
+    .page-nav {
+      position: static;
+      border-top: 1px solid var(--border-1);
+      border-bottom: 1px solid var(--border-1);
+      margin: 0 calc(-1 * var(--gutter-sm)) 24px;
+      padding: 12px var(--gutter-sm);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+  .page-nav-top-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-4);
+    margin: 0 0 14px;
+    font-weight: 600;
+  }
+  .page-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  @media (max-width: 900px) {
+    .page-nav-list {
+      flex-direction: row;
+      gap: 16px;
+      flex-wrap: nowrap;
+    }
+    .page-nav-top-label { display: none; }
+  }
+  .page-nav-item { margin: 0; padding: 0; }
+  .page-nav-link {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    text-decoration: none;
+    padding: 6px 0;
+    transition: color var(--dur-fast) var(--ease);
+    white-space: nowrap;
+  }
+  .page-nav-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-3);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 16px;
+    transition: color var(--dur-fast) var(--ease);
+  }
+  .page-nav-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-3);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+    transition: color var(--dur-fast) var(--ease);
+  }
+  .page-nav-link:hover .page-nav-num,
+  .page-nav-link:hover .page-nav-label,
+  .page-nav-link:focus-visible .page-nav-num,
+  .page-nav-link:focus-visible .page-nav-label {
+    color: var(--text-1);
+  }
+  .page-nav-link.is-active .page-nav-num {
+    color: var(--accent-pressed);
+  }
+  .page-nav-link.is-active .page-nav-label {
+    color: var(--text-1);
+    font-weight: 700;
+  }
+  .page-nav-link.is-active::before {
+    content: "";
+    display: inline-block;
+    width: 3px;
+    height: 14px;
+    background: var(--accent);
+    margin-right: -8px;
+    border-radius: 1px;
+  }
+
+  /* Smooth scroll with offset for sticky nav */
+  :global(html) { scroll-padding-top: 88px; }
+</style>
+
+<script>
+  function initPageNav() {
+    const links = document.querySelectorAll<HTMLAnchorElement>(".page-nav-link[data-target]");
+    if (!links.length) return;
+
+    const targets: { id: string; el: HTMLElement }[] = [];
+    links.forEach((link) => {
+      const id = link.dataset.target;
+      if (!id) return;
+      const el = document.getElementById(id);
+      if (el) targets.push({ id, el });
+    });
+    if (!targets.length) return;
+
+    const setActive = (id: string) => {
+      links.forEach((l) => l.classList.toggle("is-active", l.dataset.target === id));
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible.length) setActive(visible[0].target.id);
+      },
+      { rootMargin: "-25% 0px -60% 0px", threshold: 0 }
+    );
+
+    targets.forEach((t) => observer.observe(t.el));
+
+    // Initial: pick first target above viewport bottom
+    const initial = targets.find((t) => t.el.getBoundingClientRect().top >= 0) || targets[0];
+    if (initial) setActive(initial.id);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initPageNav);
+  } else {
+    initPageNav();
+  }
+</script>

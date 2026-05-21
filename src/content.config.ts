@@ -20,4 +20,22 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { blog };
+const cases = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/cases" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    service: z.enum(["audit", "discovery", "rescue"]),
+    domain: z.string(),
+    icp: z.string(),
+    complexity: z.enum(["low", "medium", "high"]),
+    duration: z.string(),
+    budgetRange: z.string().optional(),
+    illustrative: z.boolean().default(true),
+    year: z.string().optional(),
+    lang: z.enum(["en", "uk"]),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { blog, cases };

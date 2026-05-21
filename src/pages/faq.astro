@@ -1,0 +1,236 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import FoundingCTA from "../components/FoundingCTA.astro";
+
+const title = "Common questions | Ascend Griffin";
+const description =
+  "Answers to questions that usually come up before the first Discovery Call: services, process, pricing, network, NDA, and when I'm not the right fit.";
+---
+
+<BaseLayout title={title} description={description}>
+  <Nav />
+  <main class="about">
+    <section class="hero">
+      <div class="about-shell">
+        <p class="hero-eyebrow">FAQ · Ascend Griffin</p>
+        <h1 class="hero-h1">Common <em>questions</em>.</h1>
+        <p class="hero-lede">
+          Answers to what usually comes up before the first Discovery Call. If your question isn't here — drop a line and I'll add it.
+        </p>
+        <p class="hero-hint">↓ Expand a section to read more</p>
+      </div>
+    </section>
+
+    <section class="acc-section">
+      <div class="about-shell">
+        <details class="acc" name="faq" id="services">
+          <summary class="acc-summary">
+            <span class="acc-num">01</span>
+            <span class="acc-label">About the services</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <div class="qa">
+              <h4 class="qa-q">How do I choose between Audit, Discovery, and Recovery?</h4>
+              <p>Quick independent read on a specific decision → <strong>Audit</strong>. Planning a serious project and need a complete plan → <strong>Discovery</strong>. Project already in flight but lost momentum → <strong>Recovery</strong>. We'll figure out the right fit on the 30-minute Discovery Call if the situation is mixed.</p>
+            </div>
+            <div class="qa">
+              <h4 class="qa-q">What's specifically included in each service?</h4>
+              <p><strong>Audit</strong> ($1,000 · 5-14 days) — structured read, 5 deliverables, 60-min walk-through call. <strong>Discovery</strong> ($4,000 · 2-8 weeks) — full product brief + budget + vendor shortlist + negotiation pack. <strong>Recovery</strong> ($2,500/month retainer) — diagnostic → stabilize → hand-off, 3 phases. Details on each service page.</p>
+            </div>
+            <div class="qa">
+              <h4 class="qa-q">Can I start with a pilot engagement?</h4>
+              <p>The smallest format is an Audit from $1,000 over 5-14 days. That's the "first contact." If we're both satisfied with the result — we discuss a broader engagement. Less than an Audit and the economics don't work for either side.</p>
+            </div>
+            <div class="qa">
+              <h4 class="qa-q">What will the full engagement actually cost?</h4>
+              <p>Depends on the project. Audit and Discovery — fixed price with a transparent range. Recovery — retainer, flexible scope. On the Discovery Call I give a range with reasoning once I understand the context. Any scope changes are discussed before, not after.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="acc" name="faq" id="process">
+          <summary class="acc-summary">
+            <span class="acc-num">02</span>
+            <span class="acc-label">About the process</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <div class="qa">
+              <h4 class="qa-q">How does the engagement begin?</h4>
+              <p>Discovery Call — 30 minutes, no slides, no obligation. You explain the situation, I ask clarifying questions, together we pick the format. If I'm not the right read — I'll say so and recommend someone else. If we move forward — a separate agreement with fixed scope.</p>
+            </div>
+            <div class="qa">
+              <h4 class="qa-q">Do you sign an NDA?</h4>
+              <p>Yes. Mutual NDA template sent within 24 hours of request. Nothing from your project enters my external content or communications without your written approval. That's the first rule of working together.</p>
+            </div>
+            <div class="qa">
+              <h4 class="qa-q">How long from first call to result?</h4>
+              <p>Discovery Call within a week of request. After it I take a few days to analyze and come back with a plan. Actual work starts in days (Audit) or 1-2 weeks (Discovery or Recovery). Phase 1 results — end of week 1-2 depending on format.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="acc" name="faq" id="about-me">
+          <summary class="acc-summary">
+            <span class="acc-num">03</span>
+            <span class="acc-label">About me and AG</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <div class="qa">
+              <h4 class="qa-q">Why "ally" and not "consultant"?</h4>
+              <p>A consultant advises. I stay through the outcome. Practical difference: a consultant writes a report and leaves. I read the project as a system, shape the decision, stay through implementation as a voice on your side of the table. Like a lawyer in negotiations — not advice from the side, an advocate for your interests.</p>
+            </div>
+            <div class="qa">
+              <h4 class="qa-q">AG just launched — can you be trusted without published clients?</h4>
+              <p>AG as a practice is new (April 2026). The work I do is not new. 8 years of business analysis and product ownership inside IT (AI products, logistics, fintech, B2B SaaS), CEO of active startup TreximAI. Cases on this site are illustrative patterns from those 8 years — not "200 clients", not "no experience." Honest.</p>
+            </div>
+            <div class="qa">
+              <h4 class="qa-q">Do I have to use your team network?</h4>
+              <p>No. If you already have a team — I work on your side in negotiations, reviews, oversight. The network comes in only when you need to find a team — I shortlist vetted partners I've worked with. No hidden commissions from them.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="acc" name="faq" id="technical">
+          <summary class="acc-summary">
+            <span class="acc-num">04</span>
+            <span class="acc-label">Technical questions</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <div class="qa">
+              <h4 class="qa-q">Will someone write code on my project?</h4>
+              <p>I'm not the developer on your project. But I understand architecture well and work fluently with modern AI tools — a quick prototype or small piece of functionality to test a hypothesis I can build myself. For full development we bring in a tech team — yours or from the network.</p>
+            </div>
+            <div class="qa">
+              <h4 class="qa-q">Do I need to be technical to work with you?</h4>
+              <p>Quite the opposite. AG is positioned specifically for <strong>non-technical</strong> founders and business owners hiring IT. If you already have a CTO or tech co-founder — I can backstop specific decisions, but the full engagement is usually more useful for non-technical buyers.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="acc" name="faq" id="adjacent">
+          <summary class="acc-summary">
+            <span class="acc-num">05</span>
+            <span class="acc-label">Adjacent</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <div class="qa">
+              <h4 class="qa-q">What if we don't fit after the Discovery Call?</h4>
+              <p>Fine. The Discovery Call is free for exactly that — both of us figure out whether it's a fit. If not — no follow-up pitch. I can recommend someone else from the network if your case fits them better.</p>
+            </div>
+            <div class="qa">
+              <h4 class="qa-q">Do you work with international clients?</h4>
+              <p>Yes. Based in Lviv, Ukraine. Remote work standard. Travel when it helps. Working languages — Ukrainian and English. Documentation in the client's language. EU + UK + US East time zones fit within the working window.</p>
+            </div>
+            <div class="qa">
+              <h4 class="qa-q">Do you recommend others if your format doesn't fit?</h4>
+              <p>Yes. If your case fits a designer, BA, lawyer, or another consulting format better — I'll recommend specific people from the network. No referral commissions on either side. The interest is for you to solve the problem the best way, not necessarily through me.</p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <FoundingCTA service="discovery" />
+  </main>
+  <Footer />
+
+  <script>
+    (function () {
+      const NAME = "faq";
+      function openAccordionFromHash(hash: string | null) {
+        if (!hash || hash === "#" || hash === "#book") return;
+        let target: HTMLElement | null = null;
+        try { target = document.querySelector(hash); } catch { return; }
+        if (target && target instanceof HTMLDetailsElement && target.getAttribute("name") === NAME) {
+          if (!target.open) target.open = true;
+        }
+      }
+      function init() {
+        const items = document.querySelectorAll<HTMLDetailsElement>(`details[name="${NAME}"]`);
+        if (!items.length) return;
+        const STICKY_OFFSET = 88;
+        items.forEach((det) => {
+          det.addEventListener("toggle", () => {
+            if (!det.open) return;
+            const summary = det.querySelector("summary");
+            if (!summary) return;
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                const rect = summary.getBoundingClientRect();
+                window.scrollTo({ top: window.scrollY + rect.top - STICKY_OFFSET, behavior: "smooth" });
+              });
+            });
+          });
+        });
+        document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((link) => {
+          const href = link.getAttribute("href");
+          if (!href || href === "#" || href === "#book") return;
+          link.addEventListener("click", () => { openAccordionFromHash(href); });
+        });
+        openAccordionFromHash(location.hash);
+      }
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", init);
+      } else { init(); }
+    })();
+  </script>
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        { "@type": "Question", name: "How do I choose between Audit, Discovery, and Recovery?", acceptedAnswer: { "@type": "Answer", text: "Quick independent read on a specific decision → Audit. Planning a serious project and need a complete plan → Discovery. Project in flight but lost momentum → Recovery." } },
+        { "@type": "Question", name: "Do you sign an NDA?", acceptedAnswer: { "@type": "Answer", text: "Yes. Mutual NDA template sent within 24 hours of request." } },
+        { "@type": "Question", name: "AG just launched — can you be trusted without published clients?", acceptedAnswer: { "@type": "Answer", text: "AG as a practice is new (April 2026). The work is not new. 8 years of business analysis and product ownership across AI products, logistics, fintech, B2B SaaS. CEO of active startup TreximAI." } },
+        { "@type": "Question", name: "Will someone write code on my project?", acceptedAnswer: { "@type": "Answer", text: "I'm not the developer on your project. Quick prototypes I can build with modern AI tools. Full development through a tech team — yours or from the network." } },
+        { "@type": "Question", name: "Do you work with international clients?", acceptedAnswer: { "@type": "Answer", text: "Yes. Based in Lviv, Ukraine. Remote work standard. Working languages — Ukrainian and English. EU + UK + US East time zones." } },
+      ],
+    })}
+  />
+</BaseLayout>
+
+<style>
+  .about { background: radial-gradient(ellipse at top right, rgba(184, 135, 58, 0.04), transparent 50%), radial-gradient(ellipse at bottom left, rgba(184, 135, 58, 0.03), transparent 40%), var(--bg-0); min-height: 100vh; }
+  .about-shell { max-width: 880px; margin: 0 auto; padding: 0 var(--gutter); }
+  @media (max-width: 720px) { .about-shell { padding: 0 var(--gutter-sm); } }
+  .hero { padding: 96px 0 48px; }
+  @media (max-width: 720px) { .hero { padding: 56px 0 32px; } }
+  .hero-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-pressed); margin: 0 0 24px; font-weight: 600; }
+  .hero-h1 { font-family: var(--font-display); font-size: clamp(44px, 6vw, 76px); line-height: 1.02; letter-spacing: -0.03em; color: var(--text-1); margin: 0 0 28px; font-weight: 700; max-width: 14ch; }
+  .hero-h1 em { font-style: italic; color: var(--editorial); font-weight: 700; }
+  .hero-lede { font-size: 19px; line-height: 1.6; color: var(--text-2); margin: 0 0 24px; max-width: 60ch; }
+  .hero-hint { font-family: var(--font-mono); font-size: 12px; color: var(--text-3); letter-spacing: 0.04em; margin: 24px 0 0; }
+
+  .acc-section { padding: 16px 0 40px; }
+  .acc { border-top: 1px solid var(--border-2); transition: background var(--dur-base) var(--ease); }
+  .acc:last-of-type { border-bottom: 1px solid var(--border-2); }
+  .acc[open] { background: var(--bg-1); border-top-color: var(--text-1); }
+  .acc[open] + .acc { border-top-color: var(--text-1); }
+  .acc-summary { display: grid; grid-template-columns: 56px 1fr 32px; align-items: center; gap: 16px; padding: 24px 0; cursor: pointer; list-style: none; user-select: none; }
+  .acc-summary::-webkit-details-marker { display: none; }
+  .acc-summary:hover .acc-label { color: var(--accent-pressed); }
+  .acc-summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+  .acc-num { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--accent-pressed); letter-spacing: 0.04em; line-height: 1; }
+  .acc-label { font-family: var(--font-display); font-size: clamp(20px, 2.4vw, 26px); color: var(--text-1); line-height: 1.2; letter-spacing: -0.01em; font-weight: 700; transition: color var(--dur-fast) var(--ease); }
+  .acc[open] .acc-label { color: var(--editorial); }
+  .acc-toggle { font-family: var(--font-mono); font-size: 28px; color: var(--accent-pressed); line-height: 1; text-align: right; transition: transform var(--dur-base) var(--ease); font-weight: 300; }
+  .acc[open] .acc-toggle { transform: rotate(45deg); }
+  .acc-body { padding: 0 0 36px 72px; max-width: 68ch; }
+  @media (max-width: 720px) { .acc-body { padding: 0 0 28px 0; } }
+  .acc-body p { font-size: 17px; line-height: 1.7; color: var(--text-2); margin: 0 0 18px; }
+  .acc-body p:last-child { margin-bottom: 0; }
+  .acc-body p strong { color: var(--text-1); font-weight: 700; }
+
+  .qa { margin-bottom: 28px; padding-bottom: 22px; border-bottom: 1px solid var(--border-1); }
+  .qa:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
+  .qa-q { font-family: var(--font-display); font-size: 18px; color: var(--text-1); margin: 0 0 10px; line-height: 1.35; font-weight: 600; }
+</style>

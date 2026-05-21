@@ -1,0 +1,500 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Nav from "../../../components/Nav.astro";
+import Footer from "../../../components/Footer.astro";
+import FoundingCTA from "../../../components/FoundingCTA.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const cases = await getCollection("cases", ({ data }) => data.lang === "uk");
+  return cases.map((c) => ({
+    params: { slug: c.id.replace(/^uk\//, "") },
+    props: { caseEntry: c },
+  }));
+}
+
+const { caseEntry } = Astro.props;
+const { Content } = await render(caseEntry);
+
+const domainLabels: Record<string, string> = {
+  fintech: "Fintech",
+  logistics: "Logistics",
+  "ai-products": "AI Products",
+  "b2b-saas": "B2B SaaS",
+  govtech: "GovTech",
+};
+const serviceLabels: Record<string, string> = {
+  audit: "Аудит",
+  discovery: "Дослідження",
+  rescue: "Відновлення",
+};
+const complexityLabels: Record<string, string> = {
+  low: "Низька складність",
+  medium: "Середня складність",
+  high: "Висока складність",
+};
+const icpLabels: Record<string, string> = {
+  "vibe-coder": "Vibe coder",
+  rescue: "Rescue-ситуація",
+  "idea-stage": "На етапі ідеї",
+  "non-tech-commissioning": "Нетехнічний замовник",
+};
+
+const serviceLinks: Record<string, { href: string; label: string }> = {
+  audit: { href: "/uk/ai-readiness-audit/", label: "Аудит AI-готовності" },
+  discovery: { href: "/uk/idea-translator/", label: "Дослідження продукту" },
+  rescue: { href: "/uk/project-rescue/", label: "Відновлення проекту" },
+};
+
+const c = caseEntry.data;
+const slug = caseEntry.id.replace(/^uk\//, "");
+const serviceLink = serviceLinks[c.service];
+
+// Related cases: same service first, exclude current
+const allCases = await getCollection(
+  "cases",
+  ({ data }) => data.lang === "uk" && !data.draft,
+);
+const related = allCases
+  .filter((other) => other.id !== caseEntry.id && other.data.service === c.service)
+  .slice(0, 2);
+
+const title = `${c.title} — Кейс | Ascend Griffin`;
+const description = c.description;
+---
+
+<BaseLayout title={title} description={description}>
+  <Nav />
+  <main class="case-page">
+    <div class="case-shell">
+      <a href="/uk/case-studies/" class="case-back">← Усі кейси</a>
+
+      {/* ── Hero ──────────────────────────────────────────── */}
+      <header class="case-hero">
+        <div class="case-hero-meta">
+          <span class={`hero-chip hero-chip-service hero-chip-service-${c.service}`}>
+            {serviceLabels[c.service]}
+          </span>
+          <span class="hero-chip hero-chip-domain">
+            {domainLabels[c.domain] ?? c.domain}
+          </span>
+          {icpLabels[c.icp] && (
+            <span class="hero-chip hero-chip-icp">{icpLabels[c.icp]}</span>
+          )}
+        </div>
+
+        <h1 class="case-h1">{c.title}</h1>
+        <p class="case-lede">{c.description}</p>
+
+        <dl class="case-facts">
+          <div class="case-fact">
+            <dt>Тривалість</dt>
+            <dd>{c.duration}</dd>
+          </div>
+          <div class="case-fact">
+            <dt>Складність</dt>
+            <dd>{complexityLabels[c.complexity]}</dd>
+          </div>
+          {c.budgetRange && (
+            <div class="case-fact">
+              <dt>Формат</dt>
+              <dd>{c.budgetRange}</dd>
+            </div>
+          )}
+          {c.year && (
+            <div class="case-fact">
+              <dt>Період</dt>
+              <dd>{c.year}</dd>
+            </div>
+          )}
+        </dl>
+
+        {c.illustrative && (
+          <p class="case-illustrative-banner">
+            <span class="banner-dot" aria-hidden="true"></span>
+            Це <strong>ілюстративний композитний патерн</strong> з 8 років роботи у IT — не конкретний клієнт.
+          </p>
+        )}
+      </header>
+
+      {/* ── Body ───────────────────────────────────────────── */}
+      <article class="case-body content-section">
+        <Content />
+      </article>
+
+      {/* ── Service cross-link ─────────────────────────────── */}
+      {serviceLink && (
+        <aside class="service-link-block">
+          <p class="service-link-eyebrow">Сервіс</p>
+          <h2 class="service-link-h">
+            Це робота у форматі <em>«{serviceLink.label}»</em>.
+          </h2>
+          <p class="service-link-lede">
+            Подивіться, як саме структурований цей формат, що ви отримаєте у результаті, і скільки це коштує.
+          </p>
+          <a href={serviceLink.href} class="service-link-cta">
+            Дивитись формат «{serviceLink.label}» →
+          </a>
+        </aside>
+      )}
+
+      {/* ── Related cases ─────────────────────────────────── */}
+      {related.length > 0 && (
+        <section class="related-section" aria-label="Інші кейси">
+          <p class="related-eyebrow">Інші кейси цього ж сервісу</p>
+          <div class="related-grid">
+            {related.map((r) => {
+              const rSlug = r.id.replace(/^uk\//, "");
+              return (
+                <a href={`/uk/case-studies/${rSlug}/`} class="related-card">
+                  <span class="related-domain">{domainLabels[r.data.domain] ?? r.data.domain}</span>
+                  <h3 class="related-title">{r.data.title}</h3>
+                  <span class="related-arrow" aria-hidden="true">→</span>
+                </a>
+              );
+            })}
+          </div>
+        </section>
+      )}
+    </div>
+
+    <FoundingCTA service={c.service} />
+  </main>
+  <Footer />
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: c.title,
+      description: c.description,
+      inLanguage: "uk",
+      author: { "@type": "Person", name: "Тарас Смалюх" },
+      publisher: {
+        "@type": "Organization",
+        name: "Ascend Griffin",
+        url: "https://ascendgriffin.org",
+      },
+      url: `https://ascendgriffin.org/uk/case-studies/${slug}/`,
+      disambiguatingDescription:
+        "Illustrative composite pattern, not a specific client engagement.",
+    })}
+  />
+</BaseLayout>
+
+<style>
+  .case-page {
+    background:
+      radial-gradient(ellipse at top left, rgba(184, 135, 58, 0.04), transparent 50%),
+      var(--bg-0);
+    min-height: 100vh;
+    padding: 56px 0 0;
+  }
+  @media (max-width: 720px) { .case-page { padding: 36px 0 0; } }
+
+  .case-shell {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+  }
+  @media (max-width: 720px) { .case-shell { padding: 0 var(--gutter-sm); } }
+
+  .case-back {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--text-3);
+    text-decoration: none;
+    margin-bottom: 28px;
+    transition: color var(--dur-fast) var(--ease);
+  }
+  .case-back:hover { color: var(--accent-pressed); }
+
+  /* Hero */
+  .case-hero {
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border-1);
+    margin-bottom: 40px;
+  }
+  .case-hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+  .hero-chip {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 2px;
+    font-weight: 700;
+    border: 1px solid transparent;
+  }
+  .hero-chip-domain {
+    background: var(--bg-2);
+    color: var(--text-2);
+    border-color: var(--border-1);
+  }
+  .hero-chip-icp {
+    background: var(--bg-1);
+    color: var(--text-3);
+    border-color: var(--border-1);
+    font-weight: 500;
+  }
+  .hero-chip-service-audit {
+    background: rgba(184, 135, 58, 0.12);
+    color: var(--accent-pressed);
+    border-color: var(--accent-border);
+  }
+  .hero-chip-service-discovery {
+    background: rgba(46, 125, 79, 0.10);
+    color: #2E7D4F;
+    border-color: rgba(46, 125, 79, 0.30);
+  }
+  .hero-chip-service-rescue {
+    background: rgba(178, 59, 59, 0.08);
+    color: #B23B3B;
+    border-color: rgba(178, 59, 59, 0.30);
+  }
+
+  .case-h1 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4.2vw, 44px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text-1);
+    margin: 0 0 18px;
+    font-weight: 700;
+  }
+  .case-lede {
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--text-2);
+    margin: 0 0 32px;
+    max-width: 60ch;
+  }
+
+  .case-facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0;
+    margin: 0 0 24px;
+    padding: 20px 0;
+    border-top: 1px solid var(--border-1);
+    border-bottom: 1px solid var(--border-1);
+  }
+  .case-fact {
+    padding: 0 18px;
+    border-left: 1px solid var(--border-1);
+  }
+  .case-fact:first-child { border-left: 0; padding-left: 0; }
+  @media (max-width: 720px) {
+    .case-facts { grid-template-columns: 1fr 1fr; gap: 16px 0; padding: 16px 0; }
+    .case-fact { padding: 0 12px; }
+    .case-fact:nth-child(2n+1) { border-left: 0; padding-left: 0; }
+  }
+  .case-fact dt {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin: 0 0 4px;
+    font-weight: 700;
+  }
+  .case-fact dd {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--text-1);
+    font-weight: 500;
+  }
+
+  .case-illustrative-banner {
+    background: var(--accent-subtle);
+    border-left: 3px solid var(--accent);
+    padding: 12px 16px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--text-2);
+    margin: 8px 0 0;
+    border-radius: 0 2px 2px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .case-illustrative-banner strong { color: var(--text-1); }
+  .banner-dot {
+    flex-shrink: 0;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 7px;
+  }
+
+  /* Body — overrides for case sections to give them clear visual weight */
+  .case-body {
+    padding-bottom: 24px;
+  }
+  .case-body :global(h2) {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 3vw, 28px);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: var(--text-1);
+    margin: 44px 0 16px;
+    font-weight: 700;
+    padding-left: 18px;
+    border-left: 3px solid var(--accent);
+  }
+  .case-body :global(h2:first-child) { margin-top: 8px; }
+  .case-body :global(p) {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text-2);
+    margin: 0 0 18px;
+  }
+  .case-body :global(p strong) { color: var(--text-1); }
+  .case-body :global(hr) {
+    border: 0;
+    border-top: 1px solid var(--border-1);
+    margin: 36px 0 18px;
+  }
+  .case-body :global(em) {
+    color: var(--text-3);
+    font-style: italic;
+  }
+  .case-body :global(hr) + :global(p) :global(em),
+  .case-body :global(p:last-child) :global(em) {
+    font-size: 13.5px;
+    color: var(--text-3);
+  }
+
+  /* Service cross-link */
+  .service-link-block {
+    background: var(--bg-1);
+    border: 1px solid var(--border-1);
+    border-radius: 4px;
+    padding: 36px 36px;
+    margin: 32px 0 0;
+  }
+  @media (max-width: 720px) { .service-link-block { padding: 28px 22px; } }
+  .service-link-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-pressed);
+    margin: 0 0 14px;
+    font-weight: 700;
+  }
+  .service-link-h {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 2.6vw, 26px);
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    color: var(--text-1);
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+  .service-link-h em {
+    font-style: italic;
+    color: var(--editorial);
+  }
+  .service-link-lede {
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: var(--text-2);
+    margin: 0 0 20px;
+    max-width: 56ch;
+  }
+  .service-link-cta {
+    display: inline-block;
+    background: var(--text-1);
+    color: var(--bg-0);
+    padding: 12px 22px;
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-weight: 600;
+    border-radius: 2px;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    transition: background var(--dur-fast) var(--ease);
+  }
+  .service-link-cta:hover { background: var(--accent); color: var(--accent-ink); }
+
+  /* Related */
+  .related-section {
+    padding: 48px 0 32px;
+  }
+  .related-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin: 0 0 18px;
+    font-weight: 700;
+  }
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 720px) { .related-grid { grid-template-columns: 1fr; } }
+  .related-card {
+    display: grid;
+    grid-template-columns: 1fr 20px;
+    gap: 12px;
+    padding: 18px 20px;
+    background: var(--bg-1);
+    border: 1px solid var(--border-1);
+    border-radius: 4px;
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--dur-fast) var(--ease);
+    align-items: center;
+  }
+  .related-card:hover {
+    border-color: var(--accent);
+    background: var(--bg-0);
+    transform: translateY(-1px);
+  }
+  .related-card:hover .related-arrow {
+    color: var(--accent-pressed);
+    transform: translateX(3px);
+  }
+  .related-domain {
+    grid-column: 1;
+    grid-row: 1;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    font-weight: 700;
+  }
+  .related-title {
+    grid-column: 1;
+    grid-row: 2;
+    font-family: var(--font-display);
+    font-size: 15px;
+    line-height: 1.35;
+    color: var(--text-1);
+    margin: 4px 0 0;
+    font-weight: 600;
+  }
+  .related-arrow {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    font-family: var(--font-mono);
+    font-size: 16px;
+    color: var(--text-4);
+    transition: all var(--dur-fast) var(--ease);
+    align-self: center;
+  }
+</style>

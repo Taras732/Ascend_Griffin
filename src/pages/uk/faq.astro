@@ -1,0 +1,238 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+import FoundingCTA from "../../components/FoundingCTA.astro";
+
+const title = "Часті питання | Ascend Griffin";
+const description =
+  "Відповіді на питання, які зазвичай виникають перед першим Discovery Call: про послуги, процес, ціну, мережу, NDA, і коли я не підходжу.";
+---
+
+<BaseLayout title={title} description={description}>
+  <Nav />
+  <main class="about">
+    <section class="hero">
+      <div class="about-shell">
+        <p class="hero-eyebrow">FAQ · Ascend Griffin</p>
+        <h1 class="hero-h1">Часті <em>питання</em>.</h1>
+        <p class="hero-lede">
+          Відповіді на те, що зазвичай виникає перед першим Discovery Call. Якщо вашого питання немає тут — пишіть, додам.
+        </p>
+        <p class="hero-hint">↓ Розгорніть секцію, щоб дізнатися більше</p>
+      </div>
+    </section>
+
+    <section class="acc-section">
+      <div class="about-shell">
+        <details class="acc" name="faq" id="services">
+          <summary class="acc-summary">
+            <span class="acc-num">01</span>
+            <span class="acc-label">Про послуги</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <div class="qa">
+              <h4 class="qa-q">Як обрати між Аудитом, Дослідженням і Відновленням?</h4>
+              <p>Швидкий незалежний read на конкретне рішення → <strong>Аудит</strong>. Плануємо серйозний проект і потрібен повний план → <strong>Дослідження</strong>. Проект уже у роботі, але втратив темп → <strong>Відновлення</strong>. На першому 30-хвилинному дзвінку розберемось разом, якщо ситуація змішана.</p>
+            </div>
+            <div class="qa">
+              <h4 class="qa-q">Що включено у кожен сервіс конкретно?</h4>
+              <p><strong>Аудит</strong> ($1,000 · 5-14 днів) — структурний read, 5 артефактів, 60-хв walk-through call. <strong>Дослідження</strong> ($4,000 · 2-8 тижнів) — повний product brief + budget + shortlist виконавців + пакет для переговорів. <strong>Відновлення</strong> ($2,500/міс retainer) — діагностика → стабілізація → передача, 3 фази. Деталі на сторінці кожного сервісу.</p>
+            </div>
+            <div class="qa">
+              <h4 class="qa-q">Чи можна замовити пілотний engagement?</h4>
+              <p>Найменший формат — Аудит від $1,000 за 5-14 днів. Це і є "перший контакт". Якщо обидва задоволені результатом — далі обговорюємо ширшу співпрацю. Менше за Аудит економіка не складається ні для вас, ні для мене.</p>
+            </div>
+            <div class="qa">
+              <h4 class="qa-q">Скільки реально коштуватиме вся робота?</h4>
+              <p>Залежить від проекту. Аудит і Дослідження — фіксована ціна з прозорим діапазоном. Відновлення — retainer, обсяг гнучкий. На Discovery Call даю range з обґрунтуванням після того як зрозумію контекст. Будь-які зміни обсягу обговорюємо до них, не після.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="acc" name="faq" id="process">
+          <summary class="acc-summary">
+            <span class="acc-num">02</span>
+            <span class="acc-label">Про процес</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <div class="qa">
+              <h4 class="qa-q">Як починається співпраця?</h4>
+              <p>Discovery Call — 30 хвилин, без презентацій, без обов'язків. Розкажете ситуацію, я задам уточнюючі питання, разом виберемо формат. Якщо я не той читач — скажу прямо і порекомендую когось іншого. Якщо рухаємось далі — окрема угода з фіксованим scope.</p>
+            </div>
+            <div class="qa">
+              <h4 class="qa-q">Чи підписуєте NDA?</h4>
+              <p>Так. Шаблон взаємного NDA надсилаю протягом 24 годин після запиту. Жодних деталей проекту у зовнішньому контенті чи комунікаціях без вашого письмового погодження. Це найперше правило роботи.</p>
+            </div>
+            <div class="qa">
+              <h4 class="qa-q">Скільки часу від першого дзвінка до результату?</h4>
+              <p>Discovery Call — протягом тижня після запиту. Після нього беру кілька днів на аналіз і повертаюся з планом. Фактичний старт — від кількох днів (Аудит) до 1-2 тижнів (Дослідження або Відновлення). Результати фази 1 — кінець 1-2 тижня залежно від формату.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="acc" name="faq" id="about-me">
+          <summary class="acc-summary">
+            <span class="acc-num">03</span>
+            <span class="acc-label">Про мене і AG</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <div class="qa">
+              <h4 class="qa-q">Чому "союзник", а не консультант?</h4>
+              <p>Консультант радить. Я залишаюся до результату. Різниця практична: консультант пише звіт і виходить. Я читаю проект як систему, формулюю рішення, залишаюся під час реалізації як голос на вашому боці столу. Аналогічно як юрист у переговорах — не радник збоку, а представник інтересів.</p>
+            </div>
+            <div class="qa">
+              <h4 class="qa-q">AG щойно запустилася — чи можна довіряти без опублікованих клієнтів?</h4>
+              <p>AG як практика — нова (квітень 2026). Робота, яку я роблю — не нова. 8 років бізнес-аналізу і продуктового менеджменту у IT (AI-продукти, логістика, фінтех, B2B SaaS), CEO активного стартапу TreximAI. Кейси на сайті — ілюстративні патерни з 8 років, не "200 клієнтів" і не "немає досвіду". Чесно.</p>
+            </div>
+            <div class="qa">
+              <h4 class="qa-q">Чи маю обов'язково користуватися вашою мережею команд?</h4>
+              <p>Ні. Якщо у вас уже є команда — працюю на вашому боці у переговорах, рев'ю, оверсайті. Мережа з'являється тільки якщо вам треба знайти команду — підбираю з перевірених партнерів. Без скритих комісій від них.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="acc" name="faq" id="technical">
+          <summary class="acc-summary">
+            <span class="acc-num">04</span>
+            <span class="acc-label">Технічні питання</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <div class="qa">
+              <h4 class="qa-q">Чи писатиме хтось код у моєму проекті?</h4>
+              <p>Сам я не виступаю розробником у вашому проекті. Але добре розумію архітектуру і працюю з сучасними AI-інструментами — швидкий прототип чи невеликий функціонал для перевірки гіпотези можу зібрати самостійно. Для повноцінної розробки залучаємо технічну команду — вашу або з мережі.</p>
+            </div>
+            <div class="qa">
+              <h4 class="qa-q">Чи маю бути технічним, щоб з вами працювати?</h4>
+              <p>Навпаки. AG позиціонована саме для <strong>нетехнічних</strong> засновників і бізнес-власників, які наймають IT. Якщо у вас уже є CTO або тех-кофаундер — можу підстрахувати конкретні рішення, але повний engagement зазвичай більше потрібен non-technical buyers.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="acc" name="faq" id="adjacent">
+          <summary class="acc-summary">
+            <span class="acc-num">05</span>
+            <span class="acc-label">Дотичні</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <div class="qa">
+              <h4 class="qa-q">Що якщо ми не підходимо один одному після Discovery Call?</h4>
+              <p>Ок. Discovery Call безкоштовний саме для цього — щоб обидва зрозуміли, чи це fit. Якщо ні — без обговорення продовжень. Можу порекомендувати когось іншого з мережі, якщо ваш кейс ближче їм.</p>
+            </div>
+            <div class="qa">
+              <h4 class="qa-q">Працюєте з міжнародними клієнтами?</h4>
+              <p>Так. Локація — Львів, Україна. Дистанційна робота — стандарт. Подорожі за потреби. Робочі мови — українська і англійська. Документація — мовою клієнта. Часові пояси EU + UK + US East — у межах робочого вікна.</p>
+            </div>
+            <div class="qa">
+              <h4 class="qa-q">Чи рекомендуєте інших, якщо ваш формат не підходить?</h4>
+              <p>Так. Якщо ваш кейс точніше підходить дизайнеру, BA, юристу або іншому формату consulting — порекомендую конкретних людей з мережі. Без референц-комісій з обох сторін. Інтерес — щоб ви вирішили завдання найкраще, не обов'язково через мене.</p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <FoundingCTA service="discovery" />
+  </main>
+  <Footer />
+
+  <script>
+    (function () {
+      const NAME = "faq";
+      function openAccordionFromHash(hash: string | null) {
+        if (!hash || hash === "#" || hash === "#book") return;
+        let target: HTMLElement | null = null;
+        try { target = document.querySelector(hash); } catch { return; }
+        if (target && target instanceof HTMLDetailsElement && target.getAttribute("name") === NAME) {
+          if (!target.open) target.open = true;
+        }
+      }
+      function init() {
+        const items = document.querySelectorAll<HTMLDetailsElement>(`details[name="${NAME}"]`);
+        if (!items.length) return;
+        const STICKY_OFFSET = 88;
+        items.forEach((det) => {
+          det.addEventListener("toggle", () => {
+            if (!det.open) return;
+            const summary = det.querySelector("summary");
+            if (!summary) return;
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                const rect = summary.getBoundingClientRect();
+                window.scrollTo({ top: window.scrollY + rect.top - STICKY_OFFSET, behavior: "smooth" });
+              });
+            });
+          });
+        });
+        document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((link) => {
+          const href = link.getAttribute("href");
+          if (!href || href === "#" || href === "#book") return;
+          link.addEventListener("click", () => { openAccordionFromHash(href); });
+        });
+        openAccordionFromHash(location.hash);
+      }
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", init);
+      } else { init(); }
+    })();
+  </script>
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        { "@type": "Question", name: "Як обрати між Аудитом, Дослідженням і Відновленням?", acceptedAnswer: { "@type": "Answer", text: "Швидкий незалежний read на конкретне рішення — Аудит. Плануємо серйозний проект і потрібен повний план — Дослідження. Проект уже у роботі, але втратив темп — Відновлення." } },
+        { "@type": "Question", name: "Чи підписуєте NDA?", acceptedAnswer: { "@type": "Answer", text: "Так. Шаблон взаємного NDA надсилаю протягом 24 годин після запиту." } },
+        { "@type": "Question", name: "AG щойно запустилася — чи можна довіряти без опублікованих клієнтів?", acceptedAnswer: { "@type": "Answer", text: "AG як практика нова (квітень 2026). Робота, яку я роблю — не нова. 8 років бізнес-аналізу і продуктового менеджменту у IT, CEO активного стартапу TreximAI." } },
+        { "@type": "Question", name: "Чи писатиме хтось код у моєму проекті?", acceptedAnswer: { "@type": "Answer", text: "Сам не виступаю розробником. Швидкий прототип можу зібрати з сучасними AI-інструментами. Повна розробка — через технічну команду (вашу або з мережі)." } },
+        { "@type": "Question", name: "Працюєте з міжнародними клієнтами?", acceptedAnswer: { "@type": "Answer", text: "Так. Локація — Львів, Україна. Дистанційна робота стандарт. Робочі мови — українська і англійська. Часові пояси EU + UK + US East." } },
+      ],
+      inLanguage: "uk",
+    })}
+  />
+</BaseLayout>
+
+<style>
+  .about { background: radial-gradient(ellipse at top right, rgba(184, 135, 58, 0.04), transparent 50%), radial-gradient(ellipse at bottom left, rgba(184, 135, 58, 0.03), transparent 40%), var(--bg-0); min-height: 100vh; }
+  .about-shell { max-width: 880px; margin: 0 auto; padding: 0 var(--gutter); }
+  @media (max-width: 720px) { .about-shell { padding: 0 var(--gutter-sm); } }
+
+  .hero { padding: 96px 0 48px; }
+  @media (max-width: 720px) { .hero { padding: 56px 0 32px; } }
+  .hero-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-pressed); margin: 0 0 24px; font-weight: 600; }
+  .hero-h1 { font-family: var(--font-display); font-size: clamp(44px, 6vw, 76px); line-height: 1.02; letter-spacing: -0.03em; color: var(--text-1); margin: 0 0 28px; font-weight: 700; max-width: 14ch; }
+  .hero-h1 em { font-style: italic; color: var(--editorial); font-weight: 700; }
+  .hero-lede { font-size: 19px; line-height: 1.6; color: var(--text-2); margin: 0 0 24px; max-width: 60ch; }
+  .hero-hint { font-family: var(--font-mono); font-size: 12px; color: var(--text-3); letter-spacing: 0.04em; margin: 24px 0 0; }
+
+  .acc-section { padding: 16px 0 40px; }
+  .acc { border-top: 1px solid var(--border-2); transition: background var(--dur-base) var(--ease); }
+  .acc:last-of-type { border-bottom: 1px solid var(--border-2); }
+  .acc[open] { background: var(--bg-1); border-top-color: var(--text-1); }
+  .acc[open] + .acc { border-top-color: var(--text-1); }
+  .acc-summary { display: grid; grid-template-columns: 56px 1fr 32px; align-items: center; gap: 16px; padding: 24px 0; cursor: pointer; list-style: none; user-select: none; }
+  .acc-summary::-webkit-details-marker { display: none; }
+  .acc-summary:hover .acc-label { color: var(--accent-pressed); }
+  .acc-summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+  .acc-num { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--accent-pressed); letter-spacing: 0.04em; line-height: 1; }
+  .acc-label { font-family: var(--font-display); font-size: clamp(20px, 2.4vw, 26px); color: var(--text-1); line-height: 1.2; letter-spacing: -0.01em; font-weight: 700; transition: color var(--dur-fast) var(--ease); }
+  .acc[open] .acc-label { color: var(--editorial); }
+  .acc-toggle { font-family: var(--font-mono); font-size: 28px; color: var(--accent-pressed); line-height: 1; text-align: right; transition: transform var(--dur-base) var(--ease); font-weight: 300; }
+  .acc[open] .acc-toggle { transform: rotate(45deg); }
+  .acc-body { padding: 0 0 36px 72px; max-width: 68ch; }
+  @media (max-width: 720px) { .acc-body { padding: 0 0 28px 0; } }
+  .acc-body p { font-size: 17px; line-height: 1.7; color: var(--text-2); margin: 0 0 18px; }
+  .acc-body p:last-child { margin-bottom: 0; }
+  .acc-body p strong { color: var(--text-1); font-weight: 700; }
+
+  .qa { margin-bottom: 28px; padding-bottom: 22px; border-bottom: 1px solid var(--border-1); }
+  .qa:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
+  .qa-q { font-family: var(--font-display); font-size: 18px; color: var(--text-1); margin: 0 0 10px; line-height: 1.35; font-weight: 600; }
+</style>

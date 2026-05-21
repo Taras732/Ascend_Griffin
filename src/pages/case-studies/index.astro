@@ -1,0 +1,146 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+import { getCollection } from "astro:content";
+
+const allCases = await getCollection(
+  "cases",
+  ({ data }) => data.lang === "en" && !data.draft,
+);
+
+const hasCases = allCases.length > 0;
+
+const title = "Cases | Ascend Griffin";
+const description =
+  "Illustrative composite patterns from 8 years of work in IT consulting — fintech, logistics, AI products, B2B SaaS, and civic initiatives.";
+---
+
+<BaseLayout title={title} description={description}>
+  <Nav />
+  <main class="cases-soon">
+    <div class="soon-shell">
+      <p class="soon-eyebrow">Cases · Ascend Griffin</p>
+      <h1 class="soon-h1">
+        Cases in <em>English</em> — coming soon.
+      </h1>
+      <p class="soon-lede">
+        The Ukrainian version is live with 8 illustrative composite patterns from real engagement shapes —
+        fintech rescue, logistics audits, AI feasibility research, and more. English translations are queued
+        for Phase 2 after validation on the Ukrainian market.
+      </p>
+
+      <div class="soon-actions">
+        <a href="/uk/case-studies/" class="soon-btn-primary">
+          Read in Ukrainian →
+        </a>
+        <a
+          href="#book"
+          class="soon-btn-ghost"
+          data-modal="booking"
+          data-subject="discovery-call"
+          data-source="cases-en-soon"
+        >
+          Or book a Discovery Call
+        </a>
+      </div>
+
+      {hasCases && (
+        <p class="soon-note">
+          (Internal note: {allCases.length} EN cases exist — but this page currently renders the
+          "coming soon" template. Replace this template with a live grid when ready.)
+        </p>
+      )}
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .cases-soon {
+    background:
+      radial-gradient(ellipse at top right, rgba(184, 135, 58, 0.04), transparent 50%),
+      var(--bg-0);
+    min-height: calc(100vh - 200px);
+    padding: 96px 0 120px;
+  }
+  @media (max-width: 720px) { .cases-soon { padding: 56px 0 72px; } }
+
+  .soon-shell {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+  }
+  @media (max-width: 720px) { .soon-shell { padding: 0 var(--gutter-sm); } }
+
+  .soon-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-pressed);
+    margin: 0 0 18px;
+    font-weight: 700;
+  }
+  .soon-h1 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    color: var(--text-1);
+    margin: 0 0 22px;
+    font-weight: 700;
+    max-width: 14ch;
+  }
+  .soon-h1 em {
+    font-style: italic;
+    color: var(--editorial);
+  }
+  .soon-lede {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--text-2);
+    margin: 0 0 36px;
+    max-width: 56ch;
+  }
+  .soon-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .soon-btn-primary {
+    display: inline-block;
+    background: var(--text-1);
+    color: var(--bg-0);
+    padding: 14px 26px;
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-weight: 600;
+    border-radius: 2px;
+    font-size: 15px;
+    transition: background var(--dur-fast) var(--ease);
+  }
+  .soon-btn-primary:hover { background: var(--accent); color: var(--accent-ink); }
+  .soon-btn-ghost {
+    display: inline-block;
+    background: transparent;
+    color: var(--text-2);
+    padding: 14px 22px;
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-weight: 500;
+    border-radius: 2px;
+    font-size: 15px;
+    border: 1px solid var(--border-2);
+    transition: all var(--dur-fast) var(--ease);
+  }
+  .soon-btn-ghost:hover { border-color: var(--text-1); color: var(--text-1); }
+  .soon-note {
+    margin: 48px 0 0;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-4);
+    padding-top: 20px;
+    border-top: 1px dashed var(--border-1);
+  }
+</style>

@@ -23,7 +23,7 @@ const labels = isUk
       audit: "Аудит AI",
       discovery: "Дослідження",
       recovery: "Відновлення",
-      casesSoon: "Кейси (скоро)",
+      cases: "Кейси",
       howIWork: "Як я працюю",
       blog: "Блог",
       cta: "Discovery Call",
@@ -37,7 +37,7 @@ const labels = isUk
       audit: "AI Audit",
       discovery: "Discovery",
       recovery: "Recovery",
-      casesSoon: "Cases (soon)",
+      cases: "Cases",
       howIWork: "How I work",
       blog: "Blog",
       cta: "Discovery Call",
@@ -52,6 +52,7 @@ const links = {
   audit: `${prefix}/ai-readiness-audit/`,
   discovery: `${prefix}/idea-translator/`,
   recovery: `${prefix}/project-rescue/`,
+  cases: `${prefix}/case-studies/`,
   howIWork: `${prefix}/how-i-work/`,
   blog: `${prefix}/blog/`,
 };
@@ -87,7 +88,7 @@ const links = {
           <li role="none"><a role="menuitem" href={links.audit}>{labels.audit}</a></li>
           <li role="none"><a role="menuitem" href={links.discovery}>{labels.discovery}</a></li>
           <li role="none"><a role="menuitem" href={links.recovery}>{labels.recovery}</a></li>
-          <li role="none" class="nav-dropdown-soon"><span>{labels.casesSoon}</span></li>
+          <li role="none"><a role="menuitem" href={links.cases}>{labels.cases}</a></li>
         </ul>
       </li>
 

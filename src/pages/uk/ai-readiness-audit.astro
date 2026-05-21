@@ -125,6 +125,16 @@ const description =
                 </div>
               </li>
             </ol>
+
+            <div class="outcomes">
+              <p class="outcomes-h">Кінцева цінність — не в звіті, а в тому, що ви знаєте, що робити далі:</p>
+              <ul class="outcomes-list">
+                <li>Виправити підсвічені ризики — з пріоритетами і оцінкою впливу.</li>
+                <li>Підготуватись до масштабування — з ясним уявленням, що тримає, а що ні.</li>
+                <li>Скоригувати продуктову чи маркетингову стратегію — на основі реального стану продукту.</li>
+                <li>Або підтвердити, що поточне рішення тримає, і з ним можна виходити на ринок без зайвих переробок.</li>
+              </ul>
+            </div>
           </div>
         </details>
 
@@ -337,6 +347,43 @@ const description =
   .exclude li:last-child { border-bottom: 0; }
   .exclude-mark { font-family: var(--font-mono); color: var(--accent-pressed); font-size: 18px; line-height: 1; flex-shrink: 0; font-weight: 700; }
   .exclude strong { color: var(--text-1); font-weight: 700; }
+
+  .outcomes {
+    margin-top: 32px;
+    padding: 24px 28px;
+    background: var(--bg-0);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 2px 2px 0;
+  }
+  .outcomes-h {
+    font-family: var(--font-display);
+    font-size: 16px;
+    color: var(--text-1);
+    font-weight: 600;
+    margin: 0 0 14px;
+    line-height: 1.45;
+  }
+  .outcomes-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .outcomes-list li {
+    position: relative;
+    padding: 6px 0 6px 22px;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--text-2);
+  }
+  .outcomes-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    color: var(--accent-pressed);
+    font-family: var(--font-mono);
+    font-weight: 700;
+  }
 
   .qa { margin-bottom: 28px; padding-bottom: 22px; border-bottom: 1px solid var(--border-1); }
   .qa:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }

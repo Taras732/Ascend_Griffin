@@ -9,6 +9,12 @@ interface Heading {
   text: string;
 }
 
+interface SeriesNeighbor {
+  slug: string;
+  title: string;
+  draft?: boolean;
+}
+
 interface Props {
   title: string;
   description: string;
@@ -20,6 +26,8 @@ interface Props {
   readingTime?: string;
   headings?: Heading[];
   draft?: boolean;
+  seriesPrev?: SeriesNeighbor;
+  seriesNext?: SeriesNeighbor;
 }
 
 const {
@@ -32,6 +40,8 @@ const {
   readingTime,
   headings = [],
   draft = false,
+  seriesPrev,
+  seriesNext,
 } = Astro.props;
 
 const isUk = lang === "uk";
@@ -53,6 +63,9 @@ const backLabel = isUk ? "← Усі статті" : "← All posts";
 const updatedLabel = isUk ? "Оновлено" : "Updated";
 const tagsLabel = isUk ? "Теми" : "Tags";
 const tocLabel = isUk ? "Зміст" : "Contents";
+const prevLabel = isUk ? "Попередня" : "Previous";
+const nextLabel = isUk ? "Наступна" : "Next";
+const pendingTag = isUk ? "готується" : "coming soon";
 
 // Only H2 headings in ToC (H3 etc. are sub-points)
 const tocItems = headings.filter((h) => h.depth === 2);
@@ -117,6 +130,55 @@ const hasToc = tocItems.length >= 3;
             <slot />
           </div>
         </div>
+
+        {(seriesPrev || seriesNext) && (
+          <nav class="series-nav" aria-label="Series navigation">
+            <div class="series-nav-grid">
+              {seriesPrev ? (
+                seriesPrev.draft ? (
+                  <span class="series-nav-card series-nav-pending series-nav-prev">
+                    <span class="series-nav-arrow" aria-hidden="true">←</span>
+                    <span class="series-nav-body">
+                      <span class="series-nav-label">{prevLabel} · {pendingTag}</span>
+                      <span class="series-nav-title">{seriesPrev.title}</span>
+                    </span>
+                  </span>
+                ) : (
+                  <a class="series-nav-card series-nav-prev" href={seriesPrev.slug}>
+                    <span class="series-nav-arrow" aria-hidden="true">←</span>
+                    <span class="series-nav-body">
+                      <span class="series-nav-label">{prevLabel}</span>
+                      <span class="series-nav-title">{seriesPrev.title}</span>
+                    </span>
+                  </a>
+                )
+              ) : (
+                <span></span>
+              )}
+              {seriesNext ? (
+                seriesNext.draft ? (
+                  <span class="series-nav-card series-nav-pending series-nav-next">
+                    <span class="series-nav-body">
+                      <span class="series-nav-label">{nextLabel} · {pendingTag}</span>
+                      <span class="series-nav-title">{seriesNext.title}</span>
+                    </span>
+                    <span class="series-nav-arrow" aria-hidden="true">→</span>
+                  </span>
+                ) : (
+                  <a class="series-nav-card series-nav-next" href={seriesNext.slug}>
+                    <span class="series-nav-body">
+                      <span class="series-nav-label">{nextLabel}</span>
+                      <span class="series-nav-title">{seriesNext.title}</span>
+                    </span>
+                    <span class="series-nav-arrow" aria-hidden="true">→</span>
+                  </a>
+                )
+              ) : (
+                <span></span>
+              )}
+            </div>
+          </nav>
+        )}
 
         {tags.length > 0 && (
           <div class="post-tags">
@@ -484,6 +546,79 @@ const hasToc = tocItems.length >= 3;
 
   .post-body { max-width: 720px; }
   @media (max-width: 900px) { .post-body { max-width: none; } }
+
+  /* Series nav (prev / next) */
+  .series-nav {
+    max-width: 880px;
+    margin: 0 auto 32px;
+  }
+  .series-nav-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 720px) {
+    .series-nav-grid { grid-template-columns: 1fr; }
+  }
+  .series-nav-card {
+    display: grid;
+    grid-template-columns: 24px 1fr 24px;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 20px;
+    background: var(--bg-1);
+    border: 1px solid var(--border-1);
+    border-radius: 4px;
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--dur-fast) var(--ease);
+  }
+  .series-nav-card:hover {
+    border-color: var(--accent);
+    background: var(--bg-0);
+    transform: translateY(-1px);
+  }
+  .series-nav-card.series-nav-pending {
+    background: var(--bg-2);
+    cursor: default;
+    opacity: 0.75;
+  }
+  .series-nav-card.series-nav-pending:hover {
+    border-color: var(--border-1);
+    transform: none;
+  }
+  .series-nav-prev { grid-template-columns: 24px 1fr; }
+  .series-nav-next { grid-template-columns: 1fr 24px; text-align: right; }
+  @media (max-width: 720px) {
+    .series-nav-next { text-align: left; }
+  }
+  .series-nav-arrow {
+    font-family: var(--font-mono);
+    font-size: 18px;
+    color: var(--accent-pressed);
+    line-height: 1;
+  }
+  .series-nav-body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+  .series-nav-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-3);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .series-nav-title {
+    font-family: var(--font-display);
+    font-size: 14px;
+    color: var(--text-1);
+    line-height: 1.4;
+    font-weight: 600;
+  }
 
   .post-tags {
     display: flex;

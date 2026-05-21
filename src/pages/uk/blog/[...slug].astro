@@ -13,6 +13,34 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content, headings } = await render(post);
+
+// Series prev/next computation
+let seriesPrev: { slug: string; title: string; draft: boolean } | undefined;
+let seriesNext: { slug: string; title: string; draft: boolean } | undefined;
+
+if (post.data.series) {
+  const allInSeries = await getCollection("blog", ({ data }) =>
+    data.series === post.data.series && data.lang === "uk"
+  );
+  allInSeries.sort((a, b) => (a.data.seriesOrder ?? 999) - (b.data.seriesOrder ?? 999));
+  const idx = allInSeries.findIndex((p) => p.id === post.id);
+  if (idx > 0) {
+    const prev = allInSeries[idx - 1];
+    seriesPrev = {
+      slug: `/uk/blog/${prev.id.replace(/^uk\//, "")}/`,
+      title: prev.data.title,
+      draft: !!prev.data.draft,
+    };
+  }
+  if (idx >= 0 && idx < allInSeries.length - 1) {
+    const next = allInSeries[idx + 1];
+    seriesNext = {
+      slug: `/uk/blog/${next.id.replace(/^uk\//, "")}/`,
+      title: next.data.title,
+      draft: !!next.data.draft,
+    };
+  }
+}
 ---
 
 <PostLayout
@@ -26,6 +54,8 @@ const { Content, headings } = await render(post);
   readingTime={post.data.readingTime}
   headings={headings}
   draft={post.data.draft}
+  seriesPrev={seriesPrev}
+  seriesNext={seriesNext}
 >
   <Content />
 </PostLayout>

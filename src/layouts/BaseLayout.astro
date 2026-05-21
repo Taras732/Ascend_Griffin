@@ -8,11 +8,12 @@ import "../styles/tokens.css";
 interface Props {
   title?: string;
   description?: string;
+  noindex?: boolean;
 }
 
 const tr = t(Astro.currentLocale);
 const lang = Astro.currentLocale === "uk" ? "uk" : "en";
-const { title = tr.site.seo.title, description = tr.site.seo.description } = Astro.props;
+const { title = tr.site.seo.title, description = tr.site.seo.description, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, site.url).toString();
 const altLocaleHref = lang === "uk" ? site.url + "/" : site.url + "/uk/";
 const altLocaleCode = lang === "uk" ? "en" : "uk";
@@ -28,6 +29,7 @@ const altLocaleCode = lang === "uk" ? "en" : "uk";
     <meta name="keywords" content={tr.site.seo.keywords} />
     <meta name="author" content={site.founder} />
     <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="alternate" hreflang={altLocaleCode} href={altLocaleHref} />
     <link rel="alternate" hreflang="x-default" href={site.url + "/"} />
 

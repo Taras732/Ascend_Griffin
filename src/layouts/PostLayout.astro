@@ -19,6 +19,7 @@ interface Props {
   ogImage?: string;
   readingTime?: string;
   headings?: Heading[];
+  draft?: boolean;
 }
 
 const {
@@ -30,6 +31,7 @@ const {
   tags = [],
   readingTime,
   headings = [],
+  draft = false,
 } = Astro.props;
 
 const isUk = lang === "uk";
@@ -57,9 +59,19 @@ const tocItems = headings.filter((h) => h.depth === 2);
 const hasToc = tocItems.length >= 3;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} noindex={draft}>
   <Nav />
   <main class="page-main">
+    {draft && (
+      <div class="draft-banner" role="status">
+        <span class="draft-banner-tag">DRAFT</span>
+        <span class="draft-banner-msg">
+          {isUk
+            ? "Це чернетка — ще не опублікована. Тільки тестова версія для перевірки."
+            : "This is a draft — not yet published. Preview-only version for review."}
+        </span>
+      </div>
+    )}
     <article class="post">
       <div class="post-shell">
         <a class="post-back" href={backToBlog}>{backLabel}</a>
@@ -301,6 +313,33 @@ const hasToc = tocItems.length >= 3;
 </style>
 
 <style>
+  .draft-banner {
+    background: #FFF6D6;
+    color: #6B4F00;
+    border-bottom: 2px solid #E6B800;
+    padding: 12px var(--gutter);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.4;
+    position: sticky;
+    top: 56px;
+    z-index: 50;
+  }
+  @media (max-width: 720px) { .draft-banner { padding: 10px var(--gutter-sm); top: 52px; } }
+  .draft-banner-tag {
+    background: #6B4F00;
+    color: #FFF6D6;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    flex-shrink: 0;
+  }
+
   .post { padding: 64px 0 96px; }
   @media (max-width: 720px) { .post { padding: 40px 0 64px; } }
 
@@ -388,11 +427,11 @@ const hasToc = tocItems.length >= 3;
   }
   .post-toc-label {
     font-family: var(--font-mono);
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--text-4);
-    margin: 0 0 14px;
+    margin: 0 0 16px;
     font-weight: 600;
   }
   .post-toc-list {
@@ -401,46 +440,46 @@ const hasToc = tocItems.length >= 3;
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 6px;
   }
   @media (max-width: 900px) {
     .post-toc-list {
-      gap: 8px;
-      max-height: 200px;
+      gap: 10px;
+      max-height: 220px;
       overflow-y: auto;
     }
   }
   .post-toc-item { margin: 0; padding: 0; }
   .post-toc-link {
     display: grid;
-    grid-template-columns: 24px 1fr;
-    gap: 8px;
+    grid-template-columns: 28px 1fr;
+    gap: 10px;
     text-decoration: none;
-    padding: 6px 0;
+    padding: 8px 0;
     transition: color var(--dur-fast) var(--ease);
     align-items: baseline;
   }
   .post-toc-num {
     font-family: var(--font-mono);
-    font-size: 10px;
+    font-size: 12px;
     color: var(--text-4);
     font-weight: 700;
     letter-spacing: 0.04em;
     line-height: 1.4;
   }
   .post-toc-text {
-    font-family: var(--font-mono);
-    font-size: 11px;
+    font-family: var(--font-body);
+    font-size: 14px;
     color: var(--text-3);
-    line-height: 1.45;
-    letter-spacing: 0.02em;
+    line-height: 1.5;
+    letter-spacing: 0;
   }
   .post-toc-link:hover .post-toc-num,
   .post-toc-link:hover .post-toc-text { color: var(--text-1); }
   .post-toc-link.is-active .post-toc-num { color: var(--accent-pressed); }
   .post-toc-link.is-active .post-toc-text {
     color: var(--text-1);
-    font-weight: 700;
+    font-weight: 600;
   }
 
   .post-body { max-width: 720px; }

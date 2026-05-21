@@ -5,6 +5,8 @@ pubDate: 2026-09-23
 lang: uk
 tags: [obsidian, templater, productivity, templates, knowledge-management]
 readingTime: "9 хв"
+series: obsidian-ai
+seriesOrder: 7
 draft: true
 canonical: https://ascendgriffin.org/uk/blog/templater-operating-system/
 ---

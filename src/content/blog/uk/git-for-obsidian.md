@@ -5,6 +5,8 @@ pubDate: 2026-07-01
 lang: uk
 tags: [obsidian, git, github, backup, knowledge-management]
 readingTime: "9 хв"
+series: obsidian-ai
+seriesOrder: 3
 draft: true
 canonical: https://ascendgriffin.org/uk/blog/git-for-obsidian/
 ---

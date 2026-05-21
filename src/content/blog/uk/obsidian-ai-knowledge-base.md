@@ -5,6 +5,8 @@ pubDate: 2026-05-20
 lang: uk
 tags: [obsidian, ai, knowledge-management, para, claude-code]
 readingTime: "8 хв"
+series: obsidian-ai
+seriesOrder: 1
 canonical: https://ascendgriffin.org/uk/blog/obsidian-ai-knowledge-base/
 ---
 

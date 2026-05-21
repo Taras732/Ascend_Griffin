@@ -5,6 +5,8 @@ pubDate: 2026-08-12
 lang: uk
 tags: [obsidian, sync, mobile, tailscale, knowledge-management]
 readingTime: "8 хв"
+series: obsidian-ai
+seriesOrder: 5
 draft: true
 canonical: https://ascendgriffin.org/uk/blog/obsidian-sync-options/
 ---

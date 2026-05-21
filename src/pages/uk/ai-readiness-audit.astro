@@ -13,213 +13,207 @@ const description =
 
 <BaseLayout title={title} description={description}>
   <Nav />
-  <main class="svc">
+  <main class="about">
     {/* ── Hero ────────────────────────────────────────────────────── */}
-    <section class="svc-hero">
-      <div class="svc-grid">
-        <aside class="svc-rail">
-          <div class="rail-marker">01</div>
-          <div class="rail-label">Аудит</div>
-        </aside>
+    <section class="hero">
+      <div class="about-shell">
+        <p class="hero-eyebrow">01 · Аудит AI-готовності</p>
 
-        <div class="svc-hero-body">
-          <p class="svc-epigraph">
-            "Більшість IT-проєктів провалюються не через поганий код.<br />
-            А тому, що ніхто не читав на боці клієнта."
-          </p>
+        <h1 class="hero-h1">
+          Прочитайте свій AI-продукт — <em>як він є</em>.
+        </h1>
 
-          <h1 class="svc-h1">
-            Прочитайте свій AI-продукт <em>як він є</em> —<br />
-            до того, як він коштуватиме ще $50K.
-          </h1>
+        <p class="hero-lede">
+          Vibe-coded прототип, пропозиція від вендора на столі або AI-функція, що тихо перестала працювати. Перед тим, як вкладати ще $50K — структурний read від того, у кого немає фінансового інтересу у рішенні будувати.
+        </p>
 
-          <p class="svc-lede">
-            Vibe-coded прототип. Пропозиція від вендора на столі. Існуюча AI-функція, що тихо перестала працювати. Перед тим, як вкладати наступну порцію капіталу — структурне читання від того, хто фінансово не зацікавлений у рішенні будувати.
-          </p>
+        <PricingBadge price="від $1,000" duration="5-14 днів" />
 
-          <PricingBadge price="від $1,000" duration="5-14 днів" />
-
-          <div class="svc-hero-cta">
-            <a
-              href="#book"
-              class="svc-btn-primary"
-              data-modal="booking"
-              data-subject="audit"
-              data-source="ai-audit-hero"
-            >
-              Замовити аудит →
-            </a>
-            <a href="#deliverables" class="svc-btn-ghost">Що отримаєте →</a>
-          </div>
+        <div class="hero-cta">
+          <a
+            href="#book"
+            class="btn-primary"
+            data-modal="booking"
+            data-subject="audit"
+            data-source="ai-audit-hero"
+          >
+            Замовити аудит →
+          </a>
+          <a href="#what-you-get" class="btn-ghost">Що отримаєте →</a>
         </div>
+
+        <p class="hero-hint">↓ Розгорніть секцію, щоб дізнатися більше</p>
       </div>
     </section>
 
     <TrustBlock />
 
-    {/* ── Who this is for ────────────────────────────────────────── */}
-    <section class="svc-section" id="who">
-      <div class="svc-grid">
-        <aside class="svc-rail">
-          <div class="rail-marker">02</div>
-          <div class="rail-label">Для кого</div>
-        </aside>
+    {/* ── Accordion ──────────────────────────────────────────────── */}
+    <section class="acc-section">
+      <div class="about-shell">
+        <details class="acc" name="audit" id="who">
+          <summary class="acc-summary">
+            <span class="acc-num">02</span>
+            <span class="acc-label">Для кого</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <h3 class="acc-h">Дві ситуації, з якими я працюю.</h3>
 
-        <div class="svc-section-body">
-          <h2 class="svc-h2">Дві ситуації, з якими я працюю.</h2>
+            <article class="icp-card">
+              <header class="icp-header">
+                <span class="icp-letter">A</span>
+                <h4 class="icp-title">Vibe coder, який зібрав щось реальне.</h4>
+              </header>
+              <p>Ви зібрали робочий прототип у Cursor, v0, Lovable або Claude. Двадцять платних користувачів. Кілька фіч у роботі. І зростаюче відчуття, що щось у фундаменті не так — але ви не вмієте читати кодову базу, щоб це підтвердити. Розробник вам зараз не потрібен. Вам потрібен хтось, хто скаже: <em>що тримається, що ні, і який реальний шлях до production-readiness.</em></p>
+            </article>
 
-          <article class="icp-card">
-            <header class="icp-header">
-              <span class="icp-num">A</span>
-              <h3 class="icp-title">Vibe coder, який зібрав щось реальне.</h3>
-            </header>
-            <p>
-              Ви зібрали робочий прототип у Cursor, v0, Lovable або Claude. Двадцять платних користувачів. Кілька фіч у роботі. І зростаюче відчуття, що щось у фундаменті не так — але ви не вмієте читати кодову базу, щоб це підтвердити. Розробник вам зараз не потрібен. Вам потрібен хтось, хто скаже: <em>що тримається, що ні, і який реальний шлях до production-readiness.</em>
-            </p>
-          </article>
+            <article class="icp-card">
+              <header class="icp-header">
+                <span class="icp-letter">B</span>
+                <h4 class="icp-title">Нетехнічний замовник з трьома пропозиціями.</h4>
+              </header>
+              <p>Три пропозиції від вендорів на столі. $45K до $120K за те, що звучить як один і той же проект. Один вендор впевнений, двоє розпливчасті, всі три переконливі. Без технічного бекграунду майже неможливо зрозуміти, яка пропозиція чесна, яка роздута, а яка виросте на 40% при першому запиті на зміни. <em>Завдання — прочитати ці пропозиції так, як вендор їх писав</em> — і перекласти на чітку рекомендацію.</p>
+            </article>
+          </div>
+        </details>
 
-          <hr class="hairline" />
+        <details class="acc" name="audit" id="what-you-get">
+          <summary class="acc-summary">
+            <span class="acc-num">03</span>
+            <span class="acc-label">Що отримаєте</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <h3 class="acc-h">П'ять конкретних артефактів.</h3>
+            <p class="acc-lede">Не презентація. Не "фреймворк". П'ять речей, з якими ваша команда може діяти наступного ранку після фінальної розмови.</p>
 
-          <article class="icp-card">
-            <header class="icp-header">
-              <span class="icp-num">B</span>
-              <h3 class="icp-title">Нетехнічний замовник з трьома пропозиціями.</h3>
-            </header>
-            <p>
-              Три пропозиції від вендорів на столі. $45K до $120K за те, що звучить як один і той же проект. Один вендор впевнений, двоє розпливчасті, всі три переконливі. Без технічного бекграунду майже неможливо зрозуміти, яка пропозиція чесна, яка роздута, а яка виросте на 40% при першому запиті на зміни. <em>Завдання — прочитати ці пропозиції так, як вендор їх писав</em> — і перекласти на чітку рекомендацію.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
+            <ol class="modes">
+              <li class="mode">
+                <span class="mode-letter">01</span>
+                <div class="mode-body">
+                  <h4>Простою мовою — що зібрано.</h4>
+                  <p>Кодова база, пропозиція вендора або AI-функція — що тримається, що ні, у порядку пріоритету. Без термінології, яку треба гуглити.</p>
+                </div>
+              </li>
+              <li class="mode">
+                <span class="mode-letter">02</span>
+                <div class="mode-body">
+                  <h4>Конкретні ризики з тегами впливу на бюджет.</h4>
+                  <p>"Цей пункт контракту коштуватиме ~$8K на третій місяць" — не "це варто розглянути". Цифри де можна їх прикріпити.</p>
+                </div>
+              </li>
+              <li class="mode">
+                <span class="mode-letter">03</span>
+                <div class="mode-body">
+                  <h4>Рамка порівняння, якщо ви обираєте.</h4>
+                  <p>Build vs. buy. Переписати vs. латати. Вендор A vs. вендор B. Кожен варіант оцінений за критеріями, що реально важать для бізнесу.</p>
+                </div>
+              </li>
+              <li class="mode">
+                <span class="mode-letter">04</span>
+                <div class="mode-body">
+                  <h4>Одна сторінка резюме для команди.</h4>
+                  <p>Написана так, щоб мала сенс для нетехнічних читачів — кофаундерів, ради, фінансів — без потреби, щоб я був у кімнаті.</p>
+                </div>
+              </li>
+              <li class="mode">
+                <span class="mode-letter">05</span>
+                <div class="mode-body">
+                  <h4>60-хвилинна розмова з покроковим обговоренням.</h4>
+                  <p>Реальні питання — реальні відповіді у реальному часі. Не Slack-тред, який охолоне у п'ятницю.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </details>
 
-    {/* ── Deliverables ───────────────────────────────────────────── */}
-    <section class="svc-section svc-section-deliverables" id="deliverables">
-      <div class="svc-grid">
-        <aside class="svc-rail">
-          <div class="rail-marker">03</div>
-          <div class="rail-label">Що отримаєте</div>
-        </aside>
+        <details class="acc" name="audit" id="not-included">
+          <summary class="acc-summary">
+            <span class="acc-num">04</span>
+            <span class="acc-label">Не входить</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <h3 class="acc-h">Чим цей аудит <em>не є</em>.</h3>
+            <p class="acc-lede">Щоб не витратити час обом — нашу першу розмову.</p>
 
-        <div class="svc-section-body">
-          <h2 class="svc-h2">П'ять конкретних артефактів.</h2>
-          <p class="svc-section-lede">
-            Не презентація. Не "фреймворк". П'ять речей, з якими ваша команда може діяти наступного ранку після фінальної розмови.
-          </p>
+            <ul class="exclude">
+              <li>
+                <span class="exclude-mark">→</span>
+                <span><strong>Рефакторинг коду.</strong> Я читаю. Я не переписую.</span>
+              </li>
+              <li>
+                <span class="exclude-mark">→</span>
+                <span><strong>Знайомство з вендорами.</strong> Окрема послуга, scope'ується інакше.</span>
+              </li>
+              <li>
+                <span class="exclude-mark">→</span>
+                <span><strong>Довгостроковий супровід.</strong> Це Project Support — теж окремо.</span>
+              </li>
+              <li>
+                <span class="exclude-mark">→</span>
+                <span><strong>Pitch deck або фандрейзинг.</strong> Окрема компетенція. Можу порадити людей, які роблять це краще.</span>
+              </li>
+            </ul>
+          </div>
+        </details>
 
-          <ol class="ledger">
-            <li class="ledger-item">
-              <span class="ledger-num">01</span>
-              <div class="ledger-content">
-                <h4>Простою мовою — що зібрано.</h4>
-                <p>Кодова база, пропозиція вендора або AI-функція — що тримається, що ні, у порядку пріоритету. Без термінології, яку треба гуглити.</p>
-              </div>
-            </li>
-            <li class="ledger-item">
-              <span class="ledger-num">02</span>
-              <div class="ledger-content">
-                <h4>Конкретні ризики з тегами впливу на бюджет.</h4>
-                <p>"Цей пункт контракту коштуватиме ~$8K на третій місяць" — не "це варто розглянути". Цифри де можна їх прикріпити.</p>
-              </div>
-            </li>
-            <li class="ledger-item">
-              <span class="ledger-num">03</span>
-              <div class="ledger-content">
-                <h4>Рамка порівняння, якщо ви обираєте.</h4>
-                <p>Build vs. buy. Переписати vs. латати. Вендор A vs. вендор B. Кожен варіант оцінений за критеріями, що реально важать для бізнесу.</p>
-              </div>
-            </li>
-            <li class="ledger-item">
-              <span class="ledger-num">04</span>
-              <div class="ledger-content">
-                <h4>Одна сторінка резюме для команди.</h4>
-                <p>Написана так, щоб мала сенс для нетехнічних читачів — кофаундерів, ради, фінансів — без потреби, щоб я був у кімнаті.</p>
-              </div>
-            </li>
-            <li class="ledger-item">
-              <span class="ledger-num">05</span>
-              <div class="ledger-content">
-                <h4>60-хвилинна розмова з покроковим обговоренням.</h4>
-                <p>Реальні питання — реальні відповіді у реальному часі. Не Slack-тред, який охолоне у п'ятницю.</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-      </div>
-    </section>
-
-    {/* ── Not included ───────────────────────────────────────────── */}
-    <section class="svc-section svc-section-muted" id="not">
-      <div class="svc-grid">
-        <aside class="svc-rail">
-          <div class="rail-marker">04</div>
-          <div class="rail-label">Не входить</div>
-        </aside>
-
-        <div class="svc-section-body">
-          <h2 class="svc-h2">Чим цей аудит <em>не є</em>.</h2>
-          <p class="svc-section-lede">
-            Щоб не витратити час обом — нашу першу розмову.
-          </p>
-
-          <ul class="exclude">
-            <li><span class="exclude-mark">—</span><span><strong>Рефакторинг коду.</strong> Я читаю. Я не переписую.</span></li>
-            <li><span class="exclude-mark">—</span><span><strong>Знайомство з вендорами.</strong> Окрема послуга, scope'ується інакше.</span></li>
-            <li><span class="exclude-mark">—</span><span><strong>Довгостроковий супровід.</strong> Це Project Support — теж окремо.</span></li>
-            <li><span class="exclude-mark">—</span><span><strong>Pitch deck або допомога з фандрейзингом.</strong> Не це, і є люди, які зроблять це краще.</span></li>
-            <li><span class="exclude-mark">—</span><span><strong>"Скажи мені те, що я хочу почути."</strong> Якщо шукаєте підтвердження, а не верифікацію — я точно не той читач.</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    {/* ── FAQ ────────────────────────────────────────────────────── */}
-    <section class="svc-section" id="faq">
-      <div class="svc-grid">
-        <aside class="svc-rail">
-          <div class="rail-marker">05</div>
-          <div class="rail-label">Часті питання</div>
-        </aside>
-
-        <div class="svc-section-body">
-          <h2 class="svc-h2">Три питання, що виникають.</h2>
-
-          <details class="faq-item">
-            <summary>
-              <span class="faq-q">Чим це відрізняється від code review?</span>
-              <span class="faq-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-a">
-              <p>Code review каже вам, чи добре написаний код. Цей аудит каже, чи добре прийнято <em>рішення про проєкт</em>. Різне питання, різна відповідь. Якщо вам також потрібен code review — я можу порадити спеціалістів, які зроблять це краще, ніж я.</p>
+        <details class="acc" name="audit" id="faq">
+          <summary class="acc-summary">
+            <span class="acc-num">05</span>
+            <span class="acc-label">Часті питання</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <div class="qa">
+              <h4 class="qa-q">Чим це відрізняється від code review?</h4>
+              <p>Code review каже вам, чи добре написаний код. Цей аудит каже, чи добре прийнято <em>рішення про проект</em>. Різне питання, різна відповідь. Якщо вам також потрібен code review — я можу порадити спеціалістів, які зроблять це краще, ніж я.</p>
             </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>
-              <span class="faq-q">А якщо ви не знайдете нічого поганого?</span>
-              <span class="faq-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-a">
+            <div class="qa">
+              <h4 class="qa-q">А якщо ви не знайдете нічого поганого?</h4>
               <p>Таке буває — і це теж корисна відповідь. Ви виходите з документованою впевненістю, що шлях, на якому ви, тримається. Більшість засновників, які платять за зовнішнє читання, шукають саме це: право діяти, маючи незалежну людину, яка підтверджує, що все ОК.</p>
             </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>
-              <span class="faq-q">Чи підписуєте NDA?</span>
-              <span class="faq-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-a">
-              <p>Так. Шаблон взаємного NDA надсилаю протягом 24 годин після запиту. Нічого з вашого проєкту не потрапляє у мій контент, мої комунікації або іншу розмову без вашого письмового погодження.</p>
+            <div class="qa">
+              <h4 class="qa-q">Чи підписуєте NDA?</h4>
+              <p>Так. Шаблон взаємного NDA надсилаю протягом 24 годин після запиту. Нічого з вашого проекту не потрапляє у мій контент, мої комунікації або іншу розмову без вашого письмового погодження.</p>
             </div>
-          </details>
-        </div>
+          </div>
+        </details>
       </div>
     </section>
 
-    <FoundingCTA service="audit" spotsLeft={2} />
+    <FoundingCTA service="audit" />
   </main>
   <Footer />
+
+  <script>
+    (function () {
+      function init() {
+        const items = document.querySelectorAll<HTMLDetailsElement>('details[name="audit"]');
+        if (!items.length) return;
+        const STICKY_OFFSET = 88;
+        items.forEach((det) => {
+          det.addEventListener("toggle", () => {
+            if (!det.open) return;
+            const summary = det.querySelector("summary");
+            if (!summary) return;
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                const rect = summary.getBoundingClientRect();
+                window.scrollTo({ top: window.scrollY + rect.top - STICKY_OFFSET, behavior: "smooth" });
+              });
+            });
+          });
+        });
+      }
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", init);
+      } else {
+        init();
+      }
+    })();
+  </script>
 
   <script
     type="application/ld+json"
@@ -252,109 +246,70 @@ const description =
 </BaseLayout>
 
 <style>
-  /* ── Page shell ──────────────────────────────────────────────── */
-  .svc {
-    background:
-      radial-gradient(ellipse at top right, rgba(184, 135, 58, 0.04), transparent 50%),
-      radial-gradient(ellipse at bottom left, rgba(184, 135, 58, 0.03), transparent 40%),
-      var(--bg-0);
-    min-height: 100vh;
-  }
-  .svc-grid {
-    display: grid;
-    grid-template-columns: 180px 1fr;
-    gap: 64px;
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 0 var(--gutter);
-  }
-  @media (max-width: 900px) {
-    .svc-grid { grid-template-columns: 1fr; gap: 24px; padding: 0 var(--gutter-sm); }
-  }
-  .svc-rail {
-    position: sticky; top: 88px; align-self: start; height: fit-content;
-    border-top: 1px solid var(--text-1); padding-top: 14px;
-  }
-  @media (max-width: 900px) {
-    .svc-rail { position: static; display: flex; align-items: baseline; gap: 12px; padding-top: 8px; }
-  }
-  .rail-marker { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--text-1); letter-spacing: 0.04em; line-height: 1; }
-  .rail-label { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 6px; }
-  @media (max-width: 900px) { .rail-label { margin-top: 0; } }
+  .about { background: radial-gradient(ellipse at top right, rgba(184, 135, 58, 0.04), transparent 50%), radial-gradient(ellipse at bottom left, rgba(184, 135, 58, 0.03), transparent 40%), var(--bg-0); min-height: 100vh; }
+  .about-shell { max-width: 880px; margin: 0 auto; padding: 0 var(--gutter); }
+  @media (max-width: 720px) { .about-shell { padding: 0 var(--gutter-sm); } }
 
-  .svc-hero { padding: 80px 0 56px; }
-  @media (max-width: 720px) { .svc-hero { padding: 48px 0 32px; } }
-  .svc-epigraph {
-    font-family: var(--font-mono); font-size: 13px; line-height: 1.65; color: var(--text-3);
-    font-style: italic; margin: 0 0 32px; padding-left: 18px;
-    border-left: 2px solid var(--accent); max-width: 50ch;
-  }
-  .svc-h1 {
-    font-family: var(--font-display); font-size: clamp(40px, 5.5vw, 68px); line-height: 1.04;
-    letter-spacing: -0.025em; color: var(--text-1); margin: 0 0 28px; font-weight: 700; max-width: 18ch;
-  }
-  .svc-h1 em { font-style: italic; color: var(--editorial); font-weight: 700; }
-  .svc-lede { font-size: 19px; line-height: 1.6; color: var(--text-2); margin: 0 0 32px; max-width: 56ch; }
-  .svc-hero-cta { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-top: 12px; }
-  .svc-btn-primary {
-    background: var(--bg-ink); color: var(--text-on-ink); padding: 16px 28px; border-radius: 2px;
-    text-decoration: none; font-weight: 600; font-size: 15px; letter-spacing: 0.02em;
-    transition: background var(--dur-fast) var(--ease);
-  }
-  .svc-btn-primary:hover { background: #2a2724; }
-  .svc-btn-ghost {
-    color: var(--text-1); text-decoration: none; border-bottom: 1px solid var(--accent);
-    padding-bottom: 2px; font-size: 14px; font-weight: 500;
-    transition: color var(--dur-fast) var(--ease);
-  }
-  .svc-btn-ghost:hover { color: var(--accent-pressed); }
+  .hero { padding: 96px 0 48px; }
+  @media (max-width: 720px) { .hero { padding: 56px 0 32px; } }
+  .hero-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-pressed); margin: 0 0 24px; font-weight: 600; }
+  .hero-h1 { font-family: var(--font-display); font-size: clamp(44px, 6vw, 76px); line-height: 1.02; letter-spacing: -0.03em; color: var(--text-1); margin: 0 0 28px; font-weight: 700; max-width: 16ch; }
+  .hero-h1 em { font-style: italic; color: var(--editorial); font-weight: 700; }
+  .hero-lede { font-size: 19px; line-height: 1.6; color: var(--text-2); margin: 0 0 24px; max-width: 60ch; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin: 16px 0 24px; }
+  .btn-primary { background: var(--bg-ink); color: var(--text-on-ink); padding: 16px 28px; border-radius: 2px; text-decoration: none; font-weight: 600; font-size: 15px; letter-spacing: 0.02em; transition: background var(--dur-fast) var(--ease); }
+  .btn-primary:hover { background: #2a2724; }
+  .btn-ghost { color: var(--text-1); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; font-size: 14px; font-weight: 500; transition: color var(--dur-fast) var(--ease); }
+  .btn-ghost:hover { color: var(--accent-pressed); }
+  .hero-hint { font-family: var(--font-mono); font-size: 12px; color: var(--text-3); letter-spacing: 0.04em; margin: 24px 0 0; }
 
-  .svc-section { padding: 80px 0; border-top: 1px solid var(--border-1); }
-  @media (max-width: 720px) { .svc-section { padding: 48px 0; } }
-  .svc-section-muted { background: var(--bg-1); }
-  .svc-h2 {
-    font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 40px); line-height: 1.15;
-    letter-spacing: -0.015em; color: var(--text-1); margin: 0 0 16px; font-weight: 700; max-width: 22ch;
-  }
-  .svc-h2 em { font-style: italic; color: var(--editorial); }
-  .svc-section-lede { font-size: 17px; line-height: 1.6; color: var(--text-2); margin: 0 0 40px; max-width: 56ch; }
+  .acc-section { padding: 16px 0 40px; }
+  .acc { border-top: 1px solid var(--border-2); transition: background var(--dur-base) var(--ease); }
+  .acc:last-of-type { border-bottom: 1px solid var(--border-2); }
+  .acc[open] { background: var(--bg-1); border-top-color: var(--text-1); }
+  .acc[open] + .acc { border-top-color: var(--text-1); }
 
-  .icp-card { margin-bottom: 32px; }
-  .icp-card:last-child { margin-bottom: 0; }
-  .icp-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 12px; }
-  .icp-num {
-    font-family: var(--font-mono); font-size: 13px; color: var(--accent-pressed); font-weight: 700;
-    letter-spacing: 0.04em; background: var(--accent-subtle); padding: 4px 10px; border-radius: 2px; line-height: 1;
-  }
-  .icp-title {
-    font-family: var(--font-display); font-size: clamp(20px, 2.4vw, 24px); line-height: 1.25;
-    letter-spacing: -0.01em; color: var(--text-1); margin: 0; font-weight: 600; flex: 1;
-  }
-  .icp-card p { font-size: 17px; line-height: 1.65; color: var(--text-2); margin: 0; max-width: 65ch; }
-  .icp-card p em { font-style: italic; color: var(--text-1); font-weight: 500; }
-  .hairline { border: 0; border-top: 1px solid var(--border-1); margin: 32px 0; }
+  .acc-summary { display: grid; grid-template-columns: 56px 1fr 32px; align-items: center; gap: 16px; padding: 24px 0; cursor: pointer; list-style: none; user-select: none; }
+  .acc-summary::-webkit-details-marker { display: none; }
+  .acc-summary:hover .acc-label { color: var(--accent-pressed); }
+  .acc-summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
 
-  .ledger { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--text-1); }
-  .ledger-item { display: grid; grid-template-columns: 64px 1fr; gap: 24px; padding: 28px 0; border-bottom: 1px solid var(--border-1); align-items: start; }
-  @media (max-width: 720px) { .ledger-item { grid-template-columns: 40px 1fr; gap: 16px; padding: 24px 0; } }
-  .ledger-num { font-family: var(--font-mono); font-size: 24px; color: var(--accent-pressed); font-weight: 600; line-height: 1; letter-spacing: -0.02em; }
-  .ledger-content h4 { font-family: var(--font-display); font-size: 18px; color: var(--text-1); margin: 0 0 8px; line-height: 1.35; font-weight: 600; letter-spacing: -0.005em; }
-  .ledger-content p { font-size: 15px; line-height: 1.6; color: var(--text-2); margin: 0; max-width: 60ch; }
+  .acc-num { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--accent-pressed); letter-spacing: 0.04em; line-height: 1; }
+  .acc-label { font-family: var(--font-display); font-size: clamp(20px, 2.4vw, 26px); color: var(--text-1); line-height: 1.2; letter-spacing: -0.01em; font-weight: 700; transition: color var(--dur-fast) var(--ease); }
+  .acc[open] .acc-label { color: var(--editorial); }
+  .acc-toggle { font-family: var(--font-mono); font-size: 28px; color: var(--accent-pressed); line-height: 1; text-align: right; transition: transform var(--dur-base) var(--ease); font-weight: 300; }
+  .acc[open] .acc-toggle { transform: rotate(45deg); }
+
+  .acc-body { padding: 0 0 36px 72px; max-width: 68ch; }
+  @media (max-width: 720px) { .acc-body { padding: 0 0 28px 0; } }
+  .acc-h { font-family: var(--font-display); font-size: clamp(22px, 2.6vw, 28px); line-height: 1.2; letter-spacing: -0.015em; color: var(--text-1); margin: 0 0 20px; font-weight: 700; max-width: 24ch; }
+  .acc-h em { font-style: italic; color: var(--editorial); }
+  .acc-body p { font-size: 17px; line-height: 1.7; color: var(--text-2); margin: 0 0 18px; }
+  .acc-body p:last-child { margin-bottom: 0; }
+  .acc-body p strong { color: var(--text-1); font-weight: 700; }
+  .acc-body p em { font-style: italic; color: var(--text-1); }
+  .acc-lede { font-size: 17px; color: var(--text-2); margin: 0 0 28px; }
+
+  .icp-card { margin-bottom: 28px; padding-bottom: 22px; border-bottom: 1px solid var(--border-1); }
+  .icp-card:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
+  .icp-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 12px; }
+  .icp-letter { font-family: var(--font-mono); font-size: 12px; color: var(--accent-pressed); font-weight: 700; letter-spacing: 0.04em; background: var(--accent-subtle); padding: 3px 8px; border-radius: 2px; line-height: 1.2; }
+  .icp-title { font-family: var(--font-display); font-size: clamp(18px, 2.2vw, 22px); line-height: 1.25; letter-spacing: -0.01em; color: var(--text-1); margin: 0; font-weight: 600; }
+
+  .modes { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--border-2); }
+  .mode { display: grid; grid-template-columns: 40px 1fr; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--border-1); align-items: start; }
+  .mode:last-child { border-bottom: 0; }
+  .mode-letter { font-family: var(--font-mono); font-size: 18px; color: var(--accent-pressed); font-weight: 700; line-height: 1; letter-spacing: -0.01em; }
+  .mode-body h4 { font-family: var(--font-display); font-size: 18px; color: var(--text-1); margin: 0 0 8px; line-height: 1.35; font-weight: 700; }
+  .mode-body p { font-size: 15px; line-height: 1.6; color: var(--text-2); margin: 0; max-width: 60ch; }
 
   .exclude { list-style: none; padding: 0; margin: 0; }
   .exclude li { display: flex; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px dashed var(--border-1); color: var(--text-2); font-size: 16px; line-height: 1.55; }
   .exclude li:last-child { border-bottom: 0; }
-  .exclude-mark { font-family: var(--font-mono); color: var(--text-4); font-size: 18px; line-height: 1; flex-shrink: 0; }
-  .exclude strong { color: var(--text-1); font-weight: 600; }
+  .exclude-mark { font-family: var(--font-mono); color: var(--accent-pressed); font-size: 18px; line-height: 1; flex-shrink: 0; font-weight: 700; }
+  .exclude strong { color: var(--text-1); font-weight: 700; }
 
-  .faq-item { border-top: 1px solid var(--border-1); padding: 4px 0; }
-  .faq-item:last-of-type { border-bottom: 1px solid var(--border-1); }
-  .faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: 24px; cursor: pointer; padding: 24px 0; list-style: none; }
-  .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-q { font-family: var(--font-display); font-size: 19px; color: var(--text-1); font-weight: 600; line-height: 1.35; letter-spacing: -0.005em; }
-  .faq-toggle { font-family: var(--font-mono); font-size: 22px; color: var(--accent-pressed); line-height: 1; transition: transform var(--dur-base) var(--ease); flex-shrink: 0; }
-  .faq-item[open] .faq-toggle { transform: rotate(45deg); }
-  .faq-a { padding: 0 0 24px; }
-  .faq-a p { font-size: 16px; line-height: 1.65; color: var(--text-2); margin: 0; max-width: 65ch; }
-  .faq-a p em { font-style: italic; color: var(--text-1); }
+  .qa { margin-bottom: 28px; padding-bottom: 22px; border-bottom: 1px solid var(--border-1); }
+  .qa:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
+  .qa-q { font-family: var(--font-display); font-size: 18px; color: var(--text-1); margin: 0 0 10px; line-height: 1.35; font-weight: 600; }
 </style>

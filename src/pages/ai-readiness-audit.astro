@@ -13,215 +13,193 @@ const description =
 
 <BaseLayout title={title} description={description}>
   <Nav />
-  <main class="svc">
-    {/* ── Hero ────────────────────────────────────────────────────── */}
-    <section class="svc-hero">
-      <div class="svc-grid">
-        <aside class="svc-rail">
-          <div class="rail-marker">01</div>
-          <div class="rail-label">Audit</div>
-        </aside>
+  <main class="about">
+    <section class="hero">
+      <div class="about-shell">
+        <p class="hero-eyebrow">01 · AI Readiness Audit</p>
 
-        <div class="svc-hero-body">
-          <p class="svc-epigraph">
-            "Most IT projects don't fail because of bad code.<br />
-            They fail because no one was reading on the client's side."
-          </p>
+        <h1 class="hero-h1">
+          Read your AI build for <em>what it really is</em>.
+        </h1>
 
-          <h1 class="svc-h1">
-            Read your AI build for <em>what it really is</em> —<br />
-            before it costs another $50K.
-          </h1>
+        <p class="hero-lede">
+          Vibe-coded prototype, vendor proposal on your desk, or an AI feature that quietly stopped working. Before you commit another $50K — a structured read from someone with no financial stake in the build decision.
+        </p>
 
-          <p class="svc-lede">
-            Vibe-coded prototype. Vendor proposal on your desk. Existing AI feature that quietly stopped working. Before you commit the next round of capital — a structured read from someone with no financial interest in the build decision.
-          </p>
+        <PricingBadge price="from $1,000" duration="5-14 days" />
 
-          <PricingBadge price="from $1,000" duration="5-14 days" />
-
-          <div class="svc-hero-cta">
-            <a
-              href="#book"
-              class="svc-btn-primary"
-              data-modal="booking"
-              data-subject="audit"
-              data-source="ai-audit-hero"
-            >
-              Request audit →
-            </a>
-            <a href="#deliverables" class="svc-btn-ghost">See what you get →</a>
-          </div>
+        <div class="hero-cta">
+          <a
+            href="#book"
+            class="btn-primary"
+            data-modal="booking"
+            data-subject="audit"
+            data-source="ai-audit-hero"
+          >
+            Request audit →
+          </a>
+          <a href="#what-you-get" class="btn-ghost">See what you get →</a>
         </div>
+
+        <p class="hero-hint">↓ Expand a section to read more</p>
       </div>
     </section>
 
-    {/* ── Trust ──────────────────────────────────────────────────── */}
     <TrustBlock />
 
-    {/* ── Who this is for ────────────────────────────────────────── */}
-    <section class="svc-section" id="who">
-      <div class="svc-grid">
-        <aside class="svc-rail">
-          <div class="rail-marker">02</div>
-          <div class="rail-label">Who this is for</div>
-        </aside>
+    <section class="acc-section">
+      <div class="about-shell">
+        <details class="acc" name="audit" id="who">
+          <summary class="acc-summary">
+            <span class="acc-num">02</span>
+            <span class="acc-label">Who this is for</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <h3 class="acc-h">Two situations I read for.</h3>
 
-        <div class="svc-section-body">
-          <h2 class="svc-h2">Two situations I read for.</h2>
+            <article class="icp-card">
+              <header class="icp-header">
+                <span class="icp-letter">A</span>
+                <h4 class="icp-title">The vibe coder who shipped something real.</h4>
+              </header>
+              <p>You built a working prototype in Cursor, v0, Lovable, or Claude. Twenty paying users. A few features in flight. And a growing sense that something in the foundation isn't right — but you can't read the codebase to confirm it. You don't need a developer right now. You need someone who can tell you: <em>what holds, what doesn't, and what the path to production-readiness actually looks like.</em></p>
+            </article>
 
-          <article class="icp-card">
-            <header class="icp-header">
-              <span class="icp-num">A</span>
-              <h3 class="icp-title">The vibe coder who shipped something real.</h3>
-            </header>
-            <p>
-              You built a working prototype in Cursor, v0, Lovable, or Claude. Twenty paying users. A few features in flight. And a growing sense that something in the foundation isn't right — but you can't read the codebase to confirm it. You don't need a developer right now. You need someone who can tell you: <em>what holds, what doesn't, and what the path to production-readiness actually looks like.</em>
-            </p>
-          </article>
+            <article class="icp-card">
+              <header class="icp-header">
+                <span class="icp-letter">B</span>
+                <h4 class="icp-title">The non-technical commissioner staring at three proposals.</h4>
+              </header>
+              <p>Three vendor quotes on your desk. $45K to $120K for what sounds like the same project. One vendor confident, two vague, all three professionally persuasive. Without a technical background it's nearly impossible to tell which quote is honest, which is padded, and which will grow by 40% the moment a change request lands. <em>The job here is to read those proposals the way the vendor wrote them</em> — and translate that into a clear recommendation.</p>
+            </article>
+          </div>
+        </details>
 
-          <hr class="hairline" />
+        <details class="acc" name="audit" id="what-you-get">
+          <summary class="acc-summary">
+            <span class="acc-num">03</span>
+            <span class="acc-label">What you receive</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <h3 class="acc-h">Five concrete artifacts.</h3>
+            <p class="acc-lede">Not a slide deck. Not a "framework." Five things your team can act on the morning after our final call.</p>
 
-          <article class="icp-card">
-            <header class="icp-header">
-              <span class="icp-num">B</span>
-              <h3 class="icp-title">The non-technical commissioner staring at three proposals.</h3>
-            </header>
-            <p>
-              Three vendor quotes on your desk. $45K to $120K for what sounds like the same project. One vendor confident, two vague, all three professionally persuasive. Without a technical background it's nearly impossible to tell which quote is honest, which is padded, and which will grow by 40% the moment a change request lands. <em>The job here is to read those proposals the way the vendor wrote them</em> — and translate that into a clear recommendation.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
+            <ol class="modes">
+              <li class="mode">
+                <span class="mode-letter">01</span>
+                <div class="mode-body">
+                  <h4>Plain-English read of what's been built.</h4>
+                  <p>Codebase, vendor proposal, or AI feature — what holds, what doesn't, in priority order. No jargon you have to Google.</p>
+                </div>
+              </li>
+              <li class="mode">
+                <span class="mode-letter">02</span>
+                <div class="mode-body">
+                  <h4>Specific risks with dollar-impact tags.</h4>
+                  <p>"This contract clause will cost you ~$8K in month 3" — not "this is something to consider." Numbers attached where I can attach them.</p>
+                </div>
+              </li>
+              <li class="mode">
+                <span class="mode-letter">03</span>
+                <div class="mode-body">
+                  <h4>A comparison framework if you're choosing.</h4>
+                  <p>Build vs. buy. Rewrite vs. patch. Vendor A vs. vendor B. Each option scored on the criteria that actually matter to your business.</p>
+                </div>
+              </li>
+              <li class="mode">
+                <span class="mode-letter">04</span>
+                <div class="mode-body">
+                  <h4>A one-page summary your team can act on.</h4>
+                  <p>Written so it makes sense to non-technical readers — co-founders, board members, finance — without me having to be in the room.</p>
+                </div>
+              </li>
+              <li class="mode">
+                <span class="mode-letter">05</span>
+                <div class="mode-body">
+                  <h4>A 60-minute walk-through call.</h4>
+                  <p>Real questions answered in real time. Not a Slack thread that goes cold on Friday.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </details>
 
-    {/* ── Deliverables ───────────────────────────────────────────── */}
-    <section class="svc-section svc-section-deliverables" id="deliverables">
-      <div class="svc-grid">
-        <aside class="svc-rail">
-          <div class="rail-marker">03</div>
-          <div class="rail-label">What you receive</div>
-        </aside>
+        <details class="acc" name="audit" id="not-included">
+          <summary class="acc-summary">
+            <span class="acc-num">04</span>
+            <span class="acc-label">Not included</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <h3 class="acc-h">What this audit is <em>not</em>.</h3>
+            <p class="acc-lede">Saving us both a wasted first call.</p>
 
-        <div class="svc-section-body">
-          <h2 class="svc-h2">Five concrete artifacts.</h2>
-          <p class="svc-section-lede">
-            Not a slide deck. Not a "framework." Five things your team can act on the morning after our final call.
-          </p>
+            <ul class="exclude">
+              <li><span class="exclude-mark">→</span><span><strong>Code refactor.</strong> I read. I don't rewrite.</span></li>
+              <li><span class="exclude-mark">→</span><span><strong>Vendor introductions.</strong> Separate engagement, scoped differently.</span></li>
+              <li><span class="exclude-mark">→</span><span><strong>Long-term oversight.</strong> That's Project Support — also separate.</span></li>
+              <li><span class="exclude-mark">→</span><span><strong>Pitch deck or fundraising help.</strong> Separate craft. I can point you to people who do this better.</span></li>
+            </ul>
+          </div>
+        </details>
 
-          <ol class="ledger">
-            <li class="ledger-item">
-              <span class="ledger-num">01</span>
-              <div class="ledger-content">
-                <h4>Plain-English read of what's been built.</h4>
-                <p>Codebase, vendor proposal, or AI feature — what holds, what doesn't, in priority order. No jargon you have to Google.</p>
-              </div>
-            </li>
-            <li class="ledger-item">
-              <span class="ledger-num">02</span>
-              <div class="ledger-content">
-                <h4>Specific risks with dollar-impact tags.</h4>
-                <p>"This contract clause will cost you ~$8K in month 3" — not "this is something to consider." Numbers attached where I can attach them.</p>
-              </div>
-            </li>
-            <li class="ledger-item">
-              <span class="ledger-num">03</span>
-              <div class="ledger-content">
-                <h4>A comparison framework if you're choosing.</h4>
-                <p>Build vs. buy. Rewrite vs. patch. Vendor A vs. vendor B. Each option scored on the criteria that actually matter to your business.</p>
-              </div>
-            </li>
-            <li class="ledger-item">
-              <span class="ledger-num">04</span>
-              <div class="ledger-content">
-                <h4>A one-page summary your team can act on.</h4>
-                <p>Written so it makes sense to non-technical readers — co-founders, board members, finance — without me having to be in the room.</p>
-              </div>
-            </li>
-            <li class="ledger-item">
-              <span class="ledger-num">05</span>
-              <div class="ledger-content">
-                <h4>A 60-minute walk-through call.</h4>
-                <p>Real questions answered in real time. Not a Slack thread that goes cold on Friday.</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-      </div>
-    </section>
-
-    {/* ── Not included ───────────────────────────────────────────── */}
-    <section class="svc-section svc-section-muted" id="not">
-      <div class="svc-grid">
-        <aside class="svc-rail">
-          <div class="rail-marker">04</div>
-          <div class="rail-label">Not included</div>
-        </aside>
-
-        <div class="svc-section-body">
-          <h2 class="svc-h2">What this audit is <em>not</em>.</h2>
-          <p class="svc-section-lede">
-            Saving us both a wasted first call.
-          </p>
-
-          <ul class="exclude">
-            <li><span class="exclude-mark">—</span><span><strong>Code refactor.</strong> I read. I don't rewrite.</span></li>
-            <li><span class="exclude-mark">—</span><span><strong>Vendor introductions.</strong> Separate engagement, scoped differently.</span></li>
-            <li><span class="exclude-mark">—</span><span><strong>Long-term oversight.</strong> That's Project Support — also separate.</span></li>
-            <li><span class="exclude-mark">—</span><span><strong>Pitch deck review or fundraising help.</strong> Not what this is, and there are better people for that.</span></li>
-            <li><span class="exclude-mark">—</span><span><strong>"Tell me what I want to hear."</strong> If you're looking for validation rather than verification, I'm definitely not the right read.</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    {/* ── FAQ ────────────────────────────────────────────────────── */}
-    <section class="svc-section" id="faq">
-      <div class="svc-grid">
-        <aside class="svc-rail">
-          <div class="rail-marker">05</div>
-          <div class="rail-label">Common questions</div>
-        </aside>
-
-        <div class="svc-section-body">
-          <h2 class="svc-h2">Three questions that come up.</h2>
-
-          <details class="faq-item">
-            <summary>
-              <span class="faq-q">How is this different from a code review?</span>
-              <span class="faq-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-a">
+        <details class="acc" name="audit" id="faq">
+          <summary class="acc-summary">
+            <span class="acc-num">05</span>
+            <span class="acc-label">Common questions</span>
+            <span class="acc-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <div class="qa">
+              <h4 class="qa-q">How is this different from a code review?</h4>
               <p>A code review tells you whether code is well-written. This tells you whether the <em>project decision</em> is well-made. Different question, different answer. If you also need a code review, I can point you to specialists who do that better than I would.</p>
             </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>
-              <span class="faq-q">What if you find nothing wrong?</span>
-              <span class="faq-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-a">
+            <div class="qa">
+              <h4 class="qa-q">What if you find nothing wrong?</h4>
               <p>That happens — and it's a useful answer too. You walk away with documented confidence that the path you're on holds. Most founders who pay for an outside read are actually looking for exactly that: the right to commit, with someone independent on record saying it checks out.</p>
             </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>
-              <span class="faq-q">Do you sign an NDA?</span>
-              <span class="faq-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-a">
+            <div class="qa">
+              <h4 class="qa-q">Do you sign an NDA?</h4>
               <p>Yes. Mutual NDA template sent within 24 hours of request. Nothing from your project enters my content, my comms, or another conversation without your written approval.</p>
             </div>
-          </details>
-        </div>
+          </div>
+        </details>
       </div>
     </section>
 
-    {/* ── Founding CTA ───────────────────────────────────────────── */}
-    <FoundingCTA service="audit" spotsLeft={2} />
+    <FoundingCTA service="audit" />
   </main>
   <Footer />
+
+  <script>
+    (function () {
+      function init() {
+        const items = document.querySelectorAll<HTMLDetailsElement>('details[name="audit"]');
+        if (!items.length) return;
+        const STICKY_OFFSET = 88;
+        items.forEach((det) => {
+          det.addEventListener("toggle", () => {
+            if (!det.open) return;
+            const summary = det.querySelector("summary");
+            if (!summary) return;
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                const rect = summary.getBoundingClientRect();
+                window.scrollTo({ top: window.scrollY + rect.top - STICKY_OFFSET, behavior: "smooth" });
+              });
+            });
+          });
+        });
+      }
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", init);
+      } else {
+        init();
+      }
+    })();
+  </script>
 
   <script
     type="application/ld+json"
@@ -252,343 +230,70 @@ const description =
 </BaseLayout>
 
 <style>
-  /* ── Page shell ──────────────────────────────────────────────── */
-  .svc {
-    background:
-      radial-gradient(ellipse at top right, rgba(184, 135, 58, 0.04), transparent 50%),
-      radial-gradient(ellipse at bottom left, rgba(184, 135, 58, 0.03), transparent 40%),
-      var(--bg-0);
-    min-height: 100vh;
-  }
+  .about { background: radial-gradient(ellipse at top right, rgba(184, 135, 58, 0.04), transparent 50%), radial-gradient(ellipse at bottom left, rgba(184, 135, 58, 0.03), transparent 40%), var(--bg-0); min-height: 100vh; }
+  .about-shell { max-width: 880px; margin: 0 auto; padding: 0 var(--gutter); }
+  @media (max-width: 720px) { .about-shell { padding: 0 var(--gutter-sm); } }
 
-  .svc-grid {
-    display: grid;
-    grid-template-columns: 180px 1fr;
-    gap: 64px;
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 0 var(--gutter);
-  }
-  @media (max-width: 900px) {
-    .svc-grid {
-      grid-template-columns: 1fr;
-      gap: 24px;
-      padding: 0 var(--gutter-sm);
-    }
-  }
+  .hero { padding: 96px 0 48px; }
+  @media (max-width: 720px) { .hero { padding: 56px 0 32px; } }
+  .hero-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-pressed); margin: 0 0 24px; font-weight: 600; }
+  .hero-h1 { font-family: var(--font-display); font-size: clamp(44px, 6vw, 76px); line-height: 1.02; letter-spacing: -0.03em; color: var(--text-1); margin: 0 0 28px; font-weight: 700; max-width: 16ch; }
+  .hero-h1 em { font-style: italic; color: var(--editorial); font-weight: 700; }
+  .hero-lede { font-size: 19px; line-height: 1.6; color: var(--text-2); margin: 0 0 24px; max-width: 60ch; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin: 16px 0 24px; }
+  .btn-primary { background: var(--bg-ink); color: var(--text-on-ink); padding: 16px 28px; border-radius: 2px; text-decoration: none; font-weight: 600; font-size: 15px; letter-spacing: 0.02em; transition: background var(--dur-fast) var(--ease); }
+  .btn-primary:hover { background: #2a2724; }
+  .btn-ghost { color: var(--text-1); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; font-size: 14px; font-weight: 500; transition: color var(--dur-fast) var(--ease); }
+  .btn-ghost:hover { color: var(--accent-pressed); }
+  .hero-hint { font-family: var(--font-mono); font-size: 12px; color: var(--text-3); letter-spacing: 0.04em; margin: 24px 0 0; }
 
-  /* ── Floating section rail (number + label) ──────────────────── */
-  .svc-rail {
-    position: sticky;
-    top: 88px;
-    align-self: start;
-    height: fit-content;
-    border-top: 1px solid var(--text-1);
-    padding-top: 14px;
-  }
-  @media (max-width: 900px) {
-    .svc-rail {
-      position: static;
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-      padding-top: 8px;
-    }
-  }
-  .rail-marker {
-    font-family: var(--font-mono);
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--text-1);
-    letter-spacing: 0.04em;
-    line-height: 1;
-  }
-  .rail-label {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--text-3);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    margin-top: 6px;
-  }
-  @media (max-width: 900px) {
-    .rail-label { margin-top: 0; }
-  }
+  .acc-section { padding: 16px 0 40px; }
+  .acc { border-top: 1px solid var(--border-2); transition: background var(--dur-base) var(--ease); }
+  .acc:last-of-type { border-bottom: 1px solid var(--border-2); }
+  .acc[open] { background: var(--bg-1); border-top-color: var(--text-1); }
+  .acc[open] + .acc { border-top-color: var(--text-1); }
 
-  /* ── Hero ────────────────────────────────────────────────────── */
-  .svc-hero {
-    padding: 80px 0 56px;
-  }
-  @media (max-width: 720px) {
-    .svc-hero { padding: 48px 0 32px; }
-  }
-  .svc-epigraph {
-    font-family: var(--font-mono);
-    font-size: 13px;
-    line-height: 1.65;
-    color: var(--text-3);
-    font-style: italic;
-    margin: 0 0 32px;
-    padding-left: 18px;
-    border-left: 2px solid var(--accent);
-    max-width: 50ch;
-  }
-  .svc-h1 {
-    font-family: var(--font-display);
-    font-size: clamp(40px, 5.5vw, 68px);
-    line-height: 1.04;
-    letter-spacing: -0.025em;
-    color: var(--text-1);
-    margin: 0 0 28px;
-    font-weight: 700;
-    max-width: 18ch;
-  }
-  .svc-h1 em {
-    font-style: italic;
-    color: var(--editorial);
-    font-weight: 700;
-  }
-  .svc-lede {
-    font-size: 19px;
-    line-height: 1.6;
-    color: var(--text-2);
-    margin: 0 0 32px;
-    max-width: 56ch;
-  }
-  .svc-hero-cta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    align-items: center;
-    margin-top: 12px;
-  }
-  .svc-btn-primary {
-    background: var(--bg-ink);
-    color: var(--text-on-ink);
-    padding: 16px 28px;
-    border-radius: 2px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 15px;
-    letter-spacing: 0.02em;
-    transition: background var(--dur-fast) var(--ease);
-  }
-  .svc-btn-primary:hover { background: #2a2724; }
-  .svc-btn-ghost {
-    color: var(--text-1);
-    text-decoration: none;
-    border-bottom: 1px solid var(--accent);
-    padding-bottom: 2px;
-    font-size: 14px;
-    font-weight: 500;
-    transition: color var(--dur-fast) var(--ease);
-  }
-  .svc-btn-ghost:hover { color: var(--accent-pressed); }
+  .acc-summary { display: grid; grid-template-columns: 56px 1fr 32px; align-items: center; gap: 16px; padding: 24px 0; cursor: pointer; list-style: none; user-select: none; }
+  .acc-summary::-webkit-details-marker { display: none; }
+  .acc-summary:hover .acc-label { color: var(--accent-pressed); }
+  .acc-summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
 
-  /* ── Section frame ──────────────────────────────────────────── */
-  .svc-section {
-    padding: 80px 0;
-    border-top: 1px solid var(--border-1);
-  }
-  @media (max-width: 720px) {
-    .svc-section { padding: 48px 0; }
-  }
-  .svc-section-muted { background: var(--bg-1); }
+  .acc-num { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--accent-pressed); letter-spacing: 0.04em; line-height: 1; }
+  .acc-label { font-family: var(--font-display); font-size: clamp(20px, 2.4vw, 26px); color: var(--text-1); line-height: 1.2; letter-spacing: -0.01em; font-weight: 700; transition: color var(--dur-fast) var(--ease); }
+  .acc[open] .acc-label { color: var(--editorial); }
+  .acc-toggle { font-family: var(--font-mono); font-size: 28px; color: var(--accent-pressed); line-height: 1; text-align: right; transition: transform var(--dur-base) var(--ease); font-weight: 300; }
+  .acc[open] .acc-toggle { transform: rotate(45deg); }
 
-  .svc-h2 {
-    font-family: var(--font-display);
-    font-size: clamp(28px, 3.5vw, 40px);
-    line-height: 1.15;
-    letter-spacing: -0.015em;
-    color: var(--text-1);
-    margin: 0 0 16px;
-    font-weight: 700;
-    max-width: 22ch;
-  }
-  .svc-h2 em {
-    font-style: italic;
-    color: var(--editorial);
-  }
-  .svc-section-lede {
-    font-size: 17px;
-    line-height: 1.6;
-    color: var(--text-2);
-    margin: 0 0 40px;
-    max-width: 56ch;
-  }
+  .acc-body { padding: 0 0 36px 72px; max-width: 68ch; }
+  @media (max-width: 720px) { .acc-body { padding: 0 0 28px 0; } }
+  .acc-h { font-family: var(--font-display); font-size: clamp(22px, 2.6vw, 28px); line-height: 1.2; letter-spacing: -0.015em; color: var(--text-1); margin: 0 0 20px; font-weight: 700; max-width: 24ch; }
+  .acc-h em { font-style: italic; color: var(--editorial); }
+  .acc-body p { font-size: 17px; line-height: 1.7; color: var(--text-2); margin: 0 0 18px; }
+  .acc-body p:last-child { margin-bottom: 0; }
+  .acc-body p strong { color: var(--text-1); font-weight: 700; }
+  .acc-body p em { font-style: italic; color: var(--text-1); }
+  .acc-lede { font-size: 17px; color: var(--text-2); margin: 0 0 28px; }
 
-  /* ── ICP cards ──────────────────────────────────────────────── */
-  .icp-card { margin-bottom: 32px; }
-  .icp-card:last-child { margin-bottom: 0; }
-  .icp-header {
-    display: flex;
-    align-items: baseline;
-    gap: 16px;
-    margin-bottom: 12px;
-  }
-  .icp-num {
-    font-family: var(--font-mono);
-    font-size: 13px;
-    color: var(--accent-pressed);
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    background: var(--accent-subtle);
-    padding: 4px 10px;
-    border-radius: 2px;
-    line-height: 1;
-  }
-  .icp-title {
-    font-family: var(--font-display);
-    font-size: clamp(20px, 2.4vw, 24px);
-    line-height: 1.25;
-    letter-spacing: -0.01em;
-    color: var(--text-1);
-    margin: 0;
-    font-weight: 600;
-    flex: 1;
-  }
-  .icp-card p {
-    font-size: 17px;
-    line-height: 1.65;
-    color: var(--text-2);
-    margin: 0;
-    max-width: 65ch;
-  }
-  .icp-card p em {
-    font-style: italic;
-    color: var(--text-1);
-    font-weight: 500;
-  }
+  .icp-card { margin-bottom: 28px; padding-bottom: 22px; border-bottom: 1px solid var(--border-1); }
+  .icp-card:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
+  .icp-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 12px; }
+  .icp-letter { font-family: var(--font-mono); font-size: 12px; color: var(--accent-pressed); font-weight: 700; letter-spacing: 0.04em; background: var(--accent-subtle); padding: 3px 8px; border-radius: 2px; line-height: 1.2; }
+  .icp-title { font-family: var(--font-display); font-size: clamp(18px, 2.2vw, 22px); line-height: 1.25; letter-spacing: -0.01em; color: var(--text-1); margin: 0; font-weight: 600; }
 
-  .hairline {
-    border: 0;
-    border-top: 1px solid var(--border-1);
-    margin: 32px 0;
-  }
+  .modes { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--border-2); }
+  .mode { display: grid; grid-template-columns: 40px 1fr; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--border-1); align-items: start; }
+  .mode:last-child { border-bottom: 0; }
+  .mode-letter { font-family: var(--font-mono); font-size: 18px; color: var(--accent-pressed); font-weight: 700; line-height: 1; letter-spacing: -0.01em; }
+  .mode-body h4 { font-family: var(--font-display); font-size: 18px; color: var(--text-1); margin: 0 0 8px; line-height: 1.35; font-weight: 700; }
+  .mode-body p { font-size: 15px; line-height: 1.6; color: var(--text-2); margin: 0; max-width: 60ch; }
 
-  /* ── Ledger (deliverables) ──────────────────────────────────── */
-  .ledger {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    border-top: 1px solid var(--text-1);
-  }
-  .ledger-item {
-    display: grid;
-    grid-template-columns: 64px 1fr;
-    gap: 24px;
-    padding: 28px 0;
-    border-bottom: 1px solid var(--border-1);
-    align-items: start;
-  }
-  @media (max-width: 720px) {
-    .ledger-item {
-      grid-template-columns: 40px 1fr;
-      gap: 16px;
-      padding: 24px 0;
-    }
-  }
-  .ledger-num {
-    font-family: var(--font-mono);
-    font-size: 24px;
-    color: var(--accent-pressed);
-    font-weight: 600;
-    line-height: 1;
-    letter-spacing: -0.02em;
-  }
-  .ledger-content h4 {
-    font-family: var(--font-display);
-    font-size: 18px;
-    color: var(--text-1);
-    margin: 0 0 8px;
-    line-height: 1.35;
-    font-weight: 600;
-    letter-spacing: -0.005em;
-  }
-  .ledger-content p {
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--text-2);
-    margin: 0;
-    max-width: 60ch;
-  }
-
-  /* ── Exclude list ───────────────────────────────────────────── */
-  .exclude {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .exclude li {
-    display: flex;
-    align-items: baseline;
-    gap: 16px;
-    padding: 14px 0;
-    border-bottom: 1px dashed var(--border-1);
-    color: var(--text-2);
-    font-size: 16px;
-    line-height: 1.55;
-  }
+  .exclude { list-style: none; padding: 0; margin: 0; }
+  .exclude li { display: flex; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px dashed var(--border-1); color: var(--text-2); font-size: 16px; line-height: 1.55; }
   .exclude li:last-child { border-bottom: 0; }
-  .exclude-mark {
-    font-family: var(--font-mono);
-    color: var(--text-4);
-    font-size: 18px;
-    line-height: 1;
-    flex-shrink: 0;
-  }
-  .exclude strong {
-    color: var(--text-1);
-    font-weight: 600;
-  }
+  .exclude-mark { font-family: var(--font-mono); color: var(--accent-pressed); font-size: 18px; line-height: 1; flex-shrink: 0; font-weight: 700; }
+  .exclude strong { color: var(--text-1); font-weight: 700; }
 
-  /* ── FAQ ────────────────────────────────────────────────────── */
-  .faq-item {
-    border-top: 1px solid var(--border-1);
-    padding: 4px 0;
-  }
-  .faq-item:last-of-type { border-bottom: 1px solid var(--border-1); }
-  .faq-item summary {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    cursor: pointer;
-    padding: 24px 0;
-    list-style: none;
-  }
-  .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-q {
-    font-family: var(--font-display);
-    font-size: 19px;
-    color: var(--text-1);
-    font-weight: 600;
-    line-height: 1.35;
-    letter-spacing: -0.005em;
-  }
-  .faq-toggle {
-    font-family: var(--font-mono);
-    font-size: 22px;
-    color: var(--accent-pressed);
-    line-height: 1;
-    transition: transform var(--dur-base) var(--ease);
-    flex-shrink: 0;
-  }
-  .faq-item[open] .faq-toggle {
-    transform: rotate(45deg);
-  }
-  .faq-a {
-    padding: 0 0 24px;
-  }
-  .faq-a p {
-    font-size: 16px;
-    line-height: 1.65;
-    color: var(--text-2);
-    margin: 0;
-    max-width: 65ch;
-  }
-  .faq-a p em {
-    font-style: italic;
-    color: var(--text-1);
-  }
+  .qa { margin-bottom: 28px; padding-bottom: 22px; border-bottom: 1px solid var(--border-1); }
+  .qa:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
+  .qa-q { font-family: var(--font-display); font-size: 18px; color: var(--text-1); margin: 0 0 10px; line-height: 1.35; font-weight: 600; }
 </style>

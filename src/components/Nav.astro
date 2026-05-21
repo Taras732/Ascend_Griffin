@@ -3,7 +3,16 @@ import { site } from "../data/site";
 
 const isUk = Astro.currentLocale === "uk";
 const homeHref = isUk ? "/uk/" : "/";
-const altLangHref = isUk ? "/" : "/uk/";
+
+// Switch language while preserving the current page path
+// /uk/about/  → /about/    (drop /uk prefix)
+// /about/     → /uk/about/ (add /uk prefix)
+// /uk/        → /          (root)
+// /           → /uk/       (root)
+const pathname = Astro.url.pathname || "/";
+const altLangHref = isUk
+  ? pathname.replace(/^\/uk(\/|$)/, "/") || "/"
+  : ("/uk" + pathname).replace(/\/$/, "/");
 const altLangLabel = isUk ? "EN" : "UA";
 
 const labels = isUk
@@ -308,6 +317,14 @@ const links = {
       e.preventDefault();
       const isOpen = dd.classList.toggle("is-open");
       trigger.setAttribute("aria-expanded", String(isOpen));
+    });
+  });
+
+  // Set lang-redirect flag BEFORE navigation so root-level auto-redirect script
+  // doesn't override an explicit user choice. Fixes "first click doesn't work" bug.
+  document.querySelectorAll<HTMLAnchorElement>(".nav-lang").forEach((link) => {
+    link.addEventListener("click", () => {
+      try { sessionStorage.setItem("ag_lang_redirect_done", "1"); } catch (e) { /* ignore */ }
     });
   });
 

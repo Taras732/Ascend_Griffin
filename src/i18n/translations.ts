@@ -6,11 +6,11 @@ export type Locale = "en" | "uk";
 export const translations = {
   en: {
     site: {
-      eyebrow: "Strategic IT guidance — from idea to scale",
+      eyebrow: "IT support from idea to outcome",
       heroH1Html:
-        'Your <em>strategic IT partner</em><br>— fully aligned with <em>your business outcomes</em>.',
+        'Your <em>ally</em> in IT projects —<br>working in <em>your interest</em>, not the vendor\'s.',
       heroLede:
-        "Tired of making big IT decisions blind? Vendor pitches that don't add up. Technical jargon you can't verify. Numbers without context. I cut through it — translating tech-speak into business decisions, vetting vendors honestly, surfacing the data you need to choose with confidence.",
+        "Decisions made blind: unclear timelines, conflicting vendor estimates, no data to compare. I take the buyer side — translate the complexity into business decisions, vet options honestly, surface the risks you don't yet see.",
       heroCtaPrimary: "Book Discovery Call",
       heroCtaSecondary: "See how it works →",
       heroMicro: "",

@@ -1,55 +1,49 @@
 /* =============================================================
    Ascend Griffin — Brand Tokens (global)
-   Default = Light "Cream Executive" (per mockup)
-   [data-theme="dark"] = Rich Obsidian dark mode
+   Source of truth: 03_Branding/02_Visual_Identity.md §2
    ============================================================= */
 
 :root {
-  /* Clean Warm-White Light Scale */
-  --bg-0: #FAF8F4;   /* page — warm near-white */
-  --bg-1: #F2ECE1;   /* alt section / footer — soft warm tint */
-  --bg-2: #FFFFFF;   /* raised — pure white */
-  --bg-3: #EAE3D5;   /* hover */
-  --bg-ink: #16140F; /* contrast block — dark ink */
+  /* Background scale (Paper Atelier ivory-first) */
+  --bg-0: #FAF8F3;   /* page — warm ivory */
+  --bg-1: #F3EFE6;   /* card */
+  --bg-2: #EAE4D6;   /* raised */
+  --bg-3: #E0D8C4;   /* hover */
+  --bg-ink: #1A1916; /* ink block (dark hero, CTAs) */
 
-  /* Text (warm near-black on cream) */
-  --text-1: #1A1712;
-  --text-2: rgba(26, 23, 18, 0.76);
-  --text-3: rgba(26, 23, 18, 0.52);
-  --text-4: rgba(26, 23, 18, 0.36);
-  --text-on-ink: #FAF8F3;
-  --text-on-ink-muted: rgba(250, 248, 243, 0.72);
+  /* Text */
+  --text-1: #111111;
+  --text-2: rgba(17,17,17,.72);
+  --text-3: rgba(17,17,17,.52);
+  --text-4: rgba(17,17,17,.32);
+  --text-on-ink: #FAFAFA;
+  --text-on-ink-muted: rgba(250,250,250,.72);
 
   /* Borders */
-  --border-1: rgba(26, 23, 18, 0.09);
-  --border-2: rgba(26, 23, 18, 0.16);
-  --border-3: rgba(26, 23, 18, 0.30);
-  --border-on-ink: rgba(250, 248, 243, 0.14);
+  --border-1: rgba(17,17,17,.10);
+  --border-2: rgba(17,17,17,.18);
+  --border-3: rgba(17,17,17,.34);
+  --border-on-ink: rgba(250,250,250,.12);
 
-  /* Accent — Metallic Luxury Gold (tuned for cream contrast) */
-  --accent:         #C19A3C;  /* gold for fills/badges */
-  --accent-hover:   #D4AF37;
-  --accent-pressed: #8A6A1C;  /* darker gold — text links on cream (AA) */
-  --accent-subtle:  rgba(193, 154, 60, 0.10);
-  --accent-border:  rgba(193, 154, 60, 0.38);
-  --accent-ink:     #1A1712;  /* dark text on gold */
+  /* Accent — editorial gold (v3 Paper Atelier, locked 2026-04-22) */
+  --accent:         #B8873A;
+  --accent-hover:   #A3762A;
+  --accent-pressed: #8B6422;
+  --accent-subtle:  rgba(184,135,58,.10);
+  --accent-border:  rgba(184,135,58,.40);
+  --accent-ink:     #FAF8F3;  /* text on gold */
 
-  /* Editorial */
-  --editorial:      #9A7526;
+  /* Editorial italic emphasis (<em> у H1/H2) — same as accent у v3 */
+  --editorial:      #B8873A;
   --editorial-ink:  #FAF8F3;
-
-  /* Surfaces (theme-aware translucent layers) */
-  --nav-bg:    rgba(250, 248, 244, 0.85);
-  --glass-bg:  #FFFFFF;
-  --grid-line: rgba(26, 23, 18, 0.020);
 
   /* Semantic */
   --success: #2E7D4F;
-  --warning: #B5781F;
-  --danger:  #C23B3B;
+  --warning: #B5721B;
+  --danger:  #B23B3B;
 
   /* Fonts */
-  --font-display: "Playfair Display", "Lora", "Georgia", serif;
+  --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
   --font-body:    "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
@@ -58,55 +52,16 @@
   --dur-base: 240ms;
   --ease:     cubic-bezier(0.2, 0.8, 0.2, 1);
 
-  /* Shadow & Glow (soft, for cream surfaces) */
-  --shadow-sm: 0 1px 2px rgba(26, 23, 18, 0.06);
-  --shadow-md: 0 6px 20px rgba(26, 23, 18, 0.08);
-  --shadow-lg: 0 22px 48px rgba(26, 23, 18, 0.14), 0 0 24px rgba(193, 154, 60, 0.05);
+  /* Shadow */
+  --shadow-sm: 0 1px 2px rgba(17,17,17,.04), 0 1px 3px rgba(17,17,17,.06);
+  --shadow-md: 0 4px 12px rgba(17,17,17,.06), 0 2px 4px rgba(17,17,17,.04);
+  --shadow-lg: 0 18px 36px rgba(17,17,17,.08), 0 6px 12px rgba(17,17,17,.05);
   --focus-ring: 0 0 0 2px var(--bg-0), 0 0 0 4px var(--accent);
 
   /* Layout */
   --container: 1200px;
   --gutter: 40px;
   --gutter-sm: 20px;
-}
-
-/* ---------- Dark mode (Rich Obsidian) ---------- */
-:root[data-theme="dark"] {
-  --bg-0: #0D0D0B;
-  --bg-1: #161512;
-  --bg-2: #1F1D19;
-  --bg-3: #2A2823;
-  --bg-ink: #FAF8F3;
-
-  --text-1: #FAF8F3;
-  --text-2: rgba(250, 248, 243, 0.78);
-  --text-3: rgba(250, 248, 243, 0.54);
-  --text-4: rgba(250, 248, 243, 0.34);
-  --text-on-ink: #111111;
-  --text-on-ink-muted: rgba(17, 17, 17, 0.7);
-
-  --border-1: rgba(250, 248, 243, 0.08);
-  --border-2: rgba(250, 248, 243, 0.16);
-  --border-3: rgba(250, 248, 243, 0.32);
-  --border-on-ink: rgba(17, 17, 17, 0.12);
-
-  --accent:         #D4AF37;
-  --accent-hover:   #E5C158;
-  --accent-pressed: #E5C158;
-  --accent-subtle:  rgba(212, 175, 55, 0.08);
-  --accent-border:  rgba(212, 175, 55, 0.30);
-  --accent-ink:     #090908;
-
-  --editorial:      #E5C158;
-  --editorial-ink:  #090908;
-
-  --nav-bg:    rgba(13, 13, 11, 0.85);
-  --glass-bg:  rgba(19, 18, 16, 0.75);
-  --grid-line: rgba(212, 175, 55, 0.012);
-
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
-  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(212, 175, 55, 0.03);
 }
 
 html, body { margin: 0; padding: 0; }
@@ -122,11 +77,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
-    radial-gradient(circle at 50% 0%, var(--accent-subtle), transparent 60%);
-  background-size: 50px 50px, 50px 50px, auto;
-  transition: background-color var(--dur-base) var(--ease), color var(--dur-base) var(--ease);
+    radial-gradient(circle at 20% 10%, rgba(184,135,58,.03), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(17,17,17,.02), transparent 40%);
 }
 
 a { color: inherit; }
@@ -149,20 +101,6 @@ button { font-family: inherit; }
 }
 
 /* ---------- Global utilities ---------- */
-.glass-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-1);
-  box-shadow: var(--shadow-md);
-  transition: border-color var(--dur-base) var(--ease), transform var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease);
-}
-.glass-card:hover {
-  border-color: var(--accent);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-lg);
-}
-
 .site-container {
   max-width: var(--container);
   margin: 0 auto;
@@ -179,10 +117,11 @@ button { font-family: inherit; }
   align-items: center;
   gap: 10px;
   padding: 14px 22px;
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 700;
-  border-radius: 50px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  border-radius: 2px;
   border: 1px solid transparent;
   text-decoration: none;
   transition: all var(--dur-base) var(--ease);
@@ -193,29 +132,28 @@ button { font-family: inherit; }
   background: var(--accent);
   color: var(--accent-ink);
   border-color: var(--accent);
-  box-shadow: 0 4px 15px rgba(193, 154, 60, 0.22);
+  box-shadow: var(--shadow-sm);
 }
 .btn-primary:hover {
   background: var(--accent-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.35);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
 .btn-secondary {
   background: transparent;
   color: var(--text-1);
-  border-color: rgba(212, 175, 55, 0.4);
+  border-color: var(--border-3);
 }
 .btn-secondary:hover {
   border-color: var(--text-1);
-  background: rgba(212, 175, 55, 0.05);
-  transform: translateY(-2px);
+  background: var(--bg-1);
 }
-.btn-lg { padding: 16px 28px; font-size: 14px; }
+.btn-lg { padding: 16px 28px; font-size: 16px; }
 .btn-full { width: 100%; justify-content: center; }
 
 /* Section base */
 .section {
-  padding: 110px 0;
+  padding: 96px 0;
   border-top: 1px solid var(--border-1);
 }
 .section-head {
@@ -239,7 +177,7 @@ button { font-family: inherit; }
   font-size: clamp(28px, 3.6vw, 44px);
   font-weight: 800;
   letter-spacing: -0.025em;
-  line-height: 1.15;
+  line-height: 1.1;
   color: var(--text-1);
   margin: 0 0 16px;
   max-width: 22ch;
@@ -252,12 +190,12 @@ button { font-family: inherit; }
 .section-head .lede {
   font-size: 17px;
   color: var(--text-2);
-  line-height: 1.65;
+  line-height: 1.6;
   max-width: 62ch;
   margin: 0;
 }
 @media (max-width: 720px) {
-  .section { padding: 80px 0; }
+  .section { padding: 72px 0; }
   .section-head { flex-direction: column; gap: 12px; margin-bottom: 48px; }
   .section-num { padding-top: 0; }
 }

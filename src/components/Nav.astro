@@ -17,42 +17,28 @@ const altLangLabel = isUk ? "EN" : "UA";
 
 const labels = isUk
   ? {
+      services: "Послуги",
       about: "Про мене",
-      practice: "Практика",
-      practiceOverview: "Огляд",
-      audit: "Аудит AI",
-      discovery: "Дослідження",
-      recovery: "Відновлення",
-      cases: "Кейси",
       howIWork: "Як я працюю",
       blog: "Блог",
-      cta: "Discovery Call",
+      cta: "Стратегічна сесія",
       menu: "Меню",
       altLangAria: `Switch to English`,
     }
   : {
+      services: "Services",
       about: "About",
-      practice: "Practice",
-      practiceOverview: "Overview",
-      audit: "AI Audit",
-      discovery: "Discovery",
-      recovery: "Recovery",
-      cases: "Cases",
       howIWork: "How I work",
       blog: "Blog",
-      cta: "Discovery Call",
+      cta: "Request Strategy Session",
       menu: "Menu",
       altLangAria: `Switch to Ukrainian`,
     };
 
 const prefix = isUk ? "/uk" : "";
 const links = {
+  services: `${prefix}/#services`,
   about: `${prefix}/about/`,
-  practice: `${prefix}/practices/`,
-  audit: `${prefix}/ai-readiness-audit/`,
-  discovery: `${prefix}/idea-translator/`,
-  recovery: `${prefix}/project-rescue/`,
-  cases: `${prefix}/case-studies/`,
   howIWork: `${prefix}/how-i-work/`,
   blog: `${prefix}/blog/`,
 };
@@ -61,6 +47,7 @@ const links = {
 <nav class="site-nav" aria-label="Primary">
   <div class="site-container nav-inner">
     <a href={homeHref} class="nav-brand" aria-label={`${site.name} — home`}>
+      <span class="nav-brand-mark" role="img" aria-label="Ascend Griffin"></span>
       <span class="nav-brand-name">{site.name}</span>
     </a>
 
@@ -69,31 +56,21 @@ const links = {
     </button>
 
     <ul class="nav-links" id="nav-links">
+      <li><a href={links.services}>{labels.services}</a></li>
+      <li><a href={links.howIWork}>{labels.howIWork}</a></li>
       <li><a href={links.about}>{labels.about}</a></li>
-
-      <li class="nav-dropdown">
-        <button
-          type="button"
-          class="nav-dropdown-trigger"
-          aria-expanded="false"
-          aria-controls="nav-practice-menu"
-        >
-          {labels.practice}
-          <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-            <path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      <li><a href={links.blog}>{labels.blog}</a></li>
+      <li>
+        <button class="nav-theme-toggle" type="button" aria-label={isUk ? "Перемкнути тему" : "Toggle theme"} title={isUk ? "Світла / темна тема" : "Light / dark theme"}>
+          <svg class="theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+          </svg>
+          <svg class="theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
           </svg>
         </button>
-        <ul class="nav-dropdown-menu" id="nav-practice-menu" role="menu">
-          <li role="none"><a role="menuitem" href={links.practice}>{labels.practiceOverview}</a></li>
-          <li role="none"><a role="menuitem" href={links.audit}>{labels.audit}</a></li>
-          <li role="none"><a role="menuitem" href={links.discovery}>{labels.discovery}</a></li>
-          <li role="none"><a role="menuitem" href={links.recovery}>{labels.recovery}</a></li>
-          <li role="none"><a role="menuitem" href={links.cases}>{labels.cases}</a></li>
-        </ul>
       </li>
-
-      <li><a href={links.howIWork}>{labels.howIWork}</a></li>
-      <li><a href={links.blog}>{labels.blog}</a></li>
       <li>
         <a href={altLangHref} class="nav-lang" aria-label={labels.altLangAria}>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -104,7 +81,11 @@ const links = {
           <span>{altLangLabel}</span>
         </a>
       </li>
-      <li><a href="#book" data-modal="booking" data-subject="discovery-call" data-source="nav" class="nav-cta">{labels.cta} →</a></li>
+      <li>
+        <a href="#book" data-modal="booking" data-subject="discovery-call" data-source="nav" class="nav-cta-pill">
+          {labels.cta}
+        </a>
+      </li>
     </ul>
   </div>
 </nav>
@@ -114,8 +95,11 @@ const links = {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: var(--bg-0);
+    background: var(--nav-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border-1);
+    transition: background var(--dur-base) var(--ease);
   }
   .nav-inner {
     display: flex;
@@ -126,120 +110,137 @@ const links = {
     margin: 0 auto;
   }
   @media (max-width: 720px) { .nav-inner { padding: 14px var(--gutter-sm); } }
-  .nav-brand { display: flex; align-items: center; text-decoration: none; color: var(--text-1); }
-  .nav-brand-name { font-family: var(--font-display); font-size: 17px; font-weight: 700; letter-spacing: -0.015em; }
-  .nav-links {
-    list-style: none; margin: 0; padding: 0;
-    display: flex; align-items: center; gap: 24px;
+  
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text-1);
   }
-  .nav-links > li > a,
-  .nav-dropdown-trigger {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.08em;
+  /* Logo badge — golden griffin cropped from the brand PNG on a dark plate */
+  .nav-brand-mark {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background-image: url("/logo/ascend-griffin-full.png");
+    background-repeat: no-repeat;
+    background-color: #16140F;
+    background-size: 85px;
+    background-position: -22px -14px;
+    box-shadow: 0 0 0 1px var(--accent-border), 0 2px 10px rgba(193, 154, 60, 0.18);
+    transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+  }
+  .nav-brand:hover .nav-brand-mark {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 1px var(--accent), 0 4px 16px rgba(193, 154, 60, 0.3);
+  }
+  .nav-brand-name {
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
+    color: var(--text-1);
+  }
+  
+  .nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+  .nav-links > li > a {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
     color: var(--text-3);
     text-decoration: none;
     transition: color var(--dur-fast) var(--ease);
-    background: transparent;
-    border: 0;
-    padding: 0;
-    cursor: pointer;
-    font-weight: 400;
+    padding: 6px 0;
+    position: relative;
+    letter-spacing: 0.02em;
   }
-  .nav-links > li > a:hover,
-  .nav-dropdown-trigger:hover {
+  .nav-links > li > a:hover {
     color: var(--text-1);
   }
-
-  /* Dropdown */
-  .nav-dropdown { position: relative; }
-  .nav-dropdown-trigger {
-    display: flex;
+  
+  /* Theme toggle */
+  .nav-theme-toggle {
+    display: inline-flex;
     align-items: center;
-    gap: 6px;
-  }
-  .nav-dropdown-trigger svg {
-    transition: transform var(--dur-fast) var(--ease);
-  }
-  .nav-dropdown.is-open .nav-dropdown-trigger svg {
-    transform: rotate(180deg);
-  }
-  .nav-dropdown-menu {
-    position: absolute;
-    top: calc(100% + 14px);
-    left: -16px;
-    min-width: 220px;
-    background: var(--bg-0);
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    padding: 0;
     border: 1px solid var(--border-2);
-    border-radius: 4px;
-    box-shadow: var(--shadow-lg);
-    padding: 8px 0;
-    list-style: none;
-    margin: 0;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-4px);
-    transition: opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease), visibility var(--dur-fast);
+    border-radius: 50px;
+    background: transparent;
+    color: var(--text-2);
+    cursor: pointer;
+    transition: all var(--dur-fast) var(--ease);
   }
-  .nav-dropdown.is-open .nav-dropdown-menu,
-  .nav-dropdown:hover .nav-dropdown-menu,
-  .nav-dropdown:focus-within .nav-dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+  .nav-theme-toggle:hover {
+    border-color: var(--accent);
+    color: var(--accent-pressed);
+    background: var(--accent-subtle);
   }
-  .nav-dropdown-menu li { margin: 0; }
-  .nav-dropdown-menu a {
-    display: block;
-    padding: 10px 18px;
-    font-family: var(--font-body);
-    font-size: 14px;
-    color: var(--text-1);
-    text-decoration: none;
-    letter-spacing: 0;
-    text-transform: none;
-    line-height: 1.4;
-    font-weight: 500;
-    transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
-  }
-  .nav-dropdown-menu a:hover { background: var(--bg-1); color: var(--accent-pressed); }
-  .nav-dropdown-soon span {
-    display: block;
-    padding: 10px 18px;
-    font-family: var(--font-body);
-    font-size: 14px;
-    color: var(--text-4);
-    font-style: italic;
-    line-height: 1.4;
-    cursor: default;
-  }
+  /* Light theme → show moon (switch to dark). Dark theme → show sun. */
+  .nav-theme-toggle .theme-icon-sun,
+  .nav-theme-toggle .theme-icon-moon { display: block; }
+  .nav-theme-toggle .theme-icon-sun { display: none; }
+  :global(html[data-theme="dark"]) .nav-theme-toggle .theme-icon-sun { display: block; }
+  :global(html[data-theme="dark"]) .nav-theme-toggle .theme-icon-moon { display: none; }
 
   /* Language toggle */
   .nav-lang {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    border: 1px solid var(--border-2);
+    border: 1px solid rgba(212, 175, 55, 0.25);
     padding: 6px 12px;
-    border-radius: 2px;
+    border-radius: 50px;
     color: var(--text-2) !important;
     font-weight: 600;
+    font-size: 11px;
+    font-family: var(--font-mono);
     transition: all var(--dur-fast) var(--ease);
   }
-  .nav-lang svg { color: var(--accent-pressed); flex-shrink: 0; }
-  .nav-lang:hover { border-color: var(--accent); color: var(--accent-pressed) !important; background: var(--accent-subtle); }
+  .nav-lang svg { color: var(--accent); flex-shrink: 0; }
+  .nav-lang:hover {
+    border-color: var(--accent);
+    color: var(--text-1) !important;
+    background: rgba(212, 175, 55, 0.08);
+  }
 
-  /* CTA */
-  .nav-cta {
+  /* Pill outline CTA from mockup */
+  .nav-cta-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--accent);
+    border-radius: 50px;
+    padding: 10px 22px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--accent-pressed) !important;
+    background: transparent;
+    transition: all var(--dur-base) var(--ease);
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .nav-cta-pill:hover {
     background: var(--accent);
     color: var(--accent-ink) !important;
-    padding: 8px 14px;
-    border-radius: 2px;
-    font-weight: 600;
-    letter-spacing: 0.04em !important;
+    box-shadow: 0 4px 15px rgba(184, 135, 58, 0.15);
+    transform: translateY(-1px);
   }
-  .nav-cta:hover { background: var(--accent-hover); }
 
   /* Toggle */
   .nav-toggle {
@@ -310,6 +311,20 @@ const links = {
       });
     });
   }
+
+  // Theme toggle — light (default) ↔ dark, persisted in localStorage
+  document.querySelectorAll<HTMLButtonElement>(".nav-theme-toggle").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+      const next = isDark ? "light" : "dark";
+      if (next === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+      } else {
+        document.documentElement.removeAttribute("data-theme");
+      }
+      try { localStorage.setItem("ag_theme", next); } catch (e) { /* ignore */ }
+    });
+  });
 
   // Dropdown click behavior (mobile + accessibility)
   document.querySelectorAll<HTMLElement>(".nav-dropdown").forEach((dd) => {

@@ -12,6 +12,41 @@ const allPosts = await getCollection("blog", ({ data }) => data.lang === "en" &&
 const latestPosts = allPosts
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 2);
+
+const services = [
+  {
+    num: "01",
+    title: "AI Readiness Audit",
+    price: "from $1,000 · 5-14 days",
+    desc: "An independent assessment of a prototype, vendor proposal, or AI integration that stopped working. Before committing capital — a structured audit of risks and code.",
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>`,
+    href: "/ai-readiness-audit/"
+  },
+  {
+    num: "02",
+    title: "Product Discovery",
+    price: "from $4,000 · 2-8 weeks",
+    desc: "Discovery Sprint for non-technical founders. We turn an idea into a tested concept, realistic budget, technical architecture, and a shortlist of vetted vendors.",
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>`,
+    href: "/idea-translator/"
+  },
+  {
+    num: "03",
+    title: "Project Recovery",
+    price: "from $2,500/month · retainer",
+    desc: "When a project loses momentum, vendor communication breaks down, or the budget is draining without results. Structural recovery with a clear path forward.",
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>`,
+    href: "/project-rescue/"
+  },
+  {
+    num: "04",
+    title: "Fractional Leadership",
+    price: "from $2,500/month · retainer",
+    desc: "Acting Product Owner or Advisor on your side. Reviewing vendor agreements, overseeing estimates, joining key demos, and keeping developers accountable.",
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
+    href: "/how-i-work/"
+  }
+];
 ---
 
 <BaseLayout>
@@ -20,44 +55,20 @@ const latestPosts = allPosts
     <Hero />
 
     {/* ── Services ────────────────────────────────────────────── */}
-    <section class="home-section">
+    <section class="home-section" id="services">
       <div class="home-shell">
-        <p class="home-eyebrow">Engagement formats</p>
-        <h2 class="home-h2">Three ways to <em>get a problem solved</em>.</h2>
-        <p class="home-lede">
-          Depending on the stage you're at and what you need right now — we pick the format that actually fits your situation.
-        </p>
-
-        <div class="services-grid">
-          <a href="/ai-readiness-audit/" class="service-card">
-            <div class="service-card-num">01</div>
-            <h3 class="service-card-title">AI Readiness Audit</h3>
-            <p class="service-card-price">from $1,000 · 5-14 days</p>
-            <p class="service-card-desc">
-              An independent read on a vibe-coded prototype, a vendor proposal on your desk, or an AI feature that stopped working. Before you commit more capital — a structured review.
-            </p>
-            <span class="service-card-link">Learn more →</span>
-          </a>
-
-          <a href="/idea-translator/" class="service-card">
-            <div class="service-card-num">02</div>
-            <h3 class="service-card-title">Discovery</h3>
-            <p class="service-card-price">from $4,000 · 2-8 weeks</p>
-            <p class="service-card-desc">
-              Discovery Sprint for non-technical founders: from idea to a complete product brief, realistic budget, and shortlist of right vendors.
-            </p>
-            <span class="service-card-link">Learn more →</span>
-          </a>
-
-          <a href="/project-rescue/" class="service-card">
-            <div class="service-card-num">03</div>
-            <h3 class="service-card-title">Project Recovery</h3>
-            <p class="service-card-price">from $2,500/month · retainer</p>
-            <p class="service-card-desc">
-              Project lost momentum, vendor unresponsive, budget draining without visible progress. Structured recovery with a clear plan for what comes next.
-            </p>
-            <span class="service-card-link">Learn more →</span>
-          </a>
+        <h2 class="section-title-caps">KEY SERVICES</h2>
+        
+        <div class="services-grid-redesign">
+          {services.map((service) => (
+            <a href={service.href} class="service-card-redesign glass-card">
+              <div class="service-icon-badge" set:html={service.icon} />
+              <h3 class="service-card-title-redesign">{service.title}</h3>
+              <p class="service-card-price-redesign">{service.price}</p>
+              <p class="service-card-desc-redesign">{service.desc}</p>
+              <span class="service-card-link-redesign">Learn more →</span>
+            </a>
+          ))}
         </div>
       </div>
     </section>
@@ -67,37 +78,54 @@ const latestPosts = allPosts
     {/* ── About teaser ─────────────────────────────────────────── */}
     <section class="home-section home-section-bg">
       <div class="home-shell">
-        <p class="home-eyebrow">Who I am</p>
-        <h2 class="home-h2">I see <em>the hidden risks</em> before they bite.</h2>
-
-        <div class="prose">
+        <h2 class="section-title-caps">WHO I AM</h2>
+        <div class="prose-redesign">
+          <p class="prose-lead">I see the hidden risks in IT projects before they become expensive mistakes.</p>
           <p>I'm Taras Smaliukh — CEO and CPO of TreximAI (a B2B AI logistics platform) and founder of Ascend Griffin. 8 years of business analysis and product ownership across AI products, logistics, fintech, and B2B SaaS.</p>
           <p>My strength is reading an IT project as a whole system and spotting the risks others miss. Scope, estimates, product decisions, technical assumptions that sound convincing but don't hold under pressure.</p>
-          <p>I'm not the developer on your project — but I understand architecture well and work fluently with modern AI tools. I can assemble a quick prototype or cover a small piece of functionality myself to test a hypothesis. When it needs to scale, we bring in a tech team — yours, if you already have one; or vetted specialists I've worked with before. That's the normal way I work today.</p>
+          <p>I'm not the developer on your project — but I understand architecture well and work fluently with modern AI tools. When it needs to scale, we bring in a tech team — yours, if you already have one; or vetted specialists I've worked with before.</p>
         </div>
-
-        <a href="/about/" class="link-arrow">More about me →</a>
+        <a href="/about/" class="link-arrow-redesign">More about me →</a>
       </div>
     </section>
 
     {/* ── How I work teaser ────────────────────────────────────── */}
     <section class="home-section">
       <div class="home-shell">
-        <p class="home-eyebrow">How I work</p>
-        <h2 class="home-h2">Five principles, <em>no surprises</em>.</h2>
-        <p class="home-lede">
-          The contract before the contract. Every engagement — Audit, Discovery, Project Support — runs on these five rules. If any of them is a dealbreaker, better we both know now.
+        <h2 class="section-title-caps">HOW I WORK</h2>
+        <p class="home-lede-redesign">
+          The contract before the contract. Every engagement — Audit, Discovery, Project Support — runs on these five rules.
         </p>
 
-        <ul class="principles-list">
-          <li><span class="principle-num">01</span><span>Always on your side — my recommendations serve your interest.</span></li>
-          <li><span class="principle-num">02</span><span>Price fixed before work starts. No quiet "oh, this will be a bit more."</span></li>
-          <li><span class="principle-num">03</span><span>Discovery first, always. If I'm not the right read — I'll say so.</span></li>
-          <li><span class="principle-num">04</span><span>I leave a documented trail — every decision in writing.</span></li>
-          <li><span class="principle-num">05</span><span>I work to the plan, not to the clock. No work-for-the-sake-of-work.</span></li>
-        </ul>
+        <div class="principles-grid">
+          <div class="principle-item glass-card">
+            <span class="principle-num-redesign">01</span>
+            <h4>Always on your side</h4>
+            <p>Recommendations serve your interests exclusively. No vendor kickbacks, no hidden agendas.</p>
+          </div>
+          <div class="principle-item glass-card">
+            <span class="principle-num-redesign">02</span>
+            <h4>Price fixed before start</h4>
+            <p>No hourly billing. The price is agreed before work begins. No quiet budget adjustments.</p>
+          </div>
+          <div class="principle-item glass-card">
+            <span class="principle-num-redesign">03</span>
+            <h4>Discovery first</h4>
+            <p>If I am not the right read for your specific situation — I will say so on our very first call.</p>
+          </div>
+          <div class="principle-item glass-card">
+            <span class="principle-num-redesign">04</span>
+            <h4>Documented trail</h4>
+            <p>Every decision, recommendation, and estimate audit is delivered in writing for your records.</p>
+          </div>
+          <div class="principle-item glass-card">
+            <span class="principle-num-redesign">05</span>
+            <h4>Work to the plan</h4>
+            <p>No work-for-the-sake-of-work. Success is measured by outcomes delivered, not hours spent.</p>
+          </div>
+        </div>
 
-        <a href="/how-i-work/" class="link-arrow">More on the principles →</a>
+        <a href="/how-i-work/" class="link-arrow-redesign">More on the principles →</a>
       </div>
     </section>
 
@@ -105,13 +133,10 @@ const latestPosts = allPosts
     {latestPosts.length > 0 && (
       <section class="home-section home-section-bg">
         <div class="home-shell">
-          <p class="home-eyebrow">From the blog</p>
-          <h2 class="home-h2">Notes and thoughts.</h2>
-          <p class="home-lede">
-            On IT projects, AI tools, and other practices I use in my work.
-          </p>
+          <h2 class="section-title-caps">FROM THE BLOG</h2>
+          <p class="home-lede-redesign">Notes and thoughts on IT projects, AI tools, and product practices.</p>
 
-          <div class="blog-teaser-grid">
+          <div class="blog-teaser-grid-redesign">
             {latestPosts.map((post) => (
               <BlogCard
                 href={`/blog/${post.id.replace(/^en\//, "")}/`}
@@ -124,7 +149,7 @@ const latestPosts = allPosts
             ))}
           </div>
 
-          <a href="/blog/" class="link-arrow">All posts →</a>
+          <a href="/blog/" class="link-arrow-redesign" style="margin-top: 40px;">All posts →</a>
         </div>
       </section>
     )}
@@ -152,42 +177,170 @@ const latestPosts = allPosts
 </BaseLayout>
 
 <style>
-  .home-shell { max-width: 1120px; margin: 0 auto; padding: 0 var(--gutter); }
+  .home-shell { max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter); }
   @media (max-width: 720px) { .home-shell { padding: 0 var(--gutter-sm); } }
 
-  .home-section { padding: 80px 0; border-top: 1px solid var(--border-1); }
-  @media (max-width: 720px) { .home-section { padding: 56px 0; } }
+  .home-section { padding: 100px 0; border-top: 1px solid var(--border-1); }
+  @media (max-width: 720px) { .home-section { padding: 64px 0; } }
   .home-section-bg { background: var(--bg-1); }
 
-  .home-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-pressed); margin: 0 0 16px; font-weight: 600; }
-  .home-h2 { font-family: var(--font-display); font-size: clamp(32px, 4vw, 44px); line-height: 1.1; letter-spacing: -0.02em; color: var(--text-1); margin: 0 0 20px; font-weight: 700; max-width: 22ch; }
-  .home-h2 em { font-style: italic; color: var(--editorial); }
-  .home-lede { font-size: 18px; line-height: 1.6; color: var(--text-2); margin: 0 0 40px; max-width: 60ch; }
+  .section-title-caps {
+    font-family: var(--font-display);
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin: 0 0 40px;
+    font-weight: 700;
+  }
 
-  .services-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 8px; }
-  @media (max-width: 900px) { .services-grid { grid-template-columns: 1fr; } }
-  .service-card { background: var(--bg-0); border: 1px solid var(--border-1); border-radius: 4px; padding: 32px 28px; text-decoration: none; color: inherit; transition: all var(--dur-base) var(--ease); display: flex; flex-direction: column; gap: 10px; min-height: 280px; }
-  .service-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow-md); }
-  .service-card-soon { background: var(--bg-2); cursor: default; opacity: 0.85; }
-  .service-card-soon:hover { transform: none; border-color: var(--border-1); box-shadow: none; }
-  .service-card-num { font-family: var(--font-mono); font-size: 12px; color: var(--accent-pressed); font-weight: 700; letter-spacing: 0.04em; margin-bottom: 4px; }
-  .service-card-title { font-family: var(--font-display); font-size: 22px; line-height: 1.25; letter-spacing: -0.015em; color: var(--text-1); margin: 0; font-weight: 700; }
-  .service-card-price { font-family: var(--font-mono); font-size: 12px; color: var(--text-3); margin: 0 0 8px; letter-spacing: 0.02em; }
-  .service-card-desc { font-size: 15px; line-height: 1.55; color: var(--text-2); margin: 0; flex: 1; }
-  .service-card-link { font-family: var(--font-mono); font-size: 12px; color: var(--accent-pressed); letter-spacing: 0.04em; font-weight: 600; margin-top: 8px; }
-  .service-card-soon-tag { font-family: var(--font-mono); font-size: 11px; color: var(--text-4); letter-spacing: 0.04em; margin-top: 8px; font-style: italic; }
+  .home-lede-redesign {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--text-2);
+    margin: 0 0 40px;
+    max-width: 60ch;
+  }
 
-  .prose p { font-size: 17px; line-height: 1.7; color: var(--text-2); margin: 0 0 18px; max-width: 65ch; }
-  .prose p:last-child { margin-bottom: 0; }
-  .prose p strong { color: var(--text-1); font-weight: 700; }
+  /* 4-column Services Grid from Mockup */
+  .services-grid-redesign {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+  }
+  @media (max-width: 1024px) {
+    .services-grid-redesign { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 640px) {
+    .services-grid-redesign { grid-template-columns: 1fr; }
+  }
 
-  .link-arrow { display: inline-block; margin-top: 32px; color: var(--accent-pressed); text-decoration: none; font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.02em; font-weight: 600; border-bottom: 1px solid var(--accent); padding-bottom: 2px; transition: color var(--dur-fast) var(--ease); }
-  .link-arrow:hover { color: var(--accent-hover); }
+  .service-card-redesign {
+    border-radius: 12px;
+    padding: 32px 24px;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    min-height: 320px;
+    border: 1px solid var(--border-1);
+  }
+  .service-icon-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--accent);
+    color: var(--accent-ink);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.18);
+    transition: transform var(--dur-base) var(--ease), background-color var(--dur-base) var(--ease);
+  }
+  .service-card-redesign:hover .service-icon-badge {
+    transform: scale(1.08) rotate(3deg);
+    background: var(--accent-hover);
+  }
+  .service-card-title-redesign {
+    font-family: var(--font-display);
+    font-size: 20px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--text-1);
+    margin: 0 0 6px;
+    font-weight: 700;
+  }
+  .service-card-price-redesign {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent);
+    margin: 0 0 16px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .service-card-desc-redesign {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--text-2);
+    margin: 0;
+    flex: 1;
+  }
+  .service-card-link-redesign {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    font-weight: 700;
+    margin-top: 24px;
+    text-transform: uppercase;
+  }
 
-  .principles-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--text-1); }
-  .principles-list li { display: grid; grid-template-columns: 56px 1fr; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--border-1); align-items: baseline; font-size: 17px; line-height: 1.5; color: var(--text-2); max-width: 70ch; }
-  .principle-num { font-family: var(--font-mono); font-size: 16px; color: var(--accent-pressed); font-weight: 700; letter-spacing: 0.02em; line-height: 1.4; }
+  .prose-redesign p { font-size: 17px; line-height: 1.7; color: var(--text-2); margin: 0 0 18px; max-width: 65ch; }
+  .prose-redesign p:last-child { margin-bottom: 0; }
+  .prose-lead { font-size: 22px !important; font-weight: 600; color: var(--text-1); line-height: 1.4 !important; margin-bottom: 24px !important; }
 
-  .blog-teaser-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 8px; }
-  @media (max-width: 720px) { .blog-teaser-grid { grid-template-columns: 1fr; } }
+  .link-arrow-redesign {
+    display: inline-block;
+    margin-top: 32px;
+    color: var(--accent-pressed);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    font-weight: 700;
+    border-bottom: 1.5px solid var(--accent);
+    padding-bottom: 2px;
+    transition: color var(--dur-fast) var(--ease);
+    text-transform: uppercase;
+  }
+  .link-arrow-redesign:hover { color: var(--accent-hover); }
+
+  /* 5 Principles Grid Redesign */
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+  }
+  @media (max-width: 1024px) {
+    .principles-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 640px) {
+    .principles-grid { grid-template-columns: 1fr; }
+  }
+  .principle-item {
+    padding: 24px 20px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .principle-num-redesign {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent-pressed);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .principle-item h4 {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-1);
+    margin: 0;
+  }
+  .principle-item p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-3);
+    margin: 0;
+  }
+
+  .blog-teaser-grid-redesign {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+  @media (max-width: 720px) { .blog-teaser-grid-redesign { grid-template-columns: 1fr; } }
 </style>

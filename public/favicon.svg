@@ -1,4 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" fill="#0A0A0A"/>
-  <text x="16" y="22" font-family="Manrope, sans-serif" font-size="18" font-weight="800" text-anchor="middle" fill="#FFE600">AG</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Dark rounded plate -->
+  <rect x="2" y="2" width="96" height="96" rx="22" fill="#16140F"/>
+  <rect x="2.5" y="2.5" width="95" height="95" rx="21.5" fill="none" stroke="#C19A3C" stroke-opacity="0.5" stroke-width="1"/>
+  <!-- Golden rising griffin -->
+  <g transform="translate(50 50) scale(0.78) translate(-50 -48)" fill="url(#fav-gold)" stroke="url(#fav-gold)" stroke-width="0.5" stroke-linejoin="round">
+    <path d="M52 56 L22 34 L30 34 L24 22 L32 24 L29 12 L37 17 L38 7 L45 18 L50 15 Z"/>
+    <path d="M52 56 C52 48, 55 44, 60 43 L63 40 C65 38, 68 39, 69 42 L78 47 C79 48, 78 50, 76 49 L70 47 L68 50 C63 52, 57 52, 52 56 Z"/>
+    <path d="M52 56 L48 74 L53 88 L60 73 L56 57 Z"/>
+  </g>
+  <circle cx="65.6" cy="46.3" r="1.2" fill="#16140F"/>
+  <defs>
+    <linearGradient id="fav-gold" x1="20" y1="14" x2="86" y2="92" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E7C66A"/>
+      <stop offset="45%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#9A7B1C"/>
+    </linearGradient>
+  </defs>
 </svg>

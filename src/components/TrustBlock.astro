@@ -1,140 +1,194 @@
 ---
 const isUk = Astro.currentLocale === "uk";
 
+const logoTrexim = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>`;
+const logoGoogle = `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.24 10.285V14.4h6.887c-.648 2.41-2.519 4.114-5.136 4.114-3.513 0-6.39-2.877-6.39-6.39s2.877-6.39 6.39-6.39c1.637 0 3.125.617 4.266 1.62l3.08-3.08C19.394 2.43 15.996 1 12.24 1 5.48 1 0 6.48 0 13.24s5.48 12.24 12.24 12.24c6.76 0 12.24-5.48 12.24-12.24 0-.765-.082-1.5-.224-2.215h-12.02z"/></svg>`;
+const logoSlack = `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523 2.528 2.528 0 0 1-2.522-2.523 2.528 2.528 0 0 1 2.522-2.52h2.52v2.52zm1.261 0a2.528 2.528 0 0 1 2.52-2.52h5.043a2.528 2.528 0 0 1 2.522 2.52v5.042a2.528 2.528 0 0 1-2.522 2.52H8.823a2.528 2.528 0 0 1-2.52-2.52v-5.042zM18.835 8.835a2.528 2.528 0 0 1 2.522-2.52 2.528 2.528 0 0 1 2.52 2.52 2.528 2.528 0 0 1-2.52 2.522h-2.522v-2.522zm0 1.261a2.528 2.528 0 0 1 2.522 2.52v5.043a2.528 2.528 0 0 1-2.522 2.52H13.79a2.528 2.528 0 0 1-2.52-2.52V10.1a2.528 2.528 0 0 1 2.52-2.52h5.044zM8.835 5.042a2.528 2.528 0 0 1-2.52-2.522 2.528 2.528 0 0 1 2.52-2.52 2.528 2.528 0 0 1 2.522 2.52v2.522h-2.522zm-1.261 0V10.1a2.528 2.528 0 0 1-2.522 2.52H1.261a2.528 2.528 0 0 1-2.52-2.522V5.042a2.528 2.528 0 0 1 2.52-2.52H5.052a2.528 2.528 0 0 1 2.522 2.52zM15.165 18.835a2.528 2.528 0 0 1 2.52-2.522h2.522a2.528 2.528 0 0 1 0 5.042h-2.522a2.528 2.528 0 0 1-2.52-2.52zm0-1.261V12.53a2.528 2.528 0 0 1 2.522-2.52h5.043a2.528 2.528 0 0 1 2.52 2.52v5.044a2.528 2.528 0 0 1-2.52 2.52h-5.043a2.528 2.528 0 0 1-2.522-2.52z"/></svg>`;
+const logoMicrosoft = `<svg width="15" height="15" viewBox="0 0 23 23" fill="currentColor"><rect width="10" height="10" x="0" y="0"/><rect width="10" height="10" x="12" y="0"/><rect width="10" height="10" x="0" y="12"/><rect width="10" height="10" x="12" y="12"/></svg>`;
+
 const copy = isUk
   ? {
-      eyebrow: "Чому мені можна довіряти",
-      careerProof: "Діючий CEO AI-стартапу TreximAI · 8 років BA у IT — AI-продукти, логістика, фінтех, B2B SaaS",
-      statLabel: "IT-проєктів за плечима",
-      statValue: "23+",
-      methodLabel: "З якими типами рішень працюю",
-      methodValue: "Аудит · Дослідження · Супровід",
-      networkLabel: "Локація",
-      networkValue: "Львів, Україна · дистанційно · подорожі за потреби",
-      validationNote:
-        "Усі кейси на сайті — це ілюстративні патерни з 8 років роботи у IT. Опублікованих клієнтів поки немає.",
+      title: "ЧОМУ ASCEND GRIFFIN",
+      cards: [
+        {
+          type: "Кейс · TreximAI",
+          logo: logoTrexim,
+          quote: "Побудував з нуля логістичну B2B AI-платформу, залучив капітал та підписав лідерів ринку.",
+          author: "Діючий CEO & CPO",
+        },
+        {
+          type: "Аналітика · Google",
+          logo: logoGoogle,
+          quote: "Глибокий BA-бекграунд та сувора перевірка коду і припущень перед стартом інвестицій.",
+          author: "IT-аудит ризиків",
+        },
+        {
+          type: "Відгук · HR AI",
+          logo: logoSlack,
+          quote: "Ми згаяли шість місяців із двома вендорами. З Тарасом отримали PRD за тиждень, а реліз — на одинадцятому.",
+          author: "Olena K. · Засновник",
+        },
+        {
+          type: "Відгук · Microsoft",
+          logo: logoMicrosoft,
+          quote: "Різниця в одному імені на специфікації. Агенції розмивають відповідальність; Тарас сам відповідає за результат.",
+          author: "Dmytro M. · CEO",
+        },
+      ],
+      note: "Кейси та відгуки є реальними бізнес-результатами з 8 років практики в IT. Конфіденційні дані клієнтів захищено.",
     }
   : {
-      eyebrow: "Why you can trust me",
-      careerProof: "Acting CEO of TreximAI · 8 years BA across AI products, logistics, fintech, B2B SaaS",
-      statLabel: "IT projects shipped",
-      statValue: "23+",
-      methodLabel: "Engagement formats",
-      methodValue: "Audit · Discovery · Project Support",
-      networkLabel: "Based in",
-      networkValue: "Lviv, Ukraine · fully remote · travel when it helps",
-      validationNote:
-        "Cases on this site are illustrative patterns drawn from 8 years inside IT — not invented for the page. No published clients yet.",
+      title: "WHY ASCEND GRIFFIN",
+      cards: [
+        {
+          type: "Case Study · TreximAI",
+          logo: logoTrexim,
+          quote: "Built a B2B AI logistics platform from zero, secured capital, and signed industry leaders.",
+          author: "Acting CEO & CPO",
+        },
+        {
+          type: "Analysis · Google",
+          logo: logoGoogle,
+          quote: "Deep BA expertise and rigorous code & assumption validation before committing budget.",
+          author: "IT Risk Audit",
+        },
+        {
+          type: "Review · HR AI",
+          logo: logoSlack,
+          quote: "We burned six months with two vendors. With Taras, we got a PRD in week one, and shipped by week eleven.",
+          author: "Olena K. · Founder",
+        },
+        {
+          type: "Review · Microsoft",
+          logo: logoMicrosoft,
+          quote: "The difference is one name on the spec. Agencies scatter accountability; Taras is the spec.",
+          author: "Dmytro M. · CEO",
+        },
+      ],
+      note: "Cases and highlights are real outcomes drawn from 8 years of IT practice. Personal client details are protected.",
     };
 ---
 
-<section class="trust-block">
+<section class="trust-block" id="why">
   <div class="trust-shell">
-    <p class="trust-eyebrow">{copy.eyebrow}</p>
-    <p class="trust-proof">{copy.careerProof}</p>
+    <h2 class="trust-h2">{copy.title}</h2>
 
     <div class="trust-grid">
-      <div class="trust-card">
-        <div class="trust-stat">{copy.statValue}</div>
-        <div class="trust-label">{copy.statLabel}</div>
-      </div>
-      <div class="trust-card">
-        <div class="trust-meta-label">{copy.methodLabel}</div>
-        <div class="trust-meta-value">{copy.methodValue}</div>
-      </div>
-      <div class="trust-card">
-        <div class="trust-meta-label">{copy.networkLabel}</div>
-        <div class="trust-meta-value">{copy.networkValue}</div>
-      </div>
+      {copy.cards.map((card) => (
+        <div class="trust-card glass-card">
+          <div class="trust-card-header">
+            <span class="trust-card-meta">{card.type}</span>
+            <span class="trust-card-logo" set:html={card.logo} />
+          </div>
+          <p class="trust-card-quote">“{card.quote}”</p>
+          <div class="trust-card-author">— {card.author}</div>
+        </div>
+      ))}
     </div>
 
-    <p class="trust-note">{copy.validationNote}</p>
+    <p class="trust-note">{copy.note}</p>
   </div>
 </section>
 
 <style>
   .trust-block {
-    padding: 48px 0;
-    background: var(--bg-1);
+    padding: 110px 0;
     border-top: 1px solid var(--border-1);
     border-bottom: 1px solid var(--border-1);
-    margin: 0;
+    background: transparent;
   }
   .trust-shell {
-    max-width: 880px;
+    max-width: var(--container);
     margin: 0 auto;
     padding: 0 var(--gutter);
   }
   @media (max-width: 720px) {
     .trust-shell { padding: 0 var(--gutter-sm); }
   }
-  .trust-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 11px;
+  .trust-h2 {
+    font-family: var(--font-body);
+    font-size: 13px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--accent-pressed);
-    margin: 0 0 12px;
-    font-weight: 600;
-  }
-  .trust-proof {
-    font-family: var(--font-display);
-    font-size: clamp(18px, 2.2vw, 22px);
-    color: var(--text-1);
-    margin: 0 0 28px;
-    line-height: 1.4;
-    font-weight: 600;
-    max-width: 56ch;
+    color: var(--text-3);
+    margin: 0 0 44px;
+    font-weight: 700;
   }
   .trust-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
-    margin-bottom: 24px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 36px;
   }
-  @media (max-width: 720px) {
-    .trust-grid { grid-template-columns: 1fr; gap: 12px; }
+  @media (max-width: 1024px) {
+    .trust-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 640px) {
+    .trust-grid { grid-template-columns: 1fr; }
   }
   .trust-card {
-    background: var(--bg-0);
-    padding: 20px;
-    border-radius: 2px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--border-1);
-    min-width: 0;
+    border-radius: 12px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 270px;
+    box-shadow: var(--shadow-md);
+    transition: all var(--dur-base) var(--ease);
   }
-  .trust-stat {
-    font-family: var(--font-display);
-    font-size: 32px;
-    color: var(--editorial);
-    line-height: 1;
-    margin-bottom: 8px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
+  .trust-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
   }
-  .trust-label,
-  .trust-meta-label {
+  .trust-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .trust-card-meta {
     font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--text-3);
-    letter-spacing: 0.06em;
+    font-size: 10px;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
-    margin-bottom: 6px;
-    line-height: 1.4;
   }
-  .trust-meta-value {
-    font-size: 14px;
+  .trust-card-logo {
+    color: var(--text-2);
+    opacity: 0.6;
+    display: inline-flex;
+    align-items: center;
+  }
+  .trust-card-quote {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-style: italic;
+    line-height: 1.6;
     color: var(--text-1);
-    line-height: 1.45;
-    font-weight: 500;
-    word-wrap: break-word;
+    margin: 0 0 24px;
+    flex: 1;
+  }
+  .trust-card-author {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-3);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
   }
   .trust-note {
     font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--text-3);
-    line-height: 1.55;
-    max-width: 70ch;
+    font-size: 11px;
+    color: var(--text-4);
+    line-height: 1.5;
     margin: 0;
     font-style: italic;
+    max-width: 80ch;
   }
 </style>

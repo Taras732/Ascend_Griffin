@@ -11,11 +11,13 @@ interface Props {
   noindex?: boolean;
   /** Text-heavy pages: hide the decorative griffin watermark for readability */
   plain?: boolean;
+  /** Homepage: preload the hero portrait (the LCP image) */
+  heroPreload?: boolean;
 }
 
 const tr = t(Astro.currentLocale);
 const lang = Astro.currentLocale === "uk" ? "uk" : "en";
-const { title = tr.site.seo.title, description = tr.site.seo.description, noindex = false, plain = false } = Astro.props;
+const { title = tr.site.seo.title, description = tr.site.seo.description, noindex = false, plain = false, heroPreload = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, site.url).toString();
 const altLocaleHref = lang === "uk" ? site.url + "/" : site.url + "/uk/";
 const altLocaleCode = lang === "uk" ? "en" : "uk";
@@ -45,6 +47,8 @@ const altLocaleCode = lang === "uk" ? "en" : "uk";
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+
+    {heroPreload && <link rel="preload" as="image" href="/taras.webp" fetchpriority="high" />}
 
     <!-- Favicon — golden griffin badge (our own griffin, crisp SVG + PNG fallback) -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

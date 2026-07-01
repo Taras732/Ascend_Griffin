@@ -44,9 +44,10 @@ const altLocaleCode = lang === "uk" ? "en" : "uk";
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Favicon — golden griffin badge -->
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="apple-touch-icon" href="/favicon.png" />
+    <!-- Favicon — golden griffin badge (our own griffin, crisp SVG + PNG fallback) -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
     <meta name="theme-color" content="#16140F" />
 
     <!-- Fonts -->
@@ -56,6 +57,21 @@ const altLocaleCode = lang === "uk" ? "en" : "uk";
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Cinematic motion (reveal on scroll + hero entrance) — progressive, JS-driven -->
+    <style is:global>
+      .rv { opacity: 0; transform: translateY(22px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+      .rv.in { opacity: 1; transform: none; }
+      .rv-fade { opacity: 0; transition: opacity .9s var(--ease); }
+      .rv-fade.in { opacity: 1; }
+      .rv-1 { transition-delay: .07s } .rv-2 { transition-delay: .14s } .rv-3 { transition-delay: .21s }
+      .rv-4 { transition-delay: .28s } .rv-5 { transition-delay: .35s }
+      .hero-photo { will-change: transform; }
+      .hero-photo img { transition: transform .6s var(--ease); }
+      @media (prefers-reduced-motion: reduce) {
+        .rv, .rv-fade { opacity: 1 !important; transform: none !important; transition: none !important; }
+      }
+    </style>
 
     <!-- JSON-LD: Person + ProfessionalService -->
     <script
@@ -114,11 +130,76 @@ const altLocaleCode = lang === "uk" ? "en" : "uk";
         gtag("js", new Date());
       })();
     </script>
+    <script is:inline>
+      // Initialize theme instantly to prevent page flash
+      (function() {
+        const savedTheme = localStorage.getItem('ag-theme') || 'cinema';
+        document.documentElement.className = 'theme-' + savedTheme;
+      })();
+    </script>
   </head>
   <body>
     <slot />
     <BookingModal />
     <ConsentBanner />
+
+    <!-- Cinematic motion controller — reveal on scroll, hero entrance, subtle portrait parallax -->
+    <script is:inline>
+      (function () {
+        if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        function ready(fn) {
+          if (document.readyState !== "loading") fn();
+          else document.addEventListener("DOMContentLoaded", fn);
+        }
+        ready(function () {
+          // HERO — staggered entrance on load
+          var hero = document.querySelector(".hero");
+          if (hero) {
+            var items = hero.querySelectorAll(".hero-eyebrow, .hero-h1, .hero-lede, .hero-ctas, .hero-micro");
+            items.forEach(function (el, i) { el.classList.add("rv"); if (i < 5) el.classList.add("rv-" + (i + 1)); });
+            var photo = hero.querySelector(".hero-photo");
+            if (photo) photo.classList.add("rv-fade");
+            requestAnimationFrame(function () {
+              requestAnimationFrame(function () {
+                items.forEach(function (el) { el.classList.add("in"); });
+                if (photo) photo.classList.add("in");
+              });
+            });
+          }
+          // SECTIONS below hero — reveal as they enter
+          var io = new IntersectionObserver(function (es) {
+            es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+          }, { threshold: 0.1, rootMargin: "0px 0px -6% 0px" });
+          document.querySelectorAll("section").forEach(function (sec) {
+            if (sec.classList.contains("hero")) return;
+            sec.classList.add("rv");
+            io.observe(sec);
+          });
+          // Cursor spotlight tracking for service cards and trust cards
+          document.querySelectorAll(".service-card, .trust-card").forEach(function (card) {
+            card.addEventListener("mousemove", function (e) {
+              var rect = card.getBoundingClientRect();
+              var x = e.clientX - rect.left;
+              var y = e.clientY - rect.top;
+              card.style.setProperty("--mouse-x", x + "px");
+              card.style.setProperty("--mouse-y", y + "px");
+            });
+          });
+          // PORTRAIT — subtle parallax + scale while hero in view
+          var hp = document.querySelector(".hero-photo");
+          var hpImg = hp && hp.querySelector("img");
+          if (hp) {
+            addEventListener("scroll", function () {
+              var y = window.scrollY;
+              if (y < window.innerHeight) {
+                hp.style.transform = "translateY(" + (y * 0.05).toFixed(1) + "px)";
+                if (hpImg) hpImg.style.transform = "scale(" + (1 + Math.min(y, 420) * 0.00014).toFixed(4) + ")";
+              }
+            }, { passive: true });
+          }
+        });
+      })();
+    </script>
 
     <!-- Anonymous visitor tracking (localStorage only — no cookies, no PII) -->
     <script is:inline>

@@ -66,17 +66,22 @@ const latestPosts = allPosts
 
     {/* ── Про мене teaser ─────────────────────────────────────── */}
     <section class="home-section home-section-bg">
-      <div class="home-shell">
-        <p class="home-eyebrow">Хто я</p>
-        <h2 class="home-h2">Я бачу <em>підводні камені</em> заздалегідь.</h2>
+      <div class="home-shell about-grid">
+        <div class="about-copy">
+          <p class="home-eyebrow">Хто я</p>
+          <h2 class="home-h2">Я бачу <em>підводні камені</em> заздалегідь.</h2>
 
-        <div class="prose">
-          <p>Я — Тарас Смалюх, CEO і CPO TreximAI (B2B AI-платформа логістики), засновник Ascend Griffin. 8 років бізнес-аналізу і продуктового менеджменту у AI-продуктах, логістиці, фінтеху та B2B SaaS.</p>
-          <p>Моя сильна сторона — читати IT-проект як цілісну систему і бачити, де ризики, які інші не помічають. Скоуп, оцінки, продуктові рішення, технічні припущення, що звучать переконливо, але не тримають під тиском.</p>
-          <p>Я не виступаю розробником у ваших проектах — але добре розумію архітектуру і працюю з сучасними AI-інструментами. Швидкий прототип чи невеликий функціонал, щоб перевірити гіпотезу, можу зібрати самостійно. А коли треба масштабувати — залучаємо технічну команду: вашу, якщо вже є, або підбираємо з мережі досвідчених фахівців, з якими я працював. Це звичайна модель того, як я працюю сьогодні.</p>
+          <div class="prose">
+            <p>Я — Тарас Смалюх, CEO і CPO TreximAI (B2B AI-платформа логістики), засновник Ascend Griffin. 8 років бізнес-аналізу і продуктового менеджменту у AI-продуктах, логістиці, фінтеху та B2B SaaS.</p>
+            <p>Моя сильна сторона — читати IT-проект як цілісну систему і бачити, де ризики, які інші не помічають. Скоуп, оцінки, продуктові рішення, технічні припущення, що звучать переконливо, але не тримають під тиском.</p>
+            <p>Я не виступаю розробником у ваших проектах — але добре розумію архітектуру і працюю з сучасними AI-інструментами. Швидкий прототип чи невеликий функціонал, щоб перевірити гіпотезу, можу зібрати самостійно. А коли треба масштабувати — залучаємо технічну команду: вашу, якщо вже є, або підбираємо з мережі досвідчених фахівців, з якими я працював. Це звичайна модель того, як я працюю сьогодні.</p>
+          </div>
+
+          <a href="/uk/about/" class="link-arrow">Дізнатись більше про мене →</a>
         </div>
-
-        <a href="/uk/about/" class="link-arrow">Дізнатись більше про мене →</a>
+        <figure class="about-media">
+          <img src="/img/about.webp" alt="Аналіз продуктового дашборду" loading="lazy" width="1344" height="768" />
+        </figure>
       </div>
     </section>
 
@@ -149,8 +154,43 @@ const latestPosts = allPosts
 
   .services-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 8px; }
   @media (max-width: 900px) { .services-grid { grid-template-columns: 1fr; } }
-  .service-card { background: var(--bg-0); border: 1px solid var(--border-1); border-radius: 4px; padding: 32px 28px; text-decoration: none; color: inherit; transition: all var(--dur-base) var(--ease); display: flex; flex-direction: column; gap: 10px; min-height: 280px; }
-  .service-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .service-card {
+    background: var(--bg-0);
+    border: 1px solid var(--border-1);
+    border-radius: 8px; /* Smooth rounded corners */
+    padding: 32px 28px;
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--dur-base) var(--ease);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 280px;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(400px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), var(--mouse-glow), transparent 45%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .service-card:hover::before {
+    opacity: 1;
+  }
+  .service-card > * {
+    position: relative;
+    z-index: 2;
+  }
+  .service-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md), 0 0 30px rgba(184, 135, 58, 0.03);
+  }
   .service-card-soon { background: var(--bg-2); cursor: default; opacity: 0.85; }
   .service-card-soon:hover { transform: none; border-color: var(--border-1); box-shadow: none; }
   .service-card-num { font-family: var(--font-mono); font-size: 12px; color: var(--accent-pressed); font-weight: 700; letter-spacing: 0.04em; margin-bottom: 4px; }
@@ -160,6 +200,12 @@ const latestPosts = allPosts
   .service-card-link { font-family: var(--font-mono); font-size: 12px; color: var(--accent-pressed); letter-spacing: 0.04em; font-weight: 600; margin-top: 8px; }
   .service-card-soon-tag { font-family: var(--font-mono); font-size: 11px; color: var(--text-4); letter-spacing: 0.04em; margin-top: 8px; font-style: italic; }
 
+  .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 48px; align-items: center; }
+  @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: 28px; } }
+  .about-media { margin: 0; }
+  .about-media img { display: block; width: 100%; max-height: 440px; object-fit: cover; border-radius: 10px; border: 1px solid var(--border-1); box-shadow: var(--shadow-md); }
+  @media (max-width: 900px) { .about-media { order: -1; } .about-media img { max-height: 260px; } }
+
   .prose p { font-size: 17px; line-height: 1.7; color: var(--text-2); margin: 0 0 18px; max-width: 65ch; }
   .prose p:last-child { margin-bottom: 0; }
   .prose p strong { color: var(--text-1); font-weight: 700; }
@@ -168,8 +214,35 @@ const latestPosts = allPosts
   .link-arrow:hover { color: var(--accent-hover); }
 
   .principles-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--text-1); }
-  .principles-list li { display: grid; grid-template-columns: 56px 1fr; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--border-1); align-items: baseline; font-size: 17px; line-height: 1.5; color: var(--text-2); max-width: 70ch; }
-  .principle-num { font-family: var(--font-mono); font-size: 16px; color: var(--accent-pressed); font-weight: 700; letter-spacing: 0.02em; line-height: 1.4; }
+  .principles-list li {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-1);
+    align-items: baseline;
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--text-2);
+    max-width: 70ch;
+    transition: padding-left var(--dur-base) var(--ease), color var(--dur-base) var(--ease);
+  }
+  .principles-list li:hover {
+    padding-left: 8px;
+    color: var(--text-1);
+  }
+  .principle-num {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    color: var(--accent-pressed);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+    transition: color var(--dur-base) var(--ease);
+  }
+  .principles-list li:hover .principle-num {
+    color: var(--accent);
+  }
 
   .blog-teaser-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 8px; }
   @media (max-width: 720px) { .blog-teaser-grid { grid-template-columns: 1fr; } }

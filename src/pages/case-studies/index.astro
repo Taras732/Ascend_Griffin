@@ -9,71 +9,206 @@ const allCases = await getCollection(
   ({ data }) => data.lang === "en" && !data.draft,
 );
 
-const hasCases = allCases.length > 0;
+// Sort: high pain first → rescue, then audit, then discovery; within group by complexity desc
+const serviceOrder: Record<string, number> = { rescue: 0, audit: 1, discovery: 2 };
+const complexityOrder: Record<string, number> = { high: 0, medium: 1, low: 2 };
+allCases.sort((a, b) => {
+  const s = serviceOrder[a.data.service] - serviceOrder[b.data.service];
+  if (s !== 0) return s;
+  return complexityOrder[a.data.complexity] - complexityOrder[b.data.complexity];
+});
 
-const title = "Cases | Ascend Griffin";
+const domainLabels: Record<string, string> = {
+  fintech: "Fintech",
+  logistics: "Logistics",
+  "ai-products": "AI Products",
+  "b2b-saas": "B2B SaaS",
+  govtech: "GovTech",
+};
+const uniqueDomains = Array.from(new Set(allCases.map((c) => c.data.domain))).sort();
+
+const serviceLabels: Record<string, string> = {
+  audit: "Audit",
+  discovery: "Discovery",
+  rescue: "Recovery",
+};
+
+const complexityLabels: Record<string, string> = {
+  low: "Low",
+  medium: "Medium",
+  high: "High",
+};
+
+const title = "Cases — illustrative patterns from 8 years of work | Ascend Griffin";
 const description =
-  "Illustrative composite patterns from 8 years of work in IT consulting — fintech, logistics, AI products, B2B SaaS, and civic initiatives.";
+  "Composite, illustrative cases drawn from real patterns I've met working with IT projects — no client names, but the mechanics are real.";
 ---
 
 <BaseLayout title={title} description={description}>
   <Nav />
-  <main class="cases-soon">
-    <div class="soon-shell">
-      <p class="soon-eyebrow">Cases · Ascend Griffin</p>
-      <h1 class="soon-h1">
-        Cases in <em>English</em> — coming soon.
-      </h1>
-      <p class="soon-lede">
-        The Ukrainian version is live with 8 illustrative composite patterns from real engagement shapes —
-        fintech rescue, logistics audits, AI feasibility research, and more. English translations are queued
-        for Phase 2 after validation on the Ukrainian market.
-      </p>
-
-      <div class="soon-actions">
-        <a href="/uk/case-studies/" class="soon-btn-primary">
-          Read in Ukrainian →
-        </a>
-        <a
-          href="#book"
-          class="soon-btn-ghost"
-          data-modal="booking"
-          data-subject="discovery-call"
-          data-source="cases-en-soon"
-        >
-          Or book a Discovery Call
-        </a>
-      </div>
-
-      {hasCases && (
-        <p class="soon-note">
-          (Internal note: {allCases.length} EN cases exist — but this page currently renders the
-          "coming soon" template. Replace this template with a live grid when ready.)
+  <main class="cases-index">
+    {/* ── Hero ────────────────────────────────────────────── */}
+    <header class="cases-hero">
+      <div class="cases-shell">
+        <p class="cases-eyebrow">Cases · Ascend Griffin</p>
+        <h1 class="cases-h1">
+          What the work looks like — <em>illustrative patterns</em>.
+        </h1>
+        <p class="cases-lede">
+          These aren't reports about real clients. They're <strong>composite patterns</strong> from 8 years of work in IT — fintech, logistics, AI products, B2B SaaS, civic initiatives. No names; the mechanics are real. If you recognise your own pain in one of them, that's a sign it's worth a conversation.
         </p>
-      )}
-    </div>
+
+        <figure class="hero-media">
+          <img src="/img/cases.webp" alt="Organized reports and case files on a dark desk" loading="lazy" width="1344" height="768" />
+        </figure>
+      </div>
+    </header>
+
+    {/* ── Filter bar ──────────────────────────────────────── */}
+    <section class="cases-filters" aria-label="Filter cases">
+      <div class="cases-shell">
+        <div class="filter-row">
+          <p class="filter-label">Format</p>
+          <div class="chip-group" data-filter-group="service" role="group">
+            <button type="button" class="chip is-active" data-filter-value="all">All</button>
+            <button type="button" class="chip" data-filter-value="audit">Audit</button>
+            <button type="button" class="chip" data-filter-value="discovery">Discovery</button>
+            <button type="button" class="chip" data-filter-value="rescue">Recovery</button>
+          </div>
+        </div>
+
+        <div class="filter-row">
+          <p class="filter-label">Domain</p>
+          <div class="chip-group" data-filter-group="domain" role="group">
+            <button type="button" class="chip is-active" data-filter-value="all">All</button>
+            {uniqueDomains.map((d) => (
+              <button type="button" class="chip" data-filter-value={d}>
+                {domainLabels[d] ?? d}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <p class="filter-count" data-filter-count>
+          <span data-count-num>{allCases.length}</span>
+          {" "}
+          <span data-count-label>cases</span>
+        </p>
+      </div>
+    </section>
+
+    {/* ── Grid ───────────────────────────────────────────── */}
+    <section class="cases-grid-section">
+      <div class="cases-shell">
+        <div class="cases-grid" data-cases-grid>
+          {allCases.map((c) => {
+            const slug = c.id.replace(/^en\//, "");
+            return (
+              <a
+                href={`/case-studies/${slug}/`}
+                class="case-card"
+                data-service={c.data.service}
+                data-domain={c.data.domain}
+              >
+                <header class="case-card-head">
+                  <span class={`chip-static chip-domain chip-domain-${c.data.domain}`}>
+                    {domainLabels[c.data.domain] ?? c.data.domain}
+                  </span>
+                  <span class={`chip-static chip-service chip-service-${c.data.service}`}>
+                    {serviceLabels[c.data.service]}
+                  </span>
+                </header>
+
+                <h2 class="case-card-title">{c.data.title}</h2>
+                <p class="case-card-desc">{c.data.description}</p>
+
+                <footer class="case-card-foot">
+                  <span class="case-meta">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M12 6v6l4 2" stroke-linecap="round" />
+                    </svg>
+                    {c.data.duration}
+                  </span>
+                  <span class={`case-complexity case-complexity-${c.data.complexity}`}>
+                    {complexityLabels[c.data.complexity]}
+                  </span>
+                  <span class="case-arrow" aria-hidden="true">→</span>
+                </footer>
+              </a>
+            );
+          })}
+        </div>
+
+        <p class="cases-empty" data-empty-state hidden>
+          No cases match the selected filters. <button type="button" class="cases-reset" data-filter-reset>Reset filters</button>.
+        </p>
+      </div>
+    </section>
+
+    {/* ── Disclaimer + CTA ───────────────────────────────── */}
+    <section class="cases-foot-cta">
+      <div class="cases-shell">
+        <div class="foot-card">
+          <p class="foot-eyebrow">Conversation</p>
+          <h2 class="foot-h">Recognised your own situation in one of these?</h2>
+          <p class="foot-lede">
+            A 30-minute conversation — no slides, no commitment. I listen to how your situation looks, and tell you whether I can help.
+          </p>
+          <a
+            href="#book"
+            class="foot-btn"
+            data-modal="booking"
+            data-subject="discovery-call"
+            data-source="cases-index"
+          >
+            Discovery Call →
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
   <Footer />
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Ascend Griffin — Cases",
+      url: "https://ascendgriffin.org/case-studies/",
+      description: "Illustrative composite cases from 8 years of work in IT consulting.",
+      inLanguage: "en",
+      author: { "@type": "Person", name: "Taras Smaliukh" },
+    })}
+  />
 </BaseLayout>
 
 <style>
-  .cases-soon {
+  .cases-index {
     background:
       radial-gradient(ellipse at top right, rgba(184, 135, 58, 0.04), transparent 50%),
       var(--bg-0);
-    min-height: calc(100vh - 200px);
-    padding: 96px 0 120px;
+    min-height: 100vh;
   }
-  @media (max-width: 720px) { .cases-soon { padding: 56px 0 72px; } }
-
-  .soon-shell {
-    max-width: 720px;
+  .cases-shell {
+    max-width: 1160px;
     margin: 0 auto;
     padding: 0 var(--gutter);
   }
-  @media (max-width: 720px) { .soon-shell { padding: 0 var(--gutter-sm); } }
+  @media (max-width: 720px) {
+    .cases-shell { padding: 0 var(--gutter-sm); }
+  }
 
-  .soon-eyebrow {
+  /* Hero */
+  .cases-hero {
+    padding: 80px 0 36px;
+    border-bottom: 1px solid var(--border-1);
+  }
+  @media (max-width: 720px) {
+    .cases-hero { padding: 48px 0 24px; }
+  }
+  .cases-eyebrow {
     font-family: var(--font-mono);
     font-size: 11px;
     letter-spacing: 0.14em;
@@ -82,65 +217,411 @@ const description =
     margin: 0 0 18px;
     font-weight: 700;
   }
-  .soon-h1 {
+  .cases-h1 {
     font-family: var(--font-display);
-    font-size: clamp(36px, 5vw, 56px);
-    line-height: 1.08;
+    font-size: clamp(38px, 5.5vw, 64px);
+    line-height: 1.04;
     letter-spacing: -0.025em;
     color: var(--text-1);
     margin: 0 0 22px;
     font-weight: 700;
-    max-width: 14ch;
+    max-width: 16ch;
   }
-  .soon-h1 em {
+  .cases-h1 em {
     font-style: italic;
     color: var(--editorial);
   }
-  .soon-lede {
-    font-size: 18px;
+  .cases-lede {
+    font-size: 19px;
     line-height: 1.6;
     color: var(--text-2);
-    margin: 0 0 36px;
-    max-width: 56ch;
+    margin: 0;
+    max-width: 64ch;
   }
-  .soon-actions {
+  .cases-lede strong { color: var(--text-1); font-weight: 600; }
+
+  .hero-media { margin: 28px 0 0; }
+  .hero-media img { display: block; width: 100%; max-height: 340px; object-fit: cover; border-radius: 10px; border: 1px solid var(--border-1); box-shadow: var(--shadow-md); }
+  @media (max-width: 720px) { .hero-media img { max-height: 220px; } }
+
+  /* Filter bar */
+  .cases-filters {
+    padding: 36px 0 20px;
+    border-bottom: 1px solid var(--border-1);
+    background: var(--bg-1);
+  }
+  .filter-row {
     display: flex;
-    gap: 14px;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 18px;
     flex-wrap: wrap;
   }
-  .soon-btn-primary {
-    display: inline-block;
+  .filter-row:last-of-type { margin-bottom: 8px; }
+  .filter-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin: 0;
+    font-weight: 700;
+    min-width: 56px;
+  }
+  .chip-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chip {
+    appearance: none;
+    background: var(--bg-0);
+    border: 1px solid var(--border-2);
+    color: var(--text-2);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    padding: 7px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all var(--dur-fast) var(--ease);
+    font-weight: 500;
+  }
+  .chip:hover {
+    border-color: var(--accent);
+    color: var(--text-1);
+  }
+  .chip.is-active {
     background: var(--text-1);
+    border-color: var(--text-1);
     color: var(--bg-0);
-    padding: 14px 26px;
+  }
+  .filter-count {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin: 14px 0 0;
+    padding-top: 14px;
+    border-top: 1px dashed var(--border-1);
+  }
+  .filter-count [data-count-num] {
+    color: var(--text-1);
+    font-weight: 700;
+    font-size: 13px;
+  }
+
+  /* Grid */
+  .cases-grid-section {
+    padding: 48px 0 56px;
+  }
+  @media (max-width: 720px) {
+    .cases-grid-section { padding: 32px 0 40px; }
+  }
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+  @media (max-width: 720px) {
+    .cases-grid { grid-template-columns: 1fr; gap: 16px; }
+  }
+
+  /* Case card */
+  .case-card {
+    background: var(--bg-1);
+    border: 1px solid var(--border-1);
+    border-radius: 4px;
+    padding: 28px 28px 24px;
     text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: all var(--dur-base) var(--ease);
+    position: relative;
+    overflow: hidden;
+    min-height: 260px;
+  }
+  @media (max-width: 720px) {
+    .case-card { padding: 22px 22px 20px; min-height: 0; }
+  }
+  .case-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 3px;
+    height: 0;
+    background: var(--accent);
+    transition: height var(--dur-base) var(--ease);
+  }
+  .case-card:hover {
+    border-color: var(--accent);
+    background: var(--bg-0);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  .case-card:hover::before { height: 100%; }
+  .case-card:hover .case-arrow {
+    color: var(--accent-pressed);
+    transform: translateX(4px);
+  }
+  .case-card[hidden] { display: none !important; }
+
+  .case-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .chip-static {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    font-weight: 700;
+    border: 1px solid transparent;
+    white-space: nowrap;
+  }
+  .chip-domain {
+    background: var(--bg-2);
+    color: var(--text-2);
+    border-color: var(--border-1);
+  }
+  .chip-service-audit {
+    background: rgba(184, 135, 58, 0.12);
+    color: var(--accent-pressed);
+    border-color: var(--accent-border);
+  }
+  .chip-service-discovery {
+    background: rgba(46, 125, 79, 0.10);
+    color: #2E7D4F;
+    border-color: rgba(46, 125, 79, 0.30);
+  }
+  .chip-service-rescue {
+    background: rgba(178, 59, 59, 0.08);
+    color: #B23B3B;
+    border-color: rgba(178, 59, 59, 0.30);
+  }
+
+  .case-card-title {
     font-family: var(--font-display);
+    font-size: clamp(18px, 2vw, 21px);
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    color: var(--text-1);
+    margin: 0;
+    font-weight: 700;
+    flex: 0 0 auto;
+  }
+  .case-card-desc {
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--text-2);
+    margin: 0;
+    flex: 1;
+  }
+
+  .case-card-foot {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-1);
+    margin-top: 4px;
+    flex-wrap: wrap;
+  }
+  .case-meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-3);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    letter-spacing: 0.02em;
+  }
+  .case-meta svg { color: var(--accent-pressed); }
+  .case-complexity {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-weight: 700;
+  }
+  .case-complexity-low {
+    background: rgba(46, 125, 79, 0.10);
+    color: #2E7D4F;
+  }
+  .case-complexity-medium {
+    background: rgba(184, 135, 58, 0.12);
+    color: var(--accent-pressed);
+  }
+  .case-complexity-high {
+    background: rgba(178, 59, 59, 0.10);
+    color: #B23B3B;
+  }
+  .case-arrow {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    color: var(--text-4);
+    margin-left: auto;
+    transition: all var(--dur-fast) var(--ease);
+  }
+
+  /* Empty state */
+  .cases-empty {
+    text-align: center;
+    padding: 56px 0;
+    font-size: 15px;
+    color: var(--text-3);
+    font-family: var(--font-mono);
+  }
+  .cases-reset {
+    background: none;
+    border: 0;
+    color: var(--accent-pressed);
+    text-decoration: underline;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0;
+  }
+
+  /* Foot CTA */
+  .cases-foot-cta {
+    padding: 32px 0 88px;
+  }
+  @media (max-width: 720px) { .cases-foot-cta { padding: 20px 0 56px; } }
+  .foot-card {
+    background: var(--bg-ink);
+    color: var(--text-on-ink);
+    padding: 56px 48px;
+    border-radius: 4px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  @media (max-width: 720px) { .foot-card { padding: 40px 22px; } }
+  .foot-card::before {
+    content: "";
+    position: absolute;
+    top: -50%; right: -20%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(184,135,58,.08), transparent 60%);
+    pointer-events: none;
+  }
+  .foot-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 14px;
+    font-weight: 600;
+    position: relative;
+  }
+  .foot-h {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3.2vw, 34px);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--text-on-ink);
+    margin: 0 0 16px;
+    font-weight: 700;
+    position: relative;
+  }
+  .foot-lede {
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--text-on-ink-muted);
+    margin: 0 auto 28px;
+    max-width: 52ch;
+    position: relative;
+  }
+  .foot-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--accent-ink);
+    padding: 14px 28px;
+    text-decoration: none;
     font-weight: 600;
     border-radius: 2px;
     font-size: 15px;
+    letter-spacing: 0.02em;
     transition: background var(--dur-fast) var(--ease);
+    position: relative;
   }
-  .soon-btn-primary:hover { background: var(--accent); color: var(--accent-ink); }
-  .soon-btn-ghost {
-    display: inline-block;
-    background: transparent;
-    color: var(--text-2);
-    padding: 14px 22px;
-    text-decoration: none;
-    font-family: var(--font-display);
-    font-weight: 500;
-    border-radius: 2px;
-    font-size: 15px;
-    border: 1px solid var(--border-2);
-    transition: all var(--dur-fast) var(--ease);
-  }
-  .soon-btn-ghost:hover { border-color: var(--text-1); color: var(--text-1); }
-  .soon-note {
-    margin: 48px 0 0;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--text-4);
-    padding-top: 20px;
-    border-top: 1px dashed var(--border-1);
-  }
+  .foot-btn:hover { background: var(--accent-hover); }
 </style>
+
+<script>
+  // Two-axis chip filter (service × domain). Pure DOM, no framework.
+  type Filters = { service: string; domain: string };
+  const state: Filters = { service: "all", domain: "all" };
+
+  const grid = document.querySelector<HTMLElement>("[data-cases-grid]");
+  const cards = Array.from(document.querySelectorAll<HTMLElement>(".case-card"));
+  const totalCount = cards.length;
+  const countNumEl = document.querySelector<HTMLElement>("[data-count-num]");
+  const countLabelEl = document.querySelector<HTMLElement>("[data-count-label]");
+  const emptyEl = document.querySelector<HTMLElement>("[data-empty-state]");
+  const resetBtn = document.querySelector<HTMLButtonElement>("[data-filter-reset]");
+
+  function pluralCases(n: number): string {
+    return n === 1 ? "case" : "cases";
+  }
+
+  function apply() {
+    let visible = 0;
+    cards.forEach((card) => {
+      const matchService = state.service === "all" || card.dataset.service === state.service;
+      const matchDomain = state.domain === "all" || card.dataset.domain === state.domain;
+      const show = matchService && matchDomain;
+      card.hidden = !show;
+      if (show) visible++;
+    });
+
+    if (countNumEl) countNumEl.textContent = String(visible);
+    if (countLabelEl) countLabelEl.textContent = pluralCases(visible);
+    if (emptyEl) emptyEl.hidden = visible > 0;
+    if (grid) grid.hidden = visible === 0;
+  }
+
+  document.querySelectorAll<HTMLElement>(".chip-group").forEach((group) => {
+    const axis = group.dataset.filterGroup as keyof Filters | undefined;
+    if (!axis) return;
+    group.querySelectorAll<HTMLButtonElement>(".chip").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const value = btn.dataset.filterValue ?? "all";
+        state[axis] = value;
+        group.querySelectorAll<HTMLButtonElement>(".chip").forEach((b) => {
+          b.classList.toggle("is-active", b === btn);
+        });
+        apply();
+      });
+    });
+  });
+
+  if (resetBtn) {
+    resetBtn.addEventListener("click", () => {
+      state.service = "all";
+      state.domain = "all";
+      document.querySelectorAll<HTMLElement>(".chip-group").forEach((group) => {
+        group.querySelectorAll<HTMLButtonElement>(".chip").forEach((b) => {
+          b.classList.toggle("is-active", b.dataset.filterValue === "all");
+        });
+      });
+      apply();
+    });
+  }
+
+  // Initial render
+  if (countNumEl) countNumEl.textContent = String(totalCount);
+  if (countLabelEl) countLabelEl.textContent = pluralCases(totalCount);
+</script>

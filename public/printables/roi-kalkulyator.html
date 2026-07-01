@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>ROI Калькулятор IT-проєкту — Ascend Griffin</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #0F172A;
+    line-height: 1.55;
+    font-size: 10.5pt;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Print button — hidden in print */
+  .print-bar {
+    background: #F8FAFC;
+    border-bottom: 1px solid #E2E8F0;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .print-bar button {
+    background: #F97316;
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    font-size: 11pt;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .print-bar button:hover { background: #EA580C; }
+  .print-hint {
+    font-size: 9pt;
+    color: #64748B;
+  }
+  @media print {
+    .no-print { display: none !important; }
+  }
+
+  /* Page layout */
+  .page {
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto;
+    padding: 14mm 16mm 22mm;
+    page-break-after: always;
+    position: relative;
+    overflow: hidden;
+  }
+  .page:last-of-type { page-break-after: auto; }
+
+  /* Footer with CSS counter */
+  body { counter-reset: page-counter; }
+  .page { counter-increment: page-counter; }
+  .page-footer {
+    position: absolute;
+    bottom: 8mm;
+    left: 16mm;
+    right: 16mm;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 8pt;
+    color: #94A3B8;
+    border-top: 1px solid #E2E8F0;
+    padding-top: 4px;
+  }
+  .page-footer::after {
+    content: counter(page-counter);
+  }
+
+  /* Brand bar */
+  .brand-bar {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-bottom: 3px solid #F97316;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+  .logo {
+    font-size: 18pt;
+    font-weight: 800;
+    color: #0F172A;
+    letter-spacing: -0.5px;
+  }
+  .logo span { color: #F97316; }
+  .tagline {
+    font-size: 8.5pt;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  /* Cover page */
+  .cover { padding-top: 10mm; }
+  .cover h1 {
+    font-size: 24pt;
+    font-weight: 800;
+    color: #0F172A;
+    margin: 8mm 0 4mm;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+  }
+  .cover-subtitle {
+    font-size: 12pt;
+    color: #475569;
+    margin-bottom: 10mm;
+  }
+
+  .field-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5mm;
+  }
+  .field-label {
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #64748B;
+    margin-bottom: 2px;
+    font-weight: 600;
+  }
+  .field-line {
+    border: none;
+    border-bottom: 1.5px solid #CBD5E1;
+    padding: 4px 0;
+    font-size: 12pt;
+    color: #0F172A;
+    background: transparent;
+    font-family: inherit;
+    outline: none;
+    width: 100%;
+  }
+  @media print {
+    .field-line { border-bottom: 1.5px solid #CBD5E1; }
+  }
+
+  .cover-info-box {
+    background: #FFF7ED;
+    border-left: 4px solid #F97316;
+    padding: 12px 16px;
+    margin: 8mm 0;
+    font-size: 9.5pt;
+    color: #7C2D12;
+  }
+
+  .cover-formula {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 6mm 0;
+    font-size: 10pt;
+    text-align: center;
+  }
+  .cover-formula .formula-text {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #0F172A;
+    font-family: "Courier New", monospace;
+  }
+  .cover-formula .formula-desc {
+    font-size: 8.5pt;
+    color: #64748B;
+    margin-top: 6px;
+  }
+
+  /* Section headings */
+  h2 {
+    font-size: 13pt;
+    font-weight: 700;
+    color: #1E293B;
+    border-left: 4px solid #F97316;
+    padding-left: 10px;
+    margin: 0 0 4mm;
+    page-break-after: avoid;
+  }
+  h3 {
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: #0F172A;
+    margin: 5mm 0 2mm;
+    page-break-after: avoid;
+  }
+
+  /* Inputs table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 4mm 0;
+    font-size: 9.5pt;
+  }
+  th {
+    background: #F1F5F9;
+    font-weight: 700;
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #475569;
+    padding: 7px 10px;
+    text-align: left;
+    border: 1px solid #E2E8F0;
+  }
+  td {
+    padding: 8px 10px;
+    border: 1px solid #E2E8F0;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #F8FAFC; }
+  .input-cell {
+    border-bottom: 1.5px solid #94A3B8;
+    min-height: 20px;
+    display: block;
+    width: 100%;
+  }
+  .param-num {
+    display: inline-block;
+    background: #F97316;
+    color: #fff;
+    font-size: 7.5pt;
+    font-weight: 700;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 18px;
+    margin-right: 5px;
+    flex-shrink: 0;
+  }
+
+  /* Calculations page */
+  .calc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6mm;
+    margin: 4mm 0;
+  }
+  .calc-card {
+    border: 1.5px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 10px 14px;
+    background: #FDFDFD;
+    page-break-inside: avoid;
+  }
+  .calc-card.highlight {
+    border-color: #F97316;
+    background: #FFF7ED;
+  }
+  .calc-card-label {
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #64748B;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .calc-card-value {
+    font-size: 22pt;
+    font-weight: 800;
+    color: #0F172A;
+    line-height: 1.1;
+    margin-bottom: 3px;
+  }
+  .calc-card.highlight .calc-card-value { color: #F97316; }
+  .calc-card-formula {
+    font-size: 8pt;
+    color: #94A3B8;
+    font-family: "Courier New", monospace;
+  }
+  .calc-inputs-ref {
+    background: #F1F5F9;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 8.5pt;
+    color: #475569;
+    margin: 3mm 0;
+  }
+  .calc-inputs-ref strong { color: #0F172A; }
+
+  /* Scenarios page */
+  .scenario-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5mm;
+    margin: 4mm 0;
+  }
+  .scenario-card {
+    border: 1.5px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 12px 16px;
+    page-break-inside: avoid;
+  }
+  .scenario-card.optimistic {
+    border-color: #16A34A;
+    background: #F0FDF4;
+  }
+  .scenario-card.base {
+    border-color: #2563EB;
+    background: #EFF6FF;
+  }
+  .scenario-card.pessimistic {
+    border-color: #DC2626;
+    background: #FEF2F2;
+  }
+  .scenario-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .scenario-badge {
+    display: inline-block;
+    font-size: 8pt;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .optimistic .scenario-badge { background: #16A34A; color: #fff; }
+  .base .scenario-badge { background: #2563EB; color: #fff; }
+  .pessimistic .scenario-badge { background: #DC2626; color: #fff; }
+  .scenario-title {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #0F172A;
+  }
+  .scenario-params {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 6px;
+    margin: 6px 0;
+  }
+  .scenario-param {
+    text-align: center;
+    background: rgba(255,255,255,0.7);
+    border-radius: 5px;
+    padding: 5px 4px;
+  }
+  .scenario-param-value {
+    font-size: 12pt;
+    font-weight: 800;
+    color: #0F172A;
+    display: block;
+  }
+  .scenario-param-label {
+    font-size: 7.5pt;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    display: block;
+    margin-top: 2px;
+  }
+  .scenario-adjustments {
+    font-size: 8.5pt;
+    color: #64748B;
+    font-style: italic;
+    margin-top: 5px;
+  }
+
+  .sensitivity-note {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 8.5pt;
+    color: #475569;
+    margin: 3mm 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- Print bar (screen only) -->
+<div class="print-bar no-print">
+  <button onclick="window.print()">Друк / Зберегти в PDF</button>
+  <span class="print-hint">У діалозі друку вимкніть «Headers and footers» для чистого результату</span>
+</div>
+
+<!-- PAGE 1 — Cover -->
+<div class="page cover">
+  <div class="brand-bar">
+    <div>
+      <div class="logo">Ascend<span>Griffin</span></div>
+      <div class="tagline">ROI Calculator · IT Project</div>
+    </div>
+  </div>
+
+  <h1>ROI Калькулятор<br>IT-проєкту</h1>
+  <div class="cover-subtitle">Шаблон для власника бізнесу — заповніть до підписання контракту</div>
+
+  <div class="field-row">
+    <span class="field-label">Назва проєкту</span>
+    <input class="field-line no-print" type="text" placeholder="наприклад: Онлайн-запис для клінік">
+    <div class="field-line" style="display:none; height:20px;" aria-hidden="true"></div>
+  </div>
+  <div class="field-row">
+    <span class="field-label">Власник / відповідальна особа</span>
+    <input class="field-line no-print" type="text" placeholder="Ваше ім'я або ПІБ">
+    <div class="field-line" style="display:none; height:20px;" aria-hidden="true"></div>
+  </div>
+  <div class="field-row">
+    <span class="field-label">Дата розрахунку</span>
+    <input class="field-line no-print" type="text" placeholder="дд.мм.рррр">
+    <div class="field-line" style="display:none; height:20px;" aria-hidden="true"></div>
+  </div>
+  <div class="field-row">
+    <span class="field-label">Тип проєкту</span>
+    <input class="field-line no-print" type="text" placeholder="наприклад: мобільний застосунок / CRM / веб-платформа">
+    <div class="field-line" style="display:none; height:20px;" aria-hidden="true"></div>
+  </div>
+
+  <div class="cover-formula">
+    <div class="formula-text">ROI % = ((Дохід − Витрати) ÷ Витрати) × 100</div>
+    <div class="formula-desc">Базова формула. Детальний розрахунок — на сторінках 2 і 3.</div>
+  </div>
+
+  <div class="cover-info-box">
+    <strong>Як користуватися:</strong> Заповніть 7 параметрів на стор. 2 → перенесіть числа у формули на стор. 3 → порівняйте три сценарії на стор. 4. Роздрукуйте і візьміть на зустріч з виконавцем.
+  </div>
+
+  <div class="page-footer">
+    <span>Ascend Griffin · ascendgriffin.com · ROI Calculator v1.0</span>
+  </div>
+</div>
+
+<!-- PAGE 2 — Inputs -->
+<div class="page">
+  <div class="brand-bar">
+    <div>
+      <div class="logo">Ascend<span>Griffin</span></div>
+      <div class="tagline">Стор. 2 — Параметри проєкту</div>
+    </div>
+  </div>
+
+  <h2>Параметри для розрахунку</h2>
+  <p style="font-size:9pt; color:#475569; margin: 0 0 4mm;">Заповніть кожен рядок. Якщо точне число невідоме — вкажіть орієнтовне, помітьте «~». Ці числа підуть у формули на стор. 3.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:5%">#</th>
+        <th style="width:28%">Параметр</th>
+        <th style="width:20%">Ваше значення</th>
+        <th style="width:25%">Опис</th>
+        <th style="width:22%">Звідки брати число</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="param-num">1</span></td>
+        <td><strong>Кількість розробників</strong></td>
+        <td><span class="input-cell">&nbsp;</span></td>
+        <td>Всього людей у команді (dev + QA + PM)</td>
+        <td>Пропозиція від виконавця</td>
+      </tr>
+      <tr>
+        <td><span class="param-num">2</span></td>
+        <td><strong>Середня ставка, $/год</strong></td>
+        <td><span class="input-cell">&nbsp;</span></td>
+        <td>Середня погодинна ставка команди</td>
+        <td>Пропозиція або ринок (від $25 до $75)</td>
+      </tr>
+      <tr>
+        <td><span class="param-num">3</span></td>
+        <td><strong>Тривалість, місяців</strong></td>
+        <td><span class="input-cell">&nbsp;</span></td>
+        <td>Від старту до здачі першої версії</td>
+        <td>Оцінка виконавця + ваш буфер</td>
+      </tr>
+      <tr>
+        <td><span class="param-num">4</span></td>
+        <td><strong>Очікуваний місячний дохід, $</strong></td>
+        <td><span class="input-cell">&nbsp;</span></td>
+        <td>Додатковий дохід від IT-рішення на місяць</td>
+        <td>Ваш прогноз або ринковий бенчмарк</td>
+      </tr>
+      <tr>
+        <td><span class="param-num">5</span></td>
+        <td><strong>Щорічні витрати на підтримку, $</strong></td>
+        <td><span class="input-cell">&nbsp;</span></td>
+        <td>Хостинг + оновлення + багфікси на рік</td>
+        <td>Мінімум 15-20% від бюджету розробки</td>
+      </tr>
+      <tr>
+        <td><span class="param-num">6</span></td>
+        <td><strong>Onboarding-витрати, $</strong></td>
+        <td><span class="input-cell">&nbsp;</span></td>
+        <td>Навчання команди, перехідний період</td>
+        <td>Зазвичай від 5% до 10% від бюджету</td>
+      </tr>
+      <tr>
+        <td><span class="param-num">7</span></td>
+        <td><strong>Ризик-буфер, %</strong></td>
+        <td><span class="input-cell">&nbsp;</span></td>
+        <td>Відсоток від бюджету на непередбачуване</td>
+        <td>Мінімум 10-20% для будь-якого проєкту</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Допоміжні розрахунки (заповніть після таблиці)</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:50%">Розрахунок</th>
+        <th style="width:30%">Формула</th>
+        <th style="width:20%">Результат</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Робочих годин на місяць (1 розробник)</strong></td>
+        <td style="font-family: monospace; font-size:8.5pt;">160 год (стандарт)</td>
+        <td><span class="input-cell">&nbsp;</span></td>
+      </tr>
+      <tr>
+        <td><strong>Сумарні людино-години</strong></td>
+        <td style="font-family: monospace; font-size:8.5pt;">П.1 × П.3 × 160</td>
+        <td><span class="input-cell">&nbsp;</span></td>
+      </tr>
+      <tr>
+        <td><strong>Базові витрати на розробку, $</strong></td>
+        <td style="font-family: monospace; font-size:8.5pt;">Люд-год × П.2</td>
+        <td><span class="input-cell">&nbsp;</span></td>
+      </tr>
+      <tr>
+        <td><strong>Ризик-буфер, $</strong></td>
+        <td style="font-family: monospace; font-size:8.5pt;">Базові × П.7 / 100</td>
+        <td><span class="input-cell">&nbsp;</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="page-footer">
+    <span>Ascend Griffin · ROI Calculator v1.0</span>
+  </div>
+</div>
+
+<!-- PAGE 3 — Calculations -->
+<div class="page">
+  <div class="brand-bar">
+    <div>
+      <div class="logo">Ascend<span>Griffin</span></div>
+      <div class="tagline">Стор. 3 — Ключові показники</div>
+    </div>
+  </div>
+
+  <h2>Результати розрахунку</h2>
+
+  <div class="calc-inputs-ref">
+    <strong>Перенесіть з стор. 2:</strong>
+    Total Cost = Базові витрати + Ризик-буфер + Onboarding (П.6) + Підтримка 1-й рік (П.5) &nbsp;|&nbsp;
+    Total Revenue = П.4 × 12 (дохід за рік після запуску)
+  </div>
+
+  <div class="calc-grid">
+    <div class="calc-card">
+      <div class="calc-card-label">Total Cost (повні витрати)</div>
+      <div class="calc-card-value">$ <span class="input-cell" style="display:inline-block; width:80px;">&nbsp;</span></div>
+      <div class="calc-card-formula">Розробка + Буфер + Onboarding + Підтримка</div>
+    </div>
+    <div class="calc-card">
+      <div class="calc-card-label">Total Revenue (дохід за 1-й рік)</div>
+      <div class="calc-card-value">$ <span class="input-cell" style="display:inline-block; width:80px;">&nbsp;</span></div>
+      <div class="calc-card-formula">П.4 × 12 місяців</div>
+    </div>
+    <div class="calc-card highlight">
+      <div class="calc-card-label">ROI %</div>
+      <div class="calc-card-value"><span class="input-cell" style="display:inline-block; width:80px;">&nbsp;</span> %</div>
+      <div class="calc-card-formula">((Revenue − Cost) ÷ Cost) × 100</div>
+    </div>
+    <div class="calc-card highlight">
+      <div class="calc-card-label">Payback Period (окупність)</div>
+      <div class="calc-card-value"><span class="input-cell" style="display:inline-block; width:60px;">&nbsp;</span> міс</div>
+      <div class="calc-card-formula">Cost ÷ (П.4 − П.5/12)</div>
+    </div>
+  </div>
+
+  <h3>Покроковий розрахунок (заповніть рядок за рядком)</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:50%">Крок</th>
+        <th style="width:30%">Формула</th>
+        <th style="width:20%">Значення</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1. Витрати на розробку</td>
+        <td style="font-family:monospace;font-size:8.5pt;">П.1 × П.2 × П.3 × 160</td>
+        <td><span class="input-cell">&nbsp;</span></td>
+      </tr>
+      <tr>
+        <td>2. + Ризик-буфер</td>
+        <td style="font-family:monospace;font-size:8.5pt;">Крок 1 × П.7/100</td>
+        <td><span class="input-cell">&nbsp;</span></td>
+      </tr>
+      <tr>
+        <td>3. + Onboarding</td>
+        <td style="font-family:monospace;font-size:8.5pt;">П.6</td>
+        <td><span class="input-cell">&nbsp;</span></td>
+      </tr>
+      <tr>
+        <td>4. + Підтримка 1-й рік</td>
+        <td style="font-family:monospace;font-size:8.5pt;">П.5</td>
+        <td><span class="input-cell">&nbsp;</span></td>
+      </tr>
+      <tr>
+        <td><strong>= Total Cost</strong></td>
+        <td style="font-family:monospace;font-size:8.5pt;">Кроки 1+2+3+4</td>
+        <td><strong><span class="input-cell">&nbsp;</span></strong></td>
+      </tr>
+      <tr>
+        <td>5. Total Revenue (рік)</td>
+        <td style="font-family:monospace;font-size:8.5pt;">П.4 × 12</td>
+        <td><span class="input-cell">&nbsp;</span></td>
+      </tr>
+      <tr>
+        <td><strong>= ROI %</strong></td>
+        <td style="font-family:monospace;font-size:8.5pt;">((Rev−Cost)÷Cost)×100</td>
+        <td><strong><span class="input-cell">&nbsp;</span></strong></td>
+      </tr>
+      <tr>
+        <td><strong>= Payback, місяців</strong></td>
+        <td style="font-family:monospace;font-size:8.5pt;">Cost÷(П.4−П.5/12)</td>
+        <td><strong><span class="input-cell">&nbsp;</span></strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="page-footer">
+    <span>Ascend Griffin · ROI Calculator v1.0</span>
+  </div>
+</div>
+
+<!-- PAGE 4 — Scenarios -->
+<div class="page">
+  <div class="brand-bar">
+    <div>
+      <div class="logo">Ascend<span>Griffin</span></div>
+      <div class="tagline">Стор. 4 — Три сценарії (sensitivity analysis)</div>
+    </div>
+  </div>
+
+  <h2>Сценарний аналіз</h2>
+
+  <div class="sensitivity-note">
+    <strong>Як читати:</strong> Базовий сценарій — ваші числа зі стор. 2. Оптимістичний — ставка −20%, час −20%. Песимістичний — ставка +20%, час +30%. Розрахуйте ROI і Payback для кожного сценарію і впишіть у картки.
+  </div>
+
+  <div class="scenario-cards">
+    <div class="scenario-card optimistic">
+      <div class="scenario-header">
+        <span class="scenario-badge">Оптимістичний</span>
+        <span class="scenario-title">Все йде за планом або краще</span>
+      </div>
+      <div class="scenario-params">
+        <div class="scenario-param">
+          <span class="scenario-param-value"><span class="input-cell" style="display:inline-block;width:50px;">&nbsp;</span></span>
+          <span class="scenario-param-label">Ставка, $/год</span>
+        </div>
+        <div class="scenario-param">
+          <span class="scenario-param-value"><span class="input-cell" style="display:inline-block;width:40px;">&nbsp;</span></span>
+          <span class="scenario-param-label">Місяців</span>
+        </div>
+        <div class="scenario-param">
+          <span class="scenario-param-value"><span class="input-cell" style="display:inline-block;width:50px;">&nbsp;</span></span>
+          <span class="scenario-param-label">ROI %</span>
+        </div>
+        <div class="scenario-param">
+          <span class="scenario-param-value"><span class="input-cell" style="display:inline-block;width:40px;">&nbsp;</span></span>
+          <span class="scenario-param-label">Payback, міс</span>
+        </div>
+      </div>
+      <div class="scenario-adjustments">Корекція від базового: ставка −20%, час −20%</div>
+    </div>
+
+    <div class="scenario-card base">
+      <div class="scenario-header">
+        <span class="scenario-badge">Базовий</span>
+        <span class="scenario-title">Ваші числа зі сторінки 2</span>
+      </div>
+      <div class="scenario-params">
+        <div class="scenario-param">
+          <span class="scenario-param-value"><span class="input-cell" style="display:inline-block;width:50px;">&nbsp;</span></span>
+          <span class="scenario-param-label">Ставка, $/год</span>
+        </div>
+        <div class="scenario-param">
+          <span class="scenario-param-value"><span class="input-cell" style="display:inline-block;width:40px;">&nbsp;</span></span>
+          <span class="scenario-param-label">Місяців</span>
+        </div>
+        <div class="scenario-param">
+          <span class="scenario-param-value"><span class="input-cell" style="display:inline-block;width:50px;">&nbsp;</span></span>
+          <span class="scenario-param-label">ROI %</span>
+        </div>
+        <div class="scenario-param">
+          <span class="scenario-param-value"><span class="input-cell" style="display:inline-block;width:40px;">&nbsp;</span></span>
+          <span class="scenario-param-label">Payback, міс</span>
+        </div>
+      </div>
+      <div class="scenario-adjustments">Базові параметри без змін — стор. 2</div>
+    </div>
+
+    <div class="scenario-card pessimistic">
+      <div class="scenario-header">
+        <span class="scenario-badge">Песимістичний</span>
+        <span class="scenario-title">Затримки + зростання ставок</span>
+      </div>
+      <div class="scenario-params">
+        <div class="scenario-param">
+          <span class="scenario-param-value"><span class="input-cell" style="display:inline-block;width:50px;">&nbsp;</span></span>
+          <span class="scenario-param-label">Ставка, $/год</span>
+        </div>
+        <div class="scenario-param">
+          <span class="scenario-param-value"><span class="input-cell" style="display:inline-block;width:40px;">&nbsp;</span></span>
+          <span class="scenario-param-label">Місяців</span>
+        </div>
+        <div class="scenario-param">
+          <span class="scenario-param-value"><span class="input-cell" style="display:inline-block;width:50px;">&nbsp;</span></span>
+          <span class="scenario-param-label">ROI %</span>
+        </div>
+        <div class="scenario-param">
+          <span class="scenario-param-value"><span class="input-cell" style="display:inline-block;width:40px;">&nbsp;</span></span>
+          <span class="scenario-param-label">Payback, міс</span>
+        </div>
+      </div>
+      <div class="scenario-adjustments">Корекція від базового: ставка +20%, час +30%</div>
+    </div>
+  </div>
+
+  <h3>Висновки (ваші нотатки)</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td style="height:28px; color:#94A3B8; font-style:italic;">Чи витримує проєкт песимістичний сценарій? Яке рішення?</td>
+      </tr>
+      <tr>
+        <td style="height:28px;">&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="height:28px; color:#94A3B8; font-style:italic;">Що змінити у scope щоб покращити Payback?</td>
+      </tr>
+      <tr>
+        <td style="height:28px;">&nbsp;</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top:6mm; border-top:1px solid #E2E8F0; padding-top:4mm; font-size:8.5pt; color:#64748B;">
+    Шаблон створено з Ascend Griffin · Blog серія «Від ідеї до доходу» · Пост #3 — ROI Майстер-клас<br>
+    Більше шаблонів і артефактів: <strong>ascendgriffin.com</strong> · Консультація: <strong>cal.com/taras-ascend-griffin</strong>
+  </div>
+
+  <div class="page-footer">
+    <span>Ascend Griffin · ROI Calculator v1.0 · ascendgriffin.com</span>
+  </div>
+</div>
+
+</body>
+</html>

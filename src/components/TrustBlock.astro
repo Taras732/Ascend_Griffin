@@ -98,9 +98,34 @@ const copy = isUk
   .trust-card {
     background: var(--bg-0);
     padding: 20px;
-    border-radius: 2px;
+    border-radius: 8px;
     border: 1px solid var(--border-1);
     min-width: 0;
+    position: relative;
+    overflow: hidden;
+    transition: all var(--dur-base) var(--ease);
+  }
+  .trust-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(300px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), var(--mouse-glow), transparent 45%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .trust-card:hover::before {
+    opacity: 1;
+  }
+  .trust-card > * {
+    position: relative;
+    z-index: 2;
+  }
+  .trust-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
   }
   .trust-stat {
     font-family: var(--font-display);

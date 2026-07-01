@@ -58,6 +58,10 @@ const description =
         <p class="cases-lede">
           Це не звіти про реальних клієнтів. Це <strong>композитні патерни</strong> з 8 років роботи у IT — фінтех, логістика, AI-продукти, B2B SaaS, громадські ініціативи. Імен немає, механіка — справжня. Якщо у якомусь кейсі ви впізнаєте свій біль — це знак, що варто поговорити.
         </p>
+
+        <figure class="hero-media">
+          <img src="/img/cases.webp" alt="Упорядковані звіти та матеріали кейсів на темному столі" loading="lazy" width="1344" height="768" />
+        </figure>
       </div>
     </header>
 
@@ -236,6 +240,10 @@ const description =
     max-width: 64ch;
   }
   .cases-lede strong { color: var(--text-1); font-weight: 600; }
+
+  .hero-media { margin: 28px 0 0; }
+  .hero-media img { display: block; width: 100%; max-height: 340px; object-fit: cover; border-radius: 10px; border: 1px solid var(--border-1); box-shadow: var(--shadow-md); }
+  @media (max-width: 720px) { .hero-media img { max-height: 220px; } }
 
   /* Filter bar */
   .cases-filters {

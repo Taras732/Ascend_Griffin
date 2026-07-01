@@ -20,12 +20,13 @@ const labels = isUk
       about: "Про мене",
       practice: "Практика",
       practiceOverview: "Огляд",
-      audit: "Аудит AI",
-      discovery: "Дослідження",
-      recovery: "Відновлення",
+      audit: "Аудит",
+      discovery: "Discovery",
+      recovery: "Порятунок",
       cases: "Кейси",
       howIWork: "Як я працюю",
       blog: "Блог",
+      contact: "Контакти",
       cta: "Discovery Call",
       menu: "Меню",
       altLangAria: `Switch to English`,
@@ -34,12 +35,13 @@ const labels = isUk
       about: "About",
       practice: "Practice",
       practiceOverview: "Overview",
-      audit: "AI Audit",
+      audit: "Audit",
       discovery: "Discovery",
       recovery: "Recovery",
       cases: "Cases",
       howIWork: "How I work",
       blog: "Blog",
+      contact: "Contact",
       cta: "Discovery Call",
       menu: "Menu",
       altLangAria: `Switch to Ukrainian`,
@@ -55,6 +57,7 @@ const links = {
   cases: `${prefix}/case-studies/`,
   howIWork: `${prefix}/how-i-work/`,
   blog: `${prefix}/blog/`,
+  contact: `${prefix}/impressum/`,
 };
 ---
 
@@ -96,6 +99,7 @@ const links = {
 
         <li><a href={links.howIWork}>{labels.howIWork}</a></li>
         <li><a href={links.blog}>{labels.blog}</a></li>
+        <li><a href={links.contact}>{labels.contact}</a></li>
       </ul>
 
       <div class="nav-actions">

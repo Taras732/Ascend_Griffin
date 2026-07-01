@@ -5,20 +5,21 @@ import Footer from "../components/Footer.astro";
 import { site } from "../data/site";
 ---
 
-<BaseLayout title="Impressum — Ascend Griffin" description="Contact and legal information for ascendgriffin.org">
+<BaseLayout title="Contact — Ascend Griffin" description="Contact and legal information for ascendgriffin.org" plain>
   <Nav />
   <main class="legal">
     <div class="site-container">
-      <h1>Impressum / Контакти</h1>
+      <h1>Contact</h1>
+      <p class="legal-sub">Ascend Griffin · legal imprint (Impressum) for EU clients</p>
 
       <dl>
-        <dt>Практика</dt>
+        <dt>Practice</dt>
         <dd>{site.name}</dd>
 
-        <dt>Засновник</dt>
-        <dd>{site.founder} (ФОП)</dd>
+        <dt>Founder</dt>
+        <dd>{site.founder} (sole proprietor / ФОП)</dd>
 
-        <dt>Місто</dt>
+        <dt>City</dt>
         <dd>{site.city}</dd>
 
         <dt>Email</dt>
@@ -27,11 +28,11 @@ import { site } from "../data/site";
         <dt>LinkedIn</dt>
         <dd><a href={site.linkedin} target="_blank" rel="noopener">{site.linkedin}</a></dd>
 
-        <dt>Discovery Call</dt>
+        <dt>Book a call</dt>
         <dd><a href={site.calcom}>{site.calcom}</a></dd>
       </dl>
 
-      <p class="muted">ФОП реєстраційні дані (EDRPOU / ІПН) — надаються при підписанні SOW.</p>
+      <p class="muted">Sole-proprietor registration details (EDRPOU / tax ID) are provided on SOW signing.</p>
     </div>
   </main>
   <Footer />
@@ -45,6 +46,13 @@ import { site } from "../data/site";
     font-weight: 800;
     letter-spacing: -0.025em;
     color: var(--text-1);
+    margin: 0 0 8px;
+  }
+  .legal-sub {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-3);
+    letter-spacing: 0.04em;
     margin: 0 0 32px;
   }
   dl {

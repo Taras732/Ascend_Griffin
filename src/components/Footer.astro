@@ -32,13 +32,13 @@ const localePrefix = isUk ? "/uk" : "";
         <ul>
           <li><a href={`${localePrefix}/faq/`}>{isUk ? "Часті питання" : "FAQ"}</a></li>
           <li><a href={`${localePrefix}/privacy`}>{isUk ? "Приватність" : "Privacy"}</a></li>
-          <li><a href={`${localePrefix}/impressum`}>Impressum</a></li>
+          <li><a href={`${localePrefix}/impressum`}>{isUk ? "Контакти" : "Contact"}</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <span>© {site.year} {site.name} · {site.domain}</span>
+      <span>© {site.year} · {site.domain}</span>
       <a class="footer-kuznya" href="https://kuznya.studio" target="_blank" rel="noopener">Зроблено за підтримки Кузні</a>
     </div>
   </div>

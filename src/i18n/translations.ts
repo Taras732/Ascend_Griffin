@@ -8,11 +8,11 @@ export const translations = {
     site: {
       eyebrow: "IT support from idea to outcome",
       heroH1Html:
-        'Your <em>ally</em> in IT projects —<br>working entirely in <em>your interest</em>.',
+        'Your <em>ally</em> in IT projects, acting <em>in your interest</em>.',
       heroLede:
-        "Decisions made blind: unclear timelines, mixed signals from teams and vendors, no data to compare. I take the buyer side — translate the complexity into business decisions, surface the risks you don't yet see.",
-      heroCtaPrimary: "Book Discovery Call",
-      heroCtaSecondary: "See how it works →",
+        "I read your IT project as a whole system and see the hidden risks before they bite — scope, estimates, decisions that sound convincing but don't hold under pressure.",
+      heroCtaPrimary: "Book a call",
+      heroCtaSecondary: "How I work",
       heroMicro: "",
 
       ctaEyebrow: "READY TO TALK?",
@@ -388,11 +388,11 @@ export const translations = {
     site: {
       eyebrow: "IT-супровід від ідеї до результату",
       heroH1Html:
-        'Ваш <em>союзник</em> в IT-проєктах,<br>який діє виключно у <em>ваших інтересах</em>.',
+        'Ваш <em>союзник</em> в IT-проєктах, який діє <em>у ваших інтересах</em>.',
       heroLede:
-        "Ви відчуваєте, що вирішуєте навмання: незрозумілі терміни, різні оцінки від підрядників, брак даних для порівняння. Беру відповідальність за результат — перекладаю складне на зрозуміле, аналізую ринок, звіряю факти, щоб прийняті рішення були максимально ефективними.",
-      heroCtaPrimary: "Discovery Call",
-      heroCtaSecondary: "Як це працює →",
+        "Я читаю ваш IT-проєкт як цілісну систему й бачу приховані ризики, поки вони не вдарили — обсяг, оцінки, рішення, що звучать переконливо, але не витримують тиску.",
+      heroCtaPrimary: "Записатися на дзвінок",
+      heroCtaSecondary: "Як я працюю",
       heroMicro: "",
 
       ctaEyebrow: "НАСТУПНИЙ КРОК",

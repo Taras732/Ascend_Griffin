@@ -4,251 +4,251 @@ import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 import { site } from "../data/site";
 
-const lastUpdated = "11 травня 2026";
+const lastUpdated = "11 May 2026";
 ---
 
 <BaseLayout
-  title={`Політика конфіденційності — ${site.name}`}
-  description="Як Ascend Griffin збирає, використовує і захищає персональні дані відвідувачів і клієнтів."
+  title={`Privacy Policy — ${site.name}`}
+  description="How Ascend Griffin collects, uses, and protects the personal data of visitors and clients."
 >
   <Nav />
   <main class="legal">
     <div class="site-container legal-container">
       <header class="legal-header">
-        <p class="legal-eyebrow">Юридична інформація</p>
-        <h1>Політика конфіденційності</h1>
-        <p class="legal-meta">Чинна з {lastUpdated} · {site.name} · {site.city}</p>
+        <p class="legal-eyebrow">Legal Information</p>
+        <h1>Privacy Policy</h1>
+        <p class="legal-meta">Effective from {lastUpdated} · {site.name} · {site.city}</p>
       </header>
 
       <section class="legal-section">
-        <h2>1. Загальні положення</h2>
+        <h2>1. General Provisions</h2>
         <p>
-          Ця Політика конфіденційності описує, як <strong>{site.name}</strong> (надалі — «ми»,
-          «практика»), що належить ФОП {site.founder} ({site.city}, Україна), збирає,
-          обробляє та захищає персональні дані відвідувачів сайту <a href={site.url}>{site.domain}</a>
-          (надалі — «Сайт») і клієнтів практики.
+          This Privacy Policy describes how <strong>{site.name}</strong> (hereinafter — "we",
+          "the practice"), owned by sole proprietor (ФОП) {site.founder} ({site.city}, Ukraine), collects,
+          processes, and protects the personal data of visitors to the website <a href={site.url}>{site.domain}</a>
+          (hereinafter — the "Site") and of the practice's clients.
         </p>
         <p>
-          Обробка даних здійснюється відповідно до Закону України «Про захист персональних
-          даних» №2297-VI від 01.06.2010 та Загального регламенту захисту даних ЄС (GDPR,
-          Regulation (EU) 2016/679) у частині, що застосовується.
+          Data processing is carried out in accordance with the Law of Ukraine "On the Protection of
+          Personal Data" No. 2297-VI dated 01.06.2010 and the EU General Data Protection Regulation (GDPR,
+          Regulation (EU) 2016/679) to the extent applicable.
         </p>
         <p>
-          Контакти з питань обробки персональних даних:
+          Contact for personal data processing matters:
           <a href={`mailto:${site.email}`}>{site.email}</a>.
         </p>
       </section>
 
       <section class="legal-section">
-        <h2>2. Які дані ми збираємо</h2>
-        <p>Ми збираємо мінімально необхідний обсяг даних для надання послуг і покращення Сайту:</p>
+        <h2>2. What Data We Collect</h2>
+        <p>We collect the minimum data necessary to provide services and improve the Site:</p>
 
-        <h3>2.1. Дані, які ви надаєте добровільно</h3>
+        <h3>2.1. Data You Provide Voluntarily</h3>
         <ul>
-          <li><strong>Через форму контакту:</strong> ім'я, email, тип запиту (Аудит / Дослідження / Супровід / Знайомство), коротке повідомлення (за бажанням).</li>
-          <li><strong>Через email:</strong> усе, що ви надсилаєте у листі.</li>
-          <li><strong>Під час співпраці:</strong> інформація про ваш проект, команду, бюджет, цілі — обсяг визначається в межах підписаного договору.</li>
+          <li><strong>Via the contact form:</strong> name, email, request type (Audit / Research / Advisory / Intro Call), and a short message (optional).</li>
+          <li><strong>Via email:</strong> everything you include in your message.</li>
+          <li><strong>During our collaboration:</strong> information about your project, team, budget, and goals — the scope of which is defined within the signed agreement.</li>
         </ul>
 
-        <h3>3.2. Технічні дані, що збираються автоматично при відправці форми</h3>
+        <h3>2.2. Technical Data Collected Automatically When the Form Is Submitted</h3>
         <ul>
-          <li>Тип браузера і операційної системи (User-Agent)</li>
-          <li>Мова браузера</li>
-          <li>Часовий пояс пристрою</li>
-          <li>Розмір екрана і вікна перегляду</li>
-          <li>URL сторінки, з якої відправлена форма</li>
-          <li>Реферер (попередня сторінка або джерело переходу)</li>
-          <li>Дата і час відправки</li>
-          <li>IP-адреса (зберігається сервісом обробки форм Formspree)</li>
+          <li>Browser and operating system type (User-Agent)</li>
+          <li>Browser language</li>
+          <li>Device time zone</li>
+          <li>Screen and viewport size</li>
+          <li>URL of the page from which the form was submitted</li>
+          <li>Referrer (the previous page or traffic source)</li>
+          <li>Date and time of submission</li>
+          <li>IP address (stored by the form-processing service Formspree)</li>
         </ul>
         <p>
-          Технічні дані використовуються виключно для аналізу джерел трафіку, виявлення
-          спаму та покращення Сайту. Вони не пов'язуються з вашою особою для маркетингових цілей.
+          Technical data is used solely to analyze traffic sources, detect spam, and improve
+          the Site. It is not linked to your identity for marketing purposes.
         </p>
 
-        <h3>2.3. Аналітика відвідувань</h3>
+        <h3>2.3. Visit Analytics</h3>
         <p>
-          Ми використовуємо <strong>Cloudflare Web Analytics</strong> — анонімний сервіс
-          аналітики, що працює без файлів cookies та без збору персональних даних. Збирається
-          лише агрегована статистика: кількість відвідувань, географія (на рівні країни),
-          типи пристроїв.
-        </p>
-      </section>
-
-      <section class="legal-section">
-        <h2>3. Мета обробки даних</h2>
-        <ul>
-          <li>Відповідь на ваші запити та комунікація</li>
-          <li>Виконання договірних зобов'язань (надання послуг)</li>
-          <li>Покращення якості Сайту і послуг</li>
-          <li>Захист від спаму і зловживань</li>
-          <li>Виконання вимог чинного законодавства</li>
-        </ul>
-        <p>
-          Ми <strong>не використовуємо</strong> ваші дані для рекламних розсилок без явної
-          згоди та <strong>не передаємо їх третім особам</strong> для маркетингових цілей.
+          We use <strong>Cloudflare Web Analytics</strong> — an anonymous analytics service
+          that operates without cookies and without collecting personal data. Only aggregated
+          statistics are gathered: number of visits, geography (at the country level), and
+          device types.
         </p>
       </section>
 
       <section class="legal-section">
-        <h2>4. Сторонні сервіси (Processors)</h2>
+        <h2>3. Purpose of Data Processing</h2>
+        <ul>
+          <li>Responding to your inquiries and communication</li>
+          <li>Fulfilling contractual obligations (delivering services)</li>
+          <li>Improving the quality of the Site and services</li>
+          <li>Protection against spam and abuse</li>
+          <li>Compliance with applicable law</li>
+        </ul>
         <p>
-          Для функціонування Сайту ми використовуємо такі сторонні сервіси, кожен з яких
-          має власну політику конфіденційності:
+          We <strong>do not use</strong> your data for marketing mailings without your explicit
+          consent, and we <strong>do not share it with third parties</strong> for marketing purposes.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>4. Third-Party Services (Processors)</h2>
+        <p>
+          To operate the Site we use the following third-party services, each of which has
+          its own privacy policy:
         </p>
         <ul>
-          <li><strong>Formspree</strong> (<a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">privacy policy</a>) — обробка заявок з форми. Сервер у США. Дані передаються через захищене з'єднання (HTTPS).</li>
-          <li><strong>Cloudflare Pages</strong> (<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">privacy policy</a>) — хостинг сайту, CDN і захист від DDoS.</li>
-          <li><strong>Google Analytics 4</strong> (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a>) — анонімна аналітика відвідувань. Завантажується <strong>ЛИШЕ після вашої згоди</strong> через банер cookies. IP-адреси анонімізовані. До отримання згоди використовується Google Consent Mode v2 (default: denied) — лише агреговане моделювання без cookies.</li>
-          <li><strong>Google Fonts</strong> (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a>) — завантаження шрифтів.</li>
-          <li><strong>LinkedIn</strong> — для зовнішніх посилань (відкриваються у новій вкладці; cookies встановлюються тільки після переходу на linkedin.com).</li>
+          <li><strong>Formspree</strong> (<a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">privacy policy</a>) — processing of form submissions. Servers located in the USA. Data is transmitted over a secure connection (HTTPS).</li>
+          <li><strong>Cloudflare Pages</strong> (<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">privacy policy</a>) — site hosting, CDN, and DDoS protection.</li>
+          <li><strong>Google Analytics 4</strong> (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a>) — anonymous visit analytics. Loaded <strong>ONLY after your consent</strong> via the cookie banner. IP addresses are anonymized. Until consent is given, Google Consent Mode v2 is used (default: denied) — only aggregated modeling without cookies.</li>
+          <li><strong>Google Fonts</strong> (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a>) — loading of fonts.</li>
+          <li><strong>LinkedIn</strong> — for external links (opened in a new tab; cookies are set only after you navigate to linkedin.com).</li>
         </ul>
       </section>
 
       <section class="legal-section">
-        <h2>5. Термін зберігання даних</h2>
+        <h2>5. Data Retention Period</h2>
         <ul>
-          <li><strong>Заявки з форми контакту:</strong> до 24 місяців після останньої взаємодії.</li>
-          <li><strong>Email-листування:</strong> до 36 місяців або до запиту на видалення.</li>
-          <li><strong>Договірна документація:</strong> згідно з вимогами податкового законодавства України (мінімум 3 роки).</li>
-          <li><strong>Аналітика Cloudflare:</strong> агрегована, без прив'язки до особи; ретенція згідно з політикою Cloudflare.</li>
+          <li><strong>Contact form submissions:</strong> up to 24 months after the last interaction.</li>
+          <li><strong>Email correspondence:</strong> up to 36 months or until a deletion request.</li>
+          <li><strong>Contractual documentation:</strong> in accordance with the requirements of Ukrainian tax law (minimum 3 years).</li>
+          <li><strong>Cloudflare analytics:</strong> aggregated, not linked to any individual; retention according to Cloudflare's policy.</li>
         </ul>
       </section>
 
       <section class="legal-section">
-        <h2>6. Ваші права</h2>
-        <p>Згідно з законодавством України та GDPR, ви маєте право:</p>
+        <h2>6. Your Rights</h2>
+        <p>Under the laws of Ukraine and the GDPR, you have the right to:</p>
         <ul>
-          <li>Отримати копію персональних даних, які ми зберігаємо</li>
-          <li>Вимагати виправлення неточних або застарілих даних</li>
-          <li>Вимагати видалення ваших даних («право бути забутим»)</li>
-          <li>Обмежити обробку ваших даних</li>
-          <li>Заперечити проти обробки</li>
-          <li>Подати скаргу до Уповноваженого Верховної Ради України з прав людини</li>
+          <li>Obtain a copy of the personal data we store</li>
+          <li>Request correction of inaccurate or outdated data</li>
+          <li>Request deletion of your data (the "right to be forgotten")</li>
+          <li>Restrict the processing of your data</li>
+          <li>Object to processing</li>
+          <li>Lodge a complaint with the Ukrainian Parliament Commissioner for Human Rights</li>
         </ul>
         <p>
-          Для реалізації ваших прав надішліть запит на
+          To exercise your rights, send a request to
           <a href={`mailto:${site.email}`}>{site.email}</a>.
-          Ми відповімо протягом 30 календарних днів.
+          We will respond within 30 calendar days.
         </p>
       </section>
 
       <section class="legal-section">
-        <h2>7. Безпека даних</h2>
+        <h2>7. Data Security</h2>
         <p>
-          Ми застосовуємо технічні і організаційні заходи для захисту ваших даних: HTTPS-з'єднання,
-          обмежений доступ до систем зберігання, регулярне оновлення інфраструктури. Однак жоден
-          метод передачі або зберігання даних в інтернеті не є абсолютно безпечним — ми робимо все
-          розумне, але не можемо гарантувати 100% безпеки.
+          We apply technical and organizational measures to protect your data: HTTPS connections,
+          restricted access to storage systems, and regular infrastructure updates. However, no
+          method of transmitting or storing data on the internet is absolutely secure — we do everything
+          reasonable, but cannot guarantee 100% security.
         </p>
       </section>
 
       <section class="legal-section">
-        <h2>8. Файли cookies</h2>
+        <h2>8. Cookies</h2>
         <p>
-          Сайт використовує мінімальний набір cookies. <strong>Аналітичні cookies завантажуються
-          лише після вашої явної згоди</strong> через банер при першому візиті
-          (Google Consent Mode v2). Необхідні технічні cookies (відправка форми, безпека CDN)
-          працюють завжди — без них сайт не функціонував би.
+          The Site uses a minimal set of cookies. <strong>Analytics cookies are loaded only after
+          your explicit consent</strong> via the banner shown on your first visit
+          (Google Consent Mode v2). Essential technical cookies (form submission, CDN security)
+          are always active — without them the site would not function.
         </p>
 
-        <h3>8.1. Які cookies ми використовуємо</h3>
+        <h3>8.1. Which Cookies We Use</h3>
         <div class="cookie-table-wrap">
           <table class="cookie-table">
             <thead>
               <tr>
-                <th>Категорія</th>
-                <th>Cookie / сервіс</th>
-                <th>Призначення</th>
-                <th>Термін</th>
+                <th>Category</th>
+                <th>Cookie / service</th>
+                <th>Purpose</th>
+                <th>Duration</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>Необхідні</strong><br /><span class="cookie-tag cookie-tag-on">завжди увімкнено</span></td>
-                <td>Formspree (під час відправки форми)</td>
-                <td>Захист від спаму, доставка повідомлення</td>
-                <td>сесія</td>
+                <td><strong>Essential</strong><br /><span class="cookie-tag cookie-tag-on">always on</span></td>
+                <td>Formspree (during form submission)</td>
+                <td>Spam protection, message delivery</td>
+                <td>session</td>
               </tr>
               <tr>
-                <td><strong>Необхідні</strong><br /><span class="cookie-tag cookie-tag-on">завжди увімкнено</span></td>
+                <td><strong>Essential</strong><br /><span class="cookie-tag cookie-tag-on">always on</span></td>
                 <td>Cloudflare (<code>__cf_bm</code>, <code>__cfruid</code>)</td>
-                <td>Безпека CDN, захист від ботів</td>
-                <td>до 30 хв / сесія</td>
+                <td>CDN security, bot protection</td>
+                <td>up to 30 min / session</td>
               </tr>
               <tr>
-                <td><strong>Аналітичні</strong><br /><span class="cookie-tag cookie-tag-opt">потребує згоди</span></td>
+                <td><strong>Analytics</strong><br /><span class="cookie-tag cookie-tag-opt">requires consent</span></td>
                 <td>Google Analytics 4 (<code>_ga</code>, <code>_ga_TQLPJZGJEL</code>)</td>
-                <td>Анонімна статистика відвідувань (IP анонімізований)</td>
-                <td>13 місяців</td>
+                <td>Anonymous visit statistics (IP anonymized)</td>
+                <td>13 months</td>
               </tr>
               <tr>
-                <td><strong>Функціональні</strong><br /><span class="cookie-tag cookie-tag-cookieless">без cookies</span></td>
+                <td><strong>Functional</strong><br /><span class="cookie-tag cookie-tag-cookieless">cookieless</span></td>
                 <td>Cloudflare Web Analytics (beacon)</td>
-                <td>Анонімна агрегована статистика; без cookies, без PII</td>
+                <td>Anonymous aggregated statistics; no cookies, no PII</td>
                 <td>—</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <h3>8.2. Локальне сховище браузера (localStorage)</h3>
+        <h3>8.2. Browser Local Storage (localStorage)</h3>
         <p>
-          Сайт використовує функціональне локальне сховище браузера (localStorage) для збереження
-          анонімних технічних даних, які допомагають нам розуміти структуру трафіку:
+          The Site uses functional browser local storage (localStorage) to store anonymous
+          technical data that helps us understand traffic structure:
         </p>
         <ul>
-          <li>Анонімний ідентифікатор відвідувача (випадковий рядок, не пов'язаний з особою)</li>
-          <li>Дата першого і останнього візиту</li>
-          <li>Загальна кількість візитів</li>
-          <li>UTM-параметри з URL (якщо ви прийшли за рекламним посиланням)</li>
-          <li>Запис вашого вибору щодо cookies (<code>ag_consent_v1</code>)</li>
+          <li>Anonymous visitor identifier (a random string, not linked to any individual)</li>
+          <li>Date of first and last visit</li>
+          <li>Total number of visits</li>
+          <li>UTM parameters from the URL (if you arrived via an advertising link)</li>
+          <li>A record of your cookie choice (<code>ag_consent_v1</code>)</li>
         </ul>
         <p>
-          У межах поточної сесії (sessionStorage) ми тимчасово зберігаємо переглянуті сторінки
-          та час початку сесії. Ці дані видаляються при закритті вкладки браузера.
+          Within the current session (sessionStorage) we temporarily store the pages viewed
+          and the session start time. This data is deleted when you close the browser tab.
         </p>
         <p>
-          <strong>Що це означає для вас:</strong> жодних персональних даних (ім'я, email, IP)
-          у локальному сховищі не зберігається. Анонімний ID допомагає нам зрозуміти, скільки
-          людей повертається на сайт, без можливості ідентифікувати конкретну особу.
+          <strong>What this means for you:</strong> no personal data (name, email, IP)
+          is stored in local storage. The anonymous ID helps us understand how many
+          people return to the site, without the ability to identify any specific individual.
         </p>
         <p>
-          <strong>Як видалити:</strong> очистити локальне сховище можна через налаштування
-          браузера (Очистити дані сайтів / Clear site data). Це не вплине на можливість
-          користуватися сайтом — але банер cookies з'явиться знову при наступному візиті.
+          <strong>How to delete:</strong> you can clear local storage through your browser
+          settings (Clear site data). This will not affect your ability to
+          use the site — but the cookie banner will appear again on your next visit.
         </p>
 
-        <h3>8.3. Керування налаштуваннями cookies</h3>
+        <h3>8.3. Managing Cookie Settings</h3>
         <p>
-          Ви можете змінити свій вибір щодо cookies у будь-який момент. Зміни застосовуються одразу.
-          Відкликання згоди не впливає на легітимність обробки даних до моменту відкликання.
+          You can change your cookie choice at any time. Changes take effect immediately.
+          Withdrawing consent does not affect the lawfulness of data processing prior to withdrawal.
         </p>
         <p>
           <button type="button" class="consent-trigger-btn" data-consent-trigger>
-            Змінити налаштування cookies
+            Change cookie settings
           </button>
         </p>
       </section>
 
       <section class="legal-section">
-        <h2>9. Зміни до Політики</h2>
+        <h2>9. Changes to This Policy</h2>
         <p>
-          Ми можемо оновлювати цю Політику для відображення змін у законодавстві або наших
-          процесах. Актуальна версія завжди публікується на цій сторінці з датою оновлення.
-          Значні зміни ми додатково повідомляємо клієнтам, з якими ведемо активну комунікацію.
+          We may update this Policy to reflect changes in the law or in our processes. The current
+          version is always published on this page with the date it was updated. We additionally
+          notify clients with whom we maintain active communication of any significant changes.
         </p>
       </section>
 
       <section class="legal-section">
-        <h2>10. Контакти</h2>
+        <h2>10. Contact</h2>
         <p>
-          З питань цієї Політики або для реалізації ваших прав звертайтеся:
+          For questions about this Policy or to exercise your rights, please reach out:
         </p>
         <ul class="contact-list">
           <li><strong>Email:</strong> <a href={`mailto:${site.email}`}>{site.email}</a></li>
           <li><strong>LinkedIn:</strong> <a href={site.linkedin} target="_blank" rel="noopener">linkedin.com/in/taras732</a></li>
-          <li><strong>Адреса:</strong> {site.city}</li>
+          <li><strong>Address:</strong> {site.city}</li>
         </ul>
       </section>
     </div>

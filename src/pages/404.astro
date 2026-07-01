@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout title="404 — Ascend Griffin" description="Сторінку не знайдено · Page not found" noindex plain>
+  <Nav />
+  <main class="nf">
+    <div class="nf-shell">
+      <p class="nf-code">404</p>
+      <h1 class="nf-h1">Такої сторінки <em>немає</em>.</h1>
+      <p class="nf-sub">This page doesn't exist — or it has moved.</p>
+      <div class="nf-actions">
+        <a href="/uk/" class="btn-primary btn-lg">На головну</a>
+        <a href="/" class="btn-secondary btn-lg">Home (EN)</a>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .nf {
+    min-height: 72vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:
+      radial-gradient(60% 80% at 50% 0%, rgba(201, 168, 106, 0.08), transparent 60%),
+      var(--bg-0);
+  }
+  .nf-shell { max-width: 640px; padding: 80px var(--gutter); }
+  @media (max-width: 720px) { .nf-shell { padding: 56px var(--gutter-sm); } }
+
+  .nf-code {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(5rem, 16vw, 9rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--editorial);
+    margin: 0 0 8px;
+  }
+  .nf-h1 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text-1);
+    margin: 0 0 12px;
+  }
+  .nf-h1 em { font-style: italic; color: var(--editorial); font-weight: 400; }
+  .nf-sub {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--text-2);
+    margin: 0 0 36px;
+  }
+  .nf-actions {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+</style>

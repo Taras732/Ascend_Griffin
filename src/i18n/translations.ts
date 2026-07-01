@@ -10,7 +10,7 @@ export const translations = {
       heroH1Html:
         'Your <em>ally</em> in IT projects, acting <em>in your interest</em>.',
       heroLede:
-        "I help non-technical founders steer IT projects with confidence — from idea to a working result.",
+        "I help founders steer IT projects — from idea to a working result.",
       heroCtaPrimary: "Book a call",
       heroCtaSecondary: "How I work",
       heroMicro: "",
@@ -390,7 +390,7 @@ export const translations = {
       heroH1Html:
         'Ваш <em>союзник</em> в IT-проєктах, який діє <em>у ваших інтересах</em>.',
       heroLede:
-        "Допомагаю нетехнічним засновникам впевнено вести IT-проєкти — від ідеї до працюючого результату.",
+        "Допомагаю засновникам вести IT-проєкти — від ідеї до працюючого результату.",
       heroCtaPrimary: "Записатися на дзвінок",
       heroCtaSecondary: "Як я працюю",
       heroMicro: "",

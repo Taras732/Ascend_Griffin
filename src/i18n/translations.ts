@@ -25,7 +25,7 @@ export const translations = {
       nav: [
         { label: "About", href: "/about/" },
         { label: "How I work", href: "/how-i-work/" },
-        { label: "AI Audit", href: "/ai-readiness-audit/" },
+        { label: "Audit", href: "/ai-readiness-audit/" },
         { label: "Recovery", href: "/project-rescue/" },
         { label: "Blog", href: "/blog/" },
       ],
@@ -406,8 +406,8 @@ export const translations = {
       nav: [
         { label: "Про мене", href: "/uk/about/" },
         { label: "Як я працюю", href: "/uk/how-i-work/" },
-        { label: "Аудит AI", href: "/uk/ai-readiness-audit/" },
-        { label: "Відновлення", href: "/uk/project-rescue/" },
+        { label: "Аудит", href: "/uk/ai-readiness-audit/" },
+        { label: "Порятунок", href: "/uk/project-rescue/" },
         { label: "Блог", href: "/uk/blog/" },
       ],
 

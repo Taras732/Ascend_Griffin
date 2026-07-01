@@ -11,14 +11,14 @@ export const translations = {
         'Your <em>ally</em> in IT projects, acting <em>in your interest</em>.',
       heroLede:
         "I help founders steer IT projects — from idea to a working result.",
-      heroCtaPrimary: "Book a call",
+      heroCtaPrimary: "Discuss your project",
       heroCtaSecondary: "How I work",
       heroMicro: "",
 
       ctaEyebrow: "READY TO TALK?",
       ctaH2Html: "<em>30-minute</em> meeting.",
       ctaLede: "Free. No slides. Just a real conversation about your project.",
-      ctaPrimary: "Book Discovery Call",
+      ctaPrimary: "Discuss your project",
       ctaAlt: "Or follow my work on LinkedIn",
       ctaSig: "— Taras Smaliukh · Lviv, Ukraine",
 
@@ -157,7 +157,7 @@ export const translations = {
           "Structured report with findings, risks, and clear next steps",
           "Personal review meeting to walk through results",
         ],
-        cta: "Request audit",
+        cta: "Talk about an audit",
         ctaHref: "#book",
       },
       {
@@ -174,7 +174,7 @@ export const translations = {
           "Shortlist of vendors that genuinely fit your project — with real selection criteria",
           "Negotiation pack — arguments, numbers, technical details to win the conversation",
         ],
-        cta: "Book Discovery Call",
+        cta: "Discuss your project",
         ctaHref: "#book",
       },
       {
@@ -391,7 +391,7 @@ export const translations = {
         'Ваш <em>союзник</em> в IT-проєктах, який діє <em>у ваших інтересах</em>.',
       heroLede:
         "Допомагаю засновникам вести IT-проєкти — від ідеї до працюючого результату.",
-      heroCtaPrimary: "Записатися на дзвінок",
+      heroCtaPrimary: "Обговорити проєкт",
       heroCtaSecondary: "Як я працюю",
       heroMicro: "",
 
@@ -399,7 +399,7 @@ export const translations = {
       ctaH2Html: "Зустріч на <em>30 хвилин</em>.",
       ctaLede:
         "Безкоштовно. Без презентацій. Просто розмова про ваш проект.",
-      ctaPrimary: "Discovery Call",
+      ctaPrimary: "Обговорити проєкт",
       ctaAlt: "Або стежте за моєю роботою у LinkedIn",
       ctaSig: "— Taras Smaliukh · Lviv, Ukraine",
 
@@ -538,7 +538,7 @@ export const translations = {
           "Структурований звіт з висновками, ризиками та рекомендаціями",
           "Особиста зустріч для обговорення результатів і наступних кроків",
         ],
-        cta: "Замовити аудит",
+        cta: "Обговорити аудит",
         ctaHref: "#book",
       },
       {
@@ -555,7 +555,7 @@ export const translations = {
           "Список виконавців, що підходять саме вашому проекту — з реальними критеріями вибору",
           "Готовий пакет для переговорів — з аргументами, цифрами і технічними деталями",
         ],
-        cta: "Забронювати дзвінок",
+        cta: "Обговорити проєкт",
         ctaHref: "#book",
       },
       {

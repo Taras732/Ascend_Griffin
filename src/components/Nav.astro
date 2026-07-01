@@ -105,13 +105,6 @@ const links = {
           <span>{altLangLabel}</span>
         </a>
       </li>
-      <li class="nav-theme-item">
-        <div class="theme-switcher">
-          <button class="theme-btn" data-theme="paper" title="Paper Atelier">☀️</button>
-          <button class="theme-btn" data-theme="slate" title="Obsidian Slate">🌑</button>
-          <button class="theme-btn" data-theme="cinema" title="Cinematic Gold">🔥</button>
-        </div>
-      </li>
       <li><a href="#book" data-modal="booking" data-subject="discovery-call" data-source="nav" class="nav-cta">{labels.cta} →</a></li>
     </ul>
   </div>
@@ -355,25 +348,6 @@ const links = {
     });
   });
 
-  // Theme Switching binding
-  function updateThemeButtons(theme: string) {
-    document.querySelectorAll('.theme-btn').forEach((btn) => {
-      btn.classList.toggle('active', btn.getAttribute('data-theme') === theme);
-    });
-  }
-  const activeTheme = localStorage.getItem('ag-theme') || 'cinema';
-  updateThemeButtons(activeTheme);
-  
-  document.querySelectorAll('.theme-btn').forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      const theme = btn.getAttribute('data-theme') || 'cinema';
-      document.documentElement.className = 'theme-' + theme;
-      localStorage.setItem('ag-theme', theme);
-      updateThemeButtons(theme);
-    });
-  });
 
   // Close dropdowns on outside click + Escape
   document.addEventListener("click", (e) => {

@@ -130,13 +130,6 @@ const altLocaleCode = lang === "uk" ? "en" : "uk";
         gtag("js", new Date());
       })();
     </script>
-    <script is:inline>
-      // Initialize theme instantly to prevent page flash
-      (function() {
-        const savedTheme = localStorage.getItem('ag-theme') || 'cinema';
-        document.documentElement.className = 'theme-' + savedTheme;
-      })();
-    </script>
   </head>
   <body>
     <slot />

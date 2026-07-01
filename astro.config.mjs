@@ -25,12 +25,9 @@ export default defineConfig({
     }),
   ],
   build: {
-    inlineStylesheets: "auto",
+    // Inline per-route CSS into the HTML → no render-blocking stylesheet request,
+    // CSS ships with the document (big FCP/LCP win on throttled mobile).
+    inlineStylesheets: "always",
     assets: "_assets",
-  },
-  vite: {
-    build: {
-      cssCodeSplit: false,
-    },
   },
 });

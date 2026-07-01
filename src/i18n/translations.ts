@@ -8,7 +8,7 @@ export const translations = {
     site: {
       eyebrow: "IT support from idea to outcome",
       heroH1Html:
-        'Your <em>ally</em> in IT projects, acting <em>in your interest</em>.',
+        'Your <em>ally</em> in IT projects, for whom your result is the <em>shared goal</em>.',
       heroLede:
         "I help founders steer IT projects — from idea to a working result.",
       heroCtaPrimary: "Discuss your project",
@@ -187,7 +187,7 @@ export const translations = {
         features: [
           "Strategic advice — weekly check-ins and fast turnaround on critical questions",
           "Oversight — vendor proposal reviews, participation in key decisions",
-          "Project leadership — from planning to launch, as Product Owner on your side",
+          "Project leadership — from planning to launch, as your product lead",
           "Depth of involvement scales with your current needs",
         ],
         cta: "Explore working together",
@@ -319,7 +319,7 @@ export const translations = {
       },
       {
         q: "Can you recommend vendors, or work with my existing team?",
-        a: "Both. I have a network of vetted teams across domains — I recommend the ones that genuinely fit your project. If you already have a team, I work on your side in vendor negotiations and ongoing support.",
+        a: "Both. I have a network of vetted teams across domains — I recommend the ones that genuinely fit your project. If you already have a team, I work with you on contractor negotiations and ongoing support.",
       },
       {
         q: "What do I get when the engagement ends?",
@@ -388,7 +388,7 @@ export const translations = {
     site: {
       eyebrow: "IT-супровід від ідеї до результату",
       heroH1Html:
-        'Ваш <em>союзник</em> в IT-проєктах, який діє <em>у ваших інтересах</em>.',
+        'Ваш <em>союзник</em> в IT-проєктах, для якого ваш результат — <em>спільна мета</em>.',
       heroLede:
         "Допомагаю засновникам вести IT-проєкти — від ідеї до працюючого результату.",
       heroCtaPrimary: "Обговорити проєкт",
@@ -700,7 +700,7 @@ export const translations = {
       },
       {
         q: "Чи можете рекомендувати виконавців або працювати з моєю командою?",
-        a: "Так, обидва варіанти. Маю мережу перевірених команд у різних доменах — рекомендую тих, хто реально підходить вашому проекту. Якщо у вас уже є команда — працюю на вашому боці у переговорах і поточному супроводі.",
+        a: "Так, обидва варіанти. Маю мережу перевірених команд у різних сферах — рекомендую тих, хто реально підходить вашому проєкту. Якщо у вас уже є команда — працюю разом з вами у переговорах і поточному супроводі.",
       },
       {
         q: "Що буде після того, як я завершу свою роботу?",

@@ -56,16 +56,12 @@ const description =
 <BaseLayout title={title} description={description} plain>
   <Nav />
   <main class="blog-index">
-    <header class="blog-hero">
+    <header class="blog-hero hero-bg-media" style="--hero-img:url('/img/blog_cover.webp')">
       <div class="blog-shell">
         <h1 class="blog-h1">Думки <em>і нотатки</em>.</h1>
         <p class="blog-lede">
           Про IT-проєкти, AI-інструменти та інші практики, якими я користуюсь у роботі. Простими словами.
         </p>
-
-        <figure class="hero-media">
-          <img src="/img/blog_cover.webp" alt="Редакційний робочий стіл у теплому вечірньому світлі" loading="lazy" width="1344" height="768" />
-        </figure>
       </div>
     </header>
 
@@ -138,8 +134,8 @@ const description =
   .blog-shell { max-width: 1120px; margin: 0 auto; padding: 0 var(--gutter); }
   @media (max-width: 720px) { .blog-shell { padding: 0 var(--gutter-sm); } }
 
-  .blog-hero { padding: 80px 0 40px; border-bottom: 1px solid var(--border-1); }
-  @media (max-width: 720px) { .blog-hero { padding: 48px 0 28px; } }
+  .blog-hero { padding: 88px 0 72px; border-bottom: 1px solid var(--border-1); }
+  @media (max-width: 720px) { .blog-hero { padding: 56px 0 48px; } }
   .blog-h1 { font-family: var(--font-display); font-size: clamp(40px, 5.5vw, 68px); line-height: 1.04; letter-spacing: -0.025em; color: var(--text-1); margin: 0 0 20px; font-weight: 700; max-width: 14ch; }
   .blog-h1 em { font-style: italic; color: var(--editorial); }
   .blog-lede { font-size: 19px; line-height: 1.6; color: var(--text-2); margin: 0 0 32px; max-width: 60ch; }

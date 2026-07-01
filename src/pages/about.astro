@@ -7,29 +7,25 @@ import TrustBlock from "../components/TrustBlock.astro";
 
 const title = "Taras Smaliukh — Buyer-Side IT Ally | Ascend Griffin";
 const description =
-  "Taras Smaliukh — CEO of TreximAI and founder of Ascend Griffin. 8 years BA across AI, logistics, and fintech. Lviv-based ally for founders navigating IT.";
+  "Taras Smaliukh — founder of Ascend Griffin. 8 years of business analysis and product ownership across AI, logistics, and fintech. Lviv-based ally for founders navigating IT.";
 ---
 
 <BaseLayout title={title} description={description}>
   <Nav />
   <main class="about">
-    <section class="hero">
+    <section class="hero hero-bg-media" style="--hero-img:url('/img/trust.webp')">
       <div class="about-shell">
         <p class="hero-eyebrow">About · Ascend Griffin</p>
 
         <h1 class="hero-h1">
-          Most IT projects don't fail because of bad code. They fail because no one on the client's side had the technical fluency to see it coming.
+          Most IT projects don't fail on bad code — they fail because no one on the client's side saw it coming.
         </h1>
 
         <p class="hero-lede">
-          I'm Taras Smaliukh — a buyer-side IT ally for non-technical founders and vibe coders. I act exclusively in your interests — from the first conversation about your idea to a working outcome delivered.
+          I'm Taras Smaliukh — a buyer-side IT ally for non-technical founders and vibe coders. I act only in your interest, from the first idea to a working result.
         </p>
 
         <p class="hero-hint">↓ Expand a section to read more</p>
-
-        <figure class="hero-media">
-          <img src="/img/trust.webp" alt="A quiet, considered advisory setting" loading="lazy" width="1344" height="768" />
-        </figure>
       </div>
     </section>
 
@@ -48,7 +44,7 @@ const description =
 
             <p>My original training was in safety-critical systems — Air Traffic Control, where unclear requirements don't produce bad UX, they produce accidents. That discipline carries into everything I do with products now.</p>
 
-            <p>I'm currently CEO and Chief Product Officer at <strong>TreximAI</strong>, a B2B AI logistics platform — banking, fuel retail, insurance, e-signature. I built the team and the product from zero, secured six-figure development capital, and negotiated agreements with incumbents across regulated sectors.</p>
+            <p>For several years I led product and operations at a B2B AI logistics startup — banking, fuel retail, insurance, e-signature. I built the team and the product from zero, secured six-figure development capital, and negotiated agreements with incumbents across regulated sectors.</p>
 
             <p>That experience isn't a line on a CV — it's the reason I understand how IT projects actually behave under pressure. Not from books and not from slides — from practice, where the cost of being wrong is real.</p>
           </div>
@@ -78,35 +74,8 @@ const description =
             <span class="acc-toggle" aria-hidden="true">+</span>
           </summary>
           <div class="acc-body">
-            <h3 class="acc-h">Three ways we work together.</h3>
-
-            <p class="acc-lede">Discovery comes first, always. A 30-minute conversation to understand your situation. If I'm not the right fit, I'll say so — and usually recommend who is.</p>
-
-            <ol class="modes">
-              <li class="mode">
-                <span class="mode-letter">A</span>
-                <div class="mode-body">
-                  <h4>Solo advisory.</h4>
-                  <p>I work directly with you: reviewing deliverables, joining key calls, providing structured oversight of your vendor or in-house team. You keep control of your team; I'm the experienced voice in the room on your side.</p>
-                </div>
-              </li>
-              <li class="mode">
-                <span class="mode-letter">B</span>
-                <div class="mode-body">
-                  <h4>Full delivery with my network.</h4>
-                  <p>For founders who want one accountable contract — one person responsible from brief to working product. I coordinate a tight, tested network of engineers, designers, and QA specialists. One point of contact, one contract, clear milestones with fixed pricing.</p>
-                </div>
-              </li>
-              <li class="mode">
-                <span class="mode-letter">C</span>
-                <div class="mode-body">
-                  <h4>Discovery and handoff.</h4>
-                  <p>We validate what you're building, produce a complete product brief and scoped requirements, and I help you find and brief the right vendor. You own the result. I help you start right, not stay forever.</p>
-                </div>
-              </li>
-            </ol>
-
-            <p class="acc-note">Pricing is fixed and agreed before work starts. No hourly billing.</p>
+            <p class="acc-lede">Discovery comes first, always — a 30-minute conversation to understand your situation. From there we work in one of three ways: solo advisory, full delivery with my vetted network, or discovery-and-handoff. Pricing is fixed before work starts. No hourly billing.</p>
+            <a href="/how-i-work/" class="link-arrow">See the full method and five principles →</a>
           </div>
         </details>
 
@@ -250,10 +219,9 @@ const description =
       name: "Taras Smaliukh",
       alternateName: ["Taras Smalych"],
       url: "https://ascendgriffin.org/about/",
-      jobTitle: "Founder, Ascend Griffin · CEO, TreximAI",
+      jobTitle: "Founder, Ascend Griffin",
       worksFor: [
         { "@type": "Organization", name: "Ascend Griffin", url: "https://ascendgriffin.org" },
-        { "@type": "Organization", name: "TreximAI" },
       ],
       knowsAbout: ["Business analysis", "Product discovery", "AI workflows", "IT vendor selection", "Project rescue"],
       homeLocation: { "@type": "Place", name: "Lviv, Ukraine" },
@@ -314,6 +282,8 @@ const description =
   .acc-body p em { font-style: italic; color: var(--text-1); }
   .acc-lede { font-size: 17px; color: var(--text-2); margin: 0 0 28px; }
   .acc-note { font-family: var(--font-mono); font-size: 13px; color: var(--text-3); margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border-1); }
+  .acc-body .link-arrow { display: inline-block; margin-top: 8px; color: var(--accent-pressed); text-decoration: none; font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.02em; font-weight: 600; border-bottom: 1px solid var(--accent); padding-bottom: 2px; transition: color var(--dur-fast) var(--ease); }
+  .acc-body .link-arrow:hover { color: var(--accent-hover); }
 
   .modes { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--border-2); }
   .mode { display: grid; grid-template-columns: 32px 1fr; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--border-1); align-items: start; }

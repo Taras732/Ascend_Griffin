@@ -7,30 +7,26 @@ import TrustBlock from "../../components/TrustBlock.astro";
 
 const title = "Тарас Смалюх — експерт-радник | Ascend Griffin";
 const description =
-  "Тарас Смалюх — CEO TreximAI та засновник Ascend Griffin. 8 років бізнес-аналізу в AI, логістиці, фінтеху. Львів. Експерт-радник на стороні замовника.";
+  "Тарас Смалюх — засновник Ascend Griffin. 8 років бізнес-аналізу і продуктового менеджменту в AI, логістиці, фінтеху. Львів. Радник на боці замовника.";
 ---
 
 <BaseLayout title={title} description={description}>
   <Nav />
   <main class="about">
     {/* ── Hero ────────────────────────────────────────────────────── */}
-    <section class="hero">
+    <section class="hero hero-bg-media" style="--hero-img:url('/img/trust.webp')">
       <div class="about-shell">
         <p class="hero-eyebrow">Про мене · Ascend Griffin</p>
 
         <h1 class="hero-h1">
-          Більшість IT-проєктів провалюються не через поганий код. А тому, що на боці клієнта не було нікого, хто міг би це побачити заздалегідь.
+          Більшість IT-проєктів провалюються не через поганий код — а тому, що на боці клієнта не було кому це побачити заздалегідь.
         </h1>
 
         <p class="hero-lede">
-          Я, Тарас Смалюх, — ваш союзник на боці замовника в IT-рішеннях. Дію виключно у ваших інтересах — від першої розмови про ідею до готового, працюючого результату.
+          Я, Тарас Смалюх, — ваш союзник на боці замовника. Дію лише у ваших інтересах — від першої ідеї до працюючого результату.
         </p>
 
         <p class="hero-hint">↓ Розгорніть секцію, щоб дізнатися більше</p>
-
-        <figure class="hero-media">
-          <img src="/img/trust.webp" alt="Спокійна атмосфера дорадчої роботи" loading="lazy" width="1344" height="768" />
-        </figure>
       </div>
     </section>
 
@@ -50,7 +46,7 @@ const description =
 
             <p>Моє початкове навчання — системи з критичними вимогами до безпеки, управління повітряним рухом. Там нечіткі вимоги призводять не до поганого UX, а до аварій. Ця дисципліна залишається зі мною у кожному продукті.</p>
 
-            <p>Зараз я CEO і CPO <strong>TreximAI</strong> — B2B AI-платформа логістики, що працює з банками, мережами АЗС, страховими та електронним підписом. Я зібрав команду і продукт з нуля, залучив шестизначний капітал на розробку, уклав угоди з гравцями у регульованих галузях.</p>
+            <p>Кілька років я керував продуктом і операціями у B2B AI-стартапі логістики — банки, мережі АЗС, страхові, електронний підпис. Я зібрав команду і продукт з нуля, залучив шестизначний капітал на розробку, уклав угоди з гравцями у регульованих галузях.</p>
 
             <p>Цей досвід — не строчка у резюме. Це причина, чому я розумію, як IT-проєкти поводяться під тиском. Не з книжок і не зі слайдів — з практики, де ціна помилки реальна.</p>
           </div>
@@ -80,35 +76,8 @@ const description =
             <span class="acc-toggle" aria-hidden="true">+</span>
           </summary>
           <div class="acc-body">
-            <h3 class="acc-h">Три способи співпраці.</h3>
-
-            <p class="acc-lede">Спочатку — завжди discovery. 30-хвилинна розмова, щоб зрозуміти вашу ситуацію. Якщо я не підходжу — скажу прямо і зазвичай порекомендую когось іншого.</p>
-
-            <ol class="modes">
-              <li class="mode">
-                <span class="mode-letter">A</span>
-                <div class="mode-body">
-                  <h4>Соло-консультування.</h4>
-                  <p>Я працюю безпосередньо з вами: перевіряю deliverables, беру участь у ключових дзвінках, забезпечую структурований нагляд за вашим вендором або командою. Ви зберігаєте контроль; я — досвідчений голос у кімнаті на вашому боці.</p>
-                </div>
-              </li>
-              <li class="mode">
-                <span class="mode-letter">B</span>
-                <div class="mode-body">
-                  <h4>Повний цикл з моєю мережею.</h4>
-                  <p>Для засновників, які хочуть один підзвітний контракт — одна людина відповідає від брифу до готового продукту. Я координую перевірену мережу розробників, дизайнерів і QA-спеціалістів. Один контакт, один контракт, чіткі milestone з фіксованою ціною.</p>
-                </div>
-              </li>
-              <li class="mode">
-                <span class="mode-letter">C</span>
-                <div class="mode-body">
-                  <h4>Discovery і передача.</h4>
-                  <p>Ми валідуємо, що ви будуєте, виробляємо повний продуктовий бриф і вимоги, і я допомагаю знайти та проінструктувати правильного вендора. Ви маєте результат. Я допомагаю почати правильно, а не бути вічно поруч.</p>
-                </div>
-              </li>
-            </ol>
-
-            <p class="acc-note">Ціна фіксована, узгоджена до старту роботи. Погодинного виставлення рахунків немає.</p>
+            <p class="acc-lede">Спочатку — завжди discovery: 30-хвилинна розмова, щоб зрозуміти вашу ситуацію. Далі працюємо в одному з трьох форматів: соло-консультування, повний цикл з моєю перевіреною мережею, або discovery і передача. Ціна фіксується до старту. Погодинних рахунків немає.</p>
+            <a href="/uk/how-i-work/" class="link-arrow">Уся методологія і п'ять принципів →</a>
           </div>
         </details>
 
@@ -253,10 +222,9 @@ const description =
       name: "Тарас Смалюх",
       alternateName: ["Taras Smaliukh", "Taras Smalych"],
       url: "https://ascendgriffin.org/uk/about/",
-      jobTitle: "Засновник Ascend Griffin · CEO TreximAI",
+      jobTitle: "Засновник Ascend Griffin",
       worksFor: [
         { "@type": "Organization", name: "Ascend Griffin", url: "https://ascendgriffin.org" },
-        { "@type": "Organization", name: "TreximAI" },
       ],
       knowsAbout: ["бізнес-аналіз", "продуктовий discovery", "AI-інструменти", "вибір IT-вендорів", "рятування проєктів"],
       homeLocation: { "@type": "Place", name: "Львів, Україна" },
@@ -408,6 +376,8 @@ const description =
     padding-top: 16px;
     border-top: 1px solid var(--border-1);
   }
+  .acc-body .link-arrow { display: inline-block; margin-top: 8px; color: var(--accent-pressed); text-decoration: none; font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.02em; font-weight: 600; border-bottom: 1px solid var(--accent); padding-bottom: 2px; transition: color var(--dur-fast) var(--ease); }
+  .acc-body .link-arrow:hover { color: var(--accent-hover); }
 
   /* Modes */
   .modes { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--border-2); }

@@ -42,7 +42,7 @@ export const translations = {
       },
 
       footerTagline:
-        "Strategic IT guidance from idea to scale. An independent partner — vetting vendors, validating ideas, leading projects to outcomes that actually move the business.",
+        "A buyer-side ally in IT projects — from idea to a working result.",
       footerServicesH: "Services",
       footerConnectH: "Connect",
       footerLegalH: "Legal",
@@ -423,7 +423,7 @@ export const translations = {
       },
 
       footerTagline:
-        "IT-супровід від ідеї до результату. Союзник у ваших IT-проектах — від валідації ідеї до масштабування і оптимізації.",
+        "Союзник на боці замовника в IT-проєктах — від ідеї до працюючого результату.",
       footerServicesH: "Формати",
       footerConnectH: "Зв'язок",
       footerLegalH: "Юридичне",

@@ -5,7 +5,7 @@ export const site = {
   domain: "ascendgriffin.org",
   url: "https://ascendgriffin.org",
   founder: "Taras Smaliukh",
-  founderTitle: "CEO TreximAI · 8 років BA у Lviv IT-network",
+  founderTitle: "Незалежний продуктовий радник · 8 років у IT",
   city: "Lviv, Ukraine",
   email: "taras@ascendgriffin.org",
   linkedin: "https://www.linkedin.com/in/taras732/",

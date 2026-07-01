@@ -9,18 +9,20 @@ interface Props {
   title?: string;
   description?: string;
   noindex?: boolean;
+  /** Text-heavy pages: hide the decorative griffin watermark for readability */
+  plain?: boolean;
 }
 
 const tr = t(Astro.currentLocale);
 const lang = Astro.currentLocale === "uk" ? "uk" : "en";
-const { title = tr.site.seo.title, description = tr.site.seo.description, noindex = false } = Astro.props;
+const { title = tr.site.seo.title, description = tr.site.seo.description, noindex = false, plain = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, site.url).toString();
 const altLocaleHref = lang === "uk" ? site.url + "/" : site.url + "/uk/";
 const altLocaleCode = lang === "uk" ? "en" : "uk";
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} data-plain={plain ? "" : undefined}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -84,7 +86,7 @@ const altLocaleCode = lang === "uk" ? "en" : "uk";
             name: site.founder,
             url: site.url,
             sameAs: [site.linkedin],
-            jobTitle: "IT-супровід від ідеї до результату · CEO TreximAI",
+            jobTitle: "IT-супровід від ідеї до результату",
             address: { "@type": "PostalAddress", addressLocality: "Lviv", addressCountry: "UA" },
           },
           {

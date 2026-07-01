@@ -72,7 +72,7 @@ const tocItems = headings.filter((h) => h.depth === 2);
 const hasToc = tocItems.length >= 3;
 ---
 
-<BaseLayout title={title} description={description} noindex={draft}>
+<BaseLayout title={title} description={description} noindex={draft} plain>
   <Nav />
   <main class="page-main">
     {draft && (

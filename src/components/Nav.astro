@@ -65,37 +65,40 @@ const links = {
       <span class="nav-brand-name">{site.name}</span>
     </a>
 
-    <button class="nav-toggle" aria-label={labels.menu} aria-controls="nav-links" aria-expanded="false">
+    <button class="nav-toggle" aria-label={labels.menu} aria-controls="nav-menu" aria-expanded="false">
       {labels.menu}
     </button>
 
-    <ul class="nav-links" id="nav-links">
-      <li><a href={links.about}>{labels.about}</a></li>
+    <div class="nav-menu" id="nav-menu">
+      <ul class="nav-links">
+        <li><a href={links.about}>{labels.about}</a></li>
 
-      <li class="nav-dropdown">
-        <button
-          type="button"
-          class="nav-dropdown-trigger"
-          aria-expanded="false"
-          aria-controls="nav-practice-menu"
-        >
-          {labels.practice}
-          <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-            <path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </button>
-        <ul class="nav-dropdown-menu" id="nav-practice-menu" role="menu">
-          <li role="none"><a role="menuitem" href={links.practice}>{labels.practiceOverview}</a></li>
-          <li role="none"><a role="menuitem" href={links.audit}>{labels.audit}</a></li>
-          <li role="none"><a role="menuitem" href={links.discovery}>{labels.discovery}</a></li>
-          <li role="none"><a role="menuitem" href={links.recovery}>{labels.recovery}</a></li>
-          <li role="none"><a role="menuitem" href={links.cases}>{labels.cases}</a></li>
-        </ul>
-      </li>
+        <li class="nav-dropdown">
+          <button
+            type="button"
+            class="nav-dropdown-trigger"
+            aria-expanded="false"
+            aria-controls="nav-practice-menu"
+          >
+            {labels.practice}
+            <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <ul class="nav-dropdown-menu" id="nav-practice-menu" role="menu">
+            <li role="none"><a role="menuitem" href={links.practice}>{labels.practiceOverview}</a></li>
+            <li role="none"><a role="menuitem" href={links.audit}>{labels.audit}</a></li>
+            <li role="none"><a role="menuitem" href={links.discovery}>{labels.discovery}</a></li>
+            <li role="none"><a role="menuitem" href={links.recovery}>{labels.recovery}</a></li>
+            <li role="none"><a role="menuitem" href={links.cases}>{labels.cases}</a></li>
+          </ul>
+        </li>
 
-      <li><a href={links.howIWork}>{labels.howIWork}</a></li>
-      <li><a href={links.blog}>{labels.blog}</a></li>
-      <li>
+        <li><a href={links.howIWork}>{labels.howIWork}</a></li>
+        <li><a href={links.blog}>{labels.blog}</a></li>
+      </ul>
+
+      <div class="nav-actions">
         <a href={altLangHref} class="nav-lang" aria-label={labels.altLangAria}>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="12" cy="12" r="10" />
@@ -104,9 +107,9 @@ const links = {
           </svg>
           <span>{altLangLabel}</span>
         </a>
-      </li>
-      <li><a href="#book" data-modal="booking" data-subject="discovery-call" data-source="nav" class="nav-cta">{labels.cta} →</a></li>
-    </ul>
+        <a href="#book" data-modal="booking" data-subject="discovery-call" data-source="nav" class="nav-cta">{labels.cta} →</a>
+      </div>
+    </div>
   </div>
 </nav>
 
@@ -119,15 +122,20 @@ const links = {
     border-bottom: 1px solid var(--border-1);
   }
   .nav-inner {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    justify-content: space-between;
-    padding: 16px var(--gutter);
+    gap: 16px;
+    padding: 14px var(--gutter);
     max-width: var(--container);
     margin: 0 auto;
   }
+  @media (max-width: 860px) { .nav-inner { grid-template-columns: auto auto; justify-content: space-between; } }
   @media (max-width: 720px) { .nav-inner { padding: 14px var(--gutter-sm); } }
-  .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text-1); }
+  /* nav-menu is transparent to the grid on desktop → its children become grid cells */
+  .nav-menu { display: contents; }
+  .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text-1); justify-self: start; }
+  .nav-actions { display: flex; align-items: center; gap: 12px; justify-self: end; }
   .nav-brand-mark {
     flex-shrink: 0;
     width: 34px;
@@ -148,26 +156,33 @@ const links = {
   .nav-brand-name { font-family: var(--font-display); font-size: 17px; font-weight: 700; letter-spacing: -0.015em; }
   .nav-links {
     list-style: none; margin: 0; padding: 0;
-    display: flex; align-items: center; gap: 24px;
+    display: flex; align-items: center; gap: 30px;
+    justify-self: center;
   }
+  .nav-links > li { display: inline-flex; align-items: center; }
   .nav-links > li > a,
   .nav-dropdown-trigger {
+    display: inline-flex;
+    align-items: center;
+    height: 36px;
+    line-height: 1;
     font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.08em;
+    font-size: 12.5px;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--text-3);
+    color: var(--text-2);
     text-decoration: none;
     transition: color var(--dur-fast) var(--ease);
     background: transparent;
     border: 0;
     padding: 0;
+    margin: 0;
     cursor: pointer;
-    font-weight: 400;
+    font-weight: 500;
   }
   .nav-links > li > a:hover,
   .nav-dropdown-trigger:hover {
-    color: var(--text-1);
+    color: var(--editorial);
   }
 
   /* Dropdown */
@@ -252,12 +267,16 @@ const links = {
   .nav-cta {
     background: var(--accent);
     color: var(--accent-ink) !important;
-    padding: 8px 14px;
-    border-radius: 2px;
-    font-weight: 600;
-    letter-spacing: 0.04em !important;
+    padding: 9px 16px !important;
+    height: auto !important;
+    border-radius: 4px;
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.06em !important;
+    box-shadow: 0 2px 10px rgba(201, 168, 106, 0.18);
+    white-space: nowrap;
   }
-  .nav-cta:hover { background: var(--accent-hover); }
+  .nav-cta:hover { background: var(--accent-hover); color: var(--accent-ink) !important; transform: translateY(-1px); }
 
   /* Toggle */
   .nav-toggle {
@@ -276,9 +295,9 @@ const links = {
 
   /* Mobile */
   @media (max-width: 860px) {
-    .nav-links { display: none; }
+    .nav-menu { display: none; }
     .nav-toggle { display: block; }
-    .nav-links.open {
+    .nav-menu.open {
       display: flex;
       flex-direction: column;
       position: absolute;
@@ -286,16 +305,31 @@ const links = {
       left: 0;
       right: 0;
       background: var(--bg-0);
-      padding: 20px var(--gutter-sm);
+      padding: 20px var(--gutter-sm) 24px;
       border-bottom: 1px solid var(--border-1);
       align-items: stretch;
-      gap: 14px;
+      gap: 18px;
       max-height: calc(100vh - 64px);
       overflow-y: auto;
+      z-index: 90;
     }
-    .nav-links.open > li {
-      width: 100%;
+    .nav-menu.open .nav-links {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 14px;
+      justify-self: stretch;
     }
+    .nav-menu.open .nav-links > li { display: block; width: 100%; }
+    .nav-menu.open .nav-actions {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+      justify-self: stretch;
+      padding-top: 8px;
+      border-top: 1px solid var(--border-1);
+    }
+    .nav-menu.open .nav-lang,
+    .nav-menu.open .nav-cta { justify-content: center; text-align: center; }
     .nav-dropdown-menu {
       position: static;
       opacity: 1;
@@ -315,7 +349,7 @@ const links = {
 
 <script>
   const toggle = document.querySelector<HTMLButtonElement>(".nav-toggle");
-  const links = document.getElementById("nav-links");
+  const links = document.getElementById("nav-menu");
   if (toggle && links) {
     toggle.addEventListener("click", () => {
       const open = links.classList.toggle("open");

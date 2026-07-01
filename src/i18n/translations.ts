@@ -10,7 +10,7 @@ export const translations = {
       heroH1Html:
         'Your <em>ally</em> in IT projects, acting <em>in your interest</em>.',
       heroLede:
-        "I read your IT project as a whole system and see the hidden risks before they bite — scope, estimates, decisions that sound convincing but don't hold under pressure.",
+        "An independent, buyer-side read on your project — I see the hidden risks before they bite.",
       heroCtaPrimary: "Book a call",
       heroCtaSecondary: "How I work",
       heroMicro: "",
@@ -390,7 +390,7 @@ export const translations = {
       heroH1Html:
         'Ваш <em>союзник</em> в IT-проєктах, який діє <em>у ваших інтересах</em>.',
       heroLede:
-        "Я читаю ваш IT-проєкт як цілісну систему й бачу приховані ризики, поки вони не вдарили — обсяг, оцінки, рішення, що звучать переконливо, але не витримують тиску.",
+        "Незалежний погляд на боці замовника — бачу приховані ризики, поки вони не вдарили.",
       heroCtaPrimary: "Записатися на дзвінок",
       heroCtaSecondary: "Як я працюю",
       heroMicro: "",

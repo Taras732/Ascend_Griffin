@@ -6,9 +6,9 @@ import TrustBlock from "../components/TrustBlock.astro";
 import FoundingCTA from "../components/FoundingCTA.astro";
 import PricingBadge from "../components/PricingBadge.astro";
 
-const title = "IT Project Recovery | Ascend Griffin";
+const title = "Recovery — when a project loses momentum | Ascend Griffin";
 const description =
-  "Structured recovery for an IT project that lost momentum. Restore delivery rhythm, re-paper vendor agreements, a clear plan for what's next. From $2,500/month.";
+  "Structured recovery for an IT project that lost momentum: restore the working rhythm, renegotiate the contractor agreement, a clear plan for what's next. From $2,500/month.";
 ---
 
 <BaseLayout title={title} description={description}>
@@ -23,10 +23,10 @@ const description =
         </h1>
 
         <p class="hero-lede">
-          Project lost momentum. Vendor unresponsive. Budget draining without visible progress. Before you fire the team, rebuild from scratch, or write off the spend — a structured recovery with a clear plan for what comes next.
+          Project lost momentum. The contractor's gone quiet. Budget draining without visible progress. Before you fire the team, rebuild from scratch, or write off the spend — a structured recovery with a clear plan for what comes next.
         </p>
 
-        <PricingBadge price="from $2,500" duration="monthly retainer" unit="/month" />
+        <PricingBadge price="from $2,500" duration="monthly" unit="/month" />
 
         <div class="hero-cta">
           <a
@@ -36,9 +36,9 @@ const description =
             data-subject="support"
             data-source="recovery-hero"
           >
-            Book Discovery Call →
+            Discuss your project
           </a>
-          <a href="#how" class="btn-ghost">See how it works →</a>
+          <a href="#how" class="btn-ghost">How it works</a>
         </div>
 
       </div>
@@ -61,9 +61,9 @@ const description =
             <article class="icp-card">
               <header class="icp-header">
                 <span class="icp-letter">A</span>
-                <h4 class="icp-title">The vendor has gone quiet.</h4>
+                <h4 class="icp-title">The contractor has gone quiet.</h4>
               </header>
-              <p>Calls get rescheduled. Updates come less often. The Slack channel where work used to happen has slowly gone silent. Maybe the team is overloaded; maybe your project lost priority; maybe a key developer left. Either way — response is slower than you need, and the spend keeps running. <em>First job: honestly figure out whether the relationship can be repaired, or whether it should end cleanly.</em></p>
+              <p>Calls get rescheduled. Updates come less often. The work chat where work used to happen has slowly gone silent. Maybe the team is overloaded; maybe your project lost priority; maybe a key developer left. Either way — response is slower than you need, and the spend keeps running. <em>First job: honestly figure out whether the relationship can be repaired, or whether it should end cleanly.</em></p>
             </article>
 
             <article class="icp-card">
@@ -71,7 +71,7 @@ const description =
                 <span class="icp-letter">B</span>
                 <h4 class="icp-title">Scope expands, outcome doesn't.</h4>
               </header>
-              <p>Started at $40K. Now at $80K with the original feature list still incomplete. Every change request lands with another "this will need two more weeks." You can't tell whether it's legitimate re-scope or just stretching the project. <em>First job: separate real scope changes from padding, re-paper the agreement on transparent terms, restore progress against milestones.</em></p>
+              <p>Started at $40K. Now at $80K with the original feature list still incomplete. Every change request lands with another "this will need two more weeks." You can't tell whether it's legitimate scope change or just stretching the project. <em>First job: separate real scope changes from padding, renegotiate the agreement on transparent terms, restore progress against milestones.</em></p>
             </article>
 
             <article class="icp-card">
@@ -99,14 +99,14 @@ const description =
                 <span class="mode-letter">01</span>
                 <div class="mode-body">
                   <h4>Diagnostic (weeks 1-2).</h4>
-                  <p>Read the codebase, the vendor contract, the comms history; interview the team. Identify what's actually broken versus what's just symptomatic. End-of-phase artifact: a one-page recovery plan you can show co-founders, investors, or board.</p>
+                  <p>Read the codebase, the contractor contract, the comms history; interview the team. Identify what's actually broken versus what's just symptomatic. End-of-phase artifact: a one-page recovery plan you can show co-founders, investors, or board.</p>
                 </div>
               </li>
               <li class="mode">
                 <span class="mode-letter">02</span>
                 <div class="mode-body">
                   <h4>Stabilize (weeks 3-8).</h4>
-                  <p>Either re-paper the vendor agreement on transparent terms, or close it cleanly. Restore weekly delivery cadence. Triage technical debt — what we fix, what we live with, what we plan around. End-of-phase: predictable shipping resumed, financial bleed stopped.</p>
+                  <p>Either renegotiate the contractor agreement on transparent terms, or close it cleanly. Restore weekly delivery cadence. Triage technical debt — what we fix, what we live with, what we plan around. End-of-phase: predictable shipping resumed, financial bleed stopped.</p>
                 </div>
               </li>
               <li class="mode">
@@ -150,7 +150,7 @@ const description =
               </li>
               <li>
                 <span class="exclude-mark">→</span>
-                <span><strong>"Just fire the vendor."</strong> Sometimes that's the answer. Often it's cheaper to renegotiate. An independent voice is needed exactly to call which path is actually realistic.</span>
+                <span><strong>"Just fire the contractor."</strong> Sometimes that's the answer. Often it's cheaper to renegotiate. An independent voice is needed exactly to call which path is actually realistic.</span>
               </li>
               <li>
                 <span class="exclude-mark">→</span>
@@ -244,7 +244,7 @@ const description =
     set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Service",
-      name: "IT Project Recovery",
+      name: "Recovery",
       provider: { "@type": "Person", name: "Taras Smaliukh", url: "https://ascendgriffin.org/about/" },
       areaServed: ["Ukraine", "United Kingdom", "Germany", "United States"],
       description,
@@ -266,7 +266,7 @@ const description =
   .hero { padding: 96px 0 48px; }
   @media (max-width: 720px) { .hero { padding: 56px 0 32px; } }
   .hero-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-pressed); margin: 0 0 24px; font-weight: 600; }
-  .hero-h1 { font-family: var(--font-display); font-size: clamp(44px, 6vw, 76px); line-height: 1.02; letter-spacing: -0.03em; color: var(--text-1); margin: 0 0 28px; font-weight: 700; max-width: 16ch; }
+  .hero-h1 { font-family: var(--font-display); font-size: clamp(30px, 5.2vw, 60px); line-height: 1.06; letter-spacing: -0.03em; color: var(--text-1); margin: 0 0 28px; font-weight: 700; max-width: 16ch; }
   .hero-h1 em { font-style: italic; color: var(--editorial); font-weight: 700; }
   .hero-lede { font-size: 19px; line-height: 1.6; color: var(--text-2); margin: 0 0 24px; max-width: 60ch; }
   .hero-cta { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin: 16px 0 24px; }

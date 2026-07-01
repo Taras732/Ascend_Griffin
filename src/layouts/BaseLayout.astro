@@ -162,14 +162,12 @@ const altLocaleCode = lang === "uk" ? "en" : "uk";
           // HERO — staggered entrance on load
           var hero = document.querySelector(".hero");
           if (hero) {
-            var items = hero.querySelectorAll(".hero-eyebrow, .hero-h1, .hero-lede, .hero-ctas, .hero-micro");
+            // NB: the hero portrait is the LCP element — never hide/fade it, so it paints instantly.
+            var items = hero.querySelectorAll(".hero-eyebrow, .hero-lede, .hero-ctas, .hero-micro");
             items.forEach(function (el, i) { el.classList.add("rv"); if (i < 5) el.classList.add("rv-" + (i + 1)); });
-            var photo = hero.querySelector(".hero-photo");
-            if (photo) photo.classList.add("rv-fade");
             requestAnimationFrame(function () {
               requestAnimationFrame(function () {
                 items.forEach(function (el) { el.classList.add("in"); });
-                if (photo) photo.classList.add("in");
               });
             });
           }

@@ -19,32 +19,19 @@ const localePrefix = isUk ? "/uk" : "";
       </div>
 
       <div class="footer-col">
-        <h5>{tr.site.footerServicesH}</h5>
-        <ul>
-          <li><a href={`${localePrefix}/ai-readiness-audit/`}>{isUk ? "Аудит AI-готовності" : "AI Readiness Audit"}</a></li>
-          <li><a href={`${localePrefix}/project-rescue/`}>{isUk ? "Відновлення проєкту" : "Project Recovery"}</a></li>
-          <li><a href={`${localePrefix}/how-i-work/`}>{isUk ? "Як я працюю" : "How I work"}</a></li>
-          <li><a href={`${localePrefix}/about/`}>{isUk ? "Про мене" : "About"}</a></li>
-          <li><a href={`${localePrefix}/blog/`}>{isUk ? "Блог" : "Blog"}</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
         <h5>{tr.site.footerConnectH}</h5>
         <ul>
           <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
           <li><a href={site.linkedin} target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="/cv/">{tr.site.footerCV}</a></li>
-          <li><a href={`${localePrefix}/faq/`}>{isUk ? "Часті питання" : "FAQ"}</a></li>
-          <li><a href="#book" data-modal="booking" data-subject="discovery-call" data-source="footer">{tr.site.heroCtaPrimary}</a></li>
+          <li><a href="#book" data-modal="booking" data-subject="discovery-call" data-source="footer">{isUk ? "Записатися на дзвінок" : "Book a call"}</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h5>{tr.site.footerLegalH}</h5>
         <ul>
-          <li><a href={`${localePrefix}/privacy`}>Privacy</a></li>
-          <li><a href={`${localePrefix}/terms`}>Terms</a></li>
+          <li><a href={`${localePrefix}/faq/`}>{isUk ? "Часті питання" : "FAQ"}</a></li>
+          <li><a href={`${localePrefix}/privacy`}>{isUk ? "Приватність" : "Privacy"}</a></li>
           <li><a href={`${localePrefix}/impressum`}>Impressum</a></li>
         </ul>
       </div>
@@ -52,7 +39,7 @@ const localePrefix = isUk ? "/uk" : "";
 
     <div class="footer-bottom">
       <span>© {site.year} {site.name} · {site.domain}</span>
-      <span>Made in {tr.site.madeIn}</span>
+      <a class="footer-kuznya" href="https://kuznya.studio" target="_blank" rel="noopener">Зроблено за підтримки Кузні</a>
     </div>
   </div>
 </footer>
@@ -61,15 +48,15 @@ const localePrefix = isUk ? "/uk" : "";
   .site-footer {
     background: var(--bg-1);
     border-top: 1px solid var(--border-1);
-    padding: 56px 0 32px;
+    padding: 40px 0 24px;
     font-size: 13px;
     color: var(--text-2);
   }
   .footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr;
     gap: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 28px;
   }
   .footer-col h5 {
     font-family: var(--font-mono);
@@ -129,16 +116,33 @@ const localePrefix = isUk ? "/uk" : "";
   }
   .footer-bottom {
     border-top: 1px solid var(--border-1);
-    padding-top: 24px;
+    padding-top: 20px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 12px;
     font-family: var(--font-mono);
     font-size: 11px;
     letter-spacing: 0.04em;
     color: var(--text-3);
   }
+  .footer-kuznya {
+    color: var(--text-3);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color var(--dur-fast) var(--ease);
+  }
+  .footer-kuznya::before {
+    content: "";
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.7;
+  }
+  .footer-kuznya:hover { color: var(--editorial); }
   @media (max-width: 860px) {
     .footer-grid { grid-template-columns: 1fr 1fr; }
   }

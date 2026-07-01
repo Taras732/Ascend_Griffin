@@ -224,7 +224,7 @@ body::before {
 
 body::before {
   background-image: url('/griffin_bg_cinema.png');
-  opacity: 0.10;
+  opacity: 0.06;
 }
 /* Text-heavy pages opt out of the griffin watermark for maximum readability */
 html[data-plain] body::before { display: none; }

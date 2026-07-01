@@ -107,7 +107,7 @@ const links = {
           </svg>
           <span>{altLangLabel}</span>
         </a>
-        <a href="#book" data-modal="booking" data-subject="discovery-call" data-source="nav" class="nav-cta">{labels.cta} →</a>
+        <a href="#book" data-modal="booking" data-subject="discovery-call" data-source="nav" class="nav-cta">{labels.cta}</a>
       </div>
     </div>
   </div>
@@ -130,7 +130,7 @@ const links = {
     max-width: var(--container);
     margin: 0 auto;
   }
-  @media (max-width: 860px) { .nav-inner { grid-template-columns: auto auto; justify-content: space-between; } }
+  @media (max-width: 860px) { .nav-inner { display: flex; justify-content: space-between; align-items: center; } }
   @media (max-width: 720px) { .nav-inner { padding: 14px var(--gutter-sm); } }
   /* nav-menu is transparent to the grid on desktop → its children become grid cells */
   .nav-menu { display: contents; }
@@ -248,28 +248,33 @@ const links = {
     cursor: default;
   }
 
-  /* Language toggle */
+  /* Language toggle — compact icon + 2-letter code, no underline */
   .nav-lang {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    border: 1px solid var(--border-2);
-    padding: 6px 12px;
-    border-radius: 2px;
-    color: var(--text-2) !important;
+    gap: 5px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    color: var(--text-3) !important;
+    text-decoration: none !important;
+    font-family: var(--font-mono);
+    font-size: 11px;
     font-weight: 600;
-    transition: all var(--dur-fast) var(--ease);
+    letter-spacing: 0.06em;
+    transition: color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
   }
-  .nav-lang svg { color: var(--accent-pressed); flex-shrink: 0; }
-  .nav-lang:hover { border-color: var(--accent); color: var(--accent-pressed) !important; background: var(--accent-subtle); }
+  .nav-lang svg { color: currentColor; flex-shrink: 0; width: 15px; height: 15px; opacity: 0.9; }
+  .nav-lang:hover { color: var(--editorial) !important; background: var(--accent-subtle); }
 
-  /* CTA */
+  /* CTA — solid gold pill, no arrow, no underline */
   .nav-cta {
     background: var(--accent);
     color: var(--accent-ink) !important;
-    padding: 9px 16px !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
     height: auto !important;
-    border-radius: 4px;
+    border-radius: 6px;
+    font-family: var(--font-mono);
     font-size: 11.5px !important;
     font-weight: 700 !important;
     letter-spacing: 0.06em !important;
@@ -315,21 +320,26 @@ const links = {
     }
     .nav-menu.open .nav-links {
       flex-direction: column;
-      align-items: stretch;
-      gap: 14px;
+      align-items: center;
+      gap: 18px;
       justify-self: stretch;
     }
-    .nav-menu.open .nav-links > li { display: block; width: 100%; }
+    .nav-menu.open .nav-links > li { display: flex; justify-content: center; width: 100%; }
+    .nav-menu.open .nav-links > li > a,
+    .nav-menu.open .nav-dropdown-trigger { height: auto; font-size: 14px; justify-content: center; }
+    .nav-menu.open .nav-dropdown { flex-direction: column; align-items: center; text-align: center; }
     .nav-menu.open .nav-actions {
       flex-direction: column;
-      align-items: stretch;
+      align-items: center;
       gap: 12px;
       justify-self: stretch;
-      padding-top: 8px;
+      padding-top: 16px;
+      margin-top: 4px;
       border-top: 1px solid var(--border-1);
     }
     .nav-menu.open .nav-lang,
     .nav-menu.open .nav-cta { justify-content: center; text-align: center; }
+    .nav-menu.open .nav-cta { padding: 12px 24px !important; font-size: 12.5px !important; }
     .nav-dropdown-menu {
       position: static;
       opacity: 1;

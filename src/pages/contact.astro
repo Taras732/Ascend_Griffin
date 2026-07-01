@@ -24,14 +24,12 @@ const description =
           {/* ── Form ── */}
           <form
             class="contact-form"
-            action="https://formsubmit.co/taras.smalych@gmail.com"
+            id="contactForm"
+            action="https://formspree.io/f/xvzdyojg"
             method="POST"
           >
-            <input type="hidden" name="_subject" value="New enquiry from Ascend Griffin" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_next" value="https://ascendgriffin.org/" />
-            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <input type="hidden" name="_subject" value="New enquiry — Ascend Griffin (Contact)" />
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
             <div class="cfield">
               <label for="nm">Name</label>
@@ -59,6 +57,10 @@ const description =
             </div>
 
             <button class="btn-primary btn-lg contact-submit" type="submit">Send enquiry</button>
+            <p class="contact-status" id="cformStatus" role="status" aria-live="polite"
+               data-sending="Sending…"
+               data-ok="Thanks! Your message is on its way — I'll reply within a day."
+               data-err="Couldn't send. Write directly to the email below."></p>
             <p class="contact-formnote">Goes straight to my inbox. No spam.</p>
           </form>
 
@@ -100,6 +102,35 @@ const description =
   </main>
   <Footer />
 </BaseLayout>
+
+<script>
+  const form = document.getElementById("contactForm") as HTMLFormElement | null;
+  const status = document.getElementById("cformStatus");
+  if (form && status) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      status.className = "contact-status";
+      status.textContent = status.dataset.sending || "…";
+      try {
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        });
+        if (res.ok) {
+          form.reset();
+          status.className = "contact-status ok";
+          status.textContent = status.dataset.ok || "";
+        } else {
+          throw new Error("bad");
+        }
+      } catch (err) {
+        status.className = "contact-status err";
+        status.textContent = status.dataset.err || "";
+      }
+    });
+  }
+</script>
 
 <style>
   .contact-page {
@@ -166,6 +197,10 @@ const description =
   }
   .contact-form textarea { min-height: 130px; resize: vertical; }
   .contact-submit { width: 100%; justify-content: center; }
+  .contact-status { font-size: 14px; font-weight: 600; text-align: center; margin: 0; }
+  .contact-status:empty { display: none; }
+  .contact-status.ok { color: var(--success); }
+  .contact-status.err { color: var(--danger); }
   .contact-formnote { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); margin: 0; text-align: center; }
 
   .contact-side { display: flex; flex-direction: column; gap: 20px; }

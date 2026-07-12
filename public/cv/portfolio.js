@@ -1744,12 +1744,13 @@ const t = {
     },
   },
 };
+/* Editorial "archival ink" palette — reads well on ivory cards */
 const categoryColors = {
-  'Business Analysis': '#6366f1',
-  'Product':           '#10b981',
-  'Discovery':         '#f59e0b',
-  'Communication':     '#ec4899',
-  'Presale':           '#8b5cf6',
+  'Business Analysis': '#47607C', /* slate ink   */
+  'Product':           '#4A6B4F', /* sage ink    */
+  'Discovery':         '#8B6422', /* deep gold   */
+  'Communication':     '#8A3B34', /* oxblood     */
+  'Presale':           '#6D4E71', /* plum        */
 };
 
 let activeFilter = 'All';
@@ -1762,9 +1763,6 @@ function renderFilters() {
     const btn = document.createElement('button');
     btn.className = 'pf-filter-btn' + (cat === activeFilter ? ' is-active' : '');
     btn.textContent = t[currentLang].catLabels[cat] || cat;
-    if (cat === activeFilter) {
-      btn.style.background = cat === 'All' ? '#00d97e' : (categoryColors[cat] || '#00d97e');
-    }
     btn.addEventListener('click', () => {
       activeFilter = cat;
       renderFilters();
@@ -1778,12 +1776,13 @@ function renderCards() {
   const list = activeFilter === 'All' ? artifacts : artifacts.filter(a => a.category === activeFilter);
   grid.innerHTML = '';
   list.forEach(item => {
+    const c = categoryColors[item.category] || item.color;
     const card = document.createElement('div');
     card.className = 'pf-card fade-up';
     card.innerHTML = `
-      <div class="pf-card__accent" style="background:${item.color}"></div>
+      <div class="pf-card__accent" style="background:${c}"></div>
       <div class="pf-card__top">
-        <span class="pf-tag" style="color:${item.color};background:${item.color}18">${item.tag}</span>
+        <span class="pf-tag" style="color:${c};background:${c}1f">${item.tag}</span>
         <div class="pf-card__badges">
           <span class="pf-badge">${item.format}</span>
         </div>
@@ -1792,7 +1791,7 @@ function renderCards() {
       <p class="pf-card__desc">${currentLang === 'uk' ? item.desc : (descs_en[item.id] || item.desc)}</p>
       <div class="pf-card__footer">
         <span class="pf-card__domain">${item.domain}</span>
-        <span class="pf-card__cta" style="color:${item.color}">${item.driveUrl ? t[currentLang].open : t[currentLang].request}</span>
+        <span class="pf-card__cta" style="color:${c}">${item.driveUrl ? t[currentLang].open : t[currentLang].request}</span>
       </div>
     `;
     card.addEventListener('click', () => {
@@ -1816,7 +1815,7 @@ const closeBtn    = document.getElementById('pfModalClose');
 
 function openModal(item) {
   modalMeta.textContent = `${item.category} · ${item.domain}`;
-  modalMeta.style.color = item.color;
+  modalMeta.style.color = categoryColors[item.category] || item.color;
   modalTitle.textContent = item.title;
   preview.innerHTML = `<pre>${escapeHtml(item.preview)}</pre>`;
   modalFooter.innerHTML = `<p class="pf-no-link">${t[currentLang].noLink}</p>`;

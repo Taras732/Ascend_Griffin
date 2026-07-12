@@ -1,11 +1,29 @@
 /* ============================================================
-   PORTFOLIO PAGE
+   PORTFOLIO PAGE — "Ink Gallery"
+   Dark ink stage (--bg-ink) · ivory document-cards · gold accents.
+   Inherits tokens from style.css (Paper Atelier).
    ============================================================ */
 
-/* --- Active nav link --- */
-.nav__portfolio-active {
-  color: var(--accent) !important;
+body {
+  background: var(--bg-ink);
 }
+
+/* --- Nav: ink glass variant --- */
+.nav {
+  background: rgba(26, 25, 22, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(250, 250, 250, 0.08);
+}
+.nav__name { color: var(--text-on-ink); }
+.nav__links a { color: var(--text-on-ink-muted); }
+.nav__links a:hover { color: var(--text-on-ink); }
+.nav__portfolio-active { color: var(--accent) !important; }
+.lang-btn {
+  color: var(--text-on-ink-muted);
+  border-color: rgba(250, 250, 250, 0.2);
+}
+.lang-btn:hover { border-color: var(--accent); color: var(--accent); }
+.nav__burger span { background: var(--text-on-ink); }
 
 /* --- Page header --- */
 .pf-page-header {
@@ -13,18 +31,21 @@
   text-align: center;
 }
 
+.pf-page-header .label { color: var(--accent); }
+
 .pf-title {
   font-size: clamp(40px, 7vw, 80px);
   font-weight: 800;
   letter-spacing: -3px;
   margin: 12px 0 16px;
   line-height: 1;
+  color: var(--text-on-ink);
 }
 
 .pf-title-dot { color: var(--accent); }
 
 .pf-subtitle {
-  color: var(--text-3);
+  color: var(--text-on-ink-muted);
   font-size: 1rem;
   max-width: 520px;
   margin: 0 auto;
@@ -40,61 +61,67 @@
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .pf-filter-btn {
-  padding: 6px 14px;
-  border-radius: 4px;
+  padding: 7px 16px;
+  border-radius: 999px;
   font-size: 12px;
   font-family: inherit;
   letter-spacing: 0.5px;
   cursor: pointer;
-  border: 1px solid var(--border-1);
+  border: 1px solid rgba(250, 250, 250, 0.18);
   background: transparent;
-  color: var(--text-3);
+  color: var(--text-on-ink-muted);
   transition: all 0.2s;
 }
 
-.pf-filter-btn:hover { color: var(--text-1); border-color: #444; }
+.pf-filter-btn:hover {
+  color: var(--text-on-ink);
+  border-color: rgba(250, 250, 250, 0.45);
+}
 
 .pf-filter-btn.is-active {
-  border-color: transparent;
-  color: #000;
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #1A1916;
   font-weight: 600;
 }
 
 /* --- Grid --- */
 .pf-section {
-  padding-bottom: 80px;
+  padding-bottom: 90px;
 }
 
 .pf-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-  gap: 20px;
+  gap: 22px;
 }
 
-/* --- Card --- */
+/* --- Card: ivory document on ink --- */
 .pf-card {
-  background: var(--bg-1);
-  border: 1px solid var(--border-1);
+  background: var(--bg-0);
+  border: 1px solid rgba(0, 0, 0, 0.35);
   border-radius: 8px;
   padding: 24px;
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.25s ease, border-color 0.25s ease;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .pf-card:hover {
-  transform: translateY(-4px);
-  border-color: #333;
+  transform: translateY(-5px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55), 0 0 0 1px var(--accent);
 }
 
 .pf-card__accent {
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 2px;
+  height: 3px;
 }
 
 .pf-card__top {
@@ -106,7 +133,7 @@
 
 .pf-tag {
   font-size: 10px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   padding: 4px 8px;
@@ -120,8 +147,8 @@
 
 .pf-badge {
   font-size: 10px;
-  color: #555;
-  background: var(--bg-0);
+  color: rgba(17, 17, 17, 0.6);
+  background: var(--bg-2);
   padding: 3px 7px;
   border-radius: 3px;
 }
@@ -131,11 +158,12 @@
   font-weight: 700;
   margin: 0 0 8px;
   line-height: 1.35;
+  color: var(--text-1);
 }
 
 .pf-card__desc {
   font-size: 13px;
-  color: var(--text-3);
+  color: rgba(17, 17, 17, 0.68);
   line-height: 1.55;
   margin: 0 0 20px;
 }
@@ -146,20 +174,24 @@
   align-items: center;
 }
 
-.pf-card__domain { font-size: 11px; color: #555; }
+.pf-card__domain {
+  font-size: 11px;
+  color: rgba(17, 17, 17, 0.5);
+}
 
 .pf-card__cta {
   font-size: 11px;
+  font-weight: 600;
   display: flex;
   align-items: center;
   gap: 4px;
 }
 
-/* --- Modal --- */
+/* --- Modal: paper sheet on ink --- */
 .pf-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.85);
+  background: rgba(12, 11, 9, 0.88);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -176,8 +208,8 @@
 }
 
 .pf-modal {
-  background: var(--bg-1);
-  border: 1px solid #222;
+  background: var(--bg-0);
+  border: 1px solid rgba(0, 0, 0, 0.4);
   border-radius: 10px;
   width: 100%;
   max-width: 780px;
@@ -185,6 +217,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
   transform: translateY(20px);
   transition: transform 0.25s ease;
 }
@@ -214,12 +247,13 @@
   font-weight: 700;
   margin: 0;
   line-height: 1.3;
+  color: var(--text-1);
 }
 
 .pf-modal__close {
-  background: var(--bg-0);
+  background: var(--bg-2);
   border: none;
-  color: var(--text-3);
+  color: var(--text-2);
   width: 32px;
   height: 32px;
   border-radius: 6px;
@@ -243,7 +277,7 @@
 }
 
 .pf-preview {
-  background: var(--bg-0);
+  background: var(--bg-1);
   border: 1px solid var(--border-1);
   border-radius: 6px;
   padding: 20px;
@@ -253,11 +287,10 @@
   margin: 0;
   font-size: 12px;
   line-height: 1.75;
-  color: var(--text-3);
+  color: rgba(17, 17, 17, 0.75);
   white-space: pre-wrap;
   font-family: var(--font-mono);
 }
-
 
 /* --- Modal footer --- */
 .pf-modal__footer {
@@ -269,7 +302,8 @@
   width: 100%;
   padding: 12px;
   border-radius: 6px;
-  color: #000;
+  background: var(--accent);
+  color: #1A1916;
   font-size: 13px;
   font-weight: 600;
   font-family: inherit;
@@ -283,14 +317,14 @@
 
 .pf-no-link {
   font-size: 12px;
-  color: #555;
+  color: rgba(17, 17, 17, 0.55);
   text-align: center;
   margin: 0;
   padding: 8px 0;
 }
 
 .pf-no-link a {
-  color: var(--accent);
+  color: var(--accent-pressed);
   text-decoration: none;
 }
 
